@@ -1,0 +1,465 @@
+/* 整体框架 */
+.left {
+    width: 27%;
+    height: 100%;
+}
+.middle {
+    width: 46%;
+    height: 100%;
+}
+.right {
+    width: 27%;
+    height: 100%;
+}
+.left-column, .right-column {
+    box-sizing: border-box;
+}
+
+.left-column {
+    padding: 25px 20px 50px 40px;
+}
+
+.right-column {
+    padding: 25px 40px 50px 20px;
+}
+
+#index {
+    height: 32%;
+}
+#index .origin-border .horn .item-container div[name=indexItem]{
+    padding-bottom: 25px;
+}
+
+
+#companyList {
+    height: 28%;
+}
+
+#distributionMap {
+    height: 40%;
+}
+
+#map {
+    height: 100%;
+    position: relative;
+}
+#map .bg1{
+    position: absolute;
+    left: 50%;
+    bottom: 168px;
+    transform: translate(-50%, 0);
+}
+#map .bg2{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+
+}
+
+#map .tooltip {
+    /* background: #ffffff; */
+    border: 1px solid #006cf6;
+    height: 310px;
+    width: 400px;
+    /* overflow: hidden; */
+    /* margin: -5px; */
+    padding:30px;
+    position: relative;
+    box-shadow: 0 0 40px rgba(36,86,254,0.34) inset;
+    position: absolute;
+    left: 200px;
+}
+
+
+
+#map .tooltip::after{
+    content: "";
+    border-top: 2px solid #2456fe;
+    display: block;
+    position: absolute;
+}
+
+#map .tooltip .horn-icon-in, #map .tooltip .horn-icon-out-1, #map .tooltip .horn-icon-out-2{
+    position: absolute;
+}
+
+#map .tooltip .horn-icon-in, #map .tooltip .horn-icon-out-1{
+    width:30px;
+    height: 30px;
+}
+
+#map .tooltip .horn-icon-out-2{
+    width:40px;
+    height: 40px;
+}
+
+#map .tooltip .horn-icon-in.horn-lt{
+    border-top: 3px solid #2456fe;
+    border-left: 3px solid #2456fe;
+    left: -2px;
+    top: -2px;
+}
+#map .tooltip .horn-icon-in.horn-rt{
+    border-top: 3px solid #2456fe;
+    border-right: 3px solid #2456fe;
+    right: -2px;
+    top: -2px;
+}
+#map .tooltip .horn-icon-in.horn-rb{
+    border-bottom:3px solid #2456fe;
+    border-right: 3px solid #2456fe;
+    right: -2px;
+    bottom: -2px;
+}
+#map .tooltip .horn-icon-in.horn-lb{
+    border-bottom:3px solid #2456fe;
+    border-left: 3px solid #2456fe;
+    left: -2px;
+    bottom: -2px;
+}
+
+#map .tooltip .horn-icon-out-1.horn-lt{
+    border-top: 3px solid #2456fe;
+    border-left: 3px solid #2456fe;
+    left: -10px;
+    top: -10px;
+}
+#map .tooltip .horn-icon-out-1.horn-rt{
+    border-top: 3px solid #2456fe;
+    border-right: 3px solid #2456fe;
+    right: -10px;
+    top: -10px;
+}
+#map .tooltip .horn-icon-out-1.horn-rb{
+    border-bottom:3px solid #2456fe;
+    border-right: 3px solid #2456fe;
+    right: -10px;
+    bottom: -10px;
+}
+#map .tooltip .horn-icon-out-1.horn-lb{
+    border-bottom:3px solid #2456fe;
+    border-left: 3px solid #2456fe;
+    left: -10px;
+    bottom: -10px;
+}
+
+
+#map .tooltip .horn-icon-out-2.horn-lt{
+    border-top: 1px solid #2456fe;
+    border-left: 1px solid #2456fe;
+    left: -9px;
+    top: -9px;
+}
+#map .tooltip .horn-icon-out-2.horn-rt{
+    border-top: 1px solid #2456fe;
+    border-right: 1px solid #2456fe;
+    right: -9px;
+    top: -9px;
+}
+#map .tooltip .horn-icon-out-2.horn-rb{
+    border-bottom:1px solid #2456fe;
+    border-right: 1px solid #2456fe;
+    right: -9px;
+    bottom: -9px;
+}
+#map .tooltip .horn-icon-out-2.horn-lb{
+    border-bottom:1px solid #2456fe;
+    border-left: 1px solid #2456fe;
+    left: -9px;
+    bottom: -9px;
+}
+
+#map .tooltip .name{
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+
+
+#map .tooltip .item{
+    margin-bottom: 20px;
+    height: 45px;
+}
+
+
+
+#map .tooltip .item>div {
+    display: inline-block;
+    height: 100%;
+}
+
+#map .tooltip .item .icon{
+    display: inline-block;
+    width: 40px;
+    
+}
+#map .tooltip .item .icon img {
+    margin-bottom: -8px;
+}
+
+#map .tooltip .item .type{
+    width: 200px;
+    font-size: 28px;
+    color: #ffffff;
+    padding-left: 15px;
+    
+}
+
+#map .tooltip .item .value{
+    width: 80px;
+    text-align: right;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+#map .tooltip .item .danger{
+    color: #a9244d;
+}
+
+#map .map{
+    height: 100%;
+}
+
+
+
+
+#curData {
+    height: 100%;
+}
+
+/* 非法集资高风险企业名单滚动数据 */
+#companyList .origin-border .horn {
+    padding-bottom: 30px;
+    padding-top: 60px;
+}
+
+
+#companyList .origin-border .item-container {
+    padding-right: 20px;
+    padding-left: 30px;
+    color: #fff;
+    height: 100%;
+    overflow: hidden;
+}
+
+#companyList .item {
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+
+#companyList .item .icon-container{
+    display: inline-block;
+    float: left;
+    width: 5%;
+    position: relative;
+    text-align: center;
+}
+#companyList .item .icon-container span{
+    
+}
+#companyList .item .icon-container .icon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    display: table;
+}
+#companyList .item .icon-container .icon svg{
+    display: table-cell;
+}
+
+#companyList .item .company-name{
+    display: inline-block;
+    float: left;
+    width: 95%;
+    font-size: 24px;
+}
+#companyList .item .index-container{
+    position: absolute;
+    right: 0;
+    font-size: 18px;
+    padding-right: 10px;
+    text-align: right;
+    
+}
+
+#companyList .item[riskLevel="1"] .index-container {
+    background: -webkit-linear-gradient(left,rgba(95, 0, 0,0),rgba(95, 0, 0,1));
+    background: -moz-linear-gradient(left,rgba(95, 0, 0,0) 0%,rgba(95, 0, 0,1) 100%);; /*FireFox*/
+    background: -o-linear-gradient(left,rgba(95, 0, 0,0) 0%,rgba(95, 0, 0,1) 100%);  /* Opear */
+    background: -ms-linear-gradient(left,rgba(95, 0, 0,0),rgba(95, 0, 0,1)); /*IE10及IE10+*/
+}
+#companyList .item[riskLevel="2"] .index-container {
+    background: -webkit-linear-gradient(left,rgba(172, 45, 45,0),rgba(172, 45, 45,1));
+    background: -moz-linear-gradient(left,rgba(172, 45, 45,0) 0%,rgba(172, 45, 45,1) 100%);; /*FireFox*/
+    background: -o-linear-gradient(left,rgba(172, 45, 45,0) 0%,rgba(172, 45, 45,1) 100%);  /* Opear */
+    background: -ms-linear-gradient(left,rgba(172, 45, 45,0),rgba(172, 45, 45,1)); /*IE10及IE10+*/
+}
+#companyList .item[riskLevel="3"] .index-container {
+    background: -webkit-linear-gradient(left,rgba(224, 174, 65,0),rgba(224, 174, 65,1));
+    background: -moz-linear-gradient(left,rgba(224, 174, 65,0) 0%,rgba(224, 174, 65,1) 100%);; /*FireFox*/
+    background: -o-linear-gradient(left,rgba(224, 174, 65,0) 0%,rgba(224, 174, 65,1) 100%);  /* Opear */
+    background: -ms-linear-gradient(left,rgba(224, 174, 65,0),rgba(224, 174, 65,1)); /*IE10及IE10+*/
+}
+#companyList .item[riskLevel="4"] .index-container {
+    background: -webkit-linear-gradient(left,rgba(58,115,201,0),rgba(58,115,201,1));
+    background: -moz-linear-gradient(left,rgba(58,115,201,0) 0%,rgba(58,115,201,1) 100%);; /*FireFox*/
+    background: -o-linear-gradient(left,rgba(58,115,201,0) 0%,rgba(58,115,201,1) 100%);  /* Opear */
+    background: -ms-linear-gradient(left,rgba(58,115,201,0),rgba(58,115,201,1)); /*IE10及IE10+*/
+}
+#companyList .item .index-container span{
+    text-align: right;
+}
+
+/* 非法集资企业分布 */
+
+#distributionMap .origin-border .item-container {
+    width: 100%;
+    height: 100%;
+    padding: 60px 40px 0px 40px;
+}
+
+/* 今日数据 */
+#curData .item-container {
+    width: 100%;
+    height: 100%;
+    padding: 80px 30px 40px 30px;
+}
+
+#curData .item-container .total-data{
+    width: 100%;
+    height: 15%;
+}
+#curData .item-container .total-data .data-container{
+    height: 65%;
+}
+#curData .item-container .total-data .data-container .text-container{
+    float: left;
+    display: inline-block;
+    width: 38%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#curData .item-container .total-data .data-container .text-container .time{
+    font-size: 28px;
+    color: #3265d8;
+}
+#curData .item-container .total-data .data-container .text-container .title{
+    font-size: 42px;
+    color: #ffffff;
+    padding-top: 10px;
+}
+#curData .item-container .total-data .data-container .value-container{
+    float: left;
+    display: inline-block;
+    width: 62%;
+    height: 100%;
+    text-align: right;
+    padding-right: 20px;
+}
+
+#curData .item-container .total-data .data-container .value-container .value{
+    display: inline-block;
+    width: 70px;
+    height: 95px;
+    /* background: blue; */
+    margin-left: 20px;
+    text-align: center;
+    line-height: 95px;
+    font-size: 60px;
+    color: #fff;
+    border: 3px solid #2e66cf;
+    box-shadow: 0 0 15px #2278ff;
+    border-radius: 2px;
+}
+#curData .item-container .total-data .split-line{
+    height: 35%; 
+}
+
+#curData .item-container .total-data .split-line{
+    width: 100%;
+    margin-top: -20px;
+    position: relative;
+}
+
+#curData .item-container .total-data .split-line::before { 
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient( rgba(14,37,104,0) 0%,rgba(14,37,104,0.6) 100%);
+    border-radius: .5em .5em 0 0;
+    transform: perspective(.2em) rotateX(1deg);
+    transform-origin: bottom;
+}
+
+#curData .item-container .risk-data{
+    width: 100%;
+    height: 35%;
+}
+#curData .item-container .risk-data>div{
+    float: left;
+    display: inline-block;
+    width: 33.33%;
+    height: 100%;
+}
+#curData .item-container .risk-data .process-container {
+    position: relative;
+}
+#curData .item-container .risk-data .process-container .icon-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#curData .item-container .risk-data .count-container {
+    text-align: center;
+}
+#curData .item-container .risk-data .count-container span[name="count"] {
+    font-size: 50px;
+}
+#curData .item-container .risk-data .count-container span[name="unit"] {
+    color: #fff;
+    font-size: 24px;
+}
+#curData .item-container .risk-data .name-container {
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    padding-top: 10px;
+}
+#curData .item-container .industry-data{
+    width: 100%;
+    height: 50%;
+    padding-top: 40px;
+    padding-left: 15px;
+}
+#curData .item-container .industry-data .industry-item{
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+#curData .item-container .industry-data .industry-item>div{
+    display: inline-block;
+    float: left;
+}
+#curData .item-container .industry-data .industry-item .name-container {
+    width: 34%;
+    height: 120px;
+    line-height: 120px;
+    font-size: 24px;
+    color: #fff;
+}
+#curData .item-container .industry-data .industry-item .process-container {
+    width: 66%;
+}

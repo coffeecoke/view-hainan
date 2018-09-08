@@ -1,0 +1,62 @@
+{
+	"dataCount":10000,
+	"pageData":[
+		{
+			"rank": "1",
+			"companyName": "轻易贷",
+			"companyCode": "123456789",
+			"region": "石家庄市",
+			"level": "A+"
+		},
+		{
+			"rank": "2",
+			"companyName": "恩科e贷",
+			"companyCode": "123456789",
+			"region": "石家庄市",
+			"level": "B+"
+		},
+		{
+			"rank": "3",
+			"companyName": "七彩格子",
+			"companyCode": "123456789",
+			"region": "石家庄市",
+			"level": "C+"
+		},
+		{
+			"rank": "4",
+			"companyName": "黄金宝",
+			"companyCode": "123456789",
+			"region": "石家庄市",
+			"level": "A-"
+		},
+		{
+			"rank": "5",
+			"companyName": "轻易贷",
+			"companyCode": "123456789",
+			"region": "石家庄市",
+			"level": "A+"
+		},
+		{
+			"rank": "6",
+			"companyName": "轻易贷",
+			"companyCode": "123456789",
+			"region": "石家庄市",
+			"level": "A-"
+		},
+		{
+			"rank": "7",
+			"companyName": "轻易贷",
+			"companyCode": "123456789",
+			"region": "石家庄市",
+			"level": "A+"
+		},
+		{
+			"rank": "8",
+			"companyName": "轻易贷",
+			"companyCode": "123456789",
+			"region": "石家庄市",
+			"level": "C+"
+		}
+
+	]
+}

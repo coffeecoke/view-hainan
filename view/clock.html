@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="lib/jquery-3.3.1.js"></script>
+    <style>
+        body{background-color: gray;}
+        h1{
+        font-family: helvetica;
+        font-size:2.5rem ;
+        color:black;
+        position: relative;
+        top:80px;
+        z-index: -1;
+        }
+        #canvas {
+        display:block;
+        margin:5vh auto;
+        box-shadow: 0 5px 14px black;
+        }
+    </style>
+</head>
+<body class="ov-layout-right">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <canvas id="canvas" width="400" height="200"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.strokeStyle = '#28d1fa';
+
+    ctx.lineWidth = 7;
+    ctx.lineCap = 'round';
+    ctx.shadowBlur = 15;
+    ctx.shadowColor = '#28d1fa';
+
+    function degToRad(degree) {
+    var factor = Math.PI/180;
+    return degree*factor;
+    }
+
+    function renderTime() {
+    
+    var now = new Date();
+    var today = now.toDateString();
+    var time = now.toLocaleTimeString();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    var milliseconds = now.getMilliseconds();
+    var newSeconds = seconds+ (milliseconds/1000);
+    
+    // Background
+    gradient = ctx.createRadialGradient(200,200,5,200,200,300);
+    gradient.addColorStop(0,'#09303a');
+    gradient.addColorStop(1, '#000000');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0,0,400,400);
+    
+    // Hours
+    ctx.beginPath();
+    ctx.arc(100, 100, 70, degToRad(270), degToRad((hours*30)-90));
+    ctx.stroke();
+    
+    // Minutes
+    ctx.beginPath();
+    ctx.arc(100, 100, 40, degToRad(270), degToRad((minutes*6)-90));
+    ctx.stroke();
+    // Seconds
+    ctx.beginPath();
+    ctx.arc(100, 100, 10, degToRad(270), degToRad((newSeconds*6)-90));
+    ctx.stroke();
+    // Date 
+    ctx.font = "20px Helvetica";
+    ctx.fillStyle = '#28d1fa';
+    ctx.fillText(today, 180, 100);
+    
+    // Time
+    ctx.font = "15px Helvetica";
+    ctx.fillStyle = '#28d1fa';
+    ctx.fillText(time, 190, 130);
+    
+    }
+setInterval(renderTime, 40);
+</script>
+</html>

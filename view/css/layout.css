@@ -1,0 +1,167 @@
+body{
+    background-image: url("../img/bg.jpg");
+    font-family: '微软雅黑';
+    margin: 0px 0px;
+}
+
+.header {
+    width : 100%;
+    height : 10%;
+}
+.main-body {
+    width : 100%;
+    height : 90%;
+}
+
+
+
+
+
+.left, .middle , .right{
+    height: 100%;
+    float:left;
+}
+
+.left{
+    width:20%;
+}
+
+.middle{
+    width: 60%;
+    position: relative;
+}
+
+.right{
+    width:20%;
+}
+
+.leftColumn1, .leftColumn2, .leftColumn3{
+    width: 100%;
+}
+
+.leftColumn1{
+    height: 33.33%;
+}
+
+.leftColumn2{
+    height: 38.33%;
+}
+
+.leftColumn3{
+    height: 28.33%;
+}
+
+.leftColumn2-row1{
+    height:60%;
+}
+
+.leftColumn2-row2{
+    height:40%;
+    padding-top: 20px;
+}
+
+.leftColumn2-row2-column1, .leftColumn2-row2-column2, .leftColumn2-row2-column3{
+    display:inline-block;
+}
+
+.leftColumn2-row2-column1{
+    width:25%;
+    height:100%;
+}
+
+.leftColumn2-row2-column2{
+    width:25%;
+    height:100%;
+}
+
+.leftColumn2-row2-column3{
+    width:47%;
+    height:100%;
+}
+
+.middle-topLeft, .middle-topRight{
+    top:10%;
+    position: absolute;
+    width:17%;
+    height:45%;
+    background-color: rgb(222, 236, 229, 0.4);
+    text-align:center;
+}
+
+.middle-topLeft{
+    left:5%;
+}
+
+.middle-topRight{
+    right:5%;
+}
+
+.middleColumn1{
+    height:60%;
+    padding:0 5%;
+}
+
+.middleColumn2{
+    height:40%;
+}
+
+.rightColumn1{
+    height:25%;
+}
+
+.rightColumn2{
+    height:35%;
+}
+
+.rightColumn3{
+    height:30%;
+}
+
+.largeWidth{
+   width:80%;
+}
+
+.width33{
+    width:33.33%;
+}
+
+.marginT10{
+    margin-top:10px;
+}
+
+.ov-layout-right .ov-main{
+    width: 66.67vw;
+    height: 100vh;
+    float: right;
+}
+
+.ov-layout-right .ov-side{
+    width: 32.33vw;
+    height: 100vh;
+    float: right;
+}
+
+.ov-layout-right .ov-main div:nth-child(1){
+    height: 66.67vh;
+    position: relative;
+}
+
+.ov-layout-right .ov-main div:nth-child(2){
+    height: 33.33vh;
+    position: relative;
+}
+
+.ov-layout-right .ov-side div:nth-child(1){
+    height: 33.33vh;
+    position: relative;
+}
+
+.ov-layout-right .ov-side div:nth-child(2){
+    height: 33.33vh;
+    position: relative;
+}
+
+.ov-layout-right .ov-side div:nth-child(3){
+    height: 33.33vh;
+    position: relative;
+}
