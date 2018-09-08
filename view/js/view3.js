@@ -7,12 +7,12 @@ var industryMap = getNameByCode();
  */
 var renderFrame = function() {
     renderBlockBorder(".origin-border");
-    renderTitle("#index .origin-border", "");
-    renderTitle("#companyList .origin-border", "非法集资高风险企业名单");
-    renderTitle("#distributionMap .origin-border", "非法集资风险企业分布");
+    // renderTitle("#index .origin-border", "");
+    renderTitle("#companyList .origin-border", " 高风险企业名单");
+    renderTitle("#distributionMap .origin-border", "风险企业分布");
     renderTitle("#curData .origin-border", "今日数据");
     // 行业
-    $('#index .origin-border .horn').append('<div class="item-container"></div>');
+    // $('#index .origin-border .horn').append('<div class="item-container"></div>');
     // 非法集资高风险企业名单
     $('#companyList .origin-border .horn').append('<div class="item-container"></div>');
     // 非法集资风险企业分布
@@ -62,7 +62,7 @@ var renderFrame = function() {
  * 各模块数据渲染
  */
 var renderData = function() {
-    renderIndex();
+    // renderIndex();
     renderCompanyList();
     renderDistributionMap();
     renderCurData();
@@ -72,45 +72,45 @@ var renderData = function() {
 /**
  * P2P行业
  */
-var renderIndex = function() {
-    var changeIdex;
-    clearInterval(changeIdex);
-    $('#index .origin-border .title-container .text span').text(industry[0].name + '行业指标');
-    $.ajax({
-        url: 'data/indexData.json',
-        data:{code:industry[0].code},
-        dataType: 'json',
-        async: false,
-        success: function(data){
-            renderIndexData('#index .origin-border .horn .item-container', data, 9);
-        }
-    });
-    var i = 1;
-    changeIdex = setInterval(function(){
-        $.ajax({
-            url: 'data/indexData.json',
-            dataType: 'json',
-            data:{code:industry[i].code},
-            success: function(data){
-                rotateYDIV({
-                    $obj:$('#index'),
-                    inRotate: function() {
-                        $('#index .origin-border .title-container .text span').text(industry[i].name + '行业指标');
-                        renderIndexData('#index .origin-border .horn .item-container', data, 9);
-                    },
-                    afterRotate: function() {
-                        i++;
-                        if(i === industry.length) {
-                            i = 0;
-                        }
-                    }
-                });
-            }
-        });
-    }, 5000);
+// var renderIndex = function() {
+//     var changeIdex;
+//     clearInterval(changeIdex);
+//     $('#index .origin-border .title-container .text span').text(industry[0].name + '行业指标');
+//     $.ajax({
+//         url: 'data/indexData.json',
+//         data:{code:industry[0].code},
+//         dataType: 'json',
+//         async: false,
+//         success: function(data){
+//             renderIndexData('#index .origin-border .horn .item-container', data, 9);
+//         }
+//     });
+//     var i = 1;
+//     changeIdex = setInterval(function(){
+//         $.ajax({
+//             url: 'data/indexData.json',
+//             dataType: 'json',
+//             data:{code:industry[i].code},
+//             success: function(data){
+//                 rotateYDIV({
+//                     $obj:$('#index'),
+//                     inRotate: function() {
+//                         $('#index .origin-border .title-container .text span').text(industry[i].name + '行业指标');
+//                         renderIndexData('#index .origin-border .horn .item-container', data, 9);
+//                     },
+//                     afterRotate: function() {
+//                         i++;
+//                         if(i === industry.length) {
+//                             i = 0;
+//                         }
+//                     }
+//                 });
+//             }
+//         });
+//     }, 5000);
 
     
-};
+// };
 
 var renderRiskCompanyData = function(data) {
     var html = '';
@@ -500,7 +500,7 @@ var renderMapChart = function() {
     map.setOption(option = {
         geo: {
             show: true,
-            map: 'hebei',
+            map: 'hainan',
             label: {
                 normal: {
                     show: false
@@ -545,7 +545,7 @@ var renderMapChart = function() {
         series: [
             {
                 type: 'map',
-                mapType: 'hebei', // 自定义扩展图表类型
+                mapType: 'hainan', // 自定义扩展图表类型
                 label: {
                     normal: {
                         show: true,
@@ -611,7 +611,7 @@ var renderMap = function() {
     
     var mapJson;
     $.ajax({
-        url: 'data/hebei.json',
+        url: 'data/hainan.json',
         dataType: 'json',
         async : false,
         success: function(data){
@@ -619,7 +619,7 @@ var renderMap = function() {
         }
     });
 
-    echarts.registerMap('hebei', mapJson);
+    echarts.registerMap('hainan', mapJson);
 
 
     renderMapChart();

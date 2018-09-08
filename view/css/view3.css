@@ -24,7 +24,7 @@
 }
 
 #index {
-    height: 32%;
+    /* height: 32%; */
 }
 #index .origin-border .horn .item-container div[name=indexItem]{
     padding-bottom: 25px;
@@ -32,11 +32,11 @@
 
 
 #companyList {
-    height: 28%;
+    height: 55%;
 }
 
 #distributionMap {
-    height: 40%;
+    height: 45%;
 }
 
 #map {
