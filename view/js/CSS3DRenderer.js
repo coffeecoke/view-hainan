@@ -293,7 +293,7 @@ THREE.CSS3DRenderer = function () {
 
 		var cameraCSSMatrix = camera.isOrthographicCamera ?
 			'scale(' + fov + ')' + getCameraCSSMatrix( camera.matrixWorldInverse ) :
-			'translateZ(' + fov + 'px)' + getCameraCSSMatrix( camera.matrixWorldInverse );
+			'translateZ(' + 0 + 'px)' + getCameraCSSMatrix( camera.matrixWorldInverse );
 
 		var style = cameraCSSMatrix +
 			'translate(' + _widthHalf + 'px,' + _heightHalf + 'px)';

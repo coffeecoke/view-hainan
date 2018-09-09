@@ -506,7 +506,7 @@
                             var obj = new THREE.CSS3DObject(wrapDom);
                             var theta = Math.PI * 2 / size * idx;
                             obj.position.setFromCylindrical(new THREE.Cylindrical(radius, theta, 0));
-                            obj.lookAt(new THREE.Vector3(obj.position.x * 2, obj.position.y+DomAspect, obj.position.z * 2));
+                            obj.lookAt(new THREE.Vector3(obj.position.x * 2, obj.position.y+DomAspect, obj.position.z*2));
                             _this2.group.add(obj);
                             _this2.domItems.push(obj);
 

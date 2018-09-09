@@ -203,13 +203,13 @@ var renderIndex = function(code) {
         success: function(data){
             if($('#index .origin-border .title-container .text span').html() === '') {
                 $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-                renderIndexData('#index .origin-border .horn .item-container', data, 9);
+                renderIndexData('#index .origin-border .horn .item-container', data, 4);
             } else {
                 rotateYDIV({
                     $obj:$('#index'),
                     inRotate: function() {
                         $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-                        renderIndexData('#index .origin-border .horn .item-container', data, 9);
+                        renderIndexData('#index .origin-border .horn .item-container', data, 4);
                     }
                 });
             }

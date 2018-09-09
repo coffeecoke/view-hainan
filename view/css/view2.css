@@ -49,6 +49,8 @@
     
 }
 #industryIcon {
+    /* width:50%; */
+    margin:0 auto;
     height: 100%;
     color: #7498CE;
     position: relative;
