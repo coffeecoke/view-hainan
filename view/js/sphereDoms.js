@@ -582,10 +582,10 @@
                                     _this3.preIdx++;
                                 }
                                 if (fst) {
-                                    time = 3000;
+                                    time = 30000;
                                     fst = false;
                                 } else {
-                                    time = 5000;
+                                    time = 50000;
                                 }
                                 
                                 var curDom = _this3.domItems[_this3.preIdx];

@@ -23,11 +23,11 @@
 }
 
 #index {
-    height: 37%;
+    height: 54%;
 }
 
 #indexChange {
-    height: 63%;
+    height: 50%;
 }
 
 #operateIndex {
@@ -49,11 +49,13 @@
     
 }
 #industryIcon {
-    /* width:50%; */
+    /* width:50%;    */
     margin:0 auto;
     height: 100%;
     color: #7498CE;
     position: relative;
+    background:url(../img/3d-bg.png) center no-repeat;
+    background-size:auto 100%;
 }
 #industryIcon .icon-item {
     position: absolute;
@@ -305,11 +307,10 @@
     position: absolute;
     left: 0;
     top: 50%;
+    width:100%;
     transform: translate(0, -50%);
 }
 #operateIndex .operate-item {
-    display: inline-block;
-    float: left;
     width: 50%;
     color: #FFFFFF;
     padding-bottom: 15px;
@@ -317,7 +318,7 @@
 }
 #operateIndex .operate-item div {
     display: inline-block;
-    float: left;
+    vertical-align: middle
 }
 
 #operateIndex .operate-item .icon{

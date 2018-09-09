@@ -203,13 +203,13 @@ var renderIndex = function(code) {
         success: function(data){
             if($('#index .origin-border .title-container .text span').html() === '') {
                 $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-                renderIndexData('#index .origin-border .horn .item-container', data, 4);
+                renderIndexData('#index .origin-border .horn .item-container', data, 12);
             } else {
                 rotateYDIV({
                     $obj:$('#index'),
                     inRotate: function() {
                         $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-                        renderIndexData('#index .origin-border .horn .item-container', data, 4);
+                        renderIndexData('#index .origin-border .horn .item-container', data, 12);
                     }
                 });
             }
@@ -241,6 +241,9 @@ var initIndexChangeChart = function(data) {
             }
         },
         legend : {
+            icon:'rect',
+            itemWidth: 10,
+            itemHeight: 10,
             y : 'top',
             right : '40px',
             color : ['#3A73C9','#E13848','#efd147'],
@@ -248,7 +251,7 @@ var initIndexChangeChart = function(data) {
                 color:'#FFF',
                 fontSize:'24px'
             },
-            data : [{name:'营业收入增长率'},{name:'交易金额增长率'},{name:'交易人数增长率'}]
+            data : [{name:'投资金额'},{name:'投资人数'},{name:'借款人数'}]
         },
         xAxis: {
             type: 'category',
@@ -267,11 +270,11 @@ var initIndexChangeChart = function(data) {
                     fontSize : 16
                 },
                 interval:0,
-                rotate:40
+                // rotate:40
             },
             data: date
         },
-        yAxis: {
+        yAxis: [{
             type: 'value',
             boundaryGap: [0, '100%'],
             max : function(value) {
@@ -302,9 +305,34 @@ var initIndexChangeChart = function(data) {
                 }
             }
         },
+        {
+            type: 'category',
+           
+            position: 'right',
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: '999999',
+                    width: 3,
+                    type: 'solid'
+                }
+            },
+            splitLine: {
+                show: 'show',
+                lineStyle : {
+                    color: 'transparent',
+                    width: 1,
+                    type: 'dashed',
+                    opacity : 0.5
+                }
+                
+            },
+            data:['10%','20%','30%','40%','50%','60%']
+           
+        }],
         series: [
             {
-                name:'营业收入增长率',
+                name:'投资金额',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -326,7 +354,7 @@ var initIndexChangeChart = function(data) {
                 data: dataBRIR
             },
             {
-                name:'交易金额增长率',
+                name:'投资人数',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -348,7 +376,7 @@ var initIndexChangeChart = function(data) {
                 data: dataTVGR
             },
             {
-                name:'交易人数增长率',
+                name:'借款人数',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -426,7 +454,7 @@ var initOperateIndex = function(data) {
     $.each(data, function(index, item) {
         html += '<div class="operate-item">';
         html += '<div class="icon">';
-        html += '<img src="../img/risk.png" />'
+        html += '<img src="img/risk-icon'+(index+1)+'.png" />'
         html += '</div>';
         html += '<div class="name">' + item.name + '</div>'
         html += '<div class="value">' + item.value + '</div>'
