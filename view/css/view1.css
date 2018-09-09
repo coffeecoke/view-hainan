@@ -1,9 +1,9 @@
 .left {
-    width: 34%;
+    width: 50%;
     height: 100%;
 }
 .right {
-    width: 66%;
+    width: 50%;
     height: 100%;
 }
 .left-column, .right-column {
@@ -91,4 +91,3 @@
     padding: 55px 35px 35px 35px;
     height: 100%;
 }
-
