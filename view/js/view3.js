@@ -36,9 +36,10 @@ var renderFrame = function() {
     html += '</div>';
     $('#curData .origin-border .horn').append(html);
     var aryRisk = [
-        {code:'riskCount', name:'风险机构数量',color:'#e03343'},
-        {code:'highRishCount', name:'高风险机构数量',color:'#cfa02e'},
-        {code:'illegalCount', name:'非法集资企业风险数量',color:'#e03343'}
+        {code:'riskCount', name:'小额贷款公司',color:'#e03343',num:'87'},
+        {code:'highRishCount', name:'股权交易场所',color:'#cfa02e',num:'64'},
+        {code:'illegalCount', name:'地方交易场所',color:'#e03343',num:'34'},
+        {code:'p2p', name:'P2P公司',color:'#e03343',num:'48'}
     ];
     var html = '';
     $.each(aryRisk, function(index, item) {
@@ -46,7 +47,7 @@ var renderFrame = function() {
         html += '<div class="process-container" code="' + item.code + '">';
         html += '<div class="convas-container"></div>';
         html += '<div class="icon-container">';
-        html += $('#allIcon [name=' + item.code + ']').prop("outerHTML");
+        html += item.num;
         html += '</div>';
         html += '</div>';
         html += '<div class="count-container"><span name="count" style="color:' + item.color + ';"></span><span name="unit">家</span></div>';
@@ -387,13 +388,13 @@ var renderRiskData = function(riskData) {
         if(!progressCanvas[code]) {    // 没有初始化，先初始化
             var opts = {
                 wrapDom:$(this).find('.convas-container')[0],
-                width:300,
-                height:300,
+                width:200,
+                height:120,
                 bgColors:'#111',
                 lineCap:'round',
                 showShadow:true,
                 type:'circle',
-                lineWidth:12,
+                lineWidth:4,
                 lineColors:$countObj.css('color'), //  array or string
                 shadowBlur:28,
                 shadowColor:'#1b40b0',
@@ -423,7 +424,7 @@ var renderIndustryData = function(industryData) {
             $('#curData .item-container .industry-data').append(html);
             var opts = {
                 wrapDom:$('#curData .item-container .industry-data .process-container[code=' + code + ']')[0],
-                width:250,
+                width:500,
                 height:120,
                 bgColors:'#111',
                 lineCap:'round',
@@ -633,18 +634,27 @@ var renderMap = function() {
  * 循环显示各个市的数据
  */
 var setMapActive = function(data) {
+    console.log(data);
     var positionMap = {    // 各市对应的tip位置和市中心点的位置
-        '1301': {tipLeft:34, tipTop:780,afterCss:'width: 108px;top: 162px;right: -109px;'},
-        '1302': {tipLeft:1111, tipTop:852,afterCss:'width: 150px;top: -43px;right: 184px;transform: rotate(35deg);'},
-        '1303': {tipLeft:1357, tipTop:489,afterCss:'width: 70px;top: 144px;left: -70px;transform: rotate(15deg);'},
-        '1304': {tipLeft:25, tipTop:831,afterCss:'width: 280px;top: 348px;right: -69px;transform: rotate(17deg);'},
-        '1305': {tipLeft:25, tipTop:831,afterCss:'width: 280px;top: 269px;right: -223px;transform: rotate(54deg);'},
-        '1306': {tipLeft:25, tipTop:611,afterCss:'width: 220px;top: 148px;right: -220px;'},
-        '1307': {tipLeft:25, tipTop:300,afterCss:'width: 224px;top: 160px;right: -223px;'},
-        '1308': {tipLeft:1286, tipTop:169,afterCss:'width: 216px;top: 174px;left: -215px;transform: rotate(-9deg);'},
-        '1309': {tipLeft:1100, tipTop:840,afterCss:'width: 216px;top: 117px;left: -206px;transform: rotate(23deg);'},
-        '1310': {tipLeft:1100, tipTop:840,afterCss:'width: 262px;top: -5px;left: -237px;transform: rotate(36deg);'},
-        '1311': {tipLeft:1100, tipTop:840,afterCss:'width: 290px;top: 231px;left: -290px;'}
+        '1301': {tipLeft:34, tipTop:180,afterCss:'width: 108px;top: 162px;right: -109px;'},
+        '1302': {tipLeft:1211, tipTop:342,afterCss:'width: 150px;top: -43px;right: 184px;transform: rotate(35deg);'},
+        '1303': {tipLeft:35, tipTop:689,afterCss:'width: 70px;top: 144px;left: -70px;'},
+        '1304': {tipLeft:25, tipTop:631,afterCss:'width: 280px;top: 348px;right: -69px;'},
+        '1305': {tipLeft:1125, tipTop:630,afterCss:'width: 280px;top: 269px;right: -223px;transform: rotate(54deg);'},
+        '1306': {tipLeft:30, tipTop:431,afterCss:'width: 220px;top: 148px;right: -220px;'},
+        '1307': {tipLeft:230, tipTop:60,afterCss:'width: 224px;top: 160px;right: -223px;'},
+        '1308': {tipLeft:130, tipTop:69,afterCss:'width: 216px;top: 174px;left: -215px;'},
+        '1309': {tipLeft:130, tipTop:540,afterCss:'width: 216px;top: 117px;left: -206px;'},
+        '1310': {tipLeft:1100, tipTop:540,afterCss:'width: 262px;top: -5px;left: -237px;'},
+        '1311': {tipLeft:240, tipTop:840,afterCss:'width: 290px;top: 231px;left: -290px;'},
+        '1312': {tipLeft:100, tipTop:20,afterCss:'width: 280px;top: 269px;right: -223px;transform: rotate(54deg);'},
+        '1313': {tipLeft:1300, tipTop:711,afterCss:'width: 220px;top: 148px;right: -220px;'},
+        '1314': {tipLeft:1300, tipTop:300,afterCss:'width: 224px;top: 160px;right: -223px;'},
+        '1315': {tipLeft:1486, tipTop:169,afterCss:'width: 216px;top: 174px;left: -215px;'},
+        '1316': {tipLeft:1100, tipTop:240,afterCss:'width: 216px;top: 117px;left: -206px;transform: rotate(23deg);'},
+        '1317': {tipLeft:1200, tipTop:640,afterCss:'width: 262px;top: -5px;left: -237px;transform: rotate(36deg);'},
+        '1318': {tipLeft:1200, tipTop:640,afterCss:'width: 290px;top: 231px;left: -290px;'}
+    
     };
     var index = 0;
     var setInfo = function() {
