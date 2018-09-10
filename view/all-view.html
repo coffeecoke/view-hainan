@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .aa{
+        position: fixed;
+        right:30px;
+    }
+    .aa li{
+        float: left;
+        list-style: none;
+        color:#6ceff1;
+        padding:10px;
+        border:solid 1px #ccc;
+        cursor: pointer;
+    }
+    .cuur{
+        background: #000080;
+        color:#fff !important;
+    }
+</style>
+<body>
+<ul class="aa">
+    <li data-url="view1.html">数据监测平台</li>
+    <li class="cuur" data-url="view2.html">行业监测平台</li>
+    <li data-url="view3.html">风险控制平台</li>
+</ul>
+<div class="iframe-command">
+    <iframe class="one" name="cwin" id="risk" src="view2.html" frameborder="0" style="width:2860px;height:1080px;"></iframe>
+</div>
+
+<script src="js/jquery-2.1.4.min.js"></script>
+<script>
+    function resizeFrameheight() {
+        var Height=$(window.frames["cwin"].document).height();
+        $("#risk").css("height",Height)
+    };
+    $('#risk').load(function () {
+        resizeFrameheight()
+    });
+
+    $(".aa li").click(function(){
+        var url=$(this).data("url");
+        $(".one").attr("src",url)
+        $(this).addClass("cuur").siblings().removeClass("cuur");
+        resizeFrameheight()
+    })
+</script>
+</body>
+</html>
