@@ -129,29 +129,29 @@
 //     },3000);
 // };
 
-var refreshIndustryChart = function(option) {
-    option.xAxis.data = [];
-    option.series[0].data = [];
-    option.series[1].data = [];
-    $.ajax({
-        url: 'data/industryData.json',
-        dataType: 'json',
-        async : false,
-        success: function(data){
-            $.each(data, function(index, item){
-                // 设置行业指标图参数
-                option.xAxis.data.push(item.name);
-                var random = Math.floor(Math.random()*60);
-                item.value = random;
-                option.series[0].data.push(item.value);
-                option.series[1].data.push(item.value);
+// var refreshIndustryChart = function(option) {
+//     option.xAxis.data = [];
+//     option.series[0].data = [];
+//     option.series[1].data = [];
+//     $.ajax({
+//         url: 'data/industryData.json',
+//         dataType: 'json',
+//         async : false,
+//         success: function(data){
+//             $.each(data, function(index, item){
+//                 // 设置行业指标图参数
+//                 option.xAxis.data.push(item.name);
+//                 var random = Math.floor(Math.random()*60);
+//                 item.value = random;
+//                 option.series[0].data.push(item.value);
+//                 option.series[1].data.push(item.value);
                 
-            });
-        }
-    });
-    return option;
+//             });
+//         }
+//     });
+//     return option;
 
-};
+// };
 
 /**
  * 设置行业指标变化的图例
@@ -159,15 +159,15 @@ var refreshIndustryChart = function(option) {
  * @param {*} clolr 颜色
  * @param {*} name 名称
  */
-var initIndustryIcon = function(selecter, clolr, name) {
-    var objHtml = "<div class='industry-icon-item'>";
-    objHtml += "<div class='industry-icon-item-color'></div>";
-    objHtml += "<div class='industry-icon-item-name'>" + name + "</div>";
-    objHtml += "</div>";
-    $obj = $(objHtml);
-    $obj.find(".industry-icon-item-color").css("background", clolr);
-    $(selecter).append($obj);
-};
+// var initIndustryIcon = function(selecter, clolr, name) {
+//     var objHtml = "<div class='industry-icon-item'>";
+//     objHtml += "<div class='industry-icon-item-color'></div>";
+//     objHtml += "<div class='industry-icon-item-name'>" + name + "</div>";
+//     objHtml += "</div>";
+//     $obj = $(objHtml);
+//     $obj.find(".industry-icon-item-color").css("background", clolr);
+//     $(selecter).append($obj);
+// };
 
 /**
  * 渲染行业指标变化图表
@@ -288,16 +288,20 @@ var tableConfig = [
 var refeshPage = {};
 
 var renderIndustryTable = function(id, index) {
+    console.log(index)
+    console.log(id);
     $('#' + id + ' .title-container .text span').html(industry[index].name + '交易数据');
     refeshPage[id] = initTable('#' + id + ' .origin-border .horn .table-container', 'data/P2PData.json', {code:industry[index].code}, tableConfig);
 };
 
 var initIndustryTable = function() {  // 定时切换
-    var i = 2;
+    var i = 4;
     var changeIndustry;
     clearInterval(changeIndustry);
     renderIndustryTable('rightColumn1', 0);
     renderIndustryTable('rightColumn2', 1);
+    renderIndustryTable('leftColumn1', 2);
+    renderIndustryTable('leftColumn2', 3);
     changeIndustry = setInterval(function(){
         // 表格数据
         rotateYDIV({
@@ -347,6 +351,8 @@ var renderFrame = function() {
     // 行业指标变化分为上边图例和下边的图表
     // renderTitle("#industryData .origin-border", "行业指标变化");
     // 右侧表格
+    renderTitle("#leftColumn1 .origin-border", "");
+    renderTitle("#leftColumn2 .origin-border", "");
     renderTitle("#rightColumn1 .origin-border", "");
     renderTitle("#rightColumn2 .origin-border", "");
     // 雷达图分为左边展示图和右边的数据
@@ -358,6 +364,8 @@ var renderFrame = function() {
     // initIndustryIcon("#industryData .origin-border .horn .industry-icon", "#3A73C9", "低于30");
     $("#rightColumn1 .origin-border .horn").append("<div class='table-container'></div>");
     $("#rightColumn2 .origin-border .horn").append("<div class='table-container'></div>");
+    $("#leftColumn1 .origin-border .horn").append("<div class='table-container'></div>");
+    $("#leftColumn2 .origin-border .horn").append("<div class='table-container'></div>");
 };
 /**
  * 数据渲染
