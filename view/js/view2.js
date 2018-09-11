@@ -1,18 +1,36 @@
-// var data = {
-//     '01' : {name:'P2P',icon:'p2p'},
-//     '02' : {name:'小额贷款',icon:'pettyLoan'},
-//     '03' : {name:'典当行',icon:'pawnshop'},
-//     '04' : {name:'股权交易',icon:'stockDeal'},
-//     '05' : {name:'商业保理',icon:'commercialAssurer'},
-//     '06' : {name:'融资租赁',icon:'financeLease'},
-//     '07' : {name:'融资担保',icon:'financeGuarantee'},
-//     '08' : {name:'农村合作社',icon:'ruralCooperative'},
-//     '09' : {name:'地方资产公司',icon:'localFinanceCompany'},
-//     '10' : {name:'各类交易场所',icon:'tradePlace'}
-// };
+
 
 var shieldProgress = null;
+var industry = [
+    {name:'P2P',code:'01'},
+    {name:'小额贷款公司',code:'02'},
+    {name:'各类交易场所',code:'03'},
+    {name:'股权交易',code:'04'},
+    {name:'融资担保',code:'05'},
+    {name:'典当行',code:'06'},
+    {name:'融资租赁公司',code:'07'},
+    {name:'商业保理公司',code:'08'},
+    {name:'地方融资公司',code:'09'},
+    {name:'农村合作组织',code:'10'}
+];
+
+var getNameByCode = function() {
+    var result = {};
+    $.each(industry, function(index, item) {
+        result[item.code] = item.name;
+    });
+    return result;
+};
+var getNameByName = function() {
+    var result = {};
+    $.each(industry, function(index, item) {
+        result[item.name] = item.code;
+    });
+    return result;
+};
+
 var industryMap = getNameByCode();
+var industryMap2 = getNameByName();
 /**
  * 渲染行业图标
  * @param {*}
@@ -57,9 +75,21 @@ var renderIndustryIcon = function() {
     // setEvent();
     // $('#industryIcon .icon-item[index=0]').click();
 
-    var doms=$('.icon-item'),domItems=[];
+    var doms=$('.icon-item'),swipers = $('.swiper-container3 .swiper'),domItems=[],swiperItems = [];
     $.each(doms,function(i,item){
         domItems.push({
+            wrapDom:item,
+            handler:function(){
+                
+                // item.trigger('click');
+                //console.log('call item');
+                //console.log(item);
+            }
+        });
+    });
+
+    $.each(swipers,function(i,item){
+        swiperItems.push({
             wrapDom:item,
             handler:function(){
                 
@@ -81,13 +111,13 @@ var renderIndustryIcon = function() {
         showStats:false,
         wrapDom:document.getElementById('industryIcon')
     });
-    iconTrans.addToStage();
+    // iconTrans.addToStage();
 
-    iconTrans.appendDoms(domItems,1400);
+    // iconTrans.appendDoms(domItems,1400);
 
     var size=domItems.length;
-    iconTrans.autoSwitch(true);
-
+    // iconTrans.autoSwitch(true);
+    // swiperItems.autoSwitch(true);
     // setTimeout(function () {
     //     var idx=Math.ceil(Math.random()*size);
     //     if(idx===size){
@@ -99,7 +129,50 @@ var renderIndustryIcon = function() {
     // },50000 );
 
 
-    window.animateProxy.playAnimation();
+    // window.animateProxy.playAnimation();
+    var swiper3 = new Swiper('.swiper-container3', {
+        loop: true,
+        autoplay: 5000,
+        slidesPerView: 3,
+        tdFlow: {
+            rotate: 0,
+            stretch: -30,
+            depth: 120,
+            modifier: 2,
+            shadows: true
+        },
+        onSlideChangeEnd: function (swiper) {
+           
+            console.log(swiper)
+            var index = swiper.activeIndex + 1;
+            $(".data-numbers").eq(index).show().parent().siblings().children("p").hide();
+            var title = $.trim(swiper.container.innerText);
+        //    genDatas($.trim(title));
+            // 行业指标
+            var code = industryMap2[title]
+            console.log(code);
+            renderIndex(code);
+            // 行业指标变化
+            renderIndexChange(code);
+            // 企业数据
+            renderCompanyData(code);
+            // 运行指数
+            renderOperateIndex(code);
+            // 风险分布图
+            renderRiskMap(code);
+        }
+    });
+
+     // 行业指标
+     renderIndex('01');
+     // 行业指标变化
+     renderIndexChange('01');
+     // 企业数据
+     renderCompanyData('01');
+     // 运行指数
+     renderOperateIndex('01');
+     // 风险分布图
+     renderRiskMap('01');
 
 };
 
@@ -207,6 +280,7 @@ var renderIndex = function(code) {
             } else {
                 rotateYDIV({
                     $obj:$('#index'),
+                    wrapWidth:$('.left-column').width(),
                     inRotate: function() {
                         $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
                         renderIndexData('#index .origin-border .horn .item-container', data, 12);

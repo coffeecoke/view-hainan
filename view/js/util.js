@@ -286,24 +286,36 @@ var rotateYDIV = function(config){
     },1);
 };
 
-var industry = [
-    {name:'P2P',code:'01'},
-    {name:'小额贷款公司',code:'02'},
-    {name:'各类交易场所',code:'03'},
-    {name:'股权交易',code:'04'},
-    {name:'融资担保',code:'05'},
-    {name:'典当行',code:'06'},
-    {name:'融资租赁公司',code:'07'},
-    {name:'商业保理公司',code:'08'},
-    {name:'地方融资公司',code:'09'},
-    {name:'农村合作组织',code:'10'}
-];
-
-var getNameByCode = function() {
-    var result = {};
-    $.each(industry, function(index, item) {
-        result[item.code] = item.name;
-    });
-    return result;
+var transformDiv = function(config){
+    config.beforeTransform && config.beforeTransform();
+    var rotYINT;
+    var startYRotate = function($obj) {
+        var rotateY = $obj.data('transformX');
+        if(!rotateY) {
+            rotateY = 0;
+        }
+        rotateY=rotateY+3;
+        if(rotateY === 90){
+            config.inRotate && config.inRotate();
+        }
+        if(rotateY > 180) {
+            rotateY=0;
+            clearInterval(rotYINT);
+            config.afterRotate && config.afterRotate();
+        }
+        $obj.data('rotateY',rotateY);
+        $obj.css({
+            'transform':'translateX(' + rotateY + 'deg)',
+            'webkitTransform':'translateX(' + rotateY + 'deg)',
+            'OTransform':'translateX(' + rotateY + 'deg)',
+            'MozTransform':'translateX(' + rotateY + 'deg)'
+        });
+    };
+    clearInterval(rotYINT);
+    rotYINT = setInterval(function(){
+        startYRotate(config.$obj);
+    },1);
 };
+
+
 
