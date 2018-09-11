@@ -317,5 +317,31 @@ var transformDiv = function(config){
     },1);
 };
 
+var industry = [
+    {name:'P2P',code:'01'},
+    {name:'小额贷款公司',code:'02'},
+    {name:'各类交易场所',code:'03'},
+    {name:'股权交易',code:'04'},
+    {name:'融资担保',code:'05'},
+    {name:'典当行',code:'06'},
+    {name:'融资租赁公司',code:'07'},
+    {name:'商业保理公司',code:'08'},
+    {name:'地方融资公司',code:'09'},
+    {name:'农村合作组织',code:'10'}
+];
 
+var getNameByCode = function() {
+    var result = {};
+    $.each(industry, function(index, item) {
+        result[item.code] = item.name;
+    });
+    return result;
+};
+var getNameByName = function() {
+    var result = {};
+    $.each(industry, function(index, item) {
+        result[item.name] = item.code;
+    });
+    return result;
+};
 
