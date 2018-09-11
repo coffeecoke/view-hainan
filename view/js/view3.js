@@ -42,19 +42,30 @@ var renderFrame = function() {
         {code:'p2p', name:'P2P公司',color:'#e03343',num:'48'}
     ];
     var html = '';
-    $.each(aryRisk, function(index, item) {
-        html += '<div>';
-        html += '<div class="process-container" code="' + item.code + '">';
-        html += '<div class="convas-container"></div>';
-        html += '<div class="icon-container">';
-        html += item.num;
-        html += '</div>';
-        html += '</div>';
-        html += '<div class="count-container"><span name="count" style="color:' + item.color + ';"></span><span name="unit">家</span></div>';
-        html += '<div class="name-container">' + item.name + '</div>';
-        html += '</div>';
-    });
-    $('#curData .origin-border .horn .risk-data').append(html);
+
+    var htmls='';
+    // $.each(aryRisk, function(index, item) {
+        $.ajax({
+            url:"data/dataName.json",
+            dataType:"json",
+            async:false,
+            success:function(data){
+                $.each(data,function(index,item){
+                    htmls += '<div>';
+                    htmls += '<div class="process-container" code="' + data[index].code + '">';
+                    htmls += '<div class="convas-container"></div>';
+                    htmls += '<div class="icon-container">';
+                    htmls += data[index].num;
+                    htmls += '</div>';
+                    htmls += '</div>';
+                    htmls += '<div class="count-container"><span name="count" style="color:' + data[index].color + ';"></span><span name="unit">家</span></div>';
+                    htmls += '<div class="name-container">' + data[index].name + '</div>';
+                    htmls += '</div>';
+
+                })
+            }
+        });
+    $('#curData .origin-border .horn .risk-data').append(htmls);
 
     map = echarts.init($('#map .map')[0])
 };
@@ -483,7 +494,7 @@ var renderCurData = function() {
 var renderMapChart = function() {
     var riskData = [];
     var levelIcons = {
-        low: '../img/low.png',
+        low: './img/low.png',
         middle: './img/middle.png',
         high: './img/high.png'
     };
@@ -502,12 +513,13 @@ var renderMapChart = function() {
         geo: {
             show: true,
             map: 'hainan',
+            regions: [{name: '南海诸岛',itemStyle: {color:"red"}}],
             label: {
                 normal: {
                     show: false
                 },
                 emphasis: {
-                    show: false,
+                    show: true,
                 }
             },
             roam: false,//地图设置不可拖拽，固定的

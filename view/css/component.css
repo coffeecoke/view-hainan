@@ -158,8 +158,7 @@
 .table-container table>tbody>tr>th, 
 .table-container table>tfoot>tr>td, 
 .table-container table>tfoot>tr>th, 
-.table-container table>thead>tr>td, 
-.table-container table>thead>tr>th {
+.table-container table>thead>tr>td{
     border:0;
     padding: 8px;
     vertical-align: top;
@@ -172,8 +171,16 @@
 }
 .table-container table>thead>tr>td, 
 .table-container table>thead>tr>th {
+    border:0;
+    padding: 8px;
+    vertical-align: top;
+    border-bottom: 2px solid #0b41a5;
+    font-size: 20px;
+    color: #7498CE;
+    text-align: left;
     border-bottom: 2px solid #6D7890;
     color: #FFF;
+    
 }
 .table-container .tbl-header table>tbody>tr>td {
     border-bottom: 0;
