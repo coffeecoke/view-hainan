@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-
-=======
- // var data = {
-//     '01' : {name:'P2P',icon:'p2p'},
-//     '02' : {name:'小额贷款',icon:'pettyLoan'},
-//     '03' : {name:'典当行',icon:'pawnshop'},
-//     '04' : {name:'股权交易',icon:'stockDeal'},
-//     '05' : {name:'商业保理',icon:'commercialAssurer'},
-//     '06' : {name:'融资租赁',icon:'financeLease'},
-//     '07' : {name:'融资担保',icon:'financeGuarantee'},
-//     '08' : {name:'农村合作社',icon:'ruralCooperative'},
-//     '09' : {name:'地方资产公司',icon:'localFinanceCompany'},
-//     '10' : {name:'各类交易场所',icon:'tradePlace'}
-// };
->>>>>>> bb4e054e550e0f2567a2ad2251270138cca7cde2
 
 var shieldProgress = null;
 var industry = [
