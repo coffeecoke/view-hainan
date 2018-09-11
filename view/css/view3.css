@@ -6,6 +6,7 @@
 .middle {
     width: 46%;
     height: 100%;
+    position: relative;
 }
 .right {
     width: 27%;
@@ -467,4 +468,12 @@
 #curData .item-container .industry-data .industry-item .process-container {
     width: 66%;
     height:100px;
+}
+.middle-time{
+    font-size:24px;
+    color:#426eca;
+    position: absolute;
+    top:30px;
+    left:50%;
+    transform: translate(-50%);
 }

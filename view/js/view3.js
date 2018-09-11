@@ -42,19 +42,30 @@ var renderFrame = function() {
         {code:'p2p', name:'P2P公司',color:'#e03343',num:'48'}
     ];
     var html = '';
-    $.each(aryRisk, function(index, item) {
-        html += '<div>';
-        html += '<div class="process-container" code="' + item.code + '">';
-        html += '<div class="convas-container"></div>';
-        html += '<div class="icon-container">';
-        html += item.num;
-        html += '</div>';
-        html += '</div>';
-        html += '<div class="count-container"><span name="count" style="color:' + item.color + ';"></span><span name="unit">家</span></div>';
-        html += '<div class="name-container">' + item.name + '</div>';
-        html += '</div>';
-    });
-    $('#curData .origin-border .horn .risk-data').append(html);
+
+    var htmls='';
+    // $.each(aryRisk, function(index, item) {
+        $.ajax({
+            url:"data/dataName.json",
+            dataType:"json",
+            async:false,
+            success:function(data){
+                $.each(data,function(index,item){
+                    htmls += '<div>';
+                    htmls += '<div class="process-container" code="' + data[index].code + '">';
+                    htmls += '<div class="convas-container"></div>';
+                    htmls += '<div class="icon-container">';
+                    htmls += data[index].num;
+                    htmls += '</div>';
+                    htmls += '</div>';
+                    htmls += '<div class="count-container"><span name="count" style="color:' + data[index].color + ';"></span><span name="unit">家</span></div>';
+                    htmls += '<div class="name-container">' + data[index].name + '</div>';
+                    htmls += '</div>';
+
+                })
+            }
+        });
+    $('#curData .origin-border .horn .risk-data').append(htmls);
 
     map = echarts.init($('#map .map')[0])
 };
@@ -483,7 +494,7 @@ var renderCurData = function() {
 var renderMapChart = function() {
     var riskData = [];
     var levelIcons = {
-        low: '../img/low.png',
+        low: './img/low.png',
         middle: './img/middle.png',
         high: './img/high.png'
     };
@@ -502,12 +513,13 @@ var renderMapChart = function() {
         geo: {
             show: true,
             map: 'hainan',
+            regions: [{name: '南海诸岛',itemStyle: {color:"red"}}],
             label: {
                 normal: {
                     show: false
                 },
                 emphasis: {
-                    show: false,
+                    show: true,
                 }
             },
             roam: false,//地图设置不可拖拽，固定的
@@ -636,24 +648,24 @@ var renderMap = function() {
 var setMapActive = function(data) {
     console.log(data);
     var positionMap = {    // 各市对应的tip位置和市中心点的位置
-        '1301': {tipLeft:34, tipTop:180,afterCss:'width: 108px;top: 162px;right: -109px;'},
-        '1302': {tipLeft:1211, tipTop:342,afterCss:'width: 150px;top: -43px;right: 184px;transform: rotate(35deg);'},
-        '1303': {tipLeft:35, tipTop:689,afterCss:'width: 70px;top: 144px;left: -70px;'},
-        '1304': {tipLeft:25, tipTop:631,afterCss:'width: 280px;top: 348px;right: -69px;'},
-        '1305': {tipLeft:1125, tipTop:630,afterCss:'width: 280px;top: 269px;right: -223px;transform: rotate(54deg);'},
-        '1306': {tipLeft:30, tipTop:431,afterCss:'width: 220px;top: 148px;right: -220px;'},
-        '1307': {tipLeft:230, tipTop:60,afterCss:'width: 224px;top: 160px;right: -223px;'},
-        '1308': {tipLeft:130, tipTop:69,afterCss:'width: 216px;top: 174px;left: -215px;'},
-        '1309': {tipLeft:130, tipTop:540,afterCss:'width: 216px;top: 117px;left: -206px;'},
-        '1310': {tipLeft:1100, tipTop:540,afterCss:'width: 262px;top: -5px;left: -237px;'},
-        '1311': {tipLeft:240, tipTop:840,afterCss:'width: 290px;top: 231px;left: -290px;'},
-        '1312': {tipLeft:100, tipTop:20,afterCss:'width: 280px;top: 269px;right: -223px;transform: rotate(54deg);'},
-        '1313': {tipLeft:1300, tipTop:711,afterCss:'width: 220px;top: 148px;right: -220px;'},
-        '1314': {tipLeft:1300, tipTop:300,afterCss:'width: 224px;top: 160px;right: -223px;'},
-        '1315': {tipLeft:1486, tipTop:169,afterCss:'width: 216px;top: 174px;left: -215px;'},
-        '1316': {tipLeft:1100, tipTop:240,afterCss:'width: 216px;top: 117px;left: -206px;transform: rotate(23deg);'},
-        '1317': {tipLeft:1200, tipTop:640,afterCss:'width: 262px;top: -5px;left: -237px;transform: rotate(36deg);'},
-        '1318': {tipLeft:1200, tipTop:640,afterCss:'width: 290px;top: 231px;left: -290px;'}
+        '1301': {tipLeft:110, tipTop:140,afterCss:'width: 108px;top: 162px;right: -109px;'},
+        '1302': {tipLeft:1180, tipTop:342,afterCss:'width: 150px;top: -43px;right: 184px;transform: rotate(35deg);'},
+        '1303': {tipLeft:35, tipTop:689,afterCss:'width: 160px;top: 144px;right: -140px;transform: rotate(-35deg);'},
+        '1304': {tipLeft:25, tipTop:631,afterCss:'width: 220px;top: 240px;right: -200px;transform: rotate(-25deg)'},
+        '1305': {tipLeft:1125, tipTop:630,afterCss:'width: 280px;top: 100px;right: 223px;transform: rotate(15deg);'},
+        '1306': {tipLeft:30, tipTop:431,afterCss:'width: 220px;top: 148px;right: -220px;transform: rotate(15deg);'},
+        '1307': {tipLeft:240, tipTop:20,afterCss:'width: 304px;top: 80px;right: -323px;transform: rotate(15deg);'},
+        '1308': {tipLeft:1190, tipTop:400,afterCss:'width: 216px;top: 174px;left: -215px;'},
+        '1309': {tipLeft:130, tipTop:60,afterCss:'width: 416px;top: 117px;right: -346px;transform: rotate(15deg);'},
+        '1310': {tipLeft:100, tipTop:390,afterCss:'width: 262px;top: -5px;right: -237px;'},
+        '1311': {tipLeft:1210, tipTop:280,afterCss:'width: 290px;top: 231px;left: -290px;'},
+        '1312': {tipLeft:100, tipTop:140,afterCss:'width: 280px;top: 269px;right: -223px;transform: rotate(54deg);'},
+        '1313': {tipLeft:130, tipTop:111,afterCss:'width: 220px;top: 148px;right: -220px;'},
+        '1314': {tipLeft:1100, tipTop:600,afterCss:'width: 224px;top: 160px;left: -223px;'},
+        '1315': {tipLeft:1286, tipTop:409,afterCss:'width: 216px;top: 174px;left: -215px;'},
+        '1316': {tipLeft:1200, tipTop:340,afterCss:'width: 216px;top: 117px;left: -206px;transform: rotate(23deg);'},
+        '1317': {tipLeft:1100, tipTop:720,afterCss:'width: 262px;top: -5px;left: -207px;transform: rotate(36deg);'},
+        '1318': {tipLeft:1100, tipTop:540,afterCss:'width: 290px;top: 231px;left: -290px;'}
     
     };
     var index = 0;
@@ -675,5 +687,5 @@ var setMapActive = function(data) {
         } 
     };
     setInfo();
-    var MyMar = setInterval(setInfo, 5000);
+    var MyMar = setInterval(setInfo, 2000);
 };
