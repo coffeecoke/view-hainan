@@ -180,8 +180,8 @@ var renderFrame = function() {
 
 var initProgress = function() {
     var opts={
-        width:500,
-        height:500,
+        width:450,
+        height:450,
         bgColors:'#111',
         lineCap:'round',
         showShadow:true,
@@ -247,6 +247,7 @@ var renderIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
+            console.log(code);
             if($('#index .origin-border .title-container .text span').html() === '') {
                 $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
                 renderIndexData('#index .origin-border .horn .item-container', data, 12);
@@ -380,7 +381,7 @@ var initIndexChangeChart = function(data) {
                     fontSize : 16
                 }
             },
-            data:['10%','20%','30%','40%','50%','60%']
+            data:['0','10%','20%','30%','40%','50%']
            
         }],
         series: [
@@ -489,11 +490,11 @@ var renderIndexChange = function(code) {
 var renderCompanyData = function(code) {
     var config = [
         {name :"排名", key:"rank",  width : "10%", class:"rank"},
-        {name :"企业名称", key:"companyName",  width : "20%", class:"white"},
+        {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
         {name :"企业代码", key:"companyCode",  width : "20%", class:"blue"},
         {name :"所属区域", key:"region",  width : "20%", class:"blue"},
-        {name :"综合利率", key:"interest",  width : "20%", class:"blue"},
-        {name :"级别", key:"level",  width : "20%", class:"blue", class:"level"}
+        {name :"注册资本", key:"interest",  width : "20%", class:"blue"},
+        {name :"指数", key:"level",  width : "15%", class:"blue", class:"level"}
     ];
     initTable('#companyData .table-container', 'data/companyData.json', {code:code}, config);
 };

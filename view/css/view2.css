@@ -6,6 +6,7 @@
 .middle {
     width: 46%;
     height: 100%;
+    overflow:hidden;
 }
 .right {
     width: 27%;
@@ -23,11 +24,11 @@
 }
 
 #index {
-    height: 54%;
+    height: 60%;
 }
 
 #indexChange {
-    height: 50%;
+    height: 40%;
 }
 
 #operateIndex {
@@ -119,8 +120,8 @@
       margin-top:120px;
   }
 .swiper-container3 .swiper {
-    color: #fff;
-    font-size: 20px;
+    color: #6a8bbe;
+    font-size: 24px;
     text-align: center;
   }
 .swiper-container3 .swiper .data-number {
@@ -315,8 +316,8 @@
 
 #indexChange .origin-border .horn .item-container {
     height: 100%;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 0px;
 }
 
 /* 滚动数据 */
@@ -348,6 +349,7 @@
 
 .table-container table tbody tr td.level{
     color: #cd4954;
+    font-style: italic
 }
 
 /* 运行指数 */
@@ -366,7 +368,7 @@
 }
 
 #operateIndex .item-container .data-container {
-    width: 55%;
+    width: 50%;
     position: relative;
 }
 
@@ -380,7 +382,7 @@
 }
 
 #operateIndex .item-container .icon-container {
-    width: 45%;
+    width: 50%;
     position: relative;
 }
 #operateIndex .item-container .icon-container .icon-item-list{
@@ -395,6 +397,7 @@
     color: #FFFFFF;
     padding-bottom: 15px;
     padding-right: 15px;
+    float: left;
 }
 #operateIndex .operate-item div {
     display: inline-block;

@@ -61,7 +61,7 @@ body{
     display: table-cell;
     vertical-align: middle;
     border: 1px solid #006cf6;
-    box-shadow: 0 0 2px #0a3fbf, 0 0 20px #0a3fbf inset;
+    box-shadow: 0 0 20px #0a3fbf;
     border-radius: 50%;
     position: relative;
 }

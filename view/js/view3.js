@@ -36,9 +36,9 @@ var renderFrame = function() {
     html += '</div>';
     $('#curData .origin-border .horn').append(html);
     var aryRisk = [
-        {code:'riskCount', name:'小额贷款公司',color:'#e03343',num:'87'},
-        {code:'highRishCount', name:'股权交易场所',color:'#cfa02e',num:'64'},
-        {code:'illegalCount', name:'地方交易场所',color:'#e03343',num:'34'},
+        {code:'riskCount', name:'小额贷款公司',color:'#1a69f8',num:'87'},
+        {code:'highRishCount', name:'股权交易场所',color:'#1a69f8',num:'64'},
+        {code:'illegalCount', name:'地方交易场所',color:'#cfa02e',num:'34'},
         {code:'p2p', name:'P2P公司',color:'#e03343',num:'48'}
     ];
     var html = '';
@@ -399,8 +399,8 @@ var renderRiskData = function(riskData) {
         if(!progressCanvas[code]) {    // 没有初始化，先初始化
             var opts = {
                 wrapDom:$(this).find('.convas-container')[0],
-                width:200,
-                height:120,
+                width:180,
+                height:180,
                 bgColors:'#111',
                 lineCap:'round',
                 showShadow:true,
@@ -435,7 +435,7 @@ var renderIndustryData = function(industryData) {
             $('#curData .item-container .industry-data').append(html);
             var opts = {
                 wrapDom:$('#curData .item-container .industry-data .process-container[code=' + code + ']')[0],
-                width:500,
+                width:200,
                 height:120,
                 bgColors:'#111',
                 lineCap:'round',

@@ -33,11 +33,11 @@
 
 
 #companyList {
-    height: 55%;
+    height: 45%;
 }
 
 #distributionMap {
-    height: 45%;
+    height: 55%;
 }
 
 #map {
@@ -330,12 +330,12 @@
 #curData .item-container {
     width: 100%;
     height: 100%;
-    padding: 60px 30px 40px 30px;
+    padding: 80px 30px 40px 30px;
 }
 
 #curData .item-container .total-data{
     width: 100%;
-    height: 16%;
+    height: 21%;
 }
 #curData .item-container .total-data .data-container{
     height: 65%;
@@ -348,7 +348,7 @@
     padding-right: 20px;
 }
 #curData .item-container .total-data .data-container .text-container .time{
-    font-size: 28px;
+    font-size: 24px;
     color: #3265d8;
 }
 #curData .item-container .total-data .data-container .text-container .title{
@@ -368,12 +368,12 @@
 #curData .item-container .total-data .data-container .value-container .value{
     display: inline-block;
     width: 70px;
-    height: 75px;
+    height: 95px;
     /* background: blue; */
     margin-left: 20px;
     text-align: center;
-    line-height: 75px;
-    font-size: 60px;
+    line-height: 95px;
+    font-size: 42px;
     color: #fff;
     border: 3px solid #2e66cf;
     box-shadow: 0 0 15px #2278ff;
@@ -404,7 +404,7 @@
 
 #curData .item-container .risk-data{
     width: 100%;
-    height: 35%;
+    height: 50%;
 }
 #curData .item-container .risk-data>div{
     float: left;
@@ -422,16 +422,16 @@
     top: 50%;
     transform: translate(-50%, -50%);
     color:#fff;
-    font-size:24px;
+    font-size:36px;
 }
 
 
 #curData .item-container .risk-data .count-container {
     /* text-align: center; */
-    margin-top:10px;
+    margin-top:40px;
 }
 #curData .item-container .risk-data .count-container span[name="count"] {
-    font-size: 34px;
+    font-size: 36px;
 }
 #curData .item-container .risk-data .count-container span[name="unit"] {
     color: #fff;
@@ -439,20 +439,20 @@
 }
 #curData .item-container .risk-data .name-container {
     /* text-align: center; */
-    font-size: 26px;
+    font-size: 24px;
     color: #fff;
     padding-top: 10px;
 }
 #curData .item-container .industry-data{
     width: 100%;
-    height: 40%;
-    /* padding-top: 40px; */
+    height: 29%;
+    padding-top: 40px;
     padding-left: 15px;
 }
 #curData .item-container .industry-data .industry-item{
-    /* display: inline-block;
+    display: inline-block;
     float: left;
-    width: 50%; */
+    width: 50%;
 }
 #curData .item-container .industry-data .industry-item>div{
     display: inline-block;
@@ -476,4 +476,9 @@
     top:30px;
     left:50%;
     transform: translate(-50%);
+}
+.region{
+    position: absolute;
+    bottom:20%;
+    right:12%;
 }
