@@ -1,0 +1,13 @@
+[
+	{"name" : "P2P", "value" : 50},
+	{"name" : "小额贷款", "value" : 55},
+	{"name" : "交易场所", "value" : 40},
+	{"name" : "融资担保", "value" : 30},
+	{"name" : "股权交易", "value" : 36},
+	{"name" : "典当行", "value" : 27},
+	{"name" : "融资租赁", "value" : 29},
+	{"name" : "商业保险", "value" : 20},
+	{"name" : "资产管理", "value" : 60},
+	{"name" : "农合", "value" : 52},
+	{"name" : "金融服务", "value" : 39}
+]

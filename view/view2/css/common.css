@@ -1,0 +1,98 @@
+html {
+    height: 1620px; 
+    width: 3840px;
+}
+body{
+    height: 100%; 
+    width: 100%;
+    background-image: url("../img/bg.jpg");
+    font-family: '微软雅黑';
+    margin: 0px 0px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%;
+    /* overflow: hidden; */
+}
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    width : 100%;
+    height : 10%;
+    margin: 0px;
+}
+.header .logo{
+    width: 100%;
+    text-align: center;
+}
+.main-body {
+    width : 100%;
+    height : 90%;
+}
+
+.left, .middle , .right{
+    float:left;
+}
+
+/* 行业指标 */
+#index .origin-border .horn .item-container {
+    width: 100%;
+    height: 100%;
+    padding: 66px 40px 0px 40px;
+}
+#index .origin-border .horn .item-container div[name=indexItem]{
+    display: inline-block;
+    float: left;
+    width: 33.3%;
+    padding-bottom: 50px;
+}
+
+#index .origin-border .horn .item-container div[name=indexItem]>div {
+    display: inline-block;
+    float: left;
+}
+
+#index .origin-border .horn .item-container div[name=indexItem] .image {
+    width: 30%;
+}
+
+
+#index .origin-border .horn .item-container div[name=indexItem] .image .icon {
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px solid #006cf6;
+    box-shadow: 0 0 2px #0a3fbf, 0 0 20px #0a3fbf inset;
+    border-radius: 50%;
+    position: relative;
+}
+
+#index .origin-border .horn .item-container div[name=indexItem] .image .icon .background {
+    width: 65%;
+    height: 65%;
+    background: #0e2568;
+    border-radius: 50% / 50%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(10px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#index .origin-border .horn .item-container div[name=indexItem] .text {
+    width: 70%;
+}
+
+#index .origin-border .horn .item-container div[name=indexItem] .text div[name=value] {
+    color: #FFFFFF;
+    font-size: 30px;
+}
+
+#index .origin-border .horn .item-container div[name=indexItem] .text div[name=name] {
+    color: #7498CE;
+    font-size: 24px;
+}

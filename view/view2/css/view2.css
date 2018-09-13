@@ -1,0 +1,468 @@
+/* 整体框架 */
+.left {
+    width: 27%;
+    height: 100%;
+}
+.middle {
+    width: 46%;
+    height: 100%;
+}
+.right {
+    width: 27%;
+    height: 100%;
+}
+.left-column, .right-column {
+    height: 50%;
+    box-sizing: border-box;
+}
+.left-column {
+    padding: 25px 20px 50px 40px;
+}
+.right-column {
+    padding: 25px 40px 50px 20px;
+    height: 50%;
+}
+.left-column:nth-child(1) {
+    height: 37%;
+}
+.left-column:nth-child(2) {
+    height: 63%;
+}
+
+#index {
+    height: 100%;
+}
+
+#indexChange {
+    height: 100%;
+}
+
+
+#operateIndex {
+    height: 100%;
+}
+
+#riskMap {
+    height: 100%;
+}
+
+/* 导航图标样式 */
+
+.nev-container {
+    height: 60%;
+}
+.middle-column:nth-child(2) {
+    height: 40%;
+}
+#companyData {
+    height: 100%;
+    
+}
+#industryIcon {
+    /* width:50%;    */
+    margin:0 auto;
+    height: 100%;
+    color: #7498CE;
+    position: relative;
+    background:url(../img/3d-bg.png) center top no-repeat;
+    background-size:90% 100%;
+}
+
+#industryIcon .icon-item {
+    position: absolute;
+    /* width:450px;
+    height: 516px; */
+}
+#industryIcon .icon-item .image {
+    position: relative;
+}
+
+
+
+@-webkit-keyframes circle {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes circle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+#industryIcon .icon-item .icon {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#industryIcon .icon-item[index="0"] .icon{
+    left: 56%;
+}
+#industryIcon .icon-item[index="1"] .icon{
+    left: 52%;
+}
+#industryIcon .icon-item[index="2"] .icon{
+    left: 54%;
+    top: 51%;
+}
+#industryIcon .icon-item[index="3"] .icon{
+    left: 51%;
+    top: 51%;
+}
+#industryIcon .icon-item[index="4"] .icon{
+    left: 53%;
+    top: 51%;
+}
+#industryIcon .icon-item[index="7"] .icon{
+    left: 55%;
+}
+#industryIcon .icon-item .title {
+    text-align: center;
+    font-size: 60px;
+}
+
+#industryIcon .icon-item .icon svg{
+    filter: drop-shadow(6px 6px 7px #144ab2);
+}
+
+/* #industryIcon {
+    height: 100%;
+    color: #7498CE;
+    position: relative;
+}
+#industryIcon .icon-item .image {
+    position: relative;
+    width: 450px;
+    height: 450px;
+}
+#industryIcon .icon-item .cicle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#industryIcon .icon-item .cicle2 {
+    
+    -webkit-animation: circle2 5s linear 1s 5 alternate;
+    animation: circle2 5s linear infinite;
+
+}
+
+
+@-webkit-keyframes circle2 {
+    from {
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes circle2 {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform:translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+#industryIcon .icon-item .cicle4 {
+    
+    -webkit-animation: circle4 5s linear 1s 5 alternate;
+    animation: circle4 5s linear infinite;
+
+}
+
+@-webkit-keyframes circle4 {
+    from {
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    }
+    to {
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes circle4 {
+    from {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    to {
+        transform:translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+#industryIcon .icon-item .cicle2 {
+    width: 360px;
+    height: 360px;
+}
+
+#industryIcon .icon-item .icon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#industryIcon .icon-item .icon svg{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(6px 6px 7px #144ab2);
+}
+#industryIcon .icon-item .title {
+    width: 450px;
+    text-align: center;
+    font-size: 40px;
+} */
+
+.icons-wrap{
+    display:none;
+}
+
+/* #industryIcon {
+    height: 60%;
+    background-image: url("../img/2kkn.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%;
+    color: #7498CE;
+    position: relative;
+}
+
+
+#industryIcon .icon-item {
+    position: absolute;
+    
+}
+
+#industryIcon .icon-item[index="0"] {  
+    
+    left: 50%;
+    bottom: 80px;
+    transform: translate(-50%, 0%);
+}
+
+#industryIcon .icon-item[index="1"] { 
+    left: 23%;
+    top: 58%;
+    transform: translate(-50%, -50%) scale(0.7);
+}
+
+
+#industryIcon .icon-item[index="2"] { 
+    left: 15%;
+    top: 34%;
+    transform: translate(-50%, -70%) scale(0.5);
+}
+
+#industryIcon .icon-item[index="3"] { 
+    left: 35%;
+    transform: translate(-50%, -33%) scale(0.4);
+}
+
+#industryIcon .icon-item[index="10"] { 
+    left: 50%;
+    top: 55px;
+    transform: translate(-50%, 0%);
+    width: 50px;
+    height: 50px;
+}
+
+#industryIcon .icon-item[index="4"] { 
+    right: 35%;
+    transform: translate(50%, -33%) scale(0.4);
+}
+
+
+#industryIcon .icon-item[index="5"] { 
+    right: 15%;
+    top: 34%;
+    transform: translate(50%, -70%) scale(0.5);
+}
+
+#industryIcon .icon-item[index="6"] { 
+    right: 23%;
+    top: 58%;
+    transform: translate(50%, -50%) scale(0.7);
+}
+
+#industryIcon .icon-item .title {
+    text-align: center;
+    font-size: 50px;
+}
+
+#industryIcon .icon-item .cicle{
+    width: 450px;
+    height: 450px;
+}
+
+#industryIcon .icon-item .image {
+    position: relative;
+}
+#industryIcon .icon-item .icon{
+    width: 200px;
+    height: 250px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#industryIcon .icon-item[index="7"] {
+    bottom: 360px;
+
+}
+#industryIcon .icon-item[index="8"] {
+    bottom: 160px;
+    
+}
+#industryIcon .icon-item[index="9"] {
+    bottom: -40px;
+    
+}
+#industryIcon .icon-item[index="7"], #industryIcon .icon-item[index="8"], #industryIcon .icon-item[index="9"] {
+    right: 0px;
+    width: 240px;
+    height: 240px;
+}
+
+#industryIcon .icon-item[index="7"] .cicle, #industryIcon .icon-item[index="8"] .cicle, #industryIcon .icon-item[index="9"] .cicle{
+    display: none;
+}
+
+#industryIcon .icon-item[index="7"] .title, #industryIcon .icon-item[index="8"] .title, #industryIcon .icon-item[index="9"] .title{
+    font-size: 20px;
+    margin-top: 55px;
+}
+
+#industryIcon .icon-item[index="7"] .icon, #industryIcon .icon-item[index="8"] .icon, #industryIcon .icon-item[index="9"] .icon{
+    width: 100px;
+    height: 125px;
+
+} */
+
+
+#indexChange .origin-border .horn .item-container {
+    height: 100%;
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+/* 滚动数据 */
+#companyData {
+    padding: 0px 100px 40px 20px;
+}
+
+.table-container table>tbody>tr>td, 
+.table-container table>tbody>tr>th {
+    border-bottom: 2px solid #0b41a5;
+}
+
+.table-container table thead tr th:first-child{
+    text-align: center;
+}
+
+.table-container table tbody tr td.rank{
+    color: #7498ce;
+    text-align: center;
+}
+
+.table-container table tbody tr td.white{
+    color: #fff;
+}
+
+.table-container table tbody tr td.blue{
+    color: #7498ce;
+}
+
+.table-container table tbody tr td.level{
+    color: #cd4954;
+}
+
+/* 运行指数 */
+#operateIndex .item-container {
+    width: 100%;
+    height: 100%;
+    padding: 100px 10px 40px 40px;
+    margin-left: -50px;
+
+}
+
+#operateIndex .item-container>div{
+    display: inline-block;
+    float: left;
+    height: 100%;
+}
+
+#operateIndex .item-container .data-container {
+    width: 65%;
+    position: relative;
+}
+
+#operateIndex .item-container .canvas-container {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+#operateIndex .item-container .icon-container {
+    width: 35%;
+    position: relative;
+}
+#operateIndex .item-container .icon-container .icon-item-list{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+#operateIndex .operate-item {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    color: #FFFFFF;
+    padding-bottom: 15px;
+    padding-right: 15px;
+}
+#operateIndex .operate-item div {
+    display: inline-block;
+    float: left;
+}
+
+#operateIndex .operate-item .icon{
+    width: 25%;
+}
+#operateIndex .operate-item .name{
+    width: 45%;
+    font-size: 28px;
+    height: 49px;
+    line-height: 49px;
+}
+#operateIndex .operate-item .value{
+    width: 30%;
+    font-size: 45px;
+    height: 49px;
+    line-height: 49px;
+}
+
+/* 运行风险分布图 */
+#riskMap .origin-border .horn .item-container {
+    width: 100%;
+    height: 100%;
+    padding: 80px 40px 0px 40px;
+}

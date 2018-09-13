@@ -1,0 +1,13 @@
+.aniShow{
+    transform: none !important;
+}
+
+.leftColumn1, .leftColumn2 , .leftColumn3{
+    transform: translateX(-30vw);
+    transition: transform .5s
+}
+
+.middleColumn2{
+    transform: translateY(20vw);
+    transition: transform .5s
+}

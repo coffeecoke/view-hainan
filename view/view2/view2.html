@@ -4,102 +4,109 @@
 <head>
     <meta charset="utf-8">
     <title>河北省地方金融质控中心</title>
-    <link rel="stylesheet" href="css/idangerous.swiper2.7.6.css">
-    <link rel="stylesheet" href="css/idangerous.swiper.3dflow.css">
-    <link rel="stylesheet" type="text/css" href="css/all.css">
-    <link rel="stylesheet" type="text/css" href="css/component.css">
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/view2.css">
-    <link rel="stylesheet" type="text/css" href="css/font.css">
-    <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <!-- 引入 echarts.js -->
+    <script src="./lib/jquery-3.3.1.js"></script>
+    <script src="./lib/jquery.carousel.min.js"></script>
+    <script src="./lib/jquery.mousewheel.js"></script>
+    <script src="./lib/echarts.js"></script>
+    <script src="./js/util.js"></script>
+    <script src="./lib/jquery-animate-css-rotate-scale.js"></script>
+    <!-- <script src="./lib/jquery.vortex.js"></script>
+    <script src="./lib/prettify.js"></script> -->
 
-     <!-- 引入 echarts.js -->
-     <script src="./lib/jquery-3.3.1.js"></script>
-     <script src="./lib/jquery.carousel.min.js"></script>
-     <script src="./lib/jquery.mousewheel.js"></script>
-     <script src="./lib/echarts.js"></script>
-     <script src="./js/util.js"></script>
-     <script src="./lib/jquery-animate-css-rotate-scale.js"></script>
-     <!-- <script src="./lib/jquery.vortex.js"></script>
-     <script src="./lib/prettify.js"></script> -->
- 
-     <script src="./lib/lodash/lodash-core-4.17.10.js"></script>
-     <script src="./js/progressCanvas.js"></script>
- 
-     <script src="./js/three.min.js"></script>
-     <script src="./js/OrbitControls.js"></script>
-     <script src="./js/CSS3DRenderer.js"></script>
- 
-     <script src="./lib/greensockJs/TweenMax.min.js"></script>
-     <script src="./js/sphereDoms.js"></script>
- 
-     <script src="./js/view2.js"></script>
-  
+    <script src="./lib/lodash/lodash-core-4.17.10.js"></script>
+    <script src="./js/progressCanvas.js"></script>
 
+    <script src="./js/three.min.js"></script>
+    <script src="./js/OrbitControls.js"></script>
+    <script src="./js/CSS3DRenderer.js"></script>
 
-    
+    <script src="./lib/greensockJs/TweenMax.min.js"></script>
+    <script src="./js/sphereDoms.js"></script>
+
+    <script src="./js/view2.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="./css/site.css">
+    <link rel="stylesheet" type="text/css" href="./css/prettify.css"> -->
+    <link rel="stylesheet" type="text/css" href="./css/all.css">
+    <link rel="stylesheet" type="text/css" href="./css/component.css">
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <link rel="stylesheet" type="text/css" href="./css/view2.css">
+    <link rel="stylesheet" type="text/css" href="./css/font.css">
+
+    <link rel="stylesheet" type="text/css" href="./css/animation.css">
 </head>
 
 <body>
 
     <header class="header">
         <div class="logo">
-            <img src="img/logo.jpg" />
+            <img src="./img/logo.jpg" />
         </div>
     </header>
     <section class="main-body">
         <div class="left">
-            <div class="left-column tran" id="index">
-                <div class="origin-border">
+            <div class="left-column">
+                <div id="index">
+                    <div class="origin-border">
 
+                    </div>
                 </div>
+                
             </div>
-           
             <!--左1 行业指标-->
 
-            <div class="left-column" id="indexChange">
-                <div class="origin-border">
+            <div class="left-column">
+                <div id="indexChange">
+                    <div class="origin-border">
 
+                    </div>
                 </div>
+                
             </div>
             <!--左2 行业指标变化-->
         </div>
 
         <div class="middle">
             <div class="middle-column nev-container">
-
-
                 <div id="industryIcon">
-
-                       
                 </div>
             </div>
             <!--中1 行业图例-->
-            <div class="middle-column" id="companyData">
-                <div class="table-container">
+            <div class="middle-column">
+                <div id="companyData">
+                    <div class="table-container">
 
+                    </div>
                 </div>
+                
             </div>
             <!--中1 行业数据-->
         </div>
 
         <div class="right">
-            <div class="right-column" id="operateIndex">
-                <div class="origin-border">
+            <div class="right-column">
+                <div id="operateIndex">
+                    <div class="origin-border">
 
+                    </div>
                 </div>
+                
             </div>
-            <!--左1 运行指数-->
+            <!--右1 运行指数-->
 
-            <div class="right-column" id="riskMap">
-                <div class="origin-border">
+            <div class="right-column">
+                <div id="riskMap">
+                    <div class="origin-border">
 
+                    </div>
                 </div>
+                
             </div>
-            <!--左2 运行风险分布图-->
+            <!--右2 运行风险分布图-->
         </div>
-
     </section>
+
     <div id="allIcon" style="display:none;">
 
         <div index="0" class="icon-item" data-code="01">
@@ -491,7 +498,6 @@
         </svg>
 
     </div>
-
 
     <script type="text/javascript">
         // 渲染中间的图标

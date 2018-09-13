@@ -1,0 +1,289 @@
+.tableHeader{
+    color: #fff;
+}
+
+.tableHeader span{
+    
+}
+
+/* 鼠标特效 */
+*{
+    cursor: url(../img/pointer.png) 8 3, auto !important;
+}
+
+/* 视频组件 */
+.viewVideo{
+    width: 100px;
+    height: 80px;
+    float: left;
+    margin: 0 10px;
+}
+
+/* 通用边框 */
+.origin-border{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+/* 四角特效 */
+.horn{
+    /* border: 1px solid #03a9f4; */
+    box-shadow: 0 0 10px #0a3fbf, 0 0 50px #0a3fbf inset;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.horn .horn-icon{
+    width: 40px;
+    height: 30px;
+    position:absolute;
+}
+.horn .horn-lt{
+    border-top: 2px solid #006cf6;
+    border-left: 2px solid #006cf6;
+    left: -2px;
+    top: -2px;
+}
+.horn .horn-rt{
+    border-top: 2px solid #006cf6;
+    border-right: 2px solid #006cf6;
+    right: -2px;
+    top: -2px;
+}
+.horn .horn-rb{
+    border-bottom:2px solid #006cf6;
+    border-right: 2px solid #006cf6;
+    right: -2px;
+    bottom: -2px;
+}
+.horn .horn-lb{
+    border-bottom:2px solid #006cf6;
+    border-left: 2px solid #006cf6;
+    left: -2px;
+    bottom: -2px;
+}
+
+/* 标题 */
+.title-container{
+    color: #ffffff;
+    display: inline-block;
+    font-size: 30px;
+    padding: 15px 60px;
+    border: 1px solid #006cf6;
+    box-shadow: 0 0 0px #0a3fbf, 0 0 40px #0a3fbf inset;
+    clip-path:
+    polygon(
+        15px 0, calc(100% - 15px) 0, 100% 15px, 
+        100% calc(100% -  15px), calc(100% - 15px) 100%,
+        15px 100%, 0 calc(100% - 15px), 0 15px
+    );
+    position: relative;
+    background: #0c1124;
+    left: 50%;
+    top: 0%;
+    transform: translate(-50%, -50%);
+}
+
+.title-container .title-container-horn{
+    width: 25px;
+    height: 25px;
+    position:absolute;
+    transform: rotate(45deg);
+    border: 1px solid #006cf6;
+    transform-origin: 0% 0%;
+    box-shadow: 0 0 40px #0a3fbf;
+    
+}
+.title-container .background{
+    text-align: center;
+    width: 85%;
+    height: 75%;
+    line-height: 50px;
+    background: #0e2568;
+    border-radius: 50% / 50%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(10px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.title-container .title-container-lt{
+
+    left: 0px;
+    top: -21px;
+}
+.title-container .title-container-rt{
+    right: -26px;
+    top: -20px;
+}
+.title-container .title-container-rb{
+    right: -27px;
+    bottom: -8px;
+}
+.title-container .title-container-lb{
+    left: -4px;
+    bottom: -7px;
+}
+
+/* 滚动数据 */
+
+.table-container {
+    overflow: hidden;
+    height: 100%;
+}
+.table-container {
+    position: relative;
+}
+
+.table-container .tbl-header {
+    width: 100%;
+}
+
+.table-container .tbl-body {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+.table-container table {
+    border: 0;
+    border-collapse: collapse;
+    height: 100%;
+    overflow: hidden;
+}
+
+.table-container table>tbody>tr>td, 
+.table-container table>tbody>tr>th, 
+.table-container table>tfoot>tr>td, 
+.table-container table>tfoot>tr>th, 
+.table-container table>thead>tr>td, 
+.table-container table>thead>tr>th {
+    border:0;
+    padding: 8px;
+    vertical-align: top;
+    border-bottom: 2px solid #0b41a5;
+    font-size: 24px;
+    color: #7498CE;
+    text-align: left;
+    height: 60px;
+    line-height: 60px;
+}
+.table-container table>thead>tr>td, 
+.table-container table>thead>tr>th {
+    border-bottom: 2px solid #6D7890;
+    color: #FFF;
+}
+.table-container .tbl-header table>tbody>tr>td {
+    border-bottom: 0;
+}
+
+
+/* 斜方框 */
+.skew-border{
+    border: 1px solid #03a9f4;
+    box-shadow: 0 0 30px #03A9F4, 0 0 50px #03A9F4 inset;
+    border-radius: 6px;
+    transform: skewX(20deg);
+    background: rgb(0, 32, 53);
+}
+
+/* 旋转地球特效 */
+.rotate-earth-container{
+    position: absolute;
+    right: 1vw;
+    top: 38vh;
+    width: 20vh;
+    height: 20vh;
+    -webkit-perspective: 100vh;
+    perspective: 100vh;
+    transition: opacity 1s 1s;
+    opacity: 1;
+}
+
+/* 地球特效 */
+.rotate-earth{
+    position: absolute;
+    width: 14vh;
+    height: 14vh;
+    top: 3vh;
+    left: 3vh;
+    background-image: url(../img/earth.png);
+    background-size: 14vh;
+}
+
+/* 光环特效 */
+.rotate-light{
+    position: absolute;
+    width: 20vh;
+    height: 20vh;
+    top: 0;
+    left: 0;
+    background-image: url(../img/circle.svg);
+    background-size: 20vh;
+    animation: rotate 25s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateX(70deg) rotateY(20deg) rotateZ(0);
+    }
+    to {
+        transform: rotateX(70deg) rotateY(20deg) rotateZ(360deg);
+    }
+}
+
+/* 边框组件 */
+/*
+并列排放到要添加边框的DIV即可
+*/
+.ov-borderRadius-tl{
+    left: 0px;
+    top: 0px;
+    transform: rotate(0);
+}
+
+.ov-borderRadius-tr{
+    right: 0px;
+    top: 0px;
+    transform: rotate(90deg);
+}
+
+.ov-borderRadius-bl{
+    left: 0px;
+    bottom: 0px;
+    transform: rotate(270deg);
+}
+
+.ov-borderRadius-br{
+    right: 0px;
+    bottom: 0px;
+    transform: rotate(180deg);
+}
+
+.ov-borderRadius-tl, .ov-borderRadius-tr, .ov-borderRadius-bl, .ov-borderRadius-br {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    transition: transform .3s linear;
+}
+
+.ov-borderRadius-tl:after, .ov-borderRadius-tr:after, .ov-borderRadius-bl:after, .ov-borderRadius-br:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-sizing: border-box;
+}
+
+/* 科幻时钟 */
+
+#canvas {
+    display:block;
+    margin:5vh auto;
+    box-shadow: 0 5px 14px black;
+}

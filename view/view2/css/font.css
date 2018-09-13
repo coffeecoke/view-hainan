@@ -1,0 +1,39 @@
+/* 钟表体字体 */
+@font-face {
+    font-family: 'digital';
+    src: url('../font/digital.ttf');
+}
+
+h1, h2, h3, h4, h5 ,p{
+    color:#fff;
+
+}
+
+h1, h2, h3, h4, h5{
+    text-align: center;
+}
+
+i{
+    margin: 0px 10px;
+}
+
+strong{
+    font-family: 'digital';
+    font-size: 25px;
+    color: rgb(26,168,255);
+}
+
+table{
+    width: 100%;
+    color: #fff;
+    font-size:5px;
+    border: 1px solid rgb(255,255,255,0.25);
+}
+
+tr.active{
+    background-color: #1cb8ff;
+}
+
+tr.active td{
+    color: #000;
+}

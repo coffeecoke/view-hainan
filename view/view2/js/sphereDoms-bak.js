@@ -361,6 +361,13 @@
             value: true
         });
 
+
+        function _interopRequireDefault(obj) {
+            return obj && obj.__esModule ? obj : {
+                default: obj
+            };
+        }
+
         function _classCallCheck(instance, Constructor) {
             if (!(instance instanceof Constructor)) {
                 throw new TypeError("Cannot call a class as a function");
@@ -409,8 +416,7 @@
             if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
         }
 
-        var CameraRadius = 2200,
-            CameraHeight = 750,
+        var CameraRadius = 2000,SceneOffsetY=750,DomAspect=600,
             events = {};
 
         var SphereDoms = function (_BaseThreeModel) {
@@ -437,7 +443,6 @@
                 value: function prepareClip() {
                     var me = this;
                     this.domItems = [];
-                    this.target = [];
                     this.raycaster = new THREE.Raycaster();
                     this.mouse = new THREE.Vector2();
 
@@ -445,20 +450,30 @@
 
                     this.group = new THREE.Group();
                     this.scene.add(this.group);
-                    this.group.position.set(0, CameraHeight, 0);
 
-                    this.camera.position.set(0, 0, CameraRadius);
+                    this.scene.position.y=SceneOffsetY
+
+                    this.camera.position.set(0, 0, CameraRadius+SceneOffsetY);
                     this.camera.lookAt(this.scene.position);
+
+                    /*let controls = new THREE.TrackballControls( this.camera, this.renderer.domElement );
+                    controls.rotateSpeed = 0.5;
+                    controls.minDistance = 500;
+                    controls.maxDistance = 6000;
+                    controls.addEventListener( 'change', me.render );
+                    this.controls=controls;*/
 
                     this.cameraControl = new THREE.OrbitControls(this.camera, this.renderer.domElement);
                     this.cameraControl.target.set(0, 0, 0);
+                    // this.cameraControl.autoRotate=true;
                     this.cameraControl.enablePan = false;
                     this.cameraControl.enableDamping = true;
                     this.cameraControl.dampingFactor = .8;
-                    this.cameraControl.maxDistance = CameraRadius + 1200;
+                    this.cameraControl.maxDistance = CameraRadius;
                     this.cameraControl.minDistance = CameraRadius;
-                    this.cameraControl.maxPolarAngle = Math.PI * 0.5;
-                    this.cameraControl.minPolarAngle = Math.PI * 0.5;
+                    this.cameraControl.maxPolarAngle = Math.PI *0.33;
+                    this.cameraControl.minPolarAngle = Math.PI * 0.33;
+                    
                     this.cameraControl.update();
 
                     // this.wrapDom.addEventListener( 'mousedown', me.onDocumentMouseDown, false );
@@ -467,37 +482,10 @@
                     this.render();
                 }
             }, {
-                key: 'calculateTargetPosition',
-                value: function calculateTargetPosition(domCnt) {
-                    var a = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 800;
-                    var b = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 400;
-
-                    var group = [];
-                    if (domCnt) {
-                        //  椭圆轨迹
-                        var theta = 360 / domCnt;
-                        var alpha = 0;
-                        for (var i = 0; i < domCnt; i++) {
-                            var x = a * Math.sin(alpha * Math.PI / 180),
-                                z = b * Math.cos(alpha * Math.PI / 180),
-                                y = -z / 1.5,
-                                obj = new THREE.Object3D();
-                            obj.position.set(x, y, z);
-                            // obj.lookAt(new THREE.Vector3(x,y,9000));
-                            group.push(obj);
-                            alpha -= theta;
-                        }
-                    }
-                    return group;
-                }
-            }, {
                 key: 'clipMotion',
                 value: function clipMotion() {
                     this.render();
                     this.cameraControl.update();
-                    this.domItems.forEach(function (item) {
-                        item.userData.update();
-                    });
                 }
             }, {
                 key: 'appendDoms',
@@ -509,57 +497,66 @@
                     var me = this;
                     if (_.isArray(domItems)) {
                         var size = domItems.length;
-                        this.target = this.calculateTargetPosition(size, radius, radius * .7);
                         domItems.forEach(function (item, idx) {
+                            
                             var wrapDom = item.wrapDom,
-                                bgWidth = item.bgWidth,
-                                bgHeight = item.bgHeight,
-                                bgWrapDom = item.bgWrapDom,
-                                bgColors = item.bgColors,
-                                handler = item.handler,
-                                tar = _this2.target[idx],
-                                bg = new FocusBg({
-                                    width: bgWidth,
-                                    height: bgHeight,
-                                    wrapDom: bgWrapDom,
-                                    bgColors: bgColors
-                                }).render();
+                                handler = item.handler;
 
 
                             var obj = new THREE.CSS3DObject(wrapDom);
-                            obj.userData = bg;
-                            obj.position.set(tar.position.x, tar.position.y, tar.position.z);
+                            var theta = Math.PI * 2 / size * idx;
+                            obj.position.setFromCylindrical(new THREE.Cylindrical(radius, theta, 0));
+                            obj.lookAt(new THREE.Vector3(obj.position.x * 2, obj.position.y+DomAspect, obj.position.z * 2));
                             _this2.group.add(obj);
                             _this2.domItems.push(obj);
 
                             wrapDom.addEventListener('click', function (e) {
                                 if (_.isFunction(handler)) {
-                                    var preIdx = me.preIdx,
-                                        nextIdx = e.data || parseInt(e.currentTarget.getAttribute('index'));
-                                    var tmpDoms = [].concat(me.domItems.slice(nextIdx), me.domItems.slice(0, nextIdx));
+                                    var c = me.cameraControl.object,
+                                        preCameraPos = c.position,
+                                        preIdx = me.preIdx,
+                                        preDom = me.domItems[preIdx],
+                                        nextIdx = e.data || parseInt(e.currentTarget.getAttribute('index')),
+                                        nextDom = me.domItems[nextIdx],
+                                        next = nextDom.position,
+                                        nextCameraPos = void 0,
+                                        gap = nextIdx - preIdx,
+                                        absGap = Math.abs(gap);
 
-                                    tmpDoms.forEach(function (curItem, idx) {
-                                        var curTar = me.target[idx];
-                                        // console.log(idxOffset);
-                                        TweenMax.to(curItem.position, 2, {
-                                            x: curTar.position.x,
-                                            y: curTar.position.y,
-                                            z: curTar.position.z
+                                    /*if(gap){
+                                        let arcLen=absGap*360*CameraRadius*Math.PI/size/180,
+                                            step=absGap*360/size,xPos,zPox;
+                                        console.log(arcLen);
+                                        for(let i=0;i<step ;i++){
+                                              if(gap<0){
+                                                xPos=-CameraRadius*Math.sin(i*Math.PI/180);
+                                                zPox=-CameraRadius*Math.cos(i*Math.PI/180);
+                                            }else{
+                                                xPos=CameraRadius*Math.sin(i*Math.PI/180);
+                                                zPox=CameraRadius*Math.cos(i*Math.PI/180);
+                                            }
+                                            me.tween=TweenMax.to(c.position,2,{
+                                                x:xPos,
+                                                z:zPox
+                                            });
+                                            me.cameraControl.update();
+                                        }
+                                      }*/
+                                    if (!me.autoSwitchFlag) {
+                                        me.tween = TweenMax.to(c.position, 2, {
+                                            x: next.x,
+                                            z: next.z
                                         });
-                                        TweenMax.to(curItem.rotation, 2, {
-                                            x: curTar.rotation.x,
-                                            y: curTar.rotation.y,
-                                            z: curTar.rotation.z
-                                        });
-                                    });
-                                    me.cameraControl.update();
+                                        me.cameraControl.update();
+                                    }
 
                                     me.preIdx = nextIdx;
                                     handler.call(_this2, item);
                                 }
                             });
                         });
-
+                       
+                        
                         this.preIdx = 0;
                         this.render();
                     }
@@ -570,22 +567,46 @@
                     var _this3 = this;
 
                     var flag = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-                    var circleTime = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5000;
 
                     this.autoSwitchFlag = flag;
+                    this.cameraControl.autoRotate = flag;
+                    this.cameraControl.autoRotateSpeed = 1;
                     if (this.autoSwitchFlag) {
-                        var loopFunc = function loopFunc() {
-                            _this3.switchDom(_this3.preIdx);
-                            if (_this3.preIdx === _this3.domItems.length) {
-                                _this3.preIdx = 0;
-                            } else {
-                                _this3.preIdx++;
-                            }
-                            _this3.loopHandler = setTimeout(loopFunc, circleTime);
-                        };
+                        var time = 5000,
+                            fst = true,
+                            loopFunc = function loopFunc() {
+                                _this3.switchDom(_this3.preIdx);
+                                if (_this3.preIdx === _this3.domItems.length-1) {
+                                    _this3.preIdx = 0;
+                                } else {
+                                    _this3.preIdx++;
+                                }
+                                if (fst) {
+                                    time = 3000;
+                                    fst = false;
+                                } else {
+                                    time = 5000;
+                                }
+                                
+                                var curDom = _this3.domItems[_this3.preIdx];
+                                var code = $(curDom.element).data('code');
+                                // 图标转换
+                                iconChange($(this));
+                                // 行业指标
+                                renderIndex(code);
+                                // 行业指标变化
+                                renderIndexChange(code);
+                                // 企业数据
+                                renderCompanyData(code);
+                                // 运行指数
+                                renderOperateIndex(code);
+                                // 风险分布图
+                                renderRiskMap(code);
+
+                                setTimeout(loopFunc, time);
+                            };
+                        //  大约5秒 切换到下一个dom
                         loopFunc();
-                    } else {
-                        clearTimeout(this.loopHandler);
                     }
                 }
             }, {
@@ -597,6 +618,11 @@
                         var event = new Event('click');
                         event.data = idx;
                         cur.element.dispatchEvent(event);
+                        /*let bg=new FocusBg({
+                            width:cur.element.clientWidth,
+                            height:cur.element.clientHeight,
+                            wrapDom:cur.element
+                        }).render();*/
                     }
                 }
             }, {
@@ -630,8 +656,6 @@
             return SphereDoms;
         }(Modules.BaseThreeModel.default);
 
-        var Def_Color = 'rgb(45, 100, 205)';
-
         var FocusBg = function () {
             function FocusBg(opts) {
                 _classCallCheck(this, FocusBg);
@@ -641,7 +665,6 @@
                 this.height = this.options.height;
                 this.wrapDom = this.options.wrapDom;
                 this.ctx = undefined;
-                this.rings = [];
                 this.__init();
             }
 
@@ -656,22 +679,6 @@
                         this.ctx = canvas.getContext('2d');
                         // this.ctx.globalAlpha=0;
                         this.ctx.lineCap = 'round';
-                        this.maxRadius = Math.min(this.width, this.height) / 2 * .8;
-                        this.rings.push({
-                            color: this.options.color || Def_Color,
-                            width: 14,
-                            radius: this.maxRadius * .9,
-                            theta: 70,
-                            offset: Math.floor(Math.random() * 350) + 10,
-                            clockwise: true
-                        }, {
-                            color: this.options.color || Def_Color,
-                            width: 4,
-                            radius: this.maxRadius * .72,
-                            theta: 260,
-                            offset: Math.floor(Math.random() * 350) + 10,
-                            clockwise: false
-                        });
                     }
                     return this;
                 }
@@ -680,92 +687,23 @@
                 value: function render() {
                     var ctx = this.ctx;
                     if (ctx) {
-                        ctx.clearRect(0, 0, this.width, this.height);
                         var centerX = this.width / 2,
                             centerY = this.height / 2,
-                            r = this.maxRadius,
-                            colors = this.options.bgColors,
-                            gradientFill = void 0;
-
-                        if (colors && _.isArray(colors)) {
-                            gradientFill = ctx.createRadialGradient(centerX, centerY, .1, centerX, centerY, r / .8);
-                            colors.forEach(function (c) {
-                                gradientFill.addColorStop(c.stop, c.color);
-                            });
-                            ctx.fillStyle = gradientFill;
-                            ctx.beginPath();
-                            ctx.arc(centerX, centerY, this.maxRadius, 0, Math.PI * 2);
-                            ctx.closePath();
-                            ctx.fill();
-                        }
-
+                            radius = Math.min(centerX, centerY) * .8;
+                        ctx.strokeStyle = '#393e81';
+                        ctx.beginPath();
                         ctx.lineWidth = 2;
-                        // out dashed line
-                        ctx.strokeStyle = '#888';
-                        ctx.setLineDash([3, 8]);
-                        ctx.beginPath();
-                        ctx.arc(centerX, centerY, r, 0, Math.PI * 2);
-                        ctx.closePath();
+                        ctx.arc(centerX, centerY, radius * .6, Math.PI / 180 * 145, Math.PI * 2);
                         ctx.stroke();
-
-                        ctx.strokeStyle = this.options.color || Def_Color;
-                        // draw ring2
-                        ctx.setLineDash([3, 3]);
-                        ctx.beginPath();
-                        ctx.arc(centerX, centerY, r * .8, 0, Math.PI * 2);
                         ctx.closePath();
+
+                        ctx.beginPath();
+                        ctx.lineWidth = 12;
+                        ctx.arc(centerX, centerY, radius, Math.PI / 180 * 245, Math.PI / 180 * 335);
                         ctx.stroke();
-
-                        ctx.setLineDash([]);
-                        //  draw sector
-                        this.rings.forEach(function (ring) {
-                            var color = ring.color,
-                                width = ring.width,
-                                radius = ring.radius,
-                                theta = ring.theta,
-                                offset = ring.offset,
-                                clockwise = ring.clockwise,
-                                end = void 0;
-
-                            if (clockwise) {
-                                end = 360 - theta + offset;
-                            } else {
-                                end = theta + offset;
-                            }
-                            ctx.lineWidth = width;
-                            ctx.strokeStyle = color;
-                            ctx.beginPath();
-                            ctx.arc(centerX, centerY, radius, offset * Math.PI / 180, end * Math.PI / 180, clockwise);
-                            ctx.stroke();
-                        });
+                        ctx.closePath();
                     }
                     return this;
-                }
-            }, {
-                key: 'update',
-                value: function update() {
-                    var _this4 = this;
-
-                    var newGroup = [];
-                    var loop = function loop() {
-                        newGroup = [];
-                        _this4.rings.forEach(function (ring) {
-                            var of = ring.offset;
-                            if (ring.clockwise) {
-                                of-=2;
-                            } else {
-                                of+=2;
-                            }
-                            ring.offset = of;
-                            newGroup.push(ring);
-                        });
-                        _this4.rings = newGroup;
-                        _this4.render();
-                    };
-
-                    loop();
-
-                    // this.loopHandler=window.animateProxy.addMotion(loop,this);
                 }
             }]);
 

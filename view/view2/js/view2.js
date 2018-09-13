@@ -1,4 +1,5 @@
 
+
 var shieldProgress = null;
 var industryMap = getNameByCode();
 /**
@@ -159,17 +160,15 @@ var renderIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-           
             if($('#index .origin-border .title-container .text span').html() === '') {
                 $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-                renderIndexData('#index .origin-border .horn .item-container', data, 12);
+                renderIndexData('#index .origin-border .horn .item-container', data, 9);
             } else {
                 rotateYDIV({
                     $obj:$('#index'),
-                    wrapWidth:$('.left-column').width(),
                     inRotate: function() {
                         $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-                        renderIndexData('#index .origin-border .horn .item-container', data, 12);
+                        renderIndexData('#index .origin-border .horn .item-container', data, 9);
                     }
                 });
             }
@@ -201,9 +200,6 @@ var initIndexChangeChart = function(data) {
             }
         },
         legend : {
-            icon:'rect',
-            itemWidth: 10,
-            itemHeight: 10,
             y : 'top',
             right : '40px',
             color : ['#3A73C9','#E13848','#efd147'],
@@ -211,7 +207,7 @@ var initIndexChangeChart = function(data) {
                 color:'#FFF',
                 fontSize:'24px'
             },
-            data : [{name:'投资金额'},{name:'投资人数'},{name:'借款人数'}]
+            data : [{name:'营业收入增长率'},{name:'交易金额增长率'},{name:'交易人数增长率'}]
         },
         xAxis: {
             type: 'category',
@@ -230,11 +226,11 @@ var initIndexChangeChart = function(data) {
                     fontSize : 16
                 },
                 interval:0,
-                // rotate:40
+                rotate:40
             },
             data: date
         },
-        yAxis: [{
+        yAxis: {
             type: 'value',
             boundaryGap: [0, '100%'],
             max : function(value) {
@@ -265,40 +261,9 @@ var initIndexChangeChart = function(data) {
                 }
             }
         },
-        {
-            type: 'category',
-           
-            position: 'right',
-            axisLine: {
-                show: true,
-                lineStyle: {
-                    color: '999999',
-                    width: 3,
-                    type: 'solid'
-                }
-            },
-            splitLine: {
-                show: 'show',
-                lineStyle : {
-                    color: 'transparent',
-                    width: 1,
-                    type: 'dashed',
-                    opacity : 0.5
-                }
-                
-            },
-            axisLabel: {
-                textStyle: {
-                    color : "#999999",
-                    fontSize : 16
-                }
-            },
-            data:['0','10%','20%','30%','40%','50%']
-           
-        }],
         series: [
             {
-                name:'投资金额',
+                name:'营业收入增长率',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -320,7 +285,7 @@ var initIndexChangeChart = function(data) {
                 data: dataBRIR
             },
             {
-                name:'投资人数',
+                name:'交易金额增长率',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -342,7 +307,7 @@ var initIndexChangeChart = function(data) {
                 data: dataTVGR
             },
             {
-                name:'借款人数',
+                name:'交易人数增长率',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -402,13 +367,84 @@ var renderIndexChange = function(code) {
 var renderCompanyData = function(code) {
     var config = [
         {name :"排名", key:"rank",  width : "10%", class:"rank"},
-        {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
-        {name :"企业代码", key:"companyCode",  width : "20%", class:"blue"},
+        {name :"企业名称", key:"companyName",  width : "30%", class:"white"},
+        {name :"统一社会信用代码", key:"companyCode",  width : "20%", class:"blue"},
         {name :"所属区域", key:"region",  width : "20%", class:"blue"},
-        {name :"注册资本", key:"interest",  width : "20%", class:"blue"},
-        {name :"指数", key:"level",  width : "15%", class:"blue", class:"level"}
+        {name :"级别", key:"level",  width : "20%", class:"blue", class:"level"}
     ];
     initTable('#companyData .table-container', 'data/companyData.json', {code:code}, config);
+};
+
+var operateIconMap = {
+    // P2P
+    '01-01':'operate01.png',
+    '01-02':'operate02.png',
+    '01-03':'operate04.png',
+    '01-04':'operate05.png',
+    '01-05':'operate06.png',
+    '01-06':'operate07.png',
+    // 小额贷款
+    '02-01':'operate01.png',
+    '02-02':'operate02.png',
+    '02-03':'operate04.png',
+    '02-04':'operate05.png',
+    '02-05':'operate06.png',
+    '02-06':'operate07.png',
+    // 各类交易场所
+    '03-01':'operate01.png',
+    '03-02':'operate04.png',
+    '03-03':'operate05.png',
+    '03-04':'operate06.png',
+    '03-05':'operate07.png',
+    // 股权交易
+    '04-01':'operate01.png',
+    '04-02':'operate04.png',
+    '04-03':'operate05.png',
+    '04-04':'operate06.png',
+    '04-05':'operate07.png',
+    // 融资担保
+    '05-01':'operate01.png',
+    '05-02':'operate02.png',
+    '05-03':'operate04.png',
+    '05-04':'operate05.png',
+    '05-05':'operate06.png',
+    '05-06':'operate07.png',
+    // 典当行
+    '06-01':'operate01.png',
+    '06-02':'operate02.png',
+    '06-03':'.png',
+    '06-04':'operate04.png',
+    '06-05':'operate05.png',
+    '06-06':'operate06.png',
+    '06-07':'operate07.png',
+    // 融资租赁公司
+    '07-01':'operate01.png',
+    '07-02':'operate02.png',
+    '07-03':'.png',
+    '07-04':'operate04.png',
+    '07-05':'operate05.png',
+    '07-06':'operate06.png',
+    '07-07':'operate07.png',
+    // 商业保理公司（资产公司）
+    '08-01':'.png',
+    '08-02':'operate04.png',
+    '08-03':'operate05.png',
+    '08-04':'operate08.png',
+    '08-05':'operate07.png',
+    // 地方融资公司(融资担保)
+    '09-01':'operate01.png',
+    '09-02':'operate02.png',
+    '09-03':'operate04.png',
+    '09-04':'operate05.png',
+    '09-05':'operate06.png',
+    '09-06':'operate07.png',
+    // 农村合作组织
+    '10-01':'operate01.png',
+    '10-02':'operate02.png',
+    '10-03':'operate04.png',
+    '10-04':'operate05.png',
+    '10-05':'operate06.png',
+    '10-06':'operate07.png',
 };
 
 /**
@@ -419,6 +455,7 @@ var initOperateIndex = function(data) {
     var html = '';
     var score = 65;
     $.each(data, function(index, item) {
+
         html += '<div class="operate-item">';
         html += '<div class="icon">';
         html += '<img src="img/risk-icon'+(index+1)+'.png" />'
@@ -431,7 +468,7 @@ var initOperateIndex = function(data) {
     // 指数
     shieldProgress.update(50);
 };
-     
+
 /**
  * 渲染运行指数
  * @param {*} code 需要展示的数据的code值
@@ -455,8 +492,6 @@ var renderOperateIndex = function(code) {
                     }
                 });
             } 
-
-            
         }
     });
 };
@@ -481,9 +516,6 @@ var initRiskMap = function(data) {
     var myDate = new Date();
     var year = myDate.getFullYear();
     var month = myDate.getMonth() + 1;
-    //distributionMapData
-    // console.log($('#riskMap .item-container').height());
-    // console.log($('#riskMap .item-container').width());
     var left = $('#riskMap .item-container').width()/2;
     var top = $('#riskMap .item-container').height()/2;
     var option = {
@@ -493,40 +525,40 @@ var initRiskMap = function(data) {
                 //colorLightness: [0, 1]
             }
         },
-        graphic: [
-            {
-                type:'text',
-                left:'center',
-                top:'center',
+        // graphic: [
+        //     {
+        //         type:'text',
+        //         left:'center',
+        //         top:'center',
                 
-                z:2,
-                zlevel:100,
-                style: {
-                    text: year + '\r\n',
-                    fontSize: 24,
-                }
-            },
-            {
-                type:'text',
-                position: [left-30, top],
-                z:2,
-                zlevel:100,
-                style: {
-                    text:(month<10)?'0'+month:''+month,
-                    fontSize: 40,
-                }
-            },
-            {
-                type:'text',
-                position: [left + 15, top+10],
-                z:2,
-                zlevel:100,
-                style: {
-                    text:'月',
-                    fontSize: 24,
-                }
-            }
-        ],
+        //         z:2,
+        //         zlevel:100,
+        //         style: {
+        //             text: year + '\r\n',
+        //             fontSize: 24,
+        //         }
+        //     },
+        //     {
+        //         type:'text',
+        //         position: [left-30, top],
+        //         z:2,
+        //         zlevel:100,
+        //         style: {
+        //             text:(month<10)?'0'+month:''+month,
+        //             fontSize: 40,
+        //         }
+        //     },
+        //     {
+        //         type:'text',
+        //         position: [left + 15, top+10],
+        //         z:2,
+        //         zlevel:100,
+        //         style: {
+        //             text:'月',
+        //             fontSize: 24,
+        //         }
+        //     }
+        // ],
         series : [
             {
                 type:'pie',
@@ -541,7 +573,6 @@ var initRiskMap = function(data) {
                     },
                     verticalAlign:'top',
                     formatter:function(a){
-                        
                         var content = '';
                         content += ' {rate|'+a.data.value+'%}  ';
                         content += '{name|'+a.data.name+'风险}';

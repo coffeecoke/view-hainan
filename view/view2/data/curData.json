@@ -1,0 +1,23 @@
+{
+    "totalData":{
+        "totalCount":310400,
+        "time":"2018-09-01 12:00"
+    },
+    "riskData" : {
+        "riskCount" : 387,
+        "highRishCount" : 400,
+        "illegalCount" : 30
+    },
+    "industryData" : [
+        {"name":"P2P网络贷款", "code":"01","max":100,"value":30},
+        {"name":"融资租赁", "code":"02","max":200,"value":12},
+        {"name":"典当行", "code":"03","max":300,"value":12},
+        {"name":"融资担保", "code":"04","max":400,"value":22},
+        {"name":"交易场所", "code":"05","max":500,"value":22},
+        {"name":"商业保理", "code":"06","max":600,"value":12},
+        {"name":"融资担保", "code":"07","max":700,"value":67},
+        {"name":"资产管理", "code":"08","max":800,"value":34},
+        {"name":"小额贷款公司", "code":"09","max":900,"value":34},
+        {"name":"系统管理", "code":"10","max":1000,"value":50}
+    ]
+}
