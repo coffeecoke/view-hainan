@@ -29,7 +29,7 @@
     position: relative;
     top:-40px;
 }
-.tran{
+/* .tran{
     animation:translate 1s;
 }
 @keyframes translate{
@@ -42,7 +42,7 @@
     100%{
         transform:translate(0%);
     }
-}
+} */
 
 #indexChange {
     height: 40%;

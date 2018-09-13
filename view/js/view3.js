@@ -666,7 +666,6 @@ var setMapActive = function(data) {
         '1316': {tipLeft:1200, tipTop:340,afterCss:'width: 216px;top: 117px;left: -206px;transform: rotate(23deg);'},
         '1317': {tipLeft:1100, tipTop:720,afterCss:'width: 262px;top: -5px;left: -207px;transform: rotate(36deg);'},
         '1318': {tipLeft:1100, tipTop:540,afterCss:'width: 290px;top: 231px;left: -290px;'}
-    
     };
     var index = 0;
     var setInfo = function() {

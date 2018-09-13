@@ -5,9 +5,52 @@
     <title></title>
 </head>
 <style>
+    body{
+        width:3840px;
+        height:1080px;
+        margin:0;
+        padding:0;
+    }
+    .iframe-command{
+        width:100%;
+        height:100%;
+    }
+    .outer-wrapper {
+        width: 11520px;
+        height: 1080px;
+        overflow: hidden;
+        position: relative;
+        top:0;
+        left:0;
+        margin:0;padding:0;
+    }
+    .page1 {
+        width: 3840px;
+        height: 100%;
+        float: left;
+        overflow: hidden;
+    }
+    .page2 {
+        width: 3840px;
+        height: 100%;
+        float: left;
+        overflow: hidden;
+    }   
+    .page3 {
+        width: 3840px;
+        height: 100%;
+        float: left;
+        overflow: hidden;
+    }
+    .iframe-command{
+        width:100%;
+        height:100%;
+    }
     .aa{
         position: fixed;
         right:30px;
+        z-index:10;
+        top:10px;
     }
     .aa li{
         float: left;
@@ -23,15 +66,30 @@
     }
 </style>
 <body>
-<ul class="aa">
+<!-- <ul class="aa">
     <li data-url="view1.html">数据监测平台</li>
     <li class="cuur" data-url="view2.html">行业监测平台</li>
     <li data-url="view3.html">风险控制平台</li>
-</ul>
-<div class="iframe-command">
-    <iframe class="one" name="cwin" id="risk" src="view2.html" frameborder="0" style="width:2860px;height:1080px;"></iframe>
-</div>
-
+</ul> -->
+<div class="outer-wrapper" id="outerWrapper">
+        <ul class="pages-container" style="position: absolute;left:0;top:0;width:100%;height:100%;padding:0;margin:0;">
+            <li class="page1">
+                <div class="iframe-command">
+                    <iframe class="one" name="cwin" id="view1" src="view1.html" frameborder="0" style="width:100%;height:100%;"></iframe>
+                </div>
+            </li>
+            <li class="page2">
+                <div class="iframe-command">
+                    <iframe class="one" name="cwin" id="view2" src="view2.html" frameborder="0" style="width:100%;height:100%;"></iframe>
+                </div>
+            </li>
+            <li class="page3">
+                <div class="iframe-command">
+                    <iframe class="one" name="cwin" id="view3" src="view3.html" frameborder="0" style="width:100%;height:100%;"></iframe>
+                </div>
+            </li>
+        </ul>
+    </div>
 <script src="js/jquery-2.1.4.min.js"></script>
 <script>
     function resizeFrameheight() {
@@ -45,9 +103,29 @@
     $(".aa li").click(function(){
         var url=$(this).data("url");
         $(".one").attr("src",url)
-        $(this).addClass("cuur").siblings().removeClass("cuur");
+        // $(this).addClass("cuur").siblings().removeClass("cuur");
         resizeFrameheight()
     })
+    var pagesnum = $('.pages-container > li').length;
+    var outerTimer = setInterval(function () {
+        pagesnum--;
+        if(pagesnum<1) {
+            $('.pages-container').animate({
+                left:0
+            },1000)
+            pagesnum =2;
+        }else if(pagesnum<2){
+            $('.pages-container').animate({
+                left: -3840
+            }, 1000)
+            pagesnum =3;
+        }else if(pagesnum=3){
+            $('.pages-container').animate({
+                left: -7680
+            }, 1000)
+            pagesnum =1;
+        }
+    },3000);
 </script>
 </body>
 </html>

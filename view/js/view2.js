@@ -116,15 +116,12 @@ var renderIndustryIcon = function() {
         },
         onSlideChangeEnd: function (swiper) {
            
-            console.log(swiper)
             var index = swiper.activeIndex + 1;
             $(".data-numbers").eq(index).show().parent().siblings().children("p").hide();
             var title = $.trim(swiper.container.innerText);
-            console.log(title);
         //    genDatas($.trim(title));
             // 行业指标
             var code = industryMap2[title]
-            console.log(code);
             renderIndex(code);
             // 行业指标变化
             renderIndexChange(code);
@@ -248,7 +245,6 @@ var renderIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            console.log(code);
             if($('#index .origin-border .title-container .text span').html() === '') {
                 $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
                 renderIndexData('#index .origin-border .horn .item-container', data, 12);
@@ -630,7 +626,6 @@ var initRiskMap = function(data) {
                     },
                     verticalAlign:'top',
                     formatter:function(a){
-                        console.log(a);
                         var content = '';
                         content += ' {rate|'+a.data.value+'%}  ';
                         content += '{name|'+a.data.name+'风险}';
