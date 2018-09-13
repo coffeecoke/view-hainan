@@ -452,12 +452,12 @@ window.BezierCurveUtil={};
                     ctx = me.ctx,
                     center_x = me.width / 2,
                     center_y = me.height / 2;
-                ctx.font = '300 100px "Microsoft YaHei"';
+                ctx.font = '300 52px "Microsoft YaHei"';
                 ctx.textAlign = 'center';
                 ctx.fillText(this.curVal, center_x, center_y + 65);
-                ctx.font = '300 40px "Microsoft YaHei"';
+                ctx.font = '300 38px "Microsoft YaHei"';
                 ctx.fillStyle = '#fff';
-                ctx.fillText('长城指数', center_x, center_y - 45);
+                ctx.fillText('运行指数', center_x, center_y - 45);
             }
         }, {
             key: '__dynamicDraw',

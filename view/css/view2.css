@@ -25,6 +25,23 @@
 
 #index {
     height: 60%;
+    width:100%;
+    position: relative;
+    top:-40px;
+}
+.tran{
+    animation:translate 1s;
+}
+@keyframes translate{
+    0%{
+        transform:translate(-50%);
+    }
+    50%{
+        transform:translate(-100%);
+    }
+    100%{
+        transform:translate(0%);
+    }
 }
 
 #indexChange {
@@ -113,7 +130,7 @@
 
  .swiper-container3 {
     margin:0 auto;
-    width: 600px;
+    width: 1000px;
     height: 100%;
   }
   .swiper-wrapper {
@@ -133,52 +150,24 @@
     font-size: 28px;
   }
 .swiper-container3 .swiper1 img {
-    background: url("../img/icon-1.png") no-repeat center center;
+    background: url("../img/icon-swiper1.png") no-repeat center center;
     background-size: 50%;
   }
 .swiper-container3 .swiper2 img {
-    background: url("../img/icon-2.png") no-repeat center center;
+    background: url("../img/icon-swiper2.png") no-repeat center center;
     background-size: 50%;
   }
 .swiper-container3 .swiper3 img {
-    background: url("../img/icon-3.png") no-repeat center center;
+    background: url("../img/icon-swiper3.png") no-repeat center center;
     background-size: 50%;
   }
 .swiper-container3 .swiper4 img {
-    background: url("../img/icon-4.png") no-repeat center center;
-    background-size: 50%;
-  }
-.swiper-container3 .swiper5 img {
-    background: url("../img/icon-5.png") no-repeat center center;
-    background-size: 50%;
-  }
-.swiper-container3 .swiper6 img {
-    background: url("../img/icon-6.png") no-repeat center center;
-    background-size: 50%;
-  }
-.swiper-container3 .swiper7 img {
-    background: url("../img/icon-7.png") no-repeat center center;
-    background-size: 50%;
-  }
-.swiper-container3 .swiper8 img {
-    background: url("../img/icon-8.png") no-repeat center center;
-    background-size: 50%;
-  }
-.swiper-container3 .swiper9 img {
-    background: url("../img/icon-9.png") no-repeat center center;
-    background-size: 50%;
-  }
-.swiper-container3 .swiper10 img {
-    background: url("../img/icon-10.png") no-repeat center center;
-    background-size: 50%;
-  }
-.swiper-container3 .swiper11 img {
-    background: url("../img/icon-11.png") no-repeat center center;
+    background: url("../img/icon-swiper4.png") no-repeat center center;
     background-size: 50%;
   }
   .data-numbers {
     color: #86cef6;
-    display: none;
+    /* display: none; */
     white-space: nowrap;
     margin-top: 20px;
   }
@@ -370,6 +359,7 @@
 #operateIndex .item-container .data-container {
     width: 50%;
     position: relative;
+    top:30px;
 }
 
 #operateIndex .item-container .canvas-container {

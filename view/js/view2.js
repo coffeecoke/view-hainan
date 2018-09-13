@@ -108,9 +108,9 @@ var renderIndustryIcon = function() {
         autoplay: 5000,
         slidesPerView: 3,
         tdFlow: {
-            rotate: 0,
-            stretch: -30,
-            depth: 120,
+            rotate:0,
+            stretch: -90,
+            depth: 150,
             modifier: 2,
             shadows: true
         },
@@ -120,6 +120,7 @@ var renderIndustryIcon = function() {
             var index = swiper.activeIndex + 1;
             $(".data-numbers").eq(index).show().parent().siblings().children("p").hide();
             var title = $.trim(swiper.container.innerText);
+            console.log(title);
         //    genDatas($.trim(title));
             // 行业指标
             var code = industryMap2[title]
@@ -180,8 +181,8 @@ var renderFrame = function() {
 
 var initProgress = function() {
     var opts={
-        width:450,
-        height:450,
+        width:400,
+        height:400,
         bgColors:'#111',
         lineCap:'round',
         showShadow:true,
@@ -519,7 +520,7 @@ var initOperateIndex = function(data) {
     // 指数
     shieldProgress.update(50);
 };
-
+     
 /**
  * 渲染运行指数
  * @param {*} code 需要展示的数据的code值
