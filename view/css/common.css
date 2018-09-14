@@ -21,6 +21,7 @@ body{
 .header .logo{
     width: 100%;
     text-align: center;
+    position: relative;
 }
 .main-body {
     width : 100%;
