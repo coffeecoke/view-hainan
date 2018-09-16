@@ -292,7 +292,7 @@ var industry = [
     {name:'P2P',code:'01'},
     {name:'小额贷款公司',code:'02'},
     {name:'各类交易场所',code:'03'},
-    {name:'股权交易',code:'04'},
+    {name:'股权交易市场',code:'04'},
     {name:'融资担保',code:'05'},
     {name:'典当行',code:'06'},
     {name:'融资租赁公司',code:'07'},

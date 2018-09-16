@@ -184,8 +184,10 @@ var renderIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
+            var currName = 'indexData'+code;
+            var data = data[currName];
             $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-            renderIndexData('#index .origin-border .horn .item-container', data, 9);
+            renderIndexData('#index .origin-border .horn .item-container', data, 12);
             $('#index').toggleClass('card-flipped')
           
             
@@ -417,6 +419,8 @@ var renderCompanyData = function(code) {
         {name :"所属区域", key:"region",  width : "20%", class:"blue"},
         {name :"级别", key:"level",  width : "20%", class:"blue", class:"level"}
     ];
+    
+   console.log(code)
     initTable('#companyData .table-container', 'data/companyData.json', {code:code}, config);
 };
 

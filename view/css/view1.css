@@ -1,20 +1,27 @@
 .left {
-    width: 50%;
+    width: 24%;
     height: 100%;
+}
+.middle {
+    width:38%;
+    height:100%;
 }
 .right {
-    width: 50%;
+    width: 38%;
     height: 100%;
 }
-.left-column, .right-column {
+.left-column, .right-column,.middle-column{
     height: 50%;
     box-sizing: border-box;
 }
 .left-column {
-    padding: 50px 20px 50px 40px;
+    padding:25px 20px 30px 40px
+}
+.middle-column {
+    padding:25px 20px 30px 40px;
 }
 .right-column {
-    padding: 50px 40px 50px 20px;
+    padding: 25px 20px 30px 40px;
 }
 
 /* 雷达图 */
@@ -25,11 +32,11 @@
 }
 #raderMap .origin-border .horn .radar-map {
     display: inline-block;
-    width: 60%;
+    width: 55%;
 }
 #raderMap .origin-border .horn .radar-data {
     display: table;
-    width: 40%;
+    width: 45%;
 }
 
 #raderMap .origin-border .horn .radar-data .radar-data-container {
@@ -63,9 +70,8 @@
 #industryData .origin-border .horn .industry-icon {
     display: inline-block;
     width: 100%;
-    height: 20%;
+    height: 10%;
     text-align: right;
-    padding-top: 110px;
     padding-right: 100px;
 }
 #industryData .origin-border .horn .industry-icon .industry-icon-item {
@@ -85,13 +91,17 @@
 #industryData .origin-border .horn .industry-map {
     display: inline-block;
     width: 100%;
-    height: 80%;
+    height: 90%;
 }
 .right-column .origin-border .horn {
     padding: 55px 35px 35px 35px;
     height: 100%;
 }
 .left-column .origin-border .horn {
+    padding: 55px 35px 35px 35px;
+    height: 100%;
+}
+.middle-column .origin-border .horn {
     padding: 55px 35px 35px 35px;
     height: 100%;
 }

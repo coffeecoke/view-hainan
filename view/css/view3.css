@@ -70,6 +70,7 @@
     box-shadow: 0 0 40px rgba(36,86,254,0.34) inset;
     position: absolute;
     left: 200px;
+    z-index:10;
 }
 
 
@@ -471,8 +472,8 @@
 }
 .region{
     position: absolute;
-    bottom:20%;
-    right:20%;
+    bottom:6%;
+    right:26%;
 }
 .middle-time{
     position: absolute;

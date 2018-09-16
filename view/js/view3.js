@@ -615,6 +615,7 @@ var renderMapChart = function() {
         ]
     });
     setMapActive(riskData);
+   
 };
 
 /**
@@ -646,11 +647,10 @@ var renderMap = function() {
  * 循环显示各个市的数据
  */
 var setMapActive = function(data) {
-    console.log(data);
     var positionMap = {    // 各市对应的tip位置和市中心点的位置
         '1301': {tipLeft:110, tipTop:140,afterCss:'width: 108px;top: 162px;right: -109px;'},
         '1302': {tipLeft:1180, tipTop:342,afterCss:'width: 150px;top: -43px;right: 184px;transform: rotate(35deg);'},
-        '1303': {tipLeft:35, tipTop:689,afterCss:'width: 160px;top: 144px;right: -140px;transform: rotate(-35deg);'},
+        '1303': {tipLeft:35, tipTop:589,afterCss:'width: 160px;top: 144px;right: -140px;transform: rotate(-35deg);'},
         '1304': {tipLeft:25, tipTop:631,afterCss:'width: 220px;top: 240px;right: -200px;transform: rotate(-25deg)'},
         '1305': {tipLeft:1125, tipTop:630,afterCss:'width: 280px;top: 100px;right: 223px;transform: rotate(15deg);'},
         '1306': {tipLeft:30, tipTop:431,afterCss:'width: 220px;top: 148px;right: -220px;transform: rotate(15deg);'},
@@ -664,11 +664,12 @@ var setMapActive = function(data) {
         '1314': {tipLeft:1100, tipTop:600,afterCss:'width: 224px;top: 160px;left: -223px;'},
         '1315': {tipLeft:1286, tipTop:409,afterCss:'width: 216px;top: 174px;left: -215px;'},
         '1316': {tipLeft:1200, tipTop:340,afterCss:'width: 216px;top: 117px;left: -206px;transform: rotate(23deg);'},
-        '1317': {tipLeft:1100, tipTop:720,afterCss:'width: 262px;top: -5px;left: -207px;transform: rotate(36deg);'},
+        '1317': {tipLeft:1100, tipTop:620,afterCss:'width: 262px;top: -5px;left: -207px;transform: rotate(36deg);'},
         '1318': {tipLeft:1100, tipTop:540,afterCss:'width: 290px;top: 231px;left: -290px;'}
     };
     var index = 0;
-    var setInfo = function() {
+    var setInfo = function(index) {
+        
         $('#map .tooltip .name').html(data[index].name);
         $('#map .tooltip .item .value').eq(0).html(data[index].total);
         $('#map .tooltip .item .value').eq(1).html(data[index].risk);
@@ -679,12 +680,32 @@ var setMapActive = function(data) {
             'top' : position.tipTop + 'px'
         }).show();
         $('#map .tooltip style').html('#map .tooltip::after{' + position.afterCss + '}')
+       
+    };
+    setInfo(index);
+    var MyMar = setInterval(function () {
         if(index===data.length-1) {
             index=0;
         } else {
             index++;
         } 
-    };
-    setInfo();
-    var MyMar = setInterval(setInfo, 2000);
+        setInfo(index);
+    }, 5000);
+    map.on('click', function (params) {
+       clearInterval(MyMar)
+       setInfo(params.dataIndex);
+       
+    });
+    $('#map .tooltip').on('click',function () {
+        clearInterval(MyMar)
+        setInfo(Math.min(++index,data.length-1));
+         MyMar = setInterval(function () {
+            if(index===data.length-1) {
+                index=0;
+            } else {
+                index++;
+            } 
+            setInfo(index);
+        }, 5000);
+    })
 };

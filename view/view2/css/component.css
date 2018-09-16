@@ -146,7 +146,12 @@
     display: block;
     position: relative;
 }
-
+.roll__list {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+}
 .table-container table {
     border: 0;
     border-collapse: collapse;

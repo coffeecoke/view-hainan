@@ -50,7 +50,7 @@ var renderTable = function(selecter, data, config) {
     tHeader += "</thead>";
     tBody += "<tbody>";
     $.each(data, function(i, item){
-        tBody += "<tr>";
+        tBody += "<tr class='li'>";
         $.each(config, function(j, c) {
             var key = c.key;
             tBody += "<td width='" + c.width + "' class='" + (c.class || "") + "'>";
@@ -63,7 +63,7 @@ var renderTable = function(selecter, data, config) {
     tBody += "</tbody>";
     var html = "";
     html += "<div class='tbl-header'><table>" + tHeader + "</table></div>";
-    html += "<div class='tbl-body'><div class='body1'><table>" + tBody + "<table></div><div class='body2'></div></div>";
+    html += "<div class='tbl-body'><div class='body1 roll__list'><table>" + tBody + "<table></div></div>";
     $(selecter).html(html);
     $(selecter + ' .tbl-body').css('height', $(selecter + ' .tbl-body').parent().height() + 'px');
 
@@ -81,8 +81,9 @@ var refreshTableData = function(url,param) {
         dataType: 'json',
         async : false,
         success: function(data){
-            result = data;
-            $.each(result.pageData, function(index, item){
+            var curStr  = 'pageData'+param.code
+            result = data[curStr];
+            $.each(result, function(index, item){
                 // 设置一点变化
                 var random = Math.floor(Math.random()*1000);
                 item.contractAmount = random;
@@ -97,19 +98,21 @@ var refreshTableData = function(url,param) {
  * @param {*} selecter 选择器
  */
 var setTableScroll = function(selecter) {
-    var speed = 50;
-    var body = $(selecter + ' .tbl-body')[0];
-    var body1 = $(selecter + ' .tbl-body .body1')[0];
-    var body2 = $(selecter + ' .tbl-body .body2')[0];
-    $(body2).html($(body).html());
-    function Marquee() {
-        if (body2.offsetTop - body.scrollTop <= 0) {
-            body.scrollTop -= body1.offsetHeight;
-        } else {
-            body.scrollTop++;
-        }
-    }
-    var MyMar = setInterval(Marquee, speed);
+    $(selecter).rollNoInterval().top();
+    // var speed = 50;
+    // var body = $(selecter + ' .tbl-body')[0];
+    // var body1 = $(selecter + ' .tbl-body .body1')[0];
+    // var body2 = $(selecter + ' .tbl-body .body2')[0];
+    // $(body2).html($(body).html());
+    // function Marquee() {
+    //     if (body2.offsetTop - body.scrollTop <= 0) {
+    //         body.scrollTop -= body1.offsetHeight;
+    //     } else {
+    //         body.scrollTop++;
+    //     }
+    // }
+  
+    // var MyMar = setInterval(Marquee, speed);
     //clearInterval(MyMar);
     // body.onmouseover = function() {
     //     clearInterval(MyMar);
@@ -118,23 +121,23 @@ var setTableScroll = function(selecter) {
     // body.onmouseout = function() {
     //     MyMar = setInterval(Marquee, speed);
     // }
-    return MyMar;
+    // return MyMar;
 };
 
 var initTable = function(selecter, url, param, config) {
     param = $.extend({curPage : 1,pageNum : 500},param);
     var data= refreshTableData(url,param);
-    var dataCount = data.dataCount;
-    renderTable(selecter, data.pageData, config);
+    // var dataCount = data.dataCount;
+    renderTable(selecter, data, config);
     setTableScroll(selecter);
 
-    return setInterval(function(){ // 每隔10分钟请求一次
-        var pageCount = Math.ceil(dataCount/param.pageNum);
-        param.curPage = (param.curPage < pageCount) ? param.curPage + 1 : 1;
-        data= refreshTableData(url,param);
-        renderTable(selecter, data.pageData, config);
-        setTableScroll(selecter);
-    },10000);
+    // return setInterval(function(){ // 每隔10分钟请求一次
+    //     var pageCount = Math.ceil(dataCount/param.pageNum);
+    //     param.curPage = (param.curPage < pageCount) ? param.curPage + 1 : 1;
+    //     data= refreshTableData(url,param);
+    //     renderTable(selecter, data.pageData, config);
+    //     setTableScroll(selecter);
+    // },10000);
 };
 
 var indexIconMap = {
