@@ -469,16 +469,15 @@
     width: 66%;
     height:100px;
 }
-.middle-time{
-    font-size:24px;
-    color:#426eca;
-    position: absolute;
-    top:30px;
-    left:50%;
-    transform: translate(-50%);
-}
 .region{
     position: absolute;
     bottom:20%;
     right:20%;
+}
+.middle-time{
+    position: absolute;
+    right:60px;
+    top:30px;
+    color:#fff;
+    font-size:24px;
 }
