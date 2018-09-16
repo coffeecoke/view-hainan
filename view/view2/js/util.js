@@ -111,13 +111,13 @@ var setTableScroll = function(selecter) {
     }
     var MyMar = setInterval(Marquee, speed);
     //clearInterval(MyMar);
-    body.onmouseover = function() {
-        clearInterval(MyMar);
-    }
+    // body.onmouseover = function() {
+    //     clearInterval(MyMar);
+    // }
     
-    body.onmouseout = function() {
-        MyMar = setInterval(Marquee, speed);
-    }
+    // body.onmouseout = function() {
+    //     MyMar = setInterval(Marquee, speed);
+    // }
     return MyMar;
 };
 
@@ -280,35 +280,11 @@ var rotateYDIV = function(config){
             'MozTransform':'rotateY(' + rotateY + 'deg)'
         });
     };
-    var startYRotateText = function($obj) {
-        var rotateY = $obj.data('rotateY');
-        if(!rotateY) {
-            rotateY = 0;
-        }
-        rotateY=rotateY+3;
-        if(rotateY === 90){
-            config.inRotate && config.inRotate();
-        }
-        if(rotateY >= 90) {
-            rotateY=rotateY-3;
-            // clearInterval(rotYINT);
-            // config.afterRotate && config.afterRotate();
-        }
-        if(rotateY < 0 ) {
-            clearInterval(rotYINT);
-        }
-        $obj.data('rotateY',rotateY);
-        $obj.css({
-            'transform':'rotateY(' + rotateY + 'deg)',
-            'webkitTransform':'rotateY(' + rotateY + 'deg)',
-            'OTransform':'rotateY(' + rotateY + 'deg)',
-            'MozTransform':'rotateY(' + rotateY + 'deg)'
-        });
-    };
+    
     clearInterval(rotYINT);
     rotYINT = setInterval(function(){
         startYRotate(config.$obj);
-        // startYRotateText(config.$obj.find('.text'));
+       
     },1);
 };
 

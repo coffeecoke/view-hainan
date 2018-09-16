@@ -1,6 +1,7 @@
 
 
 var shieldProgress = null;
+var shieldProgress2 = null;
 var industryMap = getNameByCode();
 /**
  * 渲染行业图标
@@ -12,8 +13,8 @@ var renderIndustryIcon = function() {
     $.each(doms,function(i,item){
         domItems.push({
             wrapDom:item,
-            bgWidth:550,
-            bgHeight:550,
+            bgWidth:900,
+            bgHeight:900,
             bgWrapDom:$(item).find('.cicle')[0],
             bgColors:[
                 {stop:0.47,color:'#10142d'},
@@ -50,7 +51,7 @@ var renderIndustryIcon = function() {
     });
     iconTrans.addToStage();
 
-    iconTrans.appendDoms(domItems,2000,1500);
+    iconTrans.appendDoms(domItems,1500,2000);
 
     var size=domItems.length;
     iconTrans.autoSwitch(true,50000);
@@ -75,6 +76,7 @@ var renderFrame = function() {
     // 指标变化
     $('#indexChange .origin-border .horn').append('<div class="item-container"></div>');
     indexChangeChart = echarts.init($('#indexChange .origin-border .horn .item-container')[0]);
+    indexChangeChart2 = echarts.init($('#indexChange .origin-border .horn .item-container')[1]);
     // 交易场所运行指数
     var html = '<div class="item-container">';
     html += '<div class="data-container"><div class="canvas-container"></div></div>';
@@ -85,16 +87,17 @@ var renderFrame = function() {
     // 风险分布图
     $('#riskMap .origin-border .horn').append('<div class="item-container"></div>');
     riskMap = echarts.init($('#riskMap .origin-border .horn .item-container')[0]);
+    riskMap2 = echarts.init($('#riskMap .origin-border .horn .item-container')[1]);
     initProgress();
-    
+    initProgress2();
     //var code = industry[0].code;
     
 };
 
 var initProgress = function() {
     var opts={
-        width:600,
-        height:600,
+        width:400,
+        height:400,
         bgColors:'#111',
         lineCap:'round',
         showShadow:true,
@@ -109,11 +112,30 @@ var initProgress = function() {
     shieldProgress=new ProgressUtil.default(opts);
     shieldProgress.render();
 };
+var initProgress2 = function() {
+    var opts={
+        width:400,
+        height:400,
+        bgColors:'#111',
+        lineCap:'round',
+        showShadow:true,
+        shadowBlur:8,
+        shadowColor:'#101856',
+        type:'shield',
+        wrapDom:$('#operateIndex .item-container .data-container .canvas-container')[1],
+        lineWidth:10,
+        lineColors:'#122147', //  array or string
+        shadowBlur:5
+    };
+    shieldProgress2=new ProgressUtil.default(opts);
+    shieldProgress2.render();
+};
 
 /**
  * 设置图标的点击事件
  */
 var setEvent = function() {
+   
     $('#industryIcon .icon-item:not([data-code=3spot])').on('click',function(){
         var code= $(this).data('code');
         // 图标转换
@@ -136,9 +158,11 @@ var setEvent = function() {
  * @param {*} $obj 需要展示jQuery对象
  */
 var iconChange = function($obj) {
+    alert(1)
     var index = parseInt($obj.attr('index'));   
     $('#industryIcon .icon-item:not([data-code=3spot])').each(function() {
         var thisIndex = parseInt($(this).attr('index'));  
+        console.log(thisIndex)
         if(thisIndex >= index) {
             $(this).attr('index', thisIndex - index);
         } else {
@@ -160,18 +184,10 @@ var renderIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            if($('#index .origin-border .title-container .text span').html() === '') {
-                $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-                renderIndexData('#index .origin-border .horn .item-container', data, 9);
-            } else {
-                rotateYDIV({
-                    $obj:$('#index'),
-                    inRotate: function() {
-                        $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-                        renderIndexData('#index .origin-border .horn .item-container', data, 9);
-                    }
-                });
-            }
+            $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
+            renderIndexData('#index .origin-border .horn .item-container', data, 9);
+            $('#index').toggleClass('card-flipped')
+          
             
         }
     });
@@ -192,7 +208,7 @@ var initIndexChangeChart = function(data) {
         dataTVGR.push(item.TVGR);
         dataTGR.push(item.TGR);
     });
-    option = {
+    var option = {
         tooltip: {
             trigger: 'axis',
             position: function (pt) {
@@ -200,6 +216,9 @@ var initIndexChangeChart = function(data) {
             }
         },
         legend : {
+            icon:'rect',
+            itemWidth: 10,
+            itemHeight: 10,
             y : 'top',
             right : '40px',
             color : ['#3A73C9','#E13848','#efd147'],
@@ -207,7 +226,7 @@ var initIndexChangeChart = function(data) {
                 color:'#FFF',
                 fontSize:'24px'
             },
-            data : [{name:'营业收入增长率'},{name:'交易金额增长率'},{name:'交易人数增长率'}]
+            data : [{name:'投资金额'},{name:'投资人数'},{name:'借款人数'}]
         },
         xAxis: {
             type: 'category',
@@ -226,11 +245,11 @@ var initIndexChangeChart = function(data) {
                     fontSize : 16
                 },
                 interval:0,
-                rotate:40
+                // rotate:40
             },
             data: date
         },
-        yAxis: {
+        yAxis: [{
             type: 'value',
             boundaryGap: [0, '100%'],
             max : function(value) {
@@ -261,9 +280,40 @@ var initIndexChangeChart = function(data) {
                 }
             }
         },
+        {
+            type: 'category',
+           
+            position: 'right',
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: '999999',
+                    width: 3,
+                    type: 'solid'
+                }
+            },
+            splitLine: {
+                show: 'show',
+                lineStyle : {
+                    color: 'transparent',
+                    width: 1,
+                    type: 'dashed',
+                    opacity : 0.5
+                }
+                
+            },
+            axisLabel: {
+                textStyle: {
+                    color : "#999999",
+                    fontSize : 16
+                }
+            },
+            data:['0','10%','20%','30%','40%','50%']
+           
+        }],
         series: [
             {
-                name:'营业收入增长率',
+                name:'投资金额',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -285,7 +335,7 @@ var initIndexChangeChart = function(data) {
                 data: dataBRIR
             },
             {
-                name:'交易金额增长率',
+                name:'投资人数',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -307,7 +357,7 @@ var initIndexChangeChart = function(data) {
                 data: dataTVGR
             },
             {
-                name:'交易人数增长率',
+                name:'借款人数',
                 type:'line',
                 symbol: 'none',
                 itemStyle: {
@@ -331,6 +381,7 @@ var initIndexChangeChart = function(data) {
         ]
     };
     indexChangeChart.setOption(option);
+    indexChangeChart2.setOption(option);
 };
 
 /**
@@ -344,18 +395,12 @@ var renderIndexChange = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            if($('#indexChange .origin-border .title-container .text span').html() === '') {
-                $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
-                initIndexChangeChart(data); // 渲染数据
-            } else {
-                rotateYDIV({
-                    $obj:$('#indexChange'),
-                    inRotate: function() {
-                        $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
-                        initIndexChangeChart(data); // 渲染数据
-                    }
-                });
-            }
+
+            $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
+            initIndexChangeChart(data); // 渲染数据
+            $('#indexChange').toggleClass('card-flipped')
+
+           
         }
     });
 };
@@ -467,6 +512,7 @@ var initOperateIndex = function(data) {
     $('#operateIndex .origin-border .horn .icon-container .icon-item-list').html(html);
     // 指数
     shieldProgress.update(50);
+    shieldProgress2.update(60);
 };
 
 /**
@@ -480,18 +526,10 @@ var renderOperateIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            if($('#operateIndex .origin-border .title-container .text span').html() === '') {
-                $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '运行指数');
-                initOperateIndex(data);
-            } else {
-                rotateYDIV({
-                    $obj:$('#operateIndex'),
-                    inRotate: function() {
-                        $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '运行指数');
-                        initOperateIndex(data);
-                    }
-                });
-            } 
+
+            $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
+            initOperateIndex(data);
+            $('#operateIndex').toggleClass('card-flipped')
         }
     });
 };
@@ -622,6 +660,7 @@ var initRiskMap = function(data) {
     };
 
     riskMap.setOption(option);
+    riskMap2.setOption(option);
 };
 
 /**
@@ -635,19 +674,10 @@ var renderRiskMap = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-
-            if($('#riskMap .origin-border .title-container .text span').html() === '') {
-                $('#riskMap .origin-border .title-container .text span').text(industryMap[code] + '运行风险分布图');
-                initRiskMap(data);
-            } else {
-                rotateYDIV({
-                    $obj:$('#riskMap'),
-                    inRotate: function() {
-                        $('#riskMap .origin-border .title-container .text span').text(industryMap[code] + '运行风险分布图');
-                        initRiskMap(data);
-                    }
-                });
-            } 
+            $('#riskMap .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
+            initRiskMap(data);
+            $('#riskMap').toggleClass('card-flipped')
+           
         }
     });
 

@@ -16,17 +16,23 @@
     box-sizing: border-box;
 }
 .left-column {
-    padding: 25px 20px 50px 40px;
+    padding: 25px 20px 30px 40px;
 }
 .right-column {
-    padding: 25px 40px 50px 20px;
+    padding: 25px 40px 30px 20px;
     height: 50%;
 }
 .left-column:nth-child(1) {
-    height: 37%;
+    height: 50%;
 }
 .left-column:nth-child(2) {
-    height: 63%;
+    height: 50%;
+}
+.right-column:nth-child(1) {
+    height: 45%;
+}
+.right-column:nth-child(2) {
+    height: 55%;
 }
 
 #index {
@@ -127,7 +133,7 @@
 }
 #industryIcon .icon-item .title {
     text-align: center;
-    font-size: 60px;
+    font-size: 100px;
 }
 
 #industryIcon .icon-item .icon svg{
@@ -408,13 +414,13 @@
 }
 
 #operateIndex .item-container .data-container {
-    width: 65%;
+    width: 40%;
     position: relative;
 }
 
 #operateIndex .item-container .canvas-container {
-    width: 600px;
-    height: 600px;
+    width: 400px;
+    height: 400px;
     position: absolute;
     left: 0;
     top: 50%;
@@ -422,7 +428,7 @@
 }
 
 #operateIndex .item-container .icon-container {
-    width: 35%;
+    width: 60%;
     position: relative;
 }
 #operateIndex .item-container .icon-container .icon-item-list{
@@ -434,7 +440,7 @@
 #operateIndex .operate-item {
     display: inline-block;
     float: left;
-    width: 100%;
+    width: 50%;
     color: #FFFFFF;
     padding-bottom: 15px;
     padding-right: 15px;
@@ -449,7 +455,7 @@
 }
 #operateIndex .operate-item .name{
     width: 45%;
-    font-size: 28px;
+    font-size: 24px;
     height: 49px;
     line-height: 49px;
 }

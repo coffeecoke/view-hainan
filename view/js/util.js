@@ -286,36 +286,7 @@ var rotateYDIV = function(config){
     },1);
 };
 
-var transformDiv = function(config){
-    config.beforeTransform && config.beforeTransform();
-    var rotYINT;
-    var startYRotate = function($obj) {
-        var rotateY = $obj.data('transformX');
-        if(!rotateY) {
-            rotateY = 0;
-        }
-        rotateY=rotateY+3;
-        if(rotateY === 90){
-            config.inRotate && config.inRotate();
-        }
-        if(rotateY > 180) {
-            rotateY=0;
-            clearInterval(rotYINT);
-            config.afterRotate && config.afterRotate();
-        }
-        $obj.data('rotateY',rotateY);
-        $obj.css({
-            'transform':'translateX(' + rotateY + 'deg)',
-            'webkitTransform':'translateX(' + rotateY + 'deg)',
-            'OTransform':'translateX(' + rotateY + 'deg)',
-            'MozTransform':'translateX(' + rotateY + 'deg)'
-        });
-    };
-    clearInterval(rotYINT);
-    rotYINT = setInterval(function(){
-        startYRotate(config.$obj);
-    },1);
-};
+
 
 var industry = [
     {name:'P2P',code:'01'},

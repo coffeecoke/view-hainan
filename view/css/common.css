@@ -1,12 +1,15 @@
-body{
-    height: 1080px; 
+html {
+    height: 1060px; 
     width: 3840px;
+}
+body{
+    height: 100%; 
+    width: 100%;
     background-image: url("../img/bg.jpg");
     font-family: '微软雅黑';
     margin: 0px 0px;
     background-repeat: no-repeat;
-    /* background-position: center top; */
-    /* background-size: 100% auto; */
+    background-size: 100% 100%;
     
 }
 * {
@@ -91,4 +94,51 @@ body{
 #index .origin-border .horn .item-container div[name=indexItem] .text div[name=name] {
     color: #7498CE;
     font-size: 24px;
+}
+
+.card {
+    perspective: 1000;
+    -webkit-perspective: 1000;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.face{
+    position: absolute;
+    border-radius:5px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
+    backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    background-color: rgb(178, 39, 49);
+}
+.front {
+    z-index: 10;
+}
+.back{
+    transform:rotate3d(0,1,0,-180deg);
+    -ms-transform:rotate3d(0,1,0,-180deg);	/* IE 9 */
+    -moz-transform:rotate3d(0,1,0,-180deg);	/* Firefox */
+    -webkit-transform:rotate3d(0,1,0,-180deg); /* Safari 和 Chrome */
+    -o-transform:rotateY(0,1,0,-180deg);	/* Opera */
+    z-index: 8;
+}
+.card-flipped .front{
+    transform:rotate3d(0,1,0,180deg);
+    -ms-transform:rotate3d(0,1,0,180deg);/* IE 9 */
+    -moz-transform:rotate3d(0,1,0,180deg);/* Firefox */
+    -webkit-transform:rotate3d(0,1,0,180deg);/* Safari 和 Chrome */
+    -o-transform:rotate3d(0,1,0,180deg);	/* Opera */
+    z-index: 8;
+}
+.card-flipped .back{
+    transform:rotate3d(0,1,0,0deg);
+    -ms-transform:rotate3d(0,1,0,0deg);/* IE 9 */
+    -moz-transform:rotate3d(0,1,0,0deg);/* Firefox */
+    -webkit-transform:rotate3d(0,1,0,0deg);/* Safari 和 Chrome */
+    -o-transform:rotate3d(0,1,0,0deg);	/* Opera */
+    z-index: 10;
 }

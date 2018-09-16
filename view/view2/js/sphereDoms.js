@@ -505,11 +505,11 @@
                     var _this2 = this;
 
                     var radius = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 900;
-
+                
                     var me = this;
                     if (_.isArray(domItems)) {
                         var size = domItems.length;
-                        this.target = this.calculateTargetPosition(size, radius, radius * .7);
+                        this.target = this.calculateTargetPosition(size, radius, radius * .8);
                         domItems.forEach(function (item, idx) {
                             var wrapDom = item.wrapDom,
                                 bgWidth = item.bgWidth,

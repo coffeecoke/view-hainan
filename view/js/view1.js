@@ -338,40 +338,40 @@ var initIndustryTable = function() {  // 定时切换
     renderIndustryTable('leftColumn2', 3);
     changeIndustry = setInterval(function(){
         // 表格数据
-        rotateYDIV({
-            $obj:$('#rightColumn1'),
-            beforeRotate: function() {
-                if(i === industry.length) {
-                    i = 0;
-                }
-            },
-            inRotate: function() {
-                console.log("第一个数据==>" + i);
-                clearInterval(refeshPage['rightColumn1']);
-                renderIndustryTable('rightColumn1', i);
-            },
-            afterRotate: function() {
-                i++;
-                setTimeout(function(){
-                    rotateYDIV({
-                        $obj:$('#rightColumn2'),
-                        beforeRotate: function() {
-                            if(i === industry.length) {
-                                i = 0;
-                            }
-                        },
-                        inRotate: function() {
-                            console.log("第二个数据==>" + i);
-                            clearInterval(refeshPage['rightColumn2']);
-                            renderIndustryTable('rightColumn2', i);
-                        },
-                        afterRotate: function() {
-                            i++;
-                        }
-                    });
-                },5000);
-            }
-        });
+        // rotateYDIV({
+        //     $obj:$('#rightColumn1'),
+        //     beforeRotate: function() {
+        //         if(i === industry.length) {
+        //             i = 0;
+        //         }
+        //     },
+        //     inRotate: function() {
+        //         console.log("第一个数据==>" + i);
+        //         clearInterval(refeshPage['rightColumn1']);
+        //         renderIndustryTable('rightColumn1', i);
+        //     },
+        //     afterRotate: function() {
+        //         i++;
+        //         setTimeout(function(){
+        //             rotateYDIV({
+        //                 $obj:$('#rightColumn2'),
+        //                 beforeRotate: function() {
+        //                     if(i === industry.length) {
+        //                         i = 0;
+        //                     }
+        //                 },
+        //                 inRotate: function() {
+        //                     console.log("第二个数据==>" + i);
+        //                     clearInterval(refeshPage['rightColumn2']);
+        //                     renderIndustryTable('rightColumn2', i);
+        //                 },
+        //                 afterRotate: function() {
+        //                     i++;
+        //                 }
+        //             });
+        //         },5000);
+        //     }
+        // });
         
     },50000);
 };
