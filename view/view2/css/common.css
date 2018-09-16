@@ -1,6 +1,7 @@
 html {
-    height: 1060px; 
-    width: 3840px;
+    /* height: 1080px; 
+    width: 3840px; */
+    height:100%;
 }
 body{
     height: 100%; 
