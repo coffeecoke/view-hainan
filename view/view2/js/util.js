@@ -82,7 +82,6 @@ var refreshTableData = function(url,param) {
         async : false,
         success: function(data){
             result = data;
-            console.log(result)
             $.each(result.pageData, function(index, item){
                 // 设置一点变化
                 var random = Math.floor(Math.random()*1000);

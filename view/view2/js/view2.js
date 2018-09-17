@@ -184,7 +184,6 @@ var renderIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            console.log(code)
             $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
             renderIndexData('#index .origin-border .horn .item-container', data, 12);
             $('#index').toggleClass('card-flipped')
