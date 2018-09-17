@@ -1,0 +1,70 @@
+{
+	"dataCount":10000,
+	"pageData":[
+		{
+			"rank": "1",
+			"companyName": "海南众融金融信息服务有限公司",
+			"companyCode": "94877722    ",
+			"region": "海口市",
+			"interest":"2839万元",
+			"level": "80"
+		},
+		{
+			"rank": "2",
+			"companyName": "海南姚顿资产管理有限公司",
+			"companyCode": "22134456",
+			"region": "文昌市",
+			"interest":"3439万元",
+			"level": "89"
+		},
+		{
+			"rank": "3",
+			"companyName": "海南农信金融资产管理股份有限公司",
+			"companyCode": "11237999",
+			"region": "三亚市",
+			"interest":"139万元",
+			"level": "72"
+		},
+		{
+			"rank": "4",
+			"companyName": "海南众贷投资咨询有限公司",
+			"companyCode": "50837744",
+			"region": "三亚市",
+			"interest":"4339万元",
+			"level": "71"
+		},
+		{
+			"rank": "5",
+			"companyName": "海南格瑞投资咨询有限公司",
+			"companyCode": "239870098",
+			"region": "东方市",
+			"interest":"9839万元",
+			"level": "69"
+		},
+		{
+			"rank": "6",
+			"companyName": "海南众融金融信息服务有限公司",
+			"companyCode": "123456789",
+			"region": "东方市",
+			"interest":"3467万元",
+			"level": "69"
+		},
+		{
+			"rank": "7",
+			"companyName": "海南姚顿资产管理有限公司",
+			"companyCode": "22134456",
+			"region": "文昌市",
+			"interest":"2390万元",
+			"level": "70"
+		},
+		{
+			"rank": "8",
+			"companyName": "海南农信金融资产管理股份有限公司",
+			"companyCode": "11237999",
+			"region": "海口市",
+			"interest":"4490万元",
+			"level": "75"
+		}
+
+	]
+}

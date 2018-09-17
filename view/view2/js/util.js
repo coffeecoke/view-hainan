@@ -81,9 +81,9 @@ var refreshTableData = function(url,param) {
         dataType: 'json',
         async : false,
         success: function(data){
-            var curStr  = 'pageData'+param.code
-            result = data[curStr];
-            $.each(result, function(index, item){
+            result = data;
+            console.log(result)
+            $.each(result.pageData, function(index, item){
                 // 设置一点变化
                 var random = Math.floor(Math.random()*1000);
                 item.contractAmount = random;
@@ -127,8 +127,8 @@ var setTableScroll = function(selecter) {
 var initTable = function(selecter, url, param, config) {
     param = $.extend({curPage : 1,pageNum : 500},param);
     var data= refreshTableData(url,param);
-    // var dataCount = data.dataCount;
-    renderTable(selecter, data, config);
+    var dataCount = data.dataCount;
+    renderTable(selecter, data.pageData, config);
     setTableScroll(selecter);
 
     // return setInterval(function(){ // 每隔10分钟请求一次

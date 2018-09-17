@@ -162,7 +162,7 @@ var iconChange = function($obj) {
     var index = parseInt($obj.attr('index'));   
     $('#industryIcon .icon-item:not([data-code=3spot])').each(function() {
         var thisIndex = parseInt($(this).attr('index'));  
-        console.log(thisIndex)
+        
         if(thisIndex >= index) {
             $(this).attr('index', thisIndex - index);
         } else {
@@ -180,12 +180,11 @@ var iconChange = function($obj) {
 var renderIndex = function(code) {
 
     $.ajax({
-        url: 'data/indexData.json',
+        url: 'data/indexData'+code+'.json',
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            var currName = 'indexData'+code;
-            var data = data[currName];
+            console.log(code)
             $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
             renderIndexData('#index .origin-border .horn .item-container', data, 12);
             $('#index').toggleClass('card-flipped')
@@ -420,8 +419,7 @@ var renderCompanyData = function(code) {
         {name :"级别", key:"level",  width : "20%", class:"blue", class:"level"}
     ];
     
-   console.log(code)
-    initTable('#companyData .table-container', 'data/companyData.json', {code:code}, config);
+    initTable('#companyData .table-container', 'data/companyData'+code+'.json', {code:code}, config);
 };
 
 var operateIconMap = {
@@ -531,7 +529,7 @@ var renderOperateIndex = function(code) {
         dataType: 'json',
         success: function(data){
 
-            $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
+            $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '运行指数');
             initOperateIndex(data);
             $('#operateIndex').toggleClass('card-flipped')
         }
@@ -678,7 +676,7 @@ var renderRiskMap = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            $('#riskMap .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
+            $('#riskMap .origin-border .title-container .text span').text(industryMap[code] + '风险分布图');
             initRiskMap(data);
             $('#riskMap').toggleClass('card-flipped')
            
