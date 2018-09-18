@@ -121,20 +121,22 @@ var setTableScroll = function(selecter) {
     return MyMar;
 };
 
-var initTable = function(selecter, url, param, config) {
+var initTable = function(selecter, url, param, config,iscroll) {
     param = $.extend({curPage : 1,pageNum : 500},param);
     var data= refreshTableData(url,param);
     var dataCount = data.dataCount;
     renderTable(selecter, data.pageData, config);
-    setTableScroll(selecter);
-
-    return setInterval(function(){ // 每隔10分钟请求一次
-        var pageCount = Math.ceil(dataCount/param.pageNum);
-        param.curPage = (param.curPage < pageCount) ? param.curPage + 1 : 1;
-        data= refreshTableData(url,param);
-        renderTable(selecter, data.pageData, config);
+    if(iscroll) {
         setTableScroll(selecter);
-    },10000);
+    }
+
+    // return setInterval(function(){ // 每隔10分钟请求一次
+    //     var pageCount = Math.ceil(dataCount/param.pageNum);
+    //     param.curPage = (param.curPage < pageCount) ? param.curPage + 1 : 1;
+    //     data= refreshTableData(url,param);
+    //     renderTable(selecter, data.pageData, config);
+    //     setTableScroll(selecter);
+    // },10000);
 };
 
 var indexIconMap = {

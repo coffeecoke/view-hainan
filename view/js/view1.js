@@ -275,60 +275,64 @@ var initIndustryChart = function(selecter) {
 };
 
 var tableConfig =   [
-    {name :"时间", key:"date",  width : "5%"},
-    {name :"交易所名称", key:"orgName",  width : "10%"},
-    {name :"企业数量", key:"contractAmount",  width : "10%"},
-    {name :"本月新增<br>企业数量", key:"projectDuration",  width : "10%"},
-    {name :"企业股份<br>(亿股）", key:"lendingRate",  width : "10%"},
-    {name :"成挂牌企业<br>转主版", key:"valueDateate",  width : "10%"},
-    {name :"成挂牌企业<br>转创业板", key:"paymentType",  width : "10%"},
-    {name :"成挂牌企业<br>转三板", key:"guaranteeType",  width : "10%"},
-    {name :"成挂牌企业<br>转境外市场", key:"borrowerName",  width : "10%"},
-    {name :"披露财务信息<br>的企业数", key:"borrows",  width : "10%"}
+    {name :"机构名称", key:"org",  width : "10%"},
+    {name :"营业收入", key:"date",  width : "10%"},
+    {name :"营业利润", key:"orgName",  width : "10%"},
+    {name :"净利润", key:"contractAmount",  width : "10%"},
+    {name :"投资者开户数", key:"projectDuration",  width : "10%"},
+    {name :"成交笔数", key:"lendingRate",  width : "10%"},
+    {name :"成交金额", key:"valueDateate",  width : "10%"},
+    {name :"手续费收入", key:"paymentType",  width : "10%"},
+    {name :"出金总金额", key:"guaranteeType",  width : "10%"},
+    {name :"入金总金额", key:"borrowerName",  width : "10%"},
+    // {name :"披露财务信息<br>的企业数", key:"borrows",  width : "10%"}
 ];
 var tableConfigs =   [
-    {name :"时间", key:"date",  width : "5%"},
-    {name :"金融机构名称", key:"orgName",  width : "10%"},
-    {name :"投资者<br>开户数", key:"contractAmount",  width : "10%"},
-    {name :"客户资金<br>金额", key:"projectDuration",  width : "10%"},
-    {name :"成交人数", key:"lendingRate",  width : "10%"},
-    {name :"成交笔数", key:"valueDateate",  width : "10%"},
-    {name :"成交金额", key:"paymentType",  width : "10%"},
-    {name :"货品交易<br>金额", key:"guaranteeType",  width : "10%"},
-    {name :"客户持仓<br>金额", key:"borrowerName",  width : "10%"},
-    {name :"风险准备金额", key:"borrows",  width : "10%"}
+    {name :"机构名称", key:"org",  width : "10%"},
+    {name :"营业收入", key:"date",  width : "5%"},
+    {name :"净利润", key:"orgName",  width : "10%"},
+    {name :"投资者数量", key:"contractAmount",  width : "10%"},
+    {name :"挂牌公司数量 ", key:"projectDuration",  width : "10%"},
+    {name :"挂牌公司总资产", key:"lendingRate",  width : "10%"},
+    {name :"挂牌公司净利润", key:"valueDateate",  width : "10%"},
+    {name :"挂牌公司摘牌数", key:"paymentType",  width : "10%"},
+    {name :"融资总额", key:"guaranteeType",  width : "10%"},
+    {name :"交易金额", key:"borrowerName",  width : "10%"},
+    // {name :"风险准备金额", key:"borrows",  width : "10%"}
 ];
 var tableConfigdata =   [
-    {name :"时间", key:"date",  width : "5%"},
-    {name :"金融机构名称", key:"orgName",  width : "10%"},
-    {name :"借款人数量", key:"contractAmount",  width : "10%"},
-    {name :"发标项目数量", key:"projectDuration",  width : "10%"},
-    {name :"发标金额（千万）", key:"lendingRate",  width : "10%"},
-    {name :"投资人数量", key:"valueDateate",  width : "10%"},
-    {name :"投资金额（千万）", key:"paymentType",  width : "10%"},
-    {name :"逾期金额", key:"guaranteeType",  width : "10%"},
-    {name :"代偿金额", key:"borrowerName",  width : "10%"}
+    {name :"机构名称", key:"org",  width : "10%"},
+    {name :"投资人数", key:"date",  width : "10%"},
+    {name :"借款人数", key:"orgName",  width : "10%"},
+    {name :"成交额", key:"contractAmount",  width : "10%"},
+    {name :"待收本金", key:"projectDuration",  width : "10%"},
+    {name :"逾期金额", key:"lendingRate",  width : "10%"},
+    {name :"逾期率", key:"valueDateate",  width : "10%"},
+    {name :"代偿金额", key:"paymentType",  width : "10%"},
+    {name :"代偿率", key:"guaranteeType",  width : "10%"},
+    {name :"借款利率", key:"borrowerName",  width : "10%"}
 ];
 var tableConfigdatas =   [
-    {name :"时间", key:"date",  width : "5%"},
-    {name :"金融机构名称", key:"orgName",  width : "10%"},
-    {name :"发放贷款数量", key:"contractAmount",  width : "10%"},
-    {name :"发放贷款笔数", key:"projectDuration",  width : "10%"},
-    {name :"贷款人数量", key:"lendingRate",  width : "10%"},
-    {name :"贷款余额（千万）", key:"valueDateate",  width : "10%"},
-    {name :"净核销金额", key:"paymentType",  width : "10%"},
-    {name :"净利润", key:"guaranteeType",  width : "10%"},
-    {name :"不良贷款余额", key:"borrowerName",  width : "10%"}
+    {name :"机构名称", key:"org",  width : "10%"},
+    {name :"笔均贷款", key:"date",  width : "10%"},
+    {name :"贷款余额", key:"orgName",  width : "10%"},
+    {name :"发放金额", key:"contractAmount",  width : "10%"},
+    {name :"回收金额", key:"projectDuration",  width : "10%"},
+    {name :"综合费率", key:"lendingRate",  width : "10%"},
+    {name :"不良率", key:"valueDateate",  width : "10%"},
+    {name :"拨备覆盖率", key:"paymentType",  width : "10%"},
+    {name :"逾期率", key:"guaranteeType",  width : "10%"},
+    {name :"债券类融资总额", key:"borrowerName",  width : "10%"}
 ];
 
 var refeshPage = {};
 
 var renderIndustryTable = function(id, index) {
-    $('#' + id + ' .title-container .text span').html(industry[index].name + '指标数据');
-    refeshPage[id] = initTable('#leftColumn1 .origin-border .horn .table-container', 'data/hainanData.json', {code:industry[index].code}, tableConfig);
-    refeshPage[id] = initTable('#leftColumn2 .origin-border .horn .table-container', 'data/transition.json', {code:industry[index].code}, tableConfigs);
-    refeshPage[id] = initTable('#rightColumn1 .origin-border .horn .table-container', 'data/P2PData.json', {code:industry[index].code}, tableConfigdata);
-    refeshPage[id] = initTable('#rightColumn2 .origin-border .horn .table-container', 'data/Microfinance.json', {code:industry[index].code}, tableConfigdatas);
+    $('#' + id + ' .title-container .text span').html(industry[index].name + '当期指标数据');
+    refeshPage[id] = initTable('#leftColumn1 .origin-border .horn .table-container', 'data/hainanData.json', {code:industry[index].code}, tableConfig,true);
+    refeshPage[id] = initTable('#leftColumn2 .origin-border .horn .table-container', 'data/transition.json', {code:industry[index].code}, tableConfigs,false);
+    refeshPage[id] = initTable('#rightColumn1 .origin-border .horn .table-container', 'data/P2PData.json', {code:industry[index].code}, tableConfigdata,true);
+    refeshPage[id] = initTable('#rightColumn2 .origin-border .horn .table-container', 'data/Microfinance.json', {code:industry[index].code}, tableConfigdatas,true);
 };
 
 var initIndustryTable = function() {  // 定时切换
@@ -384,7 +388,7 @@ var initIndustryTable = function() {  // 定时切换
  */
 var renderFrame = function() {
     renderBlockBorder(".origin-border");
-    renderTitle("#raderMap .origin-border", "雷达图");
+    renderTitle("#raderMap .origin-border", "企业地区分布图");
     // 行业指标变化分为上边图例和下边的图表
     renderTitle("#industryData .origin-border", "行业指标变化");
     // 右侧表格
