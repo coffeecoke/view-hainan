@@ -324,7 +324,7 @@ var tableConfigdatas =   [
 var refeshPage = {};
 
 var renderIndustryTable = function(id, index) {
-    $('#' + id + ' .title-container .text span').html(industry[index].name + '交易数据');
+    $('#' + id + ' .title-container .text span').html(industry[index].name + '指标数据');
     refeshPage[id] = initTable('#leftColumn1 .origin-border .horn .table-container', 'data/hainanData.json', {code:industry[index].code}, tableConfig);
     refeshPage[id] = initTable('#leftColumn2 .origin-border .horn .table-container', 'data/transition.json', {code:industry[index].code}, tableConfigs);
     refeshPage[id] = initTable('#rightColumn1 .origin-border .horn .table-container', 'data/P2PData.json', {code:industry[index].code}, tableConfigdata);

@@ -1,7 +1,7 @@
 
 [
-    {"code":"riskCount", "name":"小额贷款公司","color":"#e03343","num":"87"},
-    {"code":"highRishCount", "name":"股权交易场所","color":"#cfa02e","num":"64"},
-    {"code":"illegalCount", "name":"地方交易场所","color":"#e03343","num":"34"},
-    {"code":"p2p", "name":"P2P公司","color":"#e03343","num":"48"}
+    {"code":"riskCount", "name":"小额贷款公司","color":"#e03343","num":"75"},
+    {"code":"highRishCount", "name":"股权交易场所","color":"#cfa02e","num":"85"},
+    {"code":"illegalCount", "name":"地方交易场所","color":"#e03343","num":"85"},
+    {"code":"p2p", "name":"P2P公司","color":"#e03343","num":"72"}
 ]

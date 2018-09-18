@@ -411,11 +411,15 @@ var renderIndexChange = function(code) {
  */
 var renderCompanyData = function(code) {
     var config = [
-        {name :"排名", key:"rank",  width : "10%", class:"rank"},
-        {name :"企业名称", key:"companyName",  width : "30%", class:"white"},
-        {name :"统一社会信用代码", key:"companyCode",  width : "20%", class:"blue"},
-        {name :"所属区域", key:"region",  width : "20%", class:"blue"},
-        {name :"级别", key:"level",  width : "20%", class:"blue", class:"level"}
+        {name :"排名", key:"rank",  width : "5%", class:"rank"},
+        {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+        {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+        {name :"指数", key:"index",  width : "10%", class:"blue"},
+        {name :"资产质量", key:"quality",  width : "10%", class:"blue", class:"level"},
+        {name :"流动性", key:"fluidity",  width : "10%", class:"blue", class:"level"},
+        {name :"盈利及效率", key:"profit",  width : "10%", class:"blue", class:"level"},
+        {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+        {name :"经营风险", key:"orisk",  width : "10%", class:"blue", class:"level"},
     ];
     
     initTable('#companyData .table-container', 'data/companyData'+code+'.json', {code:code}, config);
@@ -504,7 +508,7 @@ var initOperateIndex = function(data) {
 
         html += '<div class="operate-item">';
         html += '<div class="icon">';
-        html += '<img src="img/risk-icon'+(index+1)+'.png" />'
+        html += '<img src="img/operate0'+(index+1)+'.png" />'
         html += '</div>';
         html += '<div class="name">' + item.name + '</div>'
         html += '<div class="value">' + item.value + '</div>'
@@ -512,8 +516,8 @@ var initOperateIndex = function(data) {
     });
     $('#operateIndex .origin-border .horn .icon-container .icon-item-list').html(html);
     // 指数
-    shieldProgress.update(50);
-    shieldProgress2.update(100);
+    shieldProgress.update(Math.floor(Math.random()*(80-60+1)+60));
+    shieldProgress2.update(Math.floor(Math.random()*(80-60+1)+60));
 };
 
 /**
@@ -523,7 +527,7 @@ var initOperateIndex = function(data) {
 var renderOperateIndex = function(code) {
     // 渲染右侧数据
     $.ajax({
-        url: 'data/operateIndexData.json',
+        url: 'data/operateIndexData'+code+'.json',
         data:{code:code},
         dataType: 'json',
         success: function(data){
@@ -545,13 +549,16 @@ var initRiskMap = function(data) {
     $.each(data, function(key, value) {
         sum += value;
     });
-    var name = ['极高','高','中','低'];
-    for(var i=1; i<=4; i++) {
-        var key = 'level' + i;
+    $.each(data, function(key, value) {
         var quantity = data[key]?data[key]:0;
         var rate = (sum > 0) ? Math.round(quantity*100/sum) : 0;
-        riskData.push({name:name[i-1], value:rate});
-    }
+        riskData.push({name:key, value:rate});
+    });
+    // var name = ['极高','高','中','低'];
+    // for(var i=1; i<=4; i++) {
+    //     var key = 'level' + i;
+       
+    // }
     var myDate = new Date();
     var year = myDate.getFullYear();
     var month = myDate.getMonth() + 1;
@@ -614,7 +621,7 @@ var initRiskMap = function(data) {
                     formatter:function(a){
                         var content = '';
                         content += ' {rate|'+a.data.value+'%}  ';
-                        content += '{name|'+a.data.name+'风险}';
+                        content += '{name|'+a.data.name+'}';
                         //content += '{value|企业个数：'+a.data.value+'}';
                         return content;
                         
@@ -671,7 +678,7 @@ var initRiskMap = function(data) {
 var renderRiskMap = function(code) {
     
     $.ajax({
-        url: 'data/riskData.json',
+        url: 'data/riskData'+code+'.json',
         data:{code:code},
         dataType: 'json',
         success: function(data){

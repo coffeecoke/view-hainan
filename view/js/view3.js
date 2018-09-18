@@ -10,7 +10,7 @@ var renderFrame = function() {
     // renderTitle("#index .origin-border", "");
     renderTitle("#companyList .origin-border", " 高风险企业名单");
     renderTitle("#distributionMap .origin-border", "风险企业分布");
-    renderTitle("#curData .origin-border", "今日数据");
+    renderTitle("#curData .origin-border", "当期数据");
     // 行业
     // $('#index .origin-border .horn').append('<div class="item-container"></div>');
     // 非法集资高风险企业名单
@@ -133,19 +133,19 @@ var renderRiskCompanyData = function(data) {
         var iconId;
         var riskIndex = parseInt(item.riskIndex)
         if(riskIndex > 400) {
-            riskLevelName = "极";
+            riskLevelName = "高";
             riskLevel = 1;
             iconId = 'level1';
         } else if(riskIndex >200 && riskIndex <= 400) {
-            riskLevelName = "高";
+            riskLevelName = "中";
             riskLevel = 2;
             iconId = 'level2';
         } else if(riskIndex >100 && riskIndex <= 200) {
-            riskLevelName = "中";
+            riskLevelName = "低";
             riskLevel = 3;
             iconId = 'level3';
         } else if(riskIndex <= 100){
-            riskLevelName = '低'; 
+            riskLevelName = '普'; 
             riskLevel = 4;
             iconId = 'level4';
         }
@@ -222,7 +222,7 @@ var initRiskMap = function(data) {
     $.each(data, function(key, value) {
         sum += value;
     });
-    var name = ['极高','高','中','低'];
+    var name = ['高风险','中风险','低风险','正常'];
     for(var i=1; i<=4; i++) {
         var key = 'level' + i;
         var quantity = data[key]?data[key]:0;
@@ -293,7 +293,7 @@ var initRiskMap = function(data) {
                     formatter:function(a){
                         var content = '';
                         content += ' {rate|'+a.data.rate+'%}  ';
-                        content += '{name|'+a.data.name+'风险}\n';
+                        content += '{name|'+a.data.name+'}\n';
                         content += '{value|企业个数：'+a.data.value+'}';
                         return content;
                         
@@ -362,7 +362,8 @@ var renderDistributionMap = function() {
             success: function(data){
                 $.each(data, function(key, value){
                     var newValue = Math.floor(Math.random()*(3000-600+1)+300);
-                    data[key]= newValue;
+                    // data[key]= newValue;
+                    data[key]= value;
                 });
                 initRiskMap(data);
             }
@@ -468,26 +469,26 @@ var renderCurData = function() {
             renderIndustryData(data.industryData);
         }
     });
-    var refeshCurData = setInterval(function(){
-        $.ajax({
-            url: 'data/curData.json',
-            dataType: 'json',
-            async:false,
-            success: function(data){
-                data.totalData.totalCount = Math.floor(Math.random()*99999);
-                renderTotalData(data.totalData);
-                $.each(data.riskData,function(key, value){
-                    data.riskData[key] =  Math.floor(Math.random()*500);
-                });
-                renderRiskData(data.riskData);
-                $.each(data.riskData,function(index, item){
-                    item.value =  Math.floor(Math.random()*100);
-                });
-                renderIndustryData(data.industryData);
-            }
-        });
+    // var refeshCurData = setInterval(function(){
+    //     $.ajax({
+    //         url: 'data/curData.json',
+    //         dataType: 'json',
+    //         async:false,
+    //         success: function(data){
+    //             data.totalData.totalCount = Math.floor(Math.random()*99999);
+    //             renderTotalData(data.totalData);
+    //             $.each(data.riskData,function(key, value){
+    //                 data.riskData[key] =  Math.floor(Math.random()*500);
+    //             });
+    //             renderRiskData(data.riskData);
+    //             $.each(data.riskData,function(index, item){
+    //                 item.value =  Math.floor(Math.random()*100);
+    //             });
+    //             renderIndustryData(data.industryData);
+    //         }
+    //     });
         
-    },5000);
+    // },5000);
 
 };
 

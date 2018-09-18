@@ -444,6 +444,7 @@
     color: #FFFFFF;
     padding-bottom: 15px;
     padding-right: 15px;
+    height:70px;
 }
 #operateIndex .operate-item div {
     display: inline-block;
