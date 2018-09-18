@@ -54,39 +54,82 @@
         width:100%;
         height:100%;
     }
-    .aa{
+    .pop-nav {
         position: fixed;
-        right:30px;
+        left:-140px;
         z-index:10;
-        top:10px;
+        top:-26px;
+        transition: left .5s ease;
+    }
+    .pop-nav:hover {
+        left:0px;
+
+    }
+    .aa{
+        padding:0;
+        list-style: none;
+        box-sizing: border-box;
+        padding:30px 0;
+        width:180px;
+        height:360px;
+        background: url(img/pop-nav-bg.png) center no-repeat;
+        background-size:100% 100%; 
     }
     .aa li{
-        float: left;
-        list-style: none;
-        color:#6ceff1;
-        padding:10px;
-        border:solid 1px #ccc;
+        width:120px;
+        height:30%;
         cursor: pointer;
     }
-    .cuur{
-        background: #000080;
-        color:#fff !important;
+    .aa li.nav-icon1 {
+        background: url(img/nav-icon1.png) center no-repeat;
     }
+    .aa li.nav-icon1.curr {
+        background:#12339b url(img/nav-icon1.png) center no-repeat;
+    }
+    .aa li.nav-icon2 {
+        background: url(img/nav-icon2.png) center no-repeat;
+    }
+    .aa li.nav-icon2.curr {
+        background:#12339b url(img/nav-icon2.png) center no-repeat;
+    }
+    .aa li.nav-icon3 {
+        background: url(img/nav-icon3.png) center no-repeat;
+    }
+    .aa li.nav-icon3.curr {
+        background:#12339b url(img/nav-icon3.png) center no-repeat;
+    }
+    .cuur{
+        border-bottom:1px solid #2e66cf;
+    }
+
+    .toggle-btn {
+        width:96px;
+        height:96px;
+        background:url(img/toggle-btn.png) center no-repeat;
+        position: absolute;
+        top:40px;
+        right:-22px;
+    }
+
 </style>
 <body>
-<!-- <ul class="aa">
-    <li data-url="view1.html">数据监测平台</li>
-    <li class="cuur" data-url="view2.html">行业监测平台</li>
-    <li data-url="view3.html">风险控制平台</li>
-</ul> -->
+<div class="pop-nav">
+    <ul class="aa">
+        <li data-url="view1.html" class="nav-icon1"></li>
+        <li class="curr nav-icon2" data-url="view2/view2.html"></li>
+        <li data-url="view3.html" class="nav-icon3"></li>
+    </ul>
+    <div class="toggle-btn"></div>
+</div>
+
 <div class="outer-wrapper" id="outerWrapper">
         <ul class="pages-container" style="position: absolute;left:0;top:0;height:100%;padding:0;margin:0;">
             <li class="page1">
                 <div class="iframe-command">
-                    <iframe class="one" name="cwin" id="view1" src="view3.html" frameborder="0" scrolling="no" style="width:100%;height:100%;display:block"></iframe>
+                    <iframe class="one" name="cwin" id="view1" src="view2/view2.html" frameborder="0" scrolling="no" style="width:100%;height:100%;display:block"></iframe>
                 </div>
             </li>
-            <li class="page2">
+            <!-- <li class="page2">
                 <div class="iframe-command">
                     <iframe class="one" name="cwin" id="view2" src="view2/view2.html" frameborder="0" scrolling="no" style="width:100%;height:100%;display:block"></iframe>
                 </div>
@@ -95,7 +138,7 @@
                 <div class="iframe-command">
                     <iframe class="one" name="cwin" id="view3" src="view1.html" frameborder="0" scrolling="no" style="width:100%;height:100%;display:block"></iframe>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
 <script src="js/jquery-2.1.4.min.js"></script>
@@ -111,19 +154,19 @@
     $(".aa li").click(function(){
         var url=$(this).data("url");
         $(".one").attr("src",url)
-        // $(this).addClass("cuur").siblings().removeClass("cuur");
+        $(this).addClass("curr").siblings().removeClass("curr");
         // resizeFrameheight()
     })
-    var pagesLen = $('.pages-container > li').length;
-    var pageItemWidth = $('.pages-container > li').width();
-    var i = 0;
-    var outerTimer = setInterval(function () {
-        var sldieNum =  ++i&&(i==pagesLen)?i=0:i;
-        $('.pages-container').animate({
-                 left:-pageItemWidth*sldieNum
-         },1000)
+    // var pagesLen = $('.pages-container > li').length;
+    // var pageItemWidth = $('.pages-container > li').width();
+    // var i = 0;
+    // var outerTimer = setInterval(function () {
+    //     var sldieNum =  ++i&&(i==pagesLen)?i=0:i;
+    //     $('.pages-container').animate({
+    //              left:-pageItemWidth*sldieNum
+    //      },1000)
        
-    },50000);
+    // },50000);
 </script>
 </body>
 </html>

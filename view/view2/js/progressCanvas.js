@@ -463,12 +463,26 @@ window.BezierCurveUtil={};
             key: '__dynamicDraw',
             value: function __dynamicDraw(length) {
                 var me = this,
-                    gap = 5;
+                    gap = 1;
                 me.curVal = 0;
+                var remainder = length/10;
+                var integer = length-remainder
                 var animateClip = function animateClip() {
                     setTimeout(function () {
+                        
                         if (me.curVal < length) {
-                            me.curVal += 5;
+                            if (me.curVal <= integer&&integer>=10) {
+                                me.curVal += 5;
+                              
+                            }
+                            if (me.curVal > integer&&integer>=10) {
+                                me.curVal += 1;
+                              
+                            }
+                            if(integer < 10) {
+                                me.curVal += 1;
+                            }
+                            // me.curVal += 5;
                             me.render();
                             animateClip.call(me);
                         }
@@ -670,7 +684,7 @@ window.BezierCurveUtil={};
             key: '__dynamicDraw',
             value: function __dynamicDraw(length) {
                 var me = this,
-                    gap = 5;
+                    gap = 1;
                 me.curVal = 0;
                 var animateClip = function animateClip() {
                     setTimeout(function () {

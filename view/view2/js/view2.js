@@ -513,7 +513,7 @@ var initOperateIndex = function(data) {
     $('#operateIndex .origin-border .horn .icon-container .icon-item-list').html(html);
     // 指数
     shieldProgress.update(50);
-    shieldProgress2.update(60);
+    shieldProgress2.update(100);
 };
 
 /**
