@@ -513,7 +513,7 @@ var renderMapChart = function() {
     map.setOption(option = {
         geo: {
             show: true,
-            map: '海南',
+            map: 'hainan',
             regions: [{name: '南海诸岛',itemStyle: {color:"red"}}],
             label: {
                 normal: {
@@ -559,7 +559,7 @@ var renderMapChart = function() {
         series: [
             {
                 type: 'map',
-                mapType: '海南', // 自定义扩展图表类型
+                mapType: 'hainan', // 自定义扩展图表类型
                 label: {
                     normal: {
                         show: true,
@@ -634,7 +634,7 @@ var renderMap = function() {
         }
     });
 
-    // echarts.registerMap('hainan', mapJson);
+    echarts.registerMap('hainan', mapJson);
 
 
     renderMapChart();
