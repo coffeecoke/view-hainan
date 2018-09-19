@@ -511,30 +511,30 @@ var renderMapChart = function() {
         }
     });
     map.setOption(option = {
-        geo: {
-            show: true,
-            map: 'hainan',
-            regions: [{name: '南海诸岛',itemStyle: {color:"red"}}],
-            label: {
-                normal: {
-                    show: false
-                },
-                emphasis: {
-                    show: true,
-                }
-            },
-            roam: false,//地图设置不可拖拽，固定的
-            itemStyle: {
-                normal: {
-                    areaColor: '#006fff',
-                    borderWidth: 1,
-                    shadowColor: 'rgba(29,92,171, 1)',
-                    shadowBlur: 50,
-                    shadowOffsetX:20,
-                    shadowOffsetY:20
-                }
-            }
-        },
+        // geo: {
+        //     show: true,
+        //     map: '海南',
+        //     regions: [{name: '南海诸岛',itemStyle: {color:"red"}}],
+        //     label: {
+        //         normal: {
+        //             show: false
+        //         },
+        //         emphasis: {
+        //             show: true,
+        //         }
+        //     },
+        //     roam: false,//地图设置不可拖拽，固定的
+        //     itemStyle: {
+        //         normal: {
+        //             areaColor: '#006fff',
+        //             borderWidth: 1,
+        //             shadowColor: 'rgba(29,92,171, 1)',
+        //             shadowBlur: 50,
+        //             shadowOffsetX:20,
+        //             shadowOffsetY:20
+        //         }
+        //     }
+        // },
         toolbox: {
             show: false
         },
@@ -559,7 +559,7 @@ var renderMapChart = function() {
         series: [
             {
                 type: 'map',
-                mapType: 'hainan', // 自定义扩展图表类型
+                mapType: '海南', // 自定义扩展图表类型
                 label: {
                     normal: {
                         show: true,
@@ -634,7 +634,7 @@ var renderMap = function() {
         }
     });
 
-    echarts.registerMap('hainan', mapJson);
+    // echarts.registerMap('hainan', mapJson);
 
 
     renderMapChart();
