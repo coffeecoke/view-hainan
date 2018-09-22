@@ -1,0 +1,63 @@
+{
+	"dataCount":10000,
+	"pageData":[
+		{
+			"rank": "1",
+			"companyName": "管理风险 ",
+			"region": "海口市",
+			"index": "70"
+			
+		},
+		{
+			"rank": "2",
+			"companyName": "管理风险 ",
+			"region": "海口市",
+			"index": "71"
+			
+		},
+		{
+			"rank": "3",
+			"companyName": "管理风险 ",
+			"region": "海口市",
+			"index": "72"
+			
+		},
+		{
+			"rank": "4",
+			"companyName": "管理风险 ",
+			"region": "海口市",
+			"index": "73"
+			
+		},
+		{
+			"rank": "5",
+			"companyName": "管理风险 ",
+			"region": "海口市",
+			"index": "70"
+			
+		},
+		{
+			"rank": "6",
+			"companyName": "管理风险 ",
+			"region": "海口市",
+			"index": "78"
+			
+		},
+		{
+			"rank": "7",
+			"companyName": "管理风险 ",
+			"region": "三亚市",
+			"index": "81",
+			"quality":"20"
+			
+		},
+		{
+			"rank": "8",
+			"companyName": "管理风险 ",
+			"region": "三亚市",
+			"index": "85"
+		}
+		
+
+	]
+}

@@ -409,11 +409,11 @@
 }
 
 .table-container table tbody tr td.blue{
-    color: #7498ce;
+    color: #fff;
 }
 
 .table-container table tbody tr td.level{
-    color: #cd4954;
+    color: #fff;
 }
 
 /* 运行指数 */
@@ -487,7 +487,42 @@
 
 /* 运行风险分布图 */
 #riskMap .origin-border .horn .item-container {
-    width: 100%;
+    width: 49%;
     height: 100%;
+    float: left;
     padding: 80px 40px 0px 40px;
+}
+#riskMap .origin-border .box-header{
+    position: relative;
+    top:100px;
+    left:0%;
+    width:50%;
+    float: left;
+    color: #fff;
+    height: 42px;
+    line-height: 42px;
+    font-size: 22px;
+    padding-left: 30px;
+    background: url(../img/box-header-bg.png) left no-repeat;
+    
+}
+#riskMap .origin-border .horn .right-containers {
+    width: 49%;
+    height: 100%;
+    margin-top:70px;
+    float: right;
+    padding: 80px 40px 0px 40px;
+}
+#riskMap .origin-border .box-headers{
+    position: relative;
+    top:100px;
+    width:50%;
+    float: right;
+    color: #fff;
+    height: 42px;
+    line-height: 42px;
+    font-size: 22px;
+    padding-left: 30px;
+    background: url(../img/box-header-bg.png) left no-repeat;
+    
 }

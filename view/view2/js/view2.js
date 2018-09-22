@@ -33,6 +33,7 @@ var renderIndustryIcon = function() {
                 renderIndexChange(code);
                 // 企业数据
                 renderCompanyData(code);
+                renderCompanyDatas(code);
                 // 运行指数
                 renderOperateIndex(code);
                 // 风险分布图
@@ -86,7 +87,8 @@ var renderFrame = function() {
     $('#operateIndex .origin-border .horn').append(html);
     
     // 风险分布图
-    $('#riskMap .origin-border .horn').append('<div class="item-container"></div>');
+    $('#riskMap .origin-border .horn').append('<div class="item-container"></div>')
+    $('#riskMap .origin-border .horn').append('<div class="right-containers"></div>');
     riskMap = echarts.init($('#riskMap .origin-border .horn .item-container')[0]);
     riskMap2 = echarts.init($('#riskMap .origin-border .horn .item-container')[1]);
     initProgress();
@@ -147,6 +149,7 @@ var setEvent = function() {
         renderIndexChange(code);
         // 企业数据
         renderCompanyData(code);
+        renderCompanyDatas(code);
         // 运行指数
         renderOperateIndex(code);
         // 风险分布图
@@ -215,7 +218,6 @@ var initIndexChangeChart = function(data,dataName) {
         TVGR:dataTVGR,
         TGR:dataTGR
     }
-    console.log(datas)
     var option = {
         tooltip: {
             trigger: 'axis',
@@ -368,7 +370,6 @@ var renderIndexChange = function(code) {
             $("#indexChange .origin-border .horn").on("click",".echarts-list li",function(){
                 $(this).addClass("active").siblings().removeClass("active");
                 var dataName = $(this).data('code')
-                console.log(dataName);
                 initIndexChangeChart(data,dataName);
             });
            
@@ -580,11 +581,10 @@ var initRiskMap = function(data) {
         series : [
             {
                 type:'pie',
-                radius : '75%',
+                radius : ['30%','40%'],
                 center: ['50%', '50%'],
                 color:['#E13848','#E7773A','#EAC82B','#3A73C9'],
                 data:riskData,
-                roseType: 'radius',
                 label: {
                     textStyle: {
                         fontSize: 24
@@ -592,7 +592,7 @@ var initRiskMap = function(data) {
                     verticalAlign:'top',
                     formatter:function(a){
                         var content = '';
-                        content += ' {rate|'+a.data.value+'%}  ';
+                        content += ' {rate|'+a.data.value+'%}\n';
                         content += '{name|'+a.data.name+'}';
                         //content += '{value|企业个数：'+a.data.value+'}';
                         return content;
@@ -661,4 +661,14 @@ var renderRiskMap = function(code) {
         }
     });
 
+};
+var renderCompanyDatas = function(code) {
+    var config = [
+        {name :"排名", key:"rank",  width : "25%", class:"rank"},
+        {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+        {name :"所属区域", key:"region",  width : "25%", class:"blue"},
+        {name :"指数", key:"index",  width : "%", class:"blue"}
+    ];
+    
+    initTable('.right-containers', 'data/data2.json', {code:code}, config);
 };
