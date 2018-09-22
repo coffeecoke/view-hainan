@@ -10,11 +10,11 @@
     <script src="lib/jquery.mousewheel.js"></script>
     <script src="lib/echarts.js"></script>
     <script src="js/hn_zdy.js"></script>
-
+    <script src="js/rollSlide.js"></script>
     <script src="js/util.js"></script>
     <script src="lib/lodash/lodash-core-4.17.10.js"></script>
     <script src="js/progressCanvas.js"></script>
-    <!-- <script src="js/view3-1.js"></script> -->
+    <script src="js/view3-1.js"></script>
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <link rel="stylesheet" type="text/css" href="css/component.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
@@ -26,7 +26,7 @@
 
 <body>
     <header class="header">
-       
+
     </header>
     <section class="main-body">
         <div class="left">
@@ -47,7 +47,39 @@
                         <div class="horn-icon horn-lb"></div>
                         <div class="horn-icon horn-rb"></div>
                         <div class="item-container">
-                            <div></div>
+                            <div class="nav-wrap">
+                                <div class="roll-wrap roll_row" id="item-toggle">
+                                    <ul class="roll__list" style="position: absolute; left: 0; top: 0;">
+                                        <li data-code="01" style="width:50px;">p2p</li>
+                                        <li data-code="02">小额贷款公司</li>
+                                        <li data-code="03">各类交易场所</li>
+                                        <li data-code="04">股权交易市场</li>
+                                    </ul>
+                                    <!-- <span class="control pre" href="javascript:;">&lt;</span>
+                                            <sapn class="control next" href="javascript:;">&gt;</span> -->
+                                </div>
+                            </div>
+
+                            <div class="box">
+                                <div class="box-header">
+                                    行业运行指数趋势
+                                </div>
+                                <div class="box-body">
+                                    <div id="indexChangeChart" style="width:100%;height:300px"></div>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-header">
+                                    企业运行指数TOP10
+                                </div>
+                                <div class="box-body">
+                                    <div class="roll-wrap roll_col" id="top10">
+                                        <ul class="roll__list" style="position: absolute; left: 0; top: 0;">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -55,7 +87,7 @@
             </div>
 
             <!--行业监管数据-->
-            <div class="right-column" >
+            <div class="right-column">
                 <div class="origin-border">
                     <div class="origin-border">
                         <div class="title-container">
@@ -72,7 +104,73 @@
                             <div class="horn-icon horn-lb"></div>
                             <div class="horn-icon horn-rb"></div>
                             <div class="item-container">
-
+                                <div class="supervision-num">
+                                    <dl>
+                                        <dt>监管企业数数量</dt>
+                                        <dd>84</dd>
+                                    </dl>
+                                </div>
+                                <div class="box submit-data">
+                                    <div class="box-header">
+                                        上报数据
+                                    </div>
+                                    <div class="box-body">
+                                        <ul>
+                                            <li>
+                                                <h3 class="submit-data-title">小额贷款公司(家)： 68</h3>
+                                                <dl>
+                                                    <dd>
+                                                        <div class="num">552</div>
+                                                        <div class="desc">行业指标</div>
+                                                    </dd>
+                                                    <dd>
+                                                        <div class="num">54</div>
+                                                        <div class="desc">风险规则</div>
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <h3 class="submit-data-title">小额贷款公司(家)： 68</h3>
+                                                <dl>
+                                                    <dd>
+                                                        <div class="num">552</div>
+                                                        <div class="desc">行业指标</div>
+                                                    </dd>
+                                                    <dd>
+                                                        <div class="num">54</div>
+                                                        <div class="desc">风险规则</div>
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <h3 class="submit-data-title">小额贷款公司(家)： 68</h3>
+                                                <dl>
+                                                    <dd>
+                                                        <div class="num">552</div>
+                                                        <div class="desc">行业指标</div>
+                                                    </dd>
+                                                    <dd>
+                                                        <div class="num">54</div>
+                                                        <div class="desc">风险规则</div>
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <h3 class="submit-data-title">小额贷款公司(家)： 68</h3>
+                                                <dl>
+                                                    <dd>
+                                                        <div class="num">552</div>
+                                                        <div class="desc">行业指标</div>
+                                                    </dd>
+                                                    <dd>
+                                                        <div class="num">54</div>
+                                                        <div class="desc">风险规则</div>
+                                                    </dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -86,7 +184,7 @@
         <div class="middle">
             <div class="region"><img src="./img/sansha.png" alt=""></div>
             <div class="middle-column" id="map">
-               
+
                 <div class="tooltip" style="display:none;">
                     <style></style>
                     <div class="horn-icon-in horn-lt"></div>
