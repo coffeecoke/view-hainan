@@ -119,7 +119,7 @@ body{
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -o-backface-visibility: hidden;
-    background:url('../img/repeat-bg.jpg') repeat;
+    background:url('../img/repeat-bg.png') repeat;
    
 }
 .front {

@@ -360,10 +360,28 @@
 
 } */
 
-
+#indexChange .origin-border .horn .echarts-list {
+    height: 10%;
+    float: right;
+    position: relative;
+    z-index:10;
+    /* padding-top: 100px; */
+}
+#indexChange .origin-border .horn .echarts-list  li{
+    float: left;
+    padding:10px 20px;
+    border-radius: 5px;
+    list-style: none;
+    color:#fff;
+    border:solid 1px #0d58b7;
+    margin:40px 20px 0 0;
+}
+#indexChange .origin-border .horn .echarts-list  li.active{
+    background: #0d58b7;
+}
 #indexChange .origin-border .horn .item-container {
-    height: 100%;
-    padding-top: 100px;
+    height: 90%;
+    /* padding-top: 100px; */
     padding-bottom: 40px;
 }
 
