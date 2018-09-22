@@ -2,25 +2,30 @@ $(function () {
     var indexChangeChart =echarts.init(document.getElementById('indexChangeChart'));
 
     // tab切换
-    $('#item-toggle').rollSlide({
-        orientation: 'left',
-        num: 1,
-        v: 1000,
-        space: 3000,
-        isRoll: false
-    });
+    // $('#item-toggle').rollSlide({
+    //     orientation: 'left',
+    //     num: 1,
+    //     v: 1000,
+    //     space: 3000,
+    //     isRoll: false
+    // });
     $('#item-toggle .roll__list li').on('click',function () {
         var code = $(this).data('code');
+        initTop10('data/top10-'+code+'.json')
+        initTop10Chart('data/indexChangeData'+code+'.json')
         $(this).addClass('active').siblings().removeClass('active')
     })
+
     // top10
+
     initTop10('data/top10-01.json')
-    initTop10Chart('data/indexChangeData.json')
+    initTop10Chart('data/indexChangeData01.json')
 
     function initTop10(url) {
         $.ajax({
             url: url,
             dataType: 'json',
+            sync:false,
             success: function (data) {
                 var htmls = "";
                 $.each(data, function (indx, item) {
@@ -33,12 +38,13 @@ $(function () {
 
                 })
                 $('#top10 .roll__list').html('').append(htmls);
-                $('#top10').rollNoInterval().top();
+               
 
             }
         })
+        $('#top10').rollNoInterval().top();
     }
-
+    
     function initTop10Chart(url) {
         $.ajax({
             url: url,
@@ -167,5 +173,45 @@ $(function () {
 
     }
 
-
+    // 当期行业运行指数
+    $("#circleChart1").circleChart({
+        size: 80,
+        value: 40,
+        color: "#03e5d2",
+        backgroundColor: "#fff",
+        text: 0,
+        onDraw: function(el, circle) {
+            circle.text(Math.round(circle.value));
+        }
+    });
+    $("#circleChart2").circleChart({
+        size: 80,
+        value: 40,
+        color: "#03e5d2",
+        backgroundColor: "#fff",
+        text: 0,
+        onDraw: function(el, circle) {
+            circle.text(Math.round(circle.value));
+        }
+    });
+    $("#circleChart3").circleChart({
+        size: 80,
+        value: 40,
+        color: "#03e5d2",
+        backgroundColor: "#fff",
+        text: 0,
+        onDraw: function(el, circle) {
+            circle.text(Math.round(circle.value));
+        }
+    });
+    $("#circleChart4").circleChart({
+        size: 80,
+        value: 40,
+        color: "#03e5d2",
+        backgroundColor: "#fff",
+        text: 20,
+        onDraw: function(el, circle) {
+            circle.text(Math.round(circle.value));
+        }
+    });
 })

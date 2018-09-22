@@ -46,6 +46,11 @@ body {
 .nav-wrap {
     padding:0 20px;
 }
+.nav-wrap .roll__list li.active {
+    background: -webkit-linear-gradient(top,#59b3fc,#2b61f6);
+    border-radius: 4px;
+
+}
 .roll-wrap {
     position: relative;
     width: 100%;
@@ -73,9 +78,7 @@ body {
     color: #fff;
     
 }
-.roll_row .roll__list li.active {
-    background: linear-gradient(top,#59b3fc,#2b61f6);
-}
+
 
 .control.pre {
     float:left;
@@ -137,12 +140,16 @@ body {
     color:#fff;
     background: url(../img/top10-right-bg.png) right no-repeat;
 }
+.submit-data__items {
+    overflow: hidden;
+}
 .supervision-num{
     height:120px;
     background:url(../img/num-bg.png) center bottom no-repeat;
     background-size:100% auto;
     margin: 0 30px;
     padding:0 30px;
+    margin-bottom:30px;
 }
 .supervision-num dl dt {
     float:left;
@@ -162,16 +169,43 @@ body {
 }
 .submit-data li {
     width:50%;
+    height:140px;
     float:left;
+   
+}
+.submit-data__item1 {
     border-bottom:1px solid #0330b0;
     border-right:1px solid #0330b0;
+}
+.submit-data__item2 {
+    padding-left:50px;
+    border-bottom:1px solid #0330b0;
+}
+.submit-data__item3 {
+    padding-top:20px;
+    border-right:1px solid #0330b0;
+}
+.submit-data__item4 {
+    padding-top:20px;
+    padding-left:50px;
 }
 .submit-data li .submit-data-title {
     margin-bottom:20px;
     text-align: left;
+    color:#00e5d2;
+    font-size:20px;
+    font-weight:normal;
+}
+.submit-data dl {
+    overflow: hidden;
 }
 .submit-data dl dd{
     float:left;
+    color:#fff;
+   
+}
+.submit-data dl dd:first-child {
+    margin-right:40px;
 }
 .submit-data dl dd .num {
     font-size:36px;
@@ -180,7 +214,22 @@ body {
 .submit-data dl dd .desc {
     font-size:20px;
 }
-
+.circleChart-wrap dl{
+    width:50%;
+    float:left;
+    margin-bottom:20px;
+}
+.circleChart-wrap dl dt {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 22px;
+    color:#fff;
+    width:140px;
+}
+.circleChart-wrap dl dd {
+    display: inline-block;
+    vertical-align: middle;
+}
 
 
 

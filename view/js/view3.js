@@ -405,14 +405,14 @@ var renderRiskData = function(riskData) {
                 wrapDom:$(this).find('.convas-container')[0],
                 width:180,
                 height:180,
-                bgColors:'#111',
+                bgColors:'#fff',
                 lineCap:'round',
                 showShadow:true,
                 type:'circle',
                 lineWidth:4,
-                lineColors:$countObj.css('color'), //  array or string
-                shadowBlur:28,
-                shadowColor:'#1b40b0',
+                lineColors:'#00e5d2', //  array or string
+                shadowBlur:20,
+                shadowColor:'#00e5d2',
                 maxVal:500,
                 minVal:0
             }
