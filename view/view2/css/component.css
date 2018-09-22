@@ -28,7 +28,7 @@
 /* 四角特效 */
 .horn{
     /* border: 1px solid #03a9f4; */
-    box-shadow: 0 0 10px #0a3fbf, 0 0 50px #0a3fbf inset;
+    box-shadow: 0 0 10px #0a3fbf, 0 0 100px #0a3fbf inset;
     position: absolute;
     width: 100%;
     height: 100%;

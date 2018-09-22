@@ -74,6 +74,7 @@ var renderFrame = function() {
     // 行业指标
     $('#index .origin-border .horn').append('<div class="item-container"></div>');
     // 指标变化
+    $('#indexChange .origin-border .horn').append('<ul class="echarts-list"><li class="active" data-code="BRIR">融资金额</li><li data-code="TVGR">交易金额</li><li data-code="TGR">投资人数</li></ul>');
     $('#indexChange .origin-border .horn').append('<div class="item-container"></div>');
     indexChangeChart = echarts.init($('#indexChange .origin-border .horn .item-container')[0]);
     indexChangeChart2 = echarts.init($('#indexChange .origin-border .horn .item-container')[1]);
@@ -158,7 +159,6 @@ var setEvent = function() {
  * @param {*} $obj 需要展示jQuery对象
  */
 var iconChange = function($obj) {
-    alert(1)
     var index = parseInt($obj.attr('index'));   
     $('#industryIcon .icon-item:not([data-code=3spot])').each(function() {
         var thisIndex = parseInt($(this).attr('index'));  
@@ -197,7 +197,8 @@ var renderIndex = function(code) {
  * 行业指标变化折线图
  * @param {*} data 数据
  */
-var initIndexChangeChart = function(data) {
+
+var initIndexChangeChart = function(data,dataName) {
     var date = [];
     var dataBRIR = [];
     var dataTVGR = [];
@@ -207,7 +208,14 @@ var initIndexChangeChart = function(data) {
         dataBRIR.push(item.BRIR);
         dataTVGR.push(item.TVGR);
         dataTGR.push(item.TGR);
+    
     });
+    var datas = {
+        BRIR:dataBRIR,
+        TVGR:dataTVGR,
+        TGR:dataTGR
+    }
+    console.log(datas)
     var option = {
         tooltip: {
             trigger: 'axis',
@@ -216,6 +224,7 @@ var initIndexChangeChart = function(data) {
             }
         },
         legend : {
+            show:false,
             icon:'rect',
             itemWidth: 10,
             itemHeight: 10,
@@ -226,7 +235,7 @@ var initIndexChangeChart = function(data) {
                 color:'#FFF',
                 fontSize:'24px'
             },
-            data : [{name:'投资金额'},{name:'投资人数'},{name:'借款人数'}]
+            data : [{name:'投资金额'}]
         },
         xAxis: {
             type: 'category',
@@ -318,65 +327,21 @@ var initIndexChangeChart = function(data) {
                 symbol: 'none',
                 itemStyle: {
                     normal: {
-                        color: 'rgb(58,115,201,0.8)'
+                        color: 'rgb(38,150,94,0.8)'
                     }
                 },
                 areaStyle: {
                     normal: {
                         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                             offset: 0,
-                            color: 'rgb(58,115,201,0.8)'
+                            color: 'rgb(38,150,94,0.8)'
                         }, {
                             offset: 1,
-                            color: 'rgb(58,115,201,0)'
+                            color: 'rgb(38,150,94,0)'
                         }])
                     }
                 },
-                data: dataBRIR
-            },
-            {
-                name:'投资人数',
-                type:'line',
-                symbol: 'none',
-                itemStyle: {
-                    normal: {
-                        color: 'rgb(225,56,72,0.8)'
-                    }
-                },
-                areaStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: 'rgb(225,56,72,0.8)'
-                        }, {
-                            offset: 1,
-                            color: 'rgb(225,56,72,0)'
-                        }])
-                    }
-                },
-                data: dataTVGR
-            },
-            {
-                name:'借款人数',
-                type:'line',
-                symbol: 'none',
-                itemStyle: {
-                    normal: {
-                        color: 'rgb(239,209,71,0.8)'
-                    }
-                },
-                areaStyle: {
-                    normal: {
-                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            offset: 0,
-                            color: 'rgb(239,209,71,0.8)'
-                        }, {
-                            offset: 1,
-                            color: 'rgb(239,209,71,0)'
-                        }])
-                    }
-                },
-                data: dataTGR
+                data: datas[dataName]
             }
         ]
     };
@@ -388,6 +353,7 @@ var initIndexChangeChart = function(data) {
  * 渲染行业指标变化
  * @param {*} code 需要展示的数据的code值
  */
+
 var renderIndexChange = function(code) {
     
     $.ajax({
@@ -395,14 +361,20 @@ var renderIndexChange = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-
+            console.log(data);
             $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
-            initIndexChangeChart(data); // 渲染数据
+            initIndexChangeChart(data,'BRIR'); // 渲染数据
             $('#indexChange').toggleClass('card-flipped')
-
+            $("#indexChange .origin-border .horn").on("click",".echarts-list li",function(){
+                $(this).addClass("active").siblings().removeClass("active");
+                var dataName = $(this).data('code')
+                console.log(dataName);
+                initIndexChangeChart(data,dataName);
+            });
            
         }
     });
+
 };
 
 /**
