@@ -1,33 +1,47 @@
 /* 整体框架 */
+body {
+    background:url(../img/view3-bg.jpg)
+}
+.main-body {
+    padding:14px 20px 0px 20px;
+}
 .left {
-    width: 18%;
+    width: 33%;
     height: 100%;
 }
 .middle {
-    width: 30%;
+    width: 34%;
     height: 100%;
     position: relative;
 }
 .right {
-    width: 34%;
+    float:right;
+    width: 33%;
     height: 100%;
 }
 .left-column, .right-column {
+    width:50%;
+    height:100%;
     box-sizing: border-box;
 }
 
 .left-column {
+    float:left;
     padding: 25px 10px 25px 10px;
 }
 
 .right-column {
-    width:50%;
-    float:left;
-    padding: 25px 40px 25px 20px;
+  
+    float:right;
+    padding: 25px 10px 25px 10px;
 }
-
-#index {
-    /* height: 32%; */
+.right-column__top {
+    height:50%;
+    padding-bottom:25px;
+}
+.right-column__bottom {
+    height:50%;
+    padding-top:30px;
 }
 #index .origin-border .horn .item-container div[name=indexItem]{
     padding-bottom: 25px;

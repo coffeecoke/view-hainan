@@ -11,12 +11,15 @@ var renderFrame = function() {
     renderTitle("#companyList .origin-border", " 高风险企业名单");
     renderTitle("#distributionMap .origin-border", "风险企业分布");
     renderTitle("#curData .origin-border", "当期数据");
+   
     // 行业
     // $('#index .origin-border .horn').append('<div class="item-container"></div>');
     // 非法集资高风险企业名单
     $('#companyList .origin-border .horn').append('<div class="item-container"></div>');
     // 非法集资风险企业分布
     $('#distributionMap .origin-border .horn').append('<div class="item-container"></div>');
+
+  
     riskMap = echarts.init($('#distributionMap .origin-border .horn .item-container')[0]);
     // 今日数据
     var html = '<div class="item-container">';
@@ -280,14 +283,14 @@ var initRiskMap = function(data) {
         series : [
             {
                 type:'pie',
-                radius : '65%',
+                radius : '55%',
                 center: ['50%', '50%'],
                 color:['#E13848','#E7773A','#EAC82B','#3A73C9'],
                 data:riskData,
                 roseType: 'radius',
                 label: {
                     textStyle: {
-                        fontSize: 24
+                        fontSize: 14
                     },
                     verticalAlign:'top',
                     formatter:function(a){
@@ -513,7 +516,8 @@ var renderMapChart = function() {
     map.setOption(option = {
         geo: {
             show: true,
-            map: 'hainan',
+            map: '海南',
+            aspectScale:1,
             regions: [{name: '南海诸岛',itemStyle: {color:"red"}}],
             label: {
                 normal: {
@@ -559,7 +563,8 @@ var renderMapChart = function() {
         series: [
             {
                 type: 'map',
-                mapType: 'hainan', // 自定义扩展图表类型
+                mapType: '海南', // 自定义扩展图表类型
+                aspectScale:1,
                 label: {
                     normal: {
                         show: true,
@@ -634,7 +639,7 @@ var renderMap = function() {
         }
     });
 
-    echarts.registerMap('hainan', mapJson);
+    // echarts.registerMap('hainan', mapJson);
 
 
     renderMapChart();

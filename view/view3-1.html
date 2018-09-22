@@ -14,11 +14,11 @@
     <script src="js/util.js"></script>
     <script src="lib/lodash/lodash-core-4.17.10.js"></script>
     <script src="js/progressCanvas.js"></script>
-    <script src="js/view3.js"></script>
+    <!-- <script src="js/view3-1.js"></script> -->
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <link rel="stylesheet" type="text/css" href="css/component.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/view3.css">
+    <link rel="stylesheet" type="text/css" href="css/view3-1.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
 
     <link rel="stylesheet" type="text/css" href="css/animation.css">
@@ -26,50 +26,67 @@
 
 <body>
     <header class="header">
-        <div class="logo">
-            <img src="img/logo.jpg" />
-            <p class="middle-time">统计截止 2018-08-14 18:00</p>
-        </div>
+       
     </header>
     <section class="main-body">
         <div class="left">
-            <div class="left-column" id="distributionMap">
+            <!-- 行业运行指数 -->
+            <div class="left-column">
                 <div class="origin-border">
+                    <div class="title-container">
+                        <div class="title-container-horn title-container-lt"></div>
+                        <div class="title-container-horn title-container-rt"></div>
+                        <div class="title-container-horn title-container-rb"></div>
+                        <div class="title-container-horn title-container-lb"></div>
+                        <div class="background"></div>
+                        <div class="text"><span>行业运行指数</span></div>
+                    </div>
+                    <div class="horn">
+                        <div class="horn-icon horn-lt"></div>
+                        <div class="horn-icon horn-rt"></div>
+                        <div class="horn-icon horn-lb"></div>
+                        <div class="horn-icon horn-rb"></div>
+                        <div class="item-container">
+                            <div></div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
-            <!--左1 P2P行业-->
 
-            <div class="left-column" id="companyList">
+            <!--行业监管数据-->
+            <div class="right-column" >
                 <div class="origin-border">
+                    <div class="origin-border">
+                        <div class="title-container">
+                            <div class="title-container-horn title-container-lt"></div>
+                            <div class="title-container-horn title-container-rt"></div>
+                            <div class="title-container-horn title-container-rb"></div>
+                            <div class="title-container-horn title-container-lb"></div>
+                            <div class="background"></div>
+                            <div class="text"><span>行业监管数据</span></div>
+                        </div>
+                        <div class="horn">
+                            <div class="horn-icon horn-lt"></div>
+                            <div class="horn-icon horn-rt"></div>
+                            <div class="horn-icon horn-lb"></div>
+                            <div class="horn-icon horn-rb"></div>
+                            <div class="item-container">
 
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
-            <!--左2 非法集资高风险企业名单-->
-
         </div>
-        <div class="left">
-            <div class="left-column" id="distributionMap1" style="height:55%;">
-                <div class="origin-border">
 
-                </div>
-            </div>
-            <!--左1 P2P行业-->
-
-            <div class="left-column" id="companyList1" style="height:45%;">
-                <div class="origin-border">
-
-                </div>
-            </div>
-            <!--左2 非法集资高风险企业名单-->ss
-
-        </div>
-
+        <!-- 地图 -->
         <div class="middle">
             <div class="region"><img src="./img/sansha.png" alt=""></div>
             <div class="middle-column" id="map">
-                <div class="bg1"><img src="./img/mapbg1.png" /></div>
-                <div class="bg2"><img src="./img/mapbg2.png" /></div>
+               
                 <div class="tooltip" style="display:none;">
                     <style></style>
                     <div class="horn-icon-in horn-lt"></div>
@@ -110,18 +127,80 @@
         </div>
 
         <div class="right">
-            <div class="right-column" id="curData">
+            <!-- 非法集资检测数据 -->
+            <div class="left-column">
                 <div class="origin-border">
+                    <div class="title-container">
+                        <div class="title-container-horn title-container-lt"></div>
+                        <div class="title-container-horn title-container-rt"></div>
+                        <div class="title-container-horn title-container-rb"></div>
+                        <div class="title-container-horn title-container-lb"></div>
+                        <div class="background"></div>
+                        <div class="text"><span>非法集资检测数据</span></div>
+                    </div>
+                    <div class="horn">
+                        <div class="horn-icon horn-lt"></div>
+                        <div class="horn-icon horn-rt"></div>
+                        <div class="horn-icon horn-lb"></div>
+                        <div class="horn-icon horn-rb"></div>
+                        <div class="item-container">
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
-            <!--右1 今日数据-->
-            <div class="right-column" id="curData1">
-                <div class="origin-border">
 
+            <div class="right-column">
+                <!-- 预警企业及处置企业情况 -->
+                <div class="right-column__top">
+                    <div class="origin-border">
+                        <div class="title-container">
+                            <div class="title-container-horn title-container-lt"></div>
+                            <div class="title-container-horn title-container-rt"></div>
+                            <div class="title-container-horn title-container-rb"></div>
+                            <div class="title-container-horn title-container-lb"></div>
+                            <div class="background"></div>
+                            <div class="text"><span>预警企业及处置企业情况</span></div>
+                        </div>
+                        <div class="horn">
+                            <div class="horn-icon horn-lt"></div>
+                            <div class="horn-icon horn-rt"></div>
+                            <div class="horn-icon horn-lb"></div>
+                            <div class="horn-icon horn-rb"></div>
+                            <div class="item-container">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- 非法集资高风险企业 -->
+                <div class="right-column__bottom">
+                    <div class="origin-border">
+                        <div class="title-container">
+                            <div class="title-container-horn title-container-lt"></div>
+                            <div class="title-container-horn title-container-rt"></div>
+                            <div class="title-container-horn title-container-rb"></div>
+                            <div class="title-container-horn title-container-lb"></div>
+                            <div class="background"></div>
+                            <div class="text"><span>非法集资高风险企业</span></div>
+                        </div>
+                        <div class="horn">
+                            <div class="horn-icon horn-lt"></div>
+                            <div class="horn-icon horn-rt"></div>
+                            <div class="horn-icon horn-lb"></div>
+                            <div class="horn-icon horn-rb"></div>
+                            <div class="item-container">
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <!--右1 今日数据-->
+
         </div>
     </section>
     <div id="allIcon" style="display:none;">
@@ -308,9 +387,9 @@
     </div>
     <script type="text/javascript">
         // 渲染框架
-        renderFrame();
+        // renderFrame();
         // 渲染各模块数据
-        renderData();
+        // renderData();
     </script>
 </body>
 
