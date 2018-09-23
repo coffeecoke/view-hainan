@@ -78,7 +78,7 @@
         15px 100%, 0 calc(100% - 15px), 0 15px
     );
     position: relative;
-    background: #0c1124;
+    background: #04206e;
     left: 50%;
     top: 0%;
     transform: translate(-50%, -50%);
@@ -172,13 +172,14 @@
     font-size: 24px;
     color: #7498CE;
     text-align: left;
-    height: 60px;
-    line-height: 60px;
+    height: 40px;
+    line-height: 40px;
 }
 .table-container table>thead>tr>td, 
 .table-container table>thead>tr>th {
     border-bottom: 2px solid #6D7890;
     color: #8cf8ff;
+    background: #061b6c;
 }
 .table-container .tbl-header table>tbody>tr>td {
     border-bottom: 0;
