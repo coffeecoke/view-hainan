@@ -637,7 +637,6 @@ var renderRiskInformation = function(code) {
         {name :"风险企业数", key:"num",  width : "30%", class:"blue"}
     ];
     
-<<<<<<< HEAD
     initTable('.front .right-containers', 'data/riskInformation.json', {code:code}, config);
     initTable('.back .right-containers', 'data/riskInformation.json', {code:code}, config);
 };
@@ -663,7 +662,3 @@ $('#riskMap .right-containers .body1 tr').on('click',function () {
 
 })
 
-=======
-    initTable('.right-containers', 'data/data'+code+'.json', {code:code}, config);
-};
->>>>>>> 8dfa2c34bdc8b85d1f7342c69788ebce9783d79d
