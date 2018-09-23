@@ -1,0 +1,63 @@
+{
+	"dataCount":10000,
+	"pageData":[
+		{
+			"rank": "1",
+			"companyName": "管理风险 ",
+			"region": "不良率过高",
+			"index": "18"
+			
+		},
+		{
+			"rank": "2",
+			"companyName": "管理风险 ",
+			"region": "不良率过高",
+			"index": "12"
+			
+		},
+		{
+			"rank": "3",
+			"companyName": "管理风险 ",
+			"region": "不良率过高",
+			"index": "14"
+			
+		},
+		{
+			"rank": "4",
+			"companyName": "管理风险 ",
+			"region": "不良率过高",
+			"index": "24"
+			
+		},
+		{
+			"rank": "5",
+			"companyName": "管理风险 ",
+			"region": "不良率过高",
+			"index": "18"
+			
+		},
+		{
+			"rank": "6",
+			"companyName": "管理风险 ",
+			"region": "不良率过高",
+			"index": "13"
+			
+		},
+		{
+			"rank": "7",
+			"companyName": "管理风险 ",
+			"region": "不良率过高",
+			"index": "81",
+			"quality":"20"
+			
+		},
+		{
+			"rank": "8",
+			"companyName": "管理风险 ",
+			"region": "不良率过高",
+			"index": "36"
+		}
+		
+
+	]
+}

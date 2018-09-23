@@ -548,13 +548,13 @@ var initRiskMap = function(data) {
         series : [
             {
                 type:'pie',
-                radius : ['30%','40%'],
-                center: ['50%', '50%'],
+                radius : ['28%','36%'],
+                center: ['52%', '50%'],
                 color:['#0fb5ec','#2348d1','#00e5d2','#3c7fff'],
                 data:riskData,
                 label: {
                     textStyle: {
-                        fontSize: 16
+                        fontSize: 18
                     },
                     verticalAlign:'top',
                     formatter:function(a){
@@ -609,7 +609,6 @@ var initRiskMap = function(data) {
     riskMap.setOption(option);
     riskMap2.setOption(option);
 };
-
 /**
  * 渲染风险指数
  * @param {*} code 需要展示的数据的code值
@@ -638,6 +637,7 @@ var renderRiskInformation = function(code) {
         {name :"风险企业数", key:"num",  width : "30%", class:"blue"}
     ];
     
+<<<<<<< HEAD
     initTable('.front .right-containers', 'data/riskInformation.json', {code:code}, config);
     initTable('.back .right-containers', 'data/riskInformation.json', {code:code}, config);
 };
@@ -663,3 +663,7 @@ $('#riskMap .right-containers .body1 tr').on('click',function () {
 
 })
 
+=======
+    initTable('.right-containers', 'data/data'+code+'.json', {code:code}, config);
+};
+>>>>>>> 8dfa2c34bdc8b85d1f7342c69788ebce9783d79d
