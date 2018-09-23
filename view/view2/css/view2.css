@@ -77,8 +77,8 @@
     height: 100%;
     color: #7498CE;
     position: relative;
-    background:url(../img/bg2.png) center top no-repeat;
-    background-size:90% 100%;
+    /* background:url(../img/bg2.png) center top no-repeat; */
+    /* background-size:90% 100%; */
 }
 
 #industryIcon .icon-item {
@@ -532,4 +532,10 @@
     padding-left: 30px;
     background: url(../img/bar.png) left no-repeat;
     
+}
+
+
+.risk-modal {
+    width:2270px;
+    height:768px;
 }

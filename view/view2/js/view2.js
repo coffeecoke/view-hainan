@@ -33,11 +33,13 @@ var renderIndustryIcon = function() {
                 renderIndexChange(code);
                 // 企业数据
                 renderCompanyData(code);
-                renderCompanyDatas(code);
+                
                 // 运行指数
                 renderOperateIndex(code);
                 // 风险分布图
                 renderRiskMap(code);
+                // 风险信息
+                renderRiskInformation(code);
             }
         });
     });
@@ -149,7 +151,6 @@ var setEvent = function() {
         renderIndexChange(code);
         // 企业数据
         renderCompanyData(code);
-        renderCompanyDatas(code);
         // 运行指数
         renderOperateIndex(code);
         // 风险分布图
@@ -544,40 +545,6 @@ var initRiskMap = function(data) {
                 //colorLightness: [0, 1]
             }
         },
-        // graphic: [
-        //     {
-        //         type:'text',
-        //         left:'center',
-        //         top:'center',
-                
-        //         z:2,
-        //         zlevel:100,
-        //         style: {
-        //             text: year + '\r\n',
-        //             fontSize: 24,
-        //         }
-        //     },
-        //     {
-        //         type:'text',
-        //         position: [left-30, top],
-        //         z:2,
-        //         zlevel:100,
-        //         style: {
-        //             text:(month<10)?'0'+month:''+month,
-        //             fontSize: 40,
-        //         }
-        //     },
-        //     {
-        //         type:'text',
-        //         position: [left + 15, top+10],
-        //         z:2,
-        //         zlevel:100,
-        //         style: {
-        //             text:'月',
-        //             fontSize: 24,
-        //         }
-        //     }
-        // ],
         series : [
             {
                 type:'pie',
@@ -662,13 +629,37 @@ var renderRiskMap = function(code) {
     });
 
 };
-var renderCompanyDatas = function(code) {
+// 风险信息
+var renderRiskInformation = function(code) {
     var config = [
         {name :"排名", key:"rank",  width : "15%", class:"rank"},
-        {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
-        {name :"所属区域", key:"region",  width : "30%", class:"blue"},
-        {name :"指数", key:"index",  width : "15%", class:"blue"}
+        {name :"风险分类", key:"classification",  width : "25%", class:"white"},
+        {name :"风险信号", key:"signal",  width : "30%", class:"blue"},
+        {name :"风险企业数", key:"num",  width : "30%", class:"blue"}
     ];
     
-    initTable('.right-containers', 'data/data2.json', {code:code}, config);
+    initTable('.front .right-containers', 'data/riskInformation.json', {code:code}, config);
+    initTable('.back .right-containers', 'data/riskInformation.json', {code:code}, config);
 };
+
+// 风险信息弹出层
+$('#riskMap .right-containers .body1 tr').on('click',function () {
+    $('#risk-modal .origin-border .title-container .text span').text(industryMap[code]);
+    renderBlockBorder(".origin-border");
+    renderTitle("#risk-modal .origin-border", ""); 
+    var configs = {
+        // p2p
+        "01":[
+            {name :"排名", key:"rank",  width : "15%", class:"rank"},
+            {name :"风险分类", key:"classification",  width : "25%", class:"white"},
+            {name :"风险信号", key:"signal",  width : "30%", class:"blue"},
+            {name :"风险企业数", key:"num",  width : "30%", class:"blue"}
+        ]
+        // 小贷
+        // 地方交易场所
+        // 股权交易场所
+    }
+   
+
+})
+

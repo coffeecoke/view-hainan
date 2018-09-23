@@ -35,7 +35,7 @@ var renderTitle = function(selecter, title) {
  * @param {*} selecter 选择器
  * @param {*} config 配置
  */
-var renderTable = function(selecter, data, config) {
+var renderTable = function(selecter, data,param, config) {
     
     var tHeader = "";
     var tBody = "";
@@ -50,7 +50,7 @@ var renderTable = function(selecter, data, config) {
     tHeader += "</thead>";
     tBody += "<tbody>";
     $.each(data, function(i, item){
-        tBody += "<tr class='li'>";
+        tBody += "<tr class='li' data-code='"+param.code+"'>";
         $.each(config, function(j, c) {
             var key = c.key;
             tBody += "<td width='" + c.width + "' class='" + (c.class || "") + "'>";
@@ -127,7 +127,8 @@ var initTable = function(selecter, url, param, config) {
     param = $.extend({curPage : 1,pageNum : 500},param);
     var data= refreshTableData(url,param);
     var dataCount = data.dataCount;
-    renderTable(selecter, data.pageData, config);
+    renderTable(selecter, data.pageData,param,config);
+    
     setTableScroll(selecter);
 
     // return setInterval(function(){ // 每隔10分钟请求一次
