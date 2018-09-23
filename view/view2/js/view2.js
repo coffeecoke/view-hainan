@@ -581,13 +581,13 @@ var initRiskMap = function(data) {
         series : [
             {
                 type:'pie',
-                radius : ['30%','40%'],
-                center: ['50%', '50%'],
+                radius : ['28%','36%'],
+                center: ['52%', '50%'],
                 color:['#0fb5ec','#2348d1','#00e5d2','#3c7fff'],
                 data:riskData,
                 label: {
                     textStyle: {
-                        fontSize: 16
+                        fontSize: 18
                     },
                     verticalAlign:'top',
                     formatter:function(a){
@@ -642,7 +642,6 @@ var initRiskMap = function(data) {
     riskMap.setOption(option);
     riskMap2.setOption(option);
 };
-
 /**
  * 渲染风险指数
  * @param {*} code 需要展示的数据的code值
@@ -670,5 +669,5 @@ var renderCompanyDatas = function(code) {
         {name :"指数", key:"index",  width : "15%", class:"blue"}
     ];
     
-    initTable('.right-containers', 'data/data2.json', {code:code}, config);
+    initTable('.right-containers', 'data/data'+code+'.json', {code:code}, config);
 };
