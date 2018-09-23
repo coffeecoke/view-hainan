@@ -363,7 +363,7 @@ var renderIndexChange = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            console.log(data);
+           
             $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
             initIndexChangeChart(data,'BRIR'); // 渲染数据
             $('#indexChange').toggleClass('card-flipped')

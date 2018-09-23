@@ -77,8 +77,13 @@
         100% calc(100% -  15px), calc(100% - 15px) 100%,
         15px 100%, 0 calc(100% - 15px), 0 15px
     );
+<<<<<<< HEAD
     position: relative;
     background: #04206e;
+=======
+    position: absolute;
+    background: #0c1124;
+>>>>>>> 74fc0a69ace9cc7c46b2246b4ebd73fa548c8df4
     left: 50%;
     top: 0%;
     transform: translate(-50%, -50%);
@@ -207,9 +212,7 @@
 }
 .right-containers  .roll__list {
     width:100%;
-    position: relative;
-    height:60%;
-    overflow: hidden;
+    position: absolute;
     left:0;
     right:0;
     top:0;

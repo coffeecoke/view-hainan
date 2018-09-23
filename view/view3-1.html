@@ -13,7 +13,8 @@
     <script src="js/rollSlide.js"></script>
     <script src="js/util.js"></script>
     <script src="lib/lodash/lodash-core-4.17.10.js"></script>
-    <script src="js/progressCanvas.js"></script>
+    <!-- <script src="js/progressCanvas.js"></script> -->
+    <script src="js/circleChart.min.js"></script>
     <script src="js/view3-1.js"></script>
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <link rel="stylesheet" type="text/css" href="css/component.css">
@@ -50,7 +51,7 @@
                             <div class="nav-wrap">
                                 <div class="roll-wrap roll_row" id="item-toggle">
                                     <ul class="roll__list" style="position: absolute; left: 0; top: 0;">
-                                        <li data-code="01" style="width:50px;">p2p</li>
+                                        <li data-code="01" style="width:50px;" class="active">p2p</li>
                                         <li data-code="02">小额贷款公司</li>
                                         <li data-code="03">各类交易场所</li>
                                         <li data-code="04">股权交易市场</li>
@@ -115,8 +116,8 @@
                                         上报数据
                                     </div>
                                     <div class="box-body">
-                                        <ul>
-                                            <li>
+                                        <ul class="submit-data__items">
+                                            <li class="submit-data__item1">
                                                 <h3 class="submit-data-title">小额贷款公司(家)： 68</h3>
                                                 <dl>
                                                     <dd>
@@ -129,46 +130,77 @@
                                                     </dd>
                                                 </dl>
                                             </li>
-                                            <li>
+                                            <li class="submit-data__item2">
                                                 <h3 class="submit-data-title">小额贷款公司(家)： 68</h3>
                                                 <dl>
                                                     <dd>
-                                                        <div class="num">552</div>
+                                                        <div class="num">327</div>
                                                         <div class="desc">行业指标</div>
                                                     </dd>
                                                     <dd>
-                                                        <div class="num">54</div>
+                                                        <div class="num">30</div>
                                                         <div class="desc">风险规则</div>
                                                     </dd>
                                                 </dl>
                                             </li>
-                                            <li>
+                                            <li class="submit-data__item3">
                                                 <h3 class="submit-data-title">小额贷款公司(家)： 68</h3>
                                                 <dl>
                                                     <dd>
-                                                        <div class="num">552</div>
+                                                        <div class="num">176</div>
                                                         <div class="desc">行业指标</div>
                                                     </dd>
                                                     <dd>
-                                                        <div class="num">54</div>
+                                                        <div class="num">28</div>
                                                         <div class="desc">风险规则</div>
                                                     </dd>
                                                 </dl>
                                             </li>
-                                            <li>
+                                            <li class="submit-data__item4">
                                                 <h3 class="submit-data-title">小额贷款公司(家)： 68</h3>
                                                 <dl>
                                                     <dd>
-                                                        <div class="num">552</div>
+                                                        <div class="num">176</div>
                                                         <div class="desc">行业指标</div>
                                                     </dd>
                                                     <dd>
-                                                        <div class="num">54</div>
+                                                        <div class="num">28</div>
                                                         <div class="desc">风险规则</div>
                                                     </dd>
                                                 </dl>
                                             </li>
                                         </ul>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="box-header">当期运行指数</div>
+                                    <div class="box-body">
+                                        <div class="circleChart-wrap">
+                                            <dl>
+                                                <dt>P2P贷款</dt>
+                                                <dd class="circleChart" id="circleChart1">
+
+                                                </dd>
+                                            </dl>
+                                            <dl>
+                                                <dt>小额贷款公司</dt>
+                                                <dd class="circleChart" id="circleChart2">
+
+                                                </dd>
+                                            </dl>
+                                            <dl>
+                                                <dt>地方交易场所</dt>
+                                                <dd class="circleChart" id="circleChart3">
+
+                                                </dd>
+                                            </dl>
+                                            <dl>
+                                                <dt>股权交易场所</dt>
+                                                <dd class="circleChart" id="circleChart4">
+
+                                                </dd>
+                                            </dl>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -184,42 +216,8 @@
         <div class="middle">
             <div class="region"><img src="./img/sansha.png" alt=""></div>
             <div class="middle-column" id="map">
-
-                <div class="tooltip" style="display:none;">
-                    <style></style>
-                    <div class="horn-icon-in horn-lt"></div>
-                    <div class="horn-icon-in horn-rt"></div>
-                    <div class="horn-icon-in horn-lb"></div>
-                    <div class="horn-icon-in horn-rb"></div>
-
-                    <div class="horn-icon-out-1 horn-lt"></div>
-                    <div class="horn-icon-out-1 horn-rt"></div>
-                    <div class="horn-icon-out-1 horn-lb"></div>
-                    <div class="horn-icon-out-1 horn-rb"></div>
-
-                    <div class="horn-icon-out-2 horn-lt"></div>
-                    <div class="horn-icon-out-2 horn-rt"></div>
-                    <div class="horn-icon-out-2 horn-lb"></div>
-                    <div class="horn-icon-out-2 horn-rb"></div>
-
-                    <div class="name"></div>
-                    <div class="item">
-                        <div class="icon"><img src="./img/totalCompany.png" /></div>
-                        <div class="type">企业总数</div>
-                        <div class="value"></div>
-                    </div>
-                    <div class="item">
-                        <div class="icon"><img src="./img/riskCompany.png" /></div>
-                        <div class="type">风险企业数</div>
-                        <div class="value"></div>
-                    </div>
-                    <div class="item">
-                        <div class="icon"><img src="./img/highRiskCompany.png" /></div>
-                        <div class="type">高风险企业数</div>
-                        <div class="value danger"></div>
-                    </div>
-                </div>
                 <div class="map"></div>
+                
             </div>
             <!--中1 地图-->
         </div>
@@ -242,7 +240,65 @@
                         <div class="horn-icon horn-lb"></div>
                         <div class="horn-icon horn-rb"></div>
                         <div class="item-container">
-
+                            <div class="supervision-num">
+                                <dl>
+                                    <dt>检测企业数量</dt>
+                                    <dd>12345</dd>
+                                </dl>
+                            </div>
+                            <div class="box">
+                                <div class="box-header">
+                                    对接数据
+                                </div>
+                                <div class="box-body">
+                                    <ul class="docking-data">
+                                        <dl>
+                                            <dt>856700000</dt>
+                                            <dd>舆情</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>468757</dt>
+                                            <dd>工商</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>3200</dt>
+                                            <dd>税务</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>13000</dt>
+                                            <dd>公安</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>3200</dt>
+                                            <dd>法院</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>428932</dt>
+                                            <dd>银行</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>468757</dt>
+                                            <dd>发改委 </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>468765</dt>
+                                            <dd>工信厅 </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>31200</dt>
+                                            <dd>12345平台举报</dd>
+                                        </dl>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="box">
+                                <div class="box-header">
+                                    非法集资风险企业分布
+                                </div>
+                                <div class="box-body">
+                                    <div id="comonyChart" style="width:100%;height:250px"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -267,14 +323,14 @@
                             <div class="horn-icon horn-lb"></div>
                             <div class="horn-icon horn-rb"></div>
                             <div class="item-container">
-
+                                <div id="lineCharts" style="width:100%;height:370px;"></div> 
                             </div>
                         </div>
 
                     </div>
                 </div>
                 <!-- 非法集资高风险企业 -->
-                <div class="right-column__bottom">
+                <div class="right-column__bottom" id="companyList">
                     <div class="origin-border">
                         <div class="title-container">
                             <div class="title-container-horn title-container-lt"></div>
@@ -290,7 +346,7 @@
                             <div class="horn-icon horn-lb"></div>
                             <div class="horn-icon horn-rb"></div>
                             <div class="item-container">
-
+                                
                             </div>
                         </div>
 
