@@ -386,16 +386,16 @@ window.BezierCurveUtil={};
         }, {
             key: 'getColorByVal',
             value: function getColorByVal(percent) {
-                var color = '#3a73c9';
-                if (percent < .25 && percent >= 0) {
-                    color = '#3a73c9';
-                } else if (percent < .5) {
-                    color = '#eac82b';
-                } else if (percent < .75) {
-                    color = '#e7773a';
-                } else {
-                    color = '#e13848';
-                }
+                var color = '#00e5d2';
+                // if (percent < .25 && percent >= 0) {
+                //     color = '#3a73c9';
+                // } else if (percent < .5) {
+                //     color = '#eac82b';
+                // } else if (percent < .75) {
+                //     color = '#e7773a';
+                // } else {
+                //     color = '#e13848';
+                // }
                 return color;
             }
         }, {
@@ -452,12 +452,15 @@ window.BezierCurveUtil={};
                     ctx = me.ctx,
                     center_x = me.width / 2,
                     center_y = me.height / 2;
-                ctx.font = '300 100px "Microsoft YaHei"';
+                ctx.font = '300 60px "Microsoft YaHei"';
                 ctx.textAlign = 'center';
-                ctx.fillText(this.curVal, center_x, center_y + 65);
+                ctx.fillText(this.curVal, center_x-20, center_y + 45);
                 ctx.font = '300 40px "Microsoft YaHei"';
                 ctx.fillStyle = '#fff';
-                ctx.fillText('运行指数', center_x, center_y - 45);
+                ctx.fillText('运行指数', center_x, center_y - 25);
+                ctx.font = '300 30px "Microsoft YaHei"';
+                ctx.fillStyle = '#00e5d2';
+                ctx.fillText('分', center_x+40, center_y + 40);
             }
         }, {
             key: '__dynamicDraw',

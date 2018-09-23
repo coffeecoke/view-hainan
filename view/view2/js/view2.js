@@ -17,10 +17,10 @@ var renderIndustryIcon = function() {
             bgHeight:900,
             bgWrapDom:$(item).find('.cicle')[0],
             bgColors:[
-                {stop:0.47,color:'#10142d'},
-                // {stop:.72,color:'#4970b3'},
-                {stop:.55,color:'#293d7d'},
-                {stop:1,color:'transparent'}
+                {stop:0.47,color:'#011a73'},
+                {stop:.72,color:'#011868'},
+                {stop:.55,color:'#011a73'},
+                {stop:1,color:'#011a73'}
             ],
             handler:function(data){
                 // item.trigger('click');
@@ -99,8 +99,8 @@ var renderFrame = function() {
 
 var initProgress = function() {
     var opts={
-        width:400,
-        height:400,
+        width:350,
+        height:350,
         bgColors:'#111',
         lineCap:'round',
         showShadow:true,
@@ -117,8 +117,8 @@ var initProgress = function() {
 };
 var initProgress2 = function() {
     var opts={
-        width:400,
-        height:400,
+        width:350,
+        height:350,
         bgColors:'#111',
         lineCap:'round',
         showShadow:true,
@@ -319,7 +319,7 @@ var initIndexChangeChart = function(data,dataName) {
                     fontSize : 16
                 }
             },
-            data:['0','10%','20%','30%','40%','50%']
+           
            
         }],
         series: [
@@ -583,11 +583,11 @@ var initRiskMap = function(data) {
                 type:'pie',
                 radius : ['30%','40%'],
                 center: ['50%', '50%'],
-                color:['#E13848','#E7773A','#EAC82B','#3A73C9'],
+                color:['#0fb5ec','#2348d1','#00e5d2','#3c7fff'],
                 data:riskData,
                 label: {
                     textStyle: {
-                        fontSize: 24
+                        fontSize: 16
                     },
                     verticalAlign:'top',
                     formatter:function(a){
