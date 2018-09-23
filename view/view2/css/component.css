@@ -207,6 +207,7 @@
 }
 .right-containers  .roll__list {
     width:100%;
+    height:80%;
     position: absolute;
     left:0;
     right:0;

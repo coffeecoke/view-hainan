@@ -664,10 +664,10 @@ var renderRiskMap = function(code) {
 };
 var renderCompanyDatas = function(code) {
     var config = [
-        {name :"排名", key:"rank",  width : "25%", class:"rank"},
+        {name :"排名", key:"rank",  width : "15%", class:"rank"},
         {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
-        {name :"所属区域", key:"region",  width : "25%", class:"blue"},
-        {name :"指数", key:"index",  width : "%", class:"blue"}
+        {name :"所属区域", key:"region",  width : "30%", class:"blue"},
+        {name :"指数", key:"index",  width : "15%", class:"blue"}
     ];
     
     initTable('.right-containers', 'data/data2.json', {code:code}, config);
