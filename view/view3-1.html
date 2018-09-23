@@ -216,42 +216,8 @@
         <div class="middle">
             <div class="region"><img src="./img/sansha.png" alt=""></div>
             <div class="middle-column" id="map">
-
-                <div class="tooltip" style="display:none;">
-                    <style></style>
-                    <div class="horn-icon-in horn-lt"></div>
-                    <div class="horn-icon-in horn-rt"></div>
-                    <div class="horn-icon-in horn-lb"></div>
-                    <div class="horn-icon-in horn-rb"></div>
-
-                    <div class="horn-icon-out-1 horn-lt"></div>
-                    <div class="horn-icon-out-1 horn-rt"></div>
-                    <div class="horn-icon-out-1 horn-lb"></div>
-                    <div class="horn-icon-out-1 horn-rb"></div>
-
-                    <div class="horn-icon-out-2 horn-lt"></div>
-                    <div class="horn-icon-out-2 horn-rt"></div>
-                    <div class="horn-icon-out-2 horn-lb"></div>
-                    <div class="horn-icon-out-2 horn-rb"></div>
-
-                    <div class="name"></div>
-                    <div class="item">
-                        <div class="icon"><img src="./img/totalCompany.png" /></div>
-                        <div class="type">企业总数</div>
-                        <div class="value"></div>
-                    </div>
-                    <div class="item">
-                        <div class="icon"><img src="./img/riskCompany.png" /></div>
-                        <div class="type">风险企业数</div>
-                        <div class="value"></div>
-                    </div>
-                    <div class="item">
-                        <div class="icon"><img src="./img/highRiskCompany.png" /></div>
-                        <div class="type">高风险企业数</div>
-                        <div class="value danger"></div>
-                    </div>
-                </div>
                 <div class="map"></div>
+                
             </div>
             <!--中1 地图-->
         </div>
@@ -357,14 +323,14 @@
                             <div class="horn-icon horn-lb"></div>
                             <div class="horn-icon horn-rb"></div>
                             <div class="item-container">
-
+                                <div id="lineCharts" style="width:100%;height:370px;"></div> 
                             </div>
                         </div>
 
                     </div>
                 </div>
                 <!-- 非法集资高风险企业 -->
-                <div class="right-column__bottom">
+                <div class="right-column__bottom" id="companyList">
                     <div class="origin-border">
                         <div class="title-container">
                             <div class="title-container-horn title-container-lt"></div>
@@ -380,7 +346,7 @@
                             <div class="horn-icon horn-lb"></div>
                             <div class="horn-icon horn-rb"></div>
                             <div class="item-container">
-
+                                
                             </div>
                         </div>
 
