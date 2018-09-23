@@ -29,10 +29,10 @@
     height: 50%;
 }
 .right-column:nth-child(1) {
-    height: 42%;
+    height: 40%;
 }
 .right-column:nth-child(2) {
-    height: 58%;
+    height: 60%;
 }
 
 #index {
@@ -510,7 +510,7 @@
     line-height: 42px;
     font-size: 22px;
     padding-left: 30px;
-    background: url(../img/bar.png) left no-repeat;
+    background: url(../img/bar2.png) left no-repeat;
     
 }
 #riskMap .origin-border .horn .right-containers {
