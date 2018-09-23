@@ -118,9 +118,12 @@ body {
 .roll_col .roll__list {
     width:100%;
 }
+.roll_col .roll__list li {
+    padding-bottom:30px;
+}
 #top10 .roll__list dl {
     height:30px;
-    margin-bottom:30px;
+   
 }
 #top10 .roll__list dl dt {
     float:left;
@@ -230,9 +233,31 @@ body {
     display: inline-block;
     vertical-align: middle;
 }
+.docking-data {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.docking-data dl {
+    width:32%;
+    height:78px;
+    margin-bottom:10px;
+    background:url(../img/docking-data-bg.png) center no-repeat;
+    background-size: 100% auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.docking-data dl dt {
+    color:#fff;
+    font-size:26px;
+}
 
-
-
+.docking-data dl dd {
+    color:#00e5d2;
+    font-size:20px;
+}
 
 
 

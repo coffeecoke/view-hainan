@@ -186,6 +186,7 @@
 
                 $sliceItem = $($item[0]);
                 range = $sliceItem.outerHeight(true);
+                clearInterval(timer)
                 timer = setInterval(function(){
                     offset = $ul.css('top');
                     offset = parseInt(offset);

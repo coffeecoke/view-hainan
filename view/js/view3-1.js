@@ -27,9 +27,9 @@ $(function () {
             dataType: 'json',
             sync:false,
             success: function (data) {
-                var htmls = "";
-                $.each(data, function (indx, item) {
-                    htmls += '<li class="li-1">' +
+                var htmls = '<ul class="roll__list" style="position: absolute; left: 0; top: 0;">';
+                $.each(data, function (index, item) {
+                    htmls += '<li class="li-'+index+'">' +
                         '<dl>' +
                         '  <dt>' + item.name + '</dt>' +
                         '   <dd>' + item.value + '</dd>' +
@@ -37,13 +37,15 @@ $(function () {
                         '</li>'
 
                 })
-                $('#top10 .roll__list').html('').append(htmls);
-               
+                htmls+='</ul>'
+                $('#top10').html(htmls);
+                $('#top10').rollNoInterval().top();
 
             }
         })
-        $('#top10').rollNoInterval().top();
+        
     }
+   
     
     function initTop10Chart(url) {
         $.ajax({
@@ -214,4 +216,90 @@ $(function () {
             circle.text(Math.round(circle.value));
         }
     });
+
+    // 非法集资风险企业分布
+    var initComponyChart = function(data) {
+        var comonyChart = echarts.init(document.getElementById('comonyChart'))
+        var riskData = [];
+        var sum = 0;
+        $.each(data, function(key, value) {
+            sum += value;
+        });
+        $.each(data, function(key, value) {
+            var quantity = data[key]?data[key]:0;
+            var rate = (sum > 0) ? Math.round(quantity*100/sum) : 0;
+            riskData.push({name:key, value:rate});
+        });
+        var option = {
+            visualMap: {
+                show: false,
+                inRange: {
+                    //colorLightness: [0, 1]
+                }
+            },
+         
+            series : [
+                {
+                    type:'pie',
+                    radius : ['30%','40%'],
+                    center: ['50%', '50%'],
+                    color:['#E13848','#E7773A','#EAC82B','#3A73C9'],
+                    data:riskData,
+                    label: {
+                        textStyle: {
+                            fontSize: 24
+                        },
+                        verticalAlign:'top',
+                        formatter:function(a){
+                            var content = '';
+                            content += ' {rate|'+a.data.value+'%}\n';
+                            content += '{name|'+a.data.name+'}';
+                            //content += '{value|企业个数：'+a.data.value+'}';
+                            return content;
+                            
+                        },
+                        rich: {
+                            rate: {
+                                color:'#FFF',
+                                fontSize:'40px'
+                            },
+                            name: {
+                                fontSize:'24px'
+                            },
+                            value : {
+                                color:'#d4d4d4',
+                                fontSize:'24px'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            lineStyle: {
+                                
+                            },
+                            //smooth: 0.2,
+                            length: 30,
+                            length2: 30
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            
+                        }
+                    },
+                    textStyle : {
+                        fontSize : 24
+                    },
+                    animationType: 'scale',
+                    animationEasing: 'elasticOut',
+                    animationDelay: function (idx) {
+                        return Math.random() * 200;
+                    }
+                }
+            ]
+        };
+    
+        riskMap.setOption(option);
+       
+    };
 })
