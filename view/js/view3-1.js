@@ -247,7 +247,7 @@ $(function () {
                     type:'pie',
                     radius : ['50%','70%'],
                     center: ['50%', '50%'],
-                    color:['#E13848','#E7773A','#EAC82B','#3A73C9'],
+                    color:['#e4b807','#35cce2','#e10e0e','#e27204'],
                     data:riskData,
                     label: {
                         // textStyle: {
@@ -640,6 +640,7 @@ $(function () {
                 show: false
             },
             visualMap: {
+                show:false,
                 min: 0,
                 max: 100,
                 text:['风险等级高','风险等级低'],
@@ -723,8 +724,8 @@ $(function () {
                     },
                     itemStyle:{
                         normal: {//未选中状态
-                            borderWidth:2,//边框大小
-                            borderColor:'#07c8ff',
+                            // borderWidth:2,//边框大小
+                            // borderColor:'#07c8ff',
                             label: {
                                 show: true//显示名称
                             }
