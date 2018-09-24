@@ -4,34 +4,34 @@
  * 设置雷达图参数--用于刷新页面
  * @param {*} option 
  */
-var refreshRadar = function(option) {
-    option.radar[0].indicator = [];
-    option.series[0].data[0].value = [];
-    $.ajax({
-        url: 'data/radarData.json',
-        dataType: 'json',
-        async : false,
-        success: function(data){
-            var html = "<div class='radar-data-container'>";
-            $.each(data, function(index, item){
-                // 设置雷达图参数
-                option.radar[0].indicator.push({name:item.name, max:100});
-                // item.value
-                var random = Math.floor(Math.random()*(100-60+1)+60);
-                option.series[0].data[0].value.push(item.value);
-                // 设置右侧数据
-                if(item.value) {
-                    html += "<div class='radar-data-item'><div name='title'>" + item.name + "</div><div name='value'>" + item.value + "</div></div>";
-                }
+// var refreshRadar = function(option) {
+//     option.radar[0].indicator = [];
+//     option.series[0].data[0].value = [];
+//     $.ajax({
+//         url: 'data/radarData.json',
+//         dataType: 'json',
+//         async : false,
+//         success: function(data){
+//             var html = "<div class='radar-data-container'>";
+//             $.each(data, function(index, item){
+//                 // 设置雷达图参数
+//                 option.radar[0].indicator.push({name:item.name, max:100});
+//                 // item.value
+//                 var random = Math.floor(Math.random()*(100-60+1)+60);
+//                 option.series[0].data[0].value.push(item.value);
+//                 // 设置右侧数据
+//                 if(item.value) {
+//                     html += "<div class='radar-data-item'><div name='title'>" + item.name + "</div><div name='value'>" + item.value + "</div></div>";
+//                 }
                 
                 
-            });
-            html += "</div>"
-            $(option.selecter + " .radar-data").html(html);
-        }
-    });
-    return option;
-};
+//             });
+//             html += "</div>"
+//             $(option.selecter + " .radar-data").html(html);
+//         }
+//     });
+//     return option;
+// };
 
 /**
  * 渲染雷达图
@@ -39,95 +39,192 @@ var refreshRadar = function(option) {
  */
 var initRaderMap = function(selecter) {
     var chartRaderMap = echarts.init($(selecter + " .radar-map")[0]);
-    var option = {
-        selecter : selecter,
-        legend: {                               // 图例组件
-            enabled: true                       // 隐藏图例
-	    },
-	    radar: [{                               // 雷达图坐标系组件，只适用于雷达图。
-	        center: ['50%', '50%'],             // 圆中心坐标，数组的第一项是横坐标，第二项是纵坐标。[ default: ['50%', '50%'] ]
-	        radius: "60%",                      // 圆的半径，数组的第一项是内半径，第二项是外半径。
-	        startAngle: 90,                     // 坐标系起始角度，也就是第一个指示器轴的角度。[ default: 90 ]
-	        name: {                             // (圆外的标签)雷达图每个指示器名称的配置项。
-	            formatter: '{value}',
-	            textStyle: {
-	                fontSize: 24,
-	                color: '#FFF'
-	            }
-	        },
-	        nameGap: 30,                        // 指示器名称和指示器轴的距离。[ default: 15 ]
-	        splitNumber: 4,                     // (这里是圆的环数)指示器轴的分割段数。[ default: 5 ]
-	        shape: 'circle',                    // 雷达图绘制类型，支持 'polygon'(多边形) 和 'circle'(圆)。[ default: 'polygon' ]
-	        axisLine: {                         // (圆内的几条直线)坐标轴轴线相关设置
-	            show:false                      // 是否显示坐标轴轴线
+    option = {
+        title: {
+            text: '监测企业:21326',
+            //            x: 'center',
+            //            y: 'center',
+            x: '10%',
+            y: '0%',
+            textAlign: 'center',
+            textStyle: {
+                fontWeight: 'normal',
+                color: '#fff',
+                fontSize: '20'
+            }
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
             },
-	        splitLine: {                        // (这里是指所有圆环)坐标轴在 grid 区域中的分隔线。
-	            lineStyle: {
-	                color: '#3B5BA2',           // 分隔线颜色
-	                width: 1, 					// 分隔线线宽
-	            }
-	        },
-	        splitArea: {                        // 坐标轴在 grid 区域中的分隔区域，默认不显示。
-                show: false
-	        }
-	    }],
-	    series: [{
-	        name: '雷达图',              // 系列名称,用于tooltip的显示，legend 的图例筛选，在 setOption 更新数据和配置项时用于指定对应的系列。
-	        type: 'radar',              // 系列类型: 雷达图
-	        itemStyle: {                // 折线拐点标志的样式。
-	            normal: {               // 普通状态时的样式
-	                lineStyle: {
-                        width: 5,
-                        color: '#2d66d1',
-                        shadowBlur: 30,
-                        shadowColor: "#7498CE", //7498CE
-                        shadowOffsetX: 0,
-                        shadowOffsetY: 0
-	                },
-	                opacity: 1
-	            }
-	        },
-	        data: [{
-	            symbol: 'circle',
-	            symbolSize: 8,
-	            label: {                   
-	                    normal: {  
-	                        show: false
-	                    }  
-	                },
-	            itemStyle: {
-	                normal: {
-	                    borderColor: '#FFF',
-                        borderWidth: 1,
-                        color:'rgba(12, 17, 36, 1)'
-	                }
-	            },
-	            
-	            areaStyle: {
-	                normal: {
-                        color: {
-                            type: 'radial',
-                            x: 0.5,
-                            y: 0.5,
-                            r: 0.5,
-                            colorStops: [{
-                                offset: 0, color: 'rgb(10,63,191,0.5)' // 0% 处的颜色
-                            }, {
-                                offset: 01, color: 'rgb(10,63,191,0)' // 100% 处的颜色
-                            }],
-                            globalCoord: false // 缺省为 false
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            textStyle:{
+                color:'#fff'
+            },
+            //            x: 'right',文字在图例颜色的右边了
+            right: '10%',
+            top: '10%',
+            //            data数据中若存在''，则表示换行，用''切割。
+            data: ['民间投资中介机构', '网络借贷机构', '虚拟理财', '房地产行业',  '私募基金', '地方交易场', '相互保险', '养老机构','“消费返利”网站','农民合作社']
+        },
+        //        calculable:true,
+        series: [
+            {
+                type: 'pie',
+                // center: [110, 95],
+                // radius: [88, 90],
+                radius: ['73%', '75%'],
+                center: ['40%', '50%'],
+                labelLine: {
+                    normal: {
+                        show: 0,
+                    },
+                },
+                itemStyle: {
+                    normal: {
+                        color: function(a) {
+                            if (a.data == 2) {
+                                return '#00f7fd';
+                            }
+                            if (a.data == 1) {
+                                return 'rgba(0,0,0, 0)';
+                            }
+                        },
+                    },
+                },
+                data: [2, 1, 2, 1, 2, 1, 2, 1,2,1,2,1,2,1,2,1,2,1,2,1],
+            },
+            {
+                name: '',
+                type: 'pie',
+                radius: ['60%', '70%'],
+                  center: ['40%', '50%'],
+                // center: [110, 95],
+                // radius: [52, 62],
+                startAngle: 190, //设置起始的角度
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                /*控制圆环点击不会放大*/
+    
+                label: {
+                    normal: {
+                        show: 1,
+                        position: 'top',
+                        formatter: '{c}%',
+                        color:'#00f7fd',
+                        fontSize: '18'
+
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '16',
+                            fontWeight: 'bold'
                         }
-	                }
-	            }
-	        }]
-	    }]
+                    }
+                },
+                //                labelLine: {
+                //                    normal: {
+                //                        show: true,
+                //                        length:0.001,
+                //                        type: 'dashed'
+                //                    }
+                //                },
+                labelLine: {
+                    normal: {
+                        smooth: true,
+                        length: 20,
+                        length2: 3,
+                        lineStyle: {
+                            type: 'dotted',
+                        },
+                    },
+                },
+                data: [{
+                        value: 21,
+                        name: '民间投资中介机构',
+                        itemStyle: {
+                            color: '#0073ff'
+                        }
+                    },
+                    {
+                        value: 2,
+                        name: '网络借贷机构',
+                        itemStyle: {
+                            color: '#05b5ff'
+                        }
+                    },
+                    {
+                        value: 16,
+                        name: '虚拟理财',
+                        itemStyle: {
+                            color: '#00f9ff'
+                        }
+                    },
+                    {
+                        value: 4,
+                        name: '房地产行业',
+                        itemStyle: {
+                            color: '#00ffc0'
+                        }
+                    },
+                    {
+                        value: 4,
+                        name: '私募基金',
+                        itemStyle: {
+                            color: '#01ff7f'
+                        }
+                    },
+                    {
+                        value: 10,
+                        name: '地方交易场',
+                        itemStyle: {
+                            color: '#00b265'
+                        }
+                    },
+                    {
+                        value: 3,
+                        name: '相互保险',
+                        itemStyle: {
+                            color: '#ffd645'
+                        }
+                    },
+                    {
+                        value: 13,
+                        name: '养老机构',
+                        itemStyle: {
+                            color: '#ff3567'
+                        }
+                    },
+                    {
+                        value: 12,
+                        name: '“消费返利”网站',
+                        itemStyle: {
+                            color: '#b95af2'
+                        }
+                    },
+                    {
+                        value: 15,
+                        name: '农民合作社',
+                        itemStyle: {
+                            color: '#6f5af2'
+                        }
+                    }
+    
+                ]
+            }
+        ]
     };
-    option = refreshRadar(option);
+    // option = refreshRadar(option);
 	
 	// 使用刚指定的配置项和数据显示图表
     chartRaderMap.setOption(option);
     setInterval(function(){ // 每隔10分钟请求一次
-        option = refreshRadar(option);
+        // option = refreshRadar(option);
         chartRaderMap.setOption(option);
     },3000);
 };
@@ -162,15 +259,15 @@ var refreshIndustryChart = function(option) {
  * @param {*} clolr 颜色
  * @param {*} name 名称
  */
-var initIndustryIcon = function(selecter, clolr, name) {
-    var objHtml = "<div class='industry-icon-item'>";
-    objHtml += "<div class='industry-icon-item-color'></div>";
-    objHtml += "<div class='industry-icon-item-name'>" + name + "</div>";
-    objHtml += "</div>";
-    $obj = $(objHtml);
-    $obj.find(".industry-icon-item-color").css("background", clolr);
-    $(selecter).append($obj);
-};
+// var initIndustryIcon = function(selecter, clolr, name) {
+//     var objHtml = "<div class='industry-icon-item'>";
+//     objHtml += "<div class='industry-icon-item-color'></div>";
+//     objHtml += "<div class='industry-icon-item-name'>" + name + "</div>";
+//     objHtml += "</div>";
+//     $obj = $(objHtml);
+//     $obj.find(".industry-icon-item-color").css("background", clolr);
+//     $(selecter).append($obj);
+// };
 
 /**
  * 渲染行业指标变化图表
@@ -179,98 +276,124 @@ var initIndustryIcon = function(selecter, clolr, name) {
 var initIndustryChart = function(selecter) {
     var industryChart = echarts.init($(selecter)[0]);
     var option = {
+        color: ['#0073ff', '#05b5ff', '#00f9ff', '#00ffc0','#01ff7f', '#00b265', '#ffd645', '#ff3567','#b95af2', '#6f5af2'],
+        //title: {
+        //    text: '报警次数'
+        //},
         tooltip: {
             trigger: 'axis',
-            axisPointer: {
-                type: 'none'
-            },
-            formatter: function (params) {
-                return params[0].name + ': ' + params[0].value;
-            }
+            //formatter: "{b} <br> 合格率: {c}%"
         },
+        legend: {
+            icon:'squer',
+            orient: 'vertical',
+            textStyle:{
+                color:'#fff'
+            },
+            //            x: 'right',文字在图例颜色的右边了
+            right: '2%',
+            top: '5%',
+            //            data数据中若存在''，则表示换行，用''切割。
+            data: ['民间投资中介机构', '网络借贷机构', '虚拟理财', '房地产行业',  '私募基金', '地方交易场', '相互保险', '养老机构','“消费返利”网站','农民合作社']
+        },
+        grid: {
+            left: '3%',
+            right: '20%',
+            bottom: '3%',
+            top:'10%',
+            containLabel: true
+        },
+        
         xAxis: {
-            axisTick: {show: true},
-            axisLine: {
-                show: true,
-                lineStyle: {
-                    color: '#999999',
-                    width: 3,
-                    type: 'solid'
+            show:true,
+            type:'category',
+            data:['p2p','小戴','lalal','nihao',"23","34","24","4ff"],
+            axisline:{
+                lineStyle:{
+                    color:'#fff'
                 }
             },
-            axisLabel: {
-                textStyle: {
-                    color : "#999999",
-                    fontSize : 16
+            axisLable:{
+                show:true,
+                itemStyle:{
+                    color:'#fff'
                 }
-            }
+            },
         },
         yAxis: {
-            max : 60,
-            splitLine: {
-                show: true,
-                lineStyle : {
-                    color: '#999999',
-                    width: 1,
-                    type: 'dashed',
-                    opacity : 0.5
+            type: 'value',
+            name: '风险指数',
+            min:0,
+            max:100,
+            axisline:{
+                lineStyle:{
+                    color:'#fff'
                 }
+            },
+            axisTick:{
+                lineStyle:{
+                    color:'#fff'
+                }
+            },
+            axislable:{
+                show:true,
+                normal:{
+                    color:'#fff'
+                }
+            },
+        },
+        series: [
+            {
+                name: '民间投资中介机构',
+                type: 'line',
+                data: [20,30,20,30,35,40,60,90]
+            },
+            {
+                name: '网络借贷机构',
+                type: 'line',
+            },
+            {
+                name: '虚拟理财',
+                type: 'line',
+            },
+            {
+                name: '房地产行业',
+                type: 'line',
+                data: [15,20,25,25,40, 50,50, 70]
+            },
+            {
+                name: '私募基金',
+                type: 'line',
+            },
+            {
+                name: '地方交易场',
+                type: 'line',
+            },
+            {
+                name: '相互保险',
+                type: 'line',
+            },
+            {
+                name: '养老机构',
+                type: 'line',
+                data: [30,60,40,60,70,70, 80, 100]
+            },
+            {
+                name: '“消费返利”网站',
+                type: 'line',
                 
             },
-            axisTick: {show: true},
-            axisLine: {
-                show: true,
-                lineStyle: {
-                    color: '#999999',
-                    width: 3,
-                    type: 'solid'
-                }
-            },
-            axisLabel: {
-                textStyle: {
-                    color : "#81c6ed",
-                    fontSize : 16
-                }
+            {
+                name: '农民合作社',
+                type: 'line',
             }
-        },
-        color: function(params) {
-            if(params.value > 50) {
-                return "#E13848";
-            } else if(params.value > 30 &&  params.value <= 50) {
-                return "#D0B954";
-            } else {
-                return "#3A73C9";
-            }
-        },
-        series: [{
-            name: 'hill',
-            type: 'pictorialBar',
-            barCategoryGap: '0%',
-            symbol: 'triangle',
-            itemStyle: {
-                normal: {
-                    opacity: 0.9
-                },
-                emphasis: {
-                    opacity: 1
-                }
-            },
-            z: 10
-        }, {
-            name: 'glyph',
-            type: 'pictorialBar',
-            barGap: '-100%',
-            symbol: "path://M250 50 L0 -500 L500 -500 Z",
-            symbolPosition: 'end',
-            symbolSize: 20,
-            symbolOffset: [0, '-120%']
-        }]
+        ]
     };
     option = refreshIndustryChart(option);
     industryChart.setOption(option);
     setInterval(function(){ // 每隔10分钟请求一次
-        option = refreshIndustryChart(option);
-        industryChart.setOption(option);
+        // option = refreshIndustryChart(option);
+        // industryChart.setOption(option);
     },3000);
 };
 
@@ -397,12 +520,12 @@ var renderFrame = function() {
     renderTitle("#rightColumn1 .origin-border", "");
     renderTitle("#rightColumn2 .origin-border", "");
     // 雷达图分为左边展示图和右边的数据
-    $("#raderMap .origin-border .horn").append("<div class='radar-map'></div><div class='radar-data'></div>");
+    $("#raderMap .origin-border .horn").append("<div class='radar-map'></div>");
     // 行业指标变化
     $("#industryData .origin-border .horn").append("<div class='industry-icon'></div><div class='industry-map'></div>");
-    initIndustryIcon("#industryData .origin-border .horn .industry-icon", "#E13848", "高于50");
-    initIndustryIcon("#industryData .origin-border .horn .industry-icon", "#D08954", "高于30-低于50");
-    initIndustryIcon("#industryData .origin-border .horn .industry-icon", "#3A73C9", "低于30");
+    // initIndustryIcon("#industryData .origin-border .horn .industry-icon", "#E13848", "高于50");
+    // initIndustryIcon("#industryData .origin-border .horn .industry-icon", "#D08954", "高于30-低于50");
+    // initIndustryIcon("#industryData .origin-border .horn .industry-icon", "#3A73C9", "低于30");
     $("#rightColumn1 .origin-border .horn").append("<div class='table-container'></div>");
     $("#rightColumn2 .origin-border .horn").append("<div class='table-container'></div>");
     $("#leftColumn1 .origin-border .horn").append("<div class='table-container'></div>");

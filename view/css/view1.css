@@ -1,5 +1,5 @@
 .left {
-    width: 24%;
+    width: 38%;
     height: 100%;
 }
 .middle {
@@ -7,7 +7,7 @@
     height:100%;
 }
 .right {
-    width: 38%;
+    width: 24%;
     height: 100%;
 }
 .left-column, .right-column,.middle-column{
@@ -32,12 +32,12 @@
 }
 #raderMap .origin-border .horn .radar-map {
     display: inline-block;
-    width: 55%;
+    width: 100%;
 }
-#raderMap .origin-border .horn .radar-data {
+/* #raderMap .origin-border .horn .radar-data {
     display: table;
     width: 45%;
-}
+} */
 
 #raderMap .origin-border .horn .radar-data .radar-data-container {
     display: table-cell;
