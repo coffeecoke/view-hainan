@@ -230,11 +230,11 @@
                 $self.hover(function(){
                     clearInterval(timer);
                 }, function(){
-
+                    top()
                 });
             };
 
-        //init();
+        init();
         return {
             left: left,
             right: right,
