@@ -538,8 +538,7 @@ var initOperateIndex = function(data) {
     });
     $('#operateIndex .origin-border .horn .icon-container .icon-item-list').html(html);
     // 指数
-    shieldProgress.update(Math.floor(Math.random()*(80-60+1)+60));
-    shieldProgress2.update(Math.floor(Math.random()*(80-60+1)+60));
+    
 };
 
 /**
@@ -553,9 +552,16 @@ var renderOperateIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-
+            var score = {
+                "01":69,
+                "02":86,
+                "03":100,
+                "04":98
+            }
             $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '运行指数');
             initOperateIndex(data);
+            shieldProgress.update(score[code]);
+            shieldProgress2.update(score[code]);
             $('#operateIndex').toggleClass('card-flipped')
         }
     });
@@ -598,7 +604,7 @@ var initRiskMap = function(data) {
                 type:'pie',
                 radius : ['20%','36%'],
                 center: ['52%', '50%'],
-                color:['#0fb5ec','#2348d1','#00e5d2','#3c7fff','#00a0e9'],
+                color:['#00f9ff','#0073ff','#6f5af2','#b95af2','#00a0e9'],
                 data:riskData,
                 label: {
                    

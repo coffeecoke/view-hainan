@@ -250,7 +250,7 @@ $(function () {
                 type: 'pie',
                 radius: ['50%', '70%'],
                 center: ['50%', '50%'],
-                color: ['#e4b807', '#35cce2', '#e10e0e', '#e27204'],
+                color: ['#e10e0e', '#e27204', '#e4b807', '#35cce2'],
                 data: riskData,
                 label: {
                     // textStyle: {
@@ -492,7 +492,7 @@ var renderRiskCompanyData = function (data) {
         }
 
         html += '<div class="item" riskLevel="' + riskLevel + '">';
-        html += '<div class="icon-container">';
+        html += '<div class="icon-container" style="display:none">';
         html += '<div class="icon">';
         html += $('#allIcon [name=' + iconId + ']').prop("outerHTML");
         html += '</div>';
@@ -509,7 +509,7 @@ var renderRiskCompanyData = function (data) {
         html += '</div>';
     });
 
-    $('#companyList .origin-border .item-container').html('<div class="body1">' + html + '</div><div class="body2">' + html + '</div>');
+    $('#companyList .origin-border .item-container').html('<div class="body1 roll__list">' + html + '</div><div class="body2">' + html + '</div>');
     setScroll();
 };
 
@@ -578,10 +578,11 @@ $(function () {
             async: false,
             success: function (data) {
                 $.each(data, function (index, item) {
-                    item.value = Math.round((item.risk + item.highRisk) / item.total * 100);
+                    item.value = Math.round((item.Detection) / 36058 * 1000);
+                    
                     riskData.push(item);
                 });
-
+                console.log(riskData)
                 renderTooltip(data)
 
             }
@@ -649,7 +650,7 @@ $(function () {
             visualMap: {
                 show: false,
                 min: 0,
-                max: 100,
+                max: 200,
                 text: ['风险等级高', '风险等级低'],
                 realtime: false,
                 calculable: true,
@@ -688,8 +689,8 @@ $(function () {
                             } else if (params.data.risk > 1 && params.data.highRisk <= 0) {
                                 var icon = 'middle';
                                 return params.name + '{' + icon + '|}';
-                            } else {
-                                var icon = 'low';
+                            } else if(params.data.risk=0) {
+                                var icon = '';
                                 return params.name + '{' + icon + '|}';
                             }
 
