@@ -640,6 +640,7 @@ $(function () {
                 show: false
             },
             visualMap: {
+                show:false,
                 min: 0,
                 max: 100,
                 text:['风险等级高','风险等级低'],

@@ -18,9 +18,9 @@ var renderIndustryIcon = function() {
             bgHeight:900,
             bgWrapDom:$(item).find('.cicle')[0],
             bgColors:[
-                {stop:0.47,color:'#011657'},
+                {stop:0.47,color:'transparent'},
                 // {stop:.72,color:'#4970b3'},
-                {stop:.55,color:'#293d7d'},
+                {stop:.55,color:'transparent'},
                 {stop:1,color:'transparent'}
             ],
             handler:function(data){
@@ -596,14 +596,12 @@ var initRiskMap = function(data) {
         series : [
             {
                 type:'pie',
-                radius : ['28%','36%'],
+                radius : ['20%','36%'],
                 center: ['52%', '50%'],
-                color:['#0fb5ec','#2348d1','#00e5d2','#3c7fff'],
+                color:['#0fb5ec','#2348d1','#00e5d2','#3c7fff','#00a0e9'],
                 data:riskData,
                 label: {
-                    textStyle: {
-                        fontSize: 18
-                    },
+                   
                     verticalAlign:'top',
                     formatter:function(a){
                         var content = '';
@@ -616,14 +614,14 @@ var initRiskMap = function(data) {
                     rich: {
                         rate: {
                             color:'#FFF',
-                            fontSize:'40px'
+                            fontSize:20
                         },
                         name: {
-                            fontSize:'24px'
+                            fontSize:18
                         },
                         value : {
                             color:'#d4d4d4',
-                            fontSize:'24px'
+                            fontSize:18
                         }
                     }
                 },
@@ -679,10 +677,9 @@ var renderRiskMap = function(code) {
 // 风险信息
 var renderRiskInformation = function(code) {
     var config = [
-        {name :"排名", key:"rank",  width : "15%", class:"rank"},
-        {name :"风险分类", key:"classification",  width : "25%", class:"white"},
-        {name :"风险信号", key:"signal",  width : "30%", class:"blue"},
-        {name :"风险企业数", key:"num",  width : "30%", class:"blue"}
+        {name :"序号", key:"rank",  width : "20%", class:"rank"},
+        {name :"风险分类", key:"classification",  width : "40%", class:"white"},
+        {name :"风险企业数", key:"num",  width : "40%", class:"blue"}
     ];
     
     initTable('.front .right-containers', 'data/riskInformation.json', {code:code}, config);
