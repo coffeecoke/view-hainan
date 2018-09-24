@@ -3,93 +3,54 @@
 	"pageData":[
 		{
 			"rank": "1",
-			"companyName": "海口骏豪金龙小额贷款有限公司",
-			"region": "海口市",
-			"index": "70",
-			"quality":"15",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
+			"companyName": "海南国际商品交易中心有限公司",
+			"region": "澄迈县",
+			"index": "85",
+			"cRisk":"30",
+			"lrisk": "20",
+			"mrisk":"15",
+			"brisk":"20"
 		},
 		{
 			"rank": "2",
-			"companyName": "海口衍宏小额贷款股份有限公司",
-			"region": "海口市",
-			"index": "71",
-			"quality":"16",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
+			"companyName": "亚联盟金融资产交易中心（海南）有限公司",
+			"region": "三亚市",
+			"index": "80",
+			"cRisk":"30",
+			"lrisk": "20",
+			"mrisk":"15",
+			"brisk":"15"
 		},
 		{
 			"rank": "3",
-			"companyName": "海口信航小额贷款有限公司",
-			"region": "海口市",
-			"index": "72",
-			"quality":"15",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
+			"companyName": "洋浦国际能源交易中心有限责任公司",
+			"region": "洋浦经济开发区",
+			"index": "89",
+			"cRisk":"35",
+			"lrisk": "20",
+			"mrisk":"15",
+			"brisk":"24"
 		},
 		{
 			"rank": "4",
-			"companyName": "海南银达小额贷款有限公司",
+			"companyName": "海南大宗商品交易中心有限责任公司",
 			"region": "海口市",
-			"index": "73",
-			"quality":"15",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
+			"index": "83",
+			"cRisk":"30",
+			"lrisk": "20",
+			"mrisk":"15",
+			"brisk":"13"
 		},
 		{
 			"rank": "5",
-			"companyName": "海南中城建小额贷款有限责任公司",
+			"companyName": "海南产权交易所有限公司",
 			"region": "海口市",
-			"index": "70",
-			"quality":"19",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
-		},
-		{
-			"rank": "6",
-			"companyName": "海南海控小额贷款有限公司",
-			"region": "海口市",
-			"index": "78",
-			"quality":"20",
-			"fluidity": "10",
-			"profit":"16",
-			"mrisk":"10",
-			"orisk":"20"
-		},
-		{
-			"rank": "7",
-			"companyName": "三亚长庚小额贷款有限责任公司",
-			"region": "三亚市",
-			"index": "81",
-			"quality":"20",
-			"fluidity": "10",
-			"profit":"14",
+			"index": "91",
+			"cRisk":"37",
+			"lrisk": "20",
 			"mrisk":"15",
-			"orisk":"20"
-		},
-		{
-			"rank": "8",
-			"companyName": "海南金海小额贷款有限责任公司",
-			"region": "三亚市",
-			"index": "85",
-			"quality":"20",
-			"fluidity": "13",
-			"profit":"17",
-			"mrisk":"15",
-			"orisk":"20"
+			"brisk":"24"
 		}
-		
 
 	]
 }

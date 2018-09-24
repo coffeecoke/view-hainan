@@ -389,6 +389,49 @@ var renderIndexChange = function(code) {
  * @param {*} code 需要展示的数据的code值
  */
 var renderCompanyData = function(code) {
+    var configs ={
+        "01":[
+            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+            {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+            {name :"指数", key:"index",  width : "10%", class:"blue"},
+            {name :"信用风险", key:"cRisk",  width : "10%", class:"blue", class:"level"},
+            {name :"操作风险", key:"orisk",  width : "10%", class:"blue", class:"level"},
+            {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
+        ],
+        "02":[
+            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+            {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+            {name :"指数", key:"index",  width : "10%", class:"blue"},
+            {name :"资产质量", key:"quality",  width : "10%", class:"blue", class:"level"},
+            {name :"流动性", key:"fluidity",  width : "10%", class:"blue", class:"level"},
+            {name :"盈利及效率", key:"profit",  width : "10%", class:"blue", class:"level"},
+            {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
+        ],
+        "03":[
+            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+            {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+            {name :"指数", key:"index",  width : "10%", class:"blue"},
+            {name :"信用风险", key:"cRisk",  width : "10%", class:"blue", class:"level"},
+            {name :"合规风险", key:"lrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
+        ],
+        "04":[
+            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+            {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+            {name :"指数", key:"index",  width : "10%", class:"blue"},
+            {name :"信用风险", key:"cRisk",  width : "10%", class:"blue", class:"level"},
+            {name :"合规风险", key:"lrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
+        ]
+    }
     var config = [
         {name :"排名", key:"rank",  width : "5%", class:"rank"},
         {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
@@ -401,7 +444,7 @@ var renderCompanyData = function(code) {
         {name :"经营风险", key:"orisk",  width : "10%", class:"blue", class:"level"},
     ];
     
-    initTable('#companyData .table-container', 'data/companyData'+code+'.json', {code:code}, config);
+    initTable('#companyData .table-container', 'data/companyData'+code+'.json', {code:code}, configs[code]);
 };
 
 var operateIconMap = {

@@ -3,93 +3,54 @@
 	"pageData":[
 		{
 			"rank": "1",
-			"companyName": "海口骏豪金龙小额贷款有限公司",
+			"companyName": "海南股权交易中心有限责任公司",
 			"region": "海口市",
-			"index": "70",
-			"quality":"15",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
+			"index": "85",
+			"cRisk":"30",
+			"lrisk": "20",
+			"mrisk":"15",
+			"brisk":"20"
 		},
 		{
 			"rank": "2",
-			"companyName": "海口衍宏小额贷款股份有限公司",
+			"companyName": "海南股权交易中心有限责任公司",
 			"region": "海口市",
-			"index": "71",
-			"quality":"16",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
+			"index": "85",
+			"cRisk":"30",
+			"lrisk": "20",
+			"mrisk":"15",
+			"brisk":"20"
 		},
 		{
 			"rank": "3",
-			"companyName": "海口信航小额贷款有限公司",
+			"companyName": "海南股权交易中心有限责任公司",
 			"region": "海口市",
-			"index": "72",
-			"quality":"15",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
+			"index": "85",
+			"cRisk":"30",
+			"lrisk": "20",
+			"mrisk":"15",
+			"brisk":"20"
 		},
 		{
 			"rank": "4",
-			"companyName": "海南银达小额贷款有限公司",
+			"companyName": "海南股权交易中心有限责任公司",
 			"region": "海口市",
-			"index": "73",
-			"quality":"15",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
+			"index": "85",
+			"cRisk":"30",
+			"lrisk": "20",
+			"mrisk":"15",
+			"brisk":"20"
 		},
 		{
 			"rank": "5",
-			"companyName": "海南中城建小额贷款有限责任公司",
+			"companyName": "海南股权交易中心有限责任公司",
 			"region": "海口市",
-			"index": "70",
-			"quality":"19",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"10",
-			"orisk":"20"
-		},
-		{
-			"rank": "6",
-			"companyName": "海南海控小额贷款有限公司",
-			"region": "海口市",
-			"index": "78",
-			"quality":"20",
-			"fluidity": "10",
-			"profit":"16",
-			"mrisk":"10",
-			"orisk":"20"
-		},
-		{
-			"rank": "7",
-			"companyName": "三亚长庚小额贷款有限责任公司",
-			"region": "三亚市",
-			"index": "81",
-			"quality":"20",
-			"fluidity": "10",
-			"profit":"14",
-			"mrisk":"15",
-			"orisk":"20"
-		},
-		{
-			"rank": "8",
-			"companyName": "海南金海小额贷款有限责任公司",
-			"region": "三亚市",
 			"index": "85",
-			"quality":"20",
-			"fluidity": "13",
-			"profit":"17",
+			"cRisk":"30",
+			"lrisk": "20",
 			"mrisk":"15",
-			"orisk":"20"
+			"brisk":"20"
 		}
-		
 
 	]
 }
