@@ -61,7 +61,7 @@ $(function () {
                 
                 var option = {
                     tooltip: {
-                        show:false,
+                        show:true,
                         trigger: 'axis',
                         position: function (pt) {
                             return [pt[0], '10%'];
@@ -142,9 +142,13 @@ $(function () {
                     series: [{
                             name: '',
                             type: 'line',
-                            symbol: 'none',
+                            symbol: 'circle',
+                            symbolSize:8,
+                            showSymbol:false,
                             itemStyle: {
                                 normal: {
+                                    borderColor:'#e43bee',
+                                    borderWidth: 6,
                                     color: 'rgb(58,115,201,0.8)'
                                 }
                             },
