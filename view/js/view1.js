@@ -285,6 +285,7 @@ var initIndustryChart = function(selecter) {
             //formatter: "{b} <br> 合格率: {c}%"
         },
         legend: {
+            show:false,
             icon:'squer',
             orient: 'vertical',
             textStyle:{
@@ -298,7 +299,7 @@ var initIndustryChart = function(selecter) {
         },
         grid: {
             left: '3%',
-            right: '30%',
+            right: '5%',
             bottom: '3%',
             top:'10%',
             containLabel: true
@@ -307,7 +308,7 @@ var initIndustryChart = function(selecter) {
         xAxis: {
             show:true,
             type:'category',
-            data:['民间投资','网络借贷','虚拟理财','房地产',"私募基金","地方交易","相互保险"],
+            data:['民间投资','网络借贷','虚拟理财','房地产',"私募基金","地方交易","相互保险",'养老机构'],
             axisLine:{
                 show:true,
                 lineStyle:{
@@ -326,7 +327,7 @@ var initIndustryChart = function(selecter) {
             type: 'value',
             name: '风险指数',
             min:0,
-            max:100,
+            max:500,
             axisLine:{
                 lineStyle:{
                     color:'#999'
@@ -355,52 +356,134 @@ var initIndustryChart = function(selecter) {
             }
         },
         series: [
-            {
-                name: '民间投资中介机构',
-                type: 'line',
-                data: [20,30,20,30,35,40,60,90]
+            { 
+                type: 'bar',
+                barGap: '-100%',
+                barWidth:'20',
+                //配置样式
+                itemStyle: {   
+                    //通常情况下：
+                    normal:{  
+        　　　　　　　　　　　　//每个柱子的颜色即为colorList数组里的每一项，如果柱子数目多于colorList的长度，则柱子颜色循环使用该数组
+                        color: '#002e56'
+                    },
+                    //鼠标悬停时：
+                    emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                },
+                data: [500,500,500,500,500,500,500,500]
             },
-            {
-                name: '网络借贷机构',
-                type: 'line',
-            },
-            {
-                name: '虚拟理财',
-                type: 'line',
-            },
-            {
-                name: '房地产行业',
-                type: 'line',
-                data: [15,20,25,25,40, 50,50, 70]
-            },
-            {
-                name: '私募基金',
-                type: 'line',
-            },
-            {
-                name: '地方交易场',
-                type: 'line',
-            },
-            {
-                name: '相互保险',
-                type: 'line',
-            },
-            {
-                name: '养老机构',
-                type: 'line',
-                data: [30,60,40,60,70,70, 80, 100]
-            },
-            {
-                name: '“消费返利”网站',
-                type: 'line',
+            { 
+                type: 'bar',
+                barGap: '-100%',
+                barWidth:'20',
                 
+                data: [
+                    {
+                        value:300,
+                        itemStyle:{
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#185af6'
+                            }, {
+                                offset: 1,
+                                color: '#5b8afc'
+                            }]),
+                        }
+                    },
+                    {
+                        value:100,
+                        itemStyle:{
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#1e88f6'
+                            }, {
+                                offset: 1,
+                                color: '#5ba8fa'
+                            }]),
+                        }
+                    },
+                    {
+                        value:380,
+                        itemStyle:{
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#27d0fb'
+                            }, {
+                                offset: 1,
+                                color: '#75e1fb'
+                            }]),
+                        }
+                    },
+                    {
+                        value:350,
+                        itemStyle:{
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#1bd7be'
+                            }, {
+                                offset: 1,
+                                color: '#5ef0db'
+                            }]),
+                        }
+                    },
+                    {
+                        value:300,
+                        itemStyle:{
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#e7991b'
+                            }, {
+                                offset: 1,
+                                color: '#f7bb59'
+                            }]),
+                        }
+                    },
+                    {
+                        value:400,
+                        itemStyle:{
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#ed4545'
+                            }, {
+                                offset: 1,
+                                color: '#f16566'
+                            }]),
+                        }
+                    },
+                    {
+                        value:200,
+                        itemStyle:{
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#ed3384'
+                            }, {
+                                offset: 1,
+                                color: '#f374ab'
+                            }]),
+                        }
+                    },
+                    {
+                        value:240,
+                        itemStyle:{
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                offset: 0,
+                                color: '#a17ef6'
+                            }, {
+                                offset: 1,
+                                color: '#bfa3fa'
+                            }]),
+                        }
+                    }
+                ]
             },
-            {
-                name: '农民合作社',
-                type: 'line',
-            }
-        ]
-    };
+          
+        
+    ]
+}
     // option = refreshIndustryChart(option);
     industryChart.setOption(option);
     setInterval(function(){ // 每隔10分钟请求一次
@@ -523,9 +606,9 @@ var initIndustryTable = function() {  // 定时切换
  */
 var renderFrame = function() {
     renderBlockBorder(".origin-border");
-    renderTitle("#raderMap .origin-border", "企业地区分布图");
+    renderTitle("#raderMap .origin-border", "监测行业分布");
     // 行业指标变化分为上边图例和下边的图表
-    renderTitle("#industryData .origin-border", "行业指标变化");
+    renderTitle("#industryData .origin-border", "特征词命中次数");
     // 右侧表格
     renderTitle("#leftColumn1 .origin-border", "");
     renderTitle("#leftColumn2 .origin-border", "");
