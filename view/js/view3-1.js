@@ -12,14 +12,14 @@ $(function () {
     $('#item-toggle .roll__list li').on('click',function () {
         var code = $(this).data('code');
         initTop10('data/top10-'+code+'.json')
-        initTop10Chart('data/indexChangeData'+code+'.json')
+        initTop10Chart('data/indexRiskScopeChangeData'+code+'.json')
         $(this).addClass('active').siblings().removeClass('active')
     })
 
     // top10
 
     initTop10('data/top10-01.json')
-    initTop10Chart('data/indexChangeData01.json')
+    initTop10Chart('data/indexRiskScopeChangeData01.json')
 
     function initTop10(url) {
         $.ajax({
@@ -609,7 +609,7 @@ $(function () {
             tooltip:{
                 backgroundColor:'transparent',
                 formatter:function (params) {
-                    console.log(params)
+                   
                     return  '<div style="width:360px;height:440px;background:url(img/tooltip-bg.png) center no-repeat;padding:30px 20px;position:relative;z-index:100">'+
                             '<h3 style="color:#fff;font-size:28px;padding:20px 0px 30px 30px;text-align:left;font-weight:normal;">'+params.name+'</h3>'+
                             '<div style="padding:20px 40px 20px 40px;overflow:hidden">'+
@@ -718,8 +718,23 @@ $(function () {
                         }
                     },
                     itemStyle:{
-                        normal:{label:{show:true}},
-                        emphasis:{label:{show:true}}
+                        normal: {//未选中状态
+                            borderWidth:2,//边框大小
+                            borderColor:'#07c8ff',
+                            label: {
+                                show: true//显示名称
+                            }
+                        },
+                        emphasis: {// 也是选中样式
+                           
+                            areaColor: '#00e5d2',
+                            label: {
+                                show: true,
+                               
+                            }
+                         } 
+                        // normal:{label:{show:true}},
+                        // emphasis:{label:{show:true}}
                     },
                     data:riskData
                 }
@@ -728,6 +743,7 @@ $(function () {
 
 
        function renderTooltip(data) {
+          
             var myTime = 0;
 
             var index = 0;
@@ -737,26 +753,49 @@ $(function () {
                 
 
                 myTime = setInterval(function () {
+                    
+                    for(var i=0;i<data.length;i++) {
 
-                    map.dispatchAction({
+                        map.dispatchAction({
 
-                            type:"mapUnSelect",
-
-                            seriesIndex:0,
-
-                            dataIndex:index===0?data.length-1:(index-1)
-
-                    })
-
-                    map.dispatchAction({
-
-                            type:"hideTip",
+                            type:'hideTip',
 
                             seriesIndex:0,
 
-                            dataIndex:index===0?data.length-1:(index-1)
+                            dataIndex:i
 
-                    })
+                        })
+
+                        map.dispatchAction({
+
+                            type:'mapUnSelect',
+
+                            seriesIndex:0,
+
+                            dataIndex:i
+
+                        })
+
+                    }
+                    // map.dispatchAction({
+
+                    //         type:"mapUnSelect",
+
+                    //         seriesIndex:0,
+
+                    //         dataIndex:index===0?data.length-1:(index-1)
+
+                    // })
+
+                    // map.dispatchAction({
+
+                    //         type:"hideTip",
+
+                    //         seriesIndex:0,
+
+                    //         dataIndex:index===0?data.length-1:(index-1)
+
+                    // })
 
                     map.dispatchAction({
 
@@ -818,9 +857,9 @@ $(function () {
 
                             dataIndex:i
 
-                    })
+                        })
 
-                    map.dispatchAction({
+                        map.dispatchAction({
 
                             type:'mapUnSelect',
 
@@ -828,7 +867,7 @@ $(function () {
 
                             dataIndex:i
 
-                    })
+                        })
 
                     }
 
@@ -866,6 +905,29 @@ $(function () {
 
                         autoShowTip();
 
+                        for(var i=0;i<data.length;i++) {
+
+                            map.dispatchAction({
+    
+                                type:'hideTip',
+    
+                                seriesIndex:0,
+    
+                                dataIndex:i
+    
+                            })
+    
+                            map.dispatchAction({
+    
+                                type:'mapUnSelect',
+    
+                                seriesIndex:0,
+    
+                                dataIndex:i
+    
+                            })
+    
+                        }
                     }
 
             })

@@ -10,7 +10,7 @@
 			"fluidity": "10",
 			"profit":"14",
 			"mrisk":"10",
-			"orisk":"20"
+			"brisk":"20"
 		},
 		{
 			"rank": "2",
@@ -21,7 +21,7 @@
 			"fluidity": "10",
 			"profit":"14",
 			"mrisk":"10",
-			"orisk":"20"
+			"brisk":"20"
 		},
 		{
 			"rank": "3",
@@ -32,7 +32,7 @@
 			"fluidity": "10",
 			"profit":"14",
 			"mrisk":"10",
-			"orisk":"20"
+			"brisk":"20"
 		},
 		{
 			"rank": "4",
@@ -43,7 +43,7 @@
 			"fluidity": "10",
 			"profit":"14",
 			"mrisk":"10",
-			"orisk":"20"
+			"brisk":"20"
 		},
 		{
 			"rank": "5",
@@ -54,7 +54,7 @@
 			"fluidity": "10",
 			"profit":"14",
 			"mrisk":"10",
-			"orisk":"20"
+			"brisk":"20"
 		},
 		{
 			"rank": "6",
@@ -65,7 +65,7 @@
 			"fluidity": "10",
 			"profit":"16",
 			"mrisk":"10",
-			"orisk":"20"
+			"brisk":"20"
 		},
 		{
 			"rank": "7",
@@ -76,7 +76,7 @@
 			"fluidity": "10",
 			"profit":"14",
 			"mrisk":"15",
-			"orisk":"20"
+			"brisk":"20"
 		},
 		{
 			"rank": "8",
@@ -87,7 +87,7 @@
 			"fluidity": "13",
 			"profit":"17",
 			"mrisk":"15",
-			"orisk":"20"
+			"brisk":"20"
 		}
 		
 

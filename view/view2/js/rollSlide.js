@@ -223,6 +223,7 @@
 
                 $sliceItem = $($item[0]);
                 range = $sliceItem.outerHeight(true);
+                clearInterval(timer)
                 timer = setInterval(function(){
                     offset = $ul.css('top');
                     offset = parseInt(offset);
@@ -266,11 +267,11 @@
                 $self.hover(function(){
                     clearInterval(timer);
                 }, function(){
-
+                    top()
                 });
             };
 
-        //init();
+        init();
         return {
             left: left,
             right: right,

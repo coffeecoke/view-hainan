@@ -9,6 +9,7 @@ var industryMap = getNameByCode();
  */
 var renderIndustryIcon = function() {
     renderFrame();
+    renderModal()
     var doms=$('#allIcon .icon-item'),domItems=[];
     $.each(doms,function(i,item){
         domItems.push({
@@ -33,11 +34,13 @@ var renderIndustryIcon = function() {
                 renderIndexChange(code);
                 // 企业数据
                 renderCompanyData(code);
-                renderCompanyDatas(code);
+                
                 // 运行指数
                 renderOperateIndex(code);
                 // 风险分布图
                 renderRiskMap(code);
+                // 风险信息
+                renderRiskInformation(code);
             }
         });
     });
@@ -72,6 +75,7 @@ var renderFrame = function() {
     renderTitle("#indexChange .origin-border", "");
     renderTitle("#operateIndex .origin-border", "");
     renderTitle("#riskMap .origin-border", "");
+    renderTitle("#risk-modal .origin-border", "");
     // 行业指标
     $('#index .origin-border .horn').append('<div class="item-container"></div>');
     // 指标变化
@@ -94,6 +98,9 @@ var renderFrame = function() {
     initProgress();
     initProgress2();
     //var code = industry[0].code;
+
+    // 弹出层table
+    $("#risk-modal .origin-border .horn").append("<div class='table-container'></div>");
     
 };
 
@@ -149,7 +156,6 @@ var setEvent = function() {
         renderIndexChange(code);
         // 企业数据
         renderCompanyData(code);
-        renderCompanyDatas(code);
         // 运行指数
         renderOperateIndex(code);
         // 风险分布图
@@ -383,6 +389,49 @@ var renderIndexChange = function(code) {
  * @param {*} code 需要展示的数据的code值
  */
 var renderCompanyData = function(code) {
+    var configs ={
+        "01":[
+            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+            {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+            {name :"指数", key:"index",  width : "10%", class:"blue"},
+            {name :"信用风险", key:"cRisk",  width : "10%", class:"blue", class:"level"},
+            {name :"操作风险", key:"orisk",  width : "10%", class:"blue", class:"level"},
+            {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
+        ],
+        "02":[
+            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+            {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+            {name :"指数", key:"index",  width : "10%", class:"blue"},
+            {name :"资产质量", key:"quality",  width : "10%", class:"blue", class:"level"},
+            {name :"流动性", key:"fluidity",  width : "10%", class:"blue", class:"level"},
+            {name :"盈利及效率", key:"profit",  width : "10%", class:"blue", class:"level"},
+            {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
+        ],
+        "03":[
+            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+            {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+            {name :"指数", key:"index",  width : "10%", class:"blue"},
+            {name :"信用风险", key:"cRisk",  width : "10%", class:"blue", class:"level"},
+            {name :"合规风险", key:"lrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
+        ],
+        "04":[
+            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
+            {name :"所属区域", key:"region",  width : "10%", class:"blue"},
+            {name :"指数", key:"index",  width : "10%", class:"blue"},
+            {name :"信用风险", key:"cRisk",  width : "10%", class:"blue", class:"level"},
+            {name :"合规风险", key:"lrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"管理风险", key:"mrisk",  width : "10%", class:"blue", class:"level"},
+            {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
+        ]
+    }
     var config = [
         {name :"排名", key:"rank",  width : "5%", class:"rank"},
         {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
@@ -395,7 +444,7 @@ var renderCompanyData = function(code) {
         {name :"经营风险", key:"orisk",  width : "10%", class:"blue", class:"level"},
     ];
     
-    initTable('#companyData .table-container', 'data/companyData'+code+'.json', {code:code}, config);
+    initTable('#companyData .table-container', 'data/companyData'+code+'.json', {code:code}, configs[code]);
 };
 
 var operateIconMap = {
@@ -544,40 +593,6 @@ var initRiskMap = function(data) {
                 //colorLightness: [0, 1]
             }
         },
-        // graphic: [
-        //     {
-        //         type:'text',
-        //         left:'center',
-        //         top:'center',
-                
-        //         z:2,
-        //         zlevel:100,
-        //         style: {
-        //             text: year + '\r\n',
-        //             fontSize: 24,
-        //         }
-        //     },
-        //     {
-        //         type:'text',
-        //         position: [left-30, top],
-        //         z:2,
-        //         zlevel:100,
-        //         style: {
-        //             text:(month<10)?'0'+month:''+month,
-        //             fontSize: 40,
-        //         }
-        //     },
-        //     {
-        //         type:'text',
-        //         position: [left + 15, top+10],
-        //         z:2,
-        //         zlevel:100,
-        //         style: {
-        //             text:'月',
-        //             fontSize: 24,
-        //         }
-        //     }
-        // ],
         series : [
             {
                 type:'pie',
@@ -661,13 +676,87 @@ var renderRiskMap = function(code) {
     });
 
 };
-var renderCompanyDatas = function(code) {
+// 风险信息
+var renderRiskInformation = function(code) {
     var config = [
         {name :"排名", key:"rank",  width : "15%", class:"rank"},
-        {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
-        {name :"所属区域", key:"region",  width : "30%", class:"blue"},
-        {name :"指数", key:"index",  width : "15%", class:"blue"}
+        {name :"风险分类", key:"classification",  width : "25%", class:"white"},
+        {name :"风险信号", key:"signal",  width : "30%", class:"blue"},
+        {name :"风险企业数", key:"num",  width : "30%", class:"blue"}
     ];
     
-    initTable('.right-containers', 'data/data'+code+'.json', {code:code}, config);
+    initTable('.front .right-containers', 'data/riskInformation.json', {code:code}, config);
+    initTable('.back .right-containers', 'data/riskInformation.json', {code:code}, config);
 };
+
+// 风险信息弹出层
+
+
+function renderModal () {
+    $('.mask').on('click',function () {
+        $('#risk-modal').fadeOut();
+        $(this).fadeOut();
+    });
+    $('#riskMap').on('click','.right-containers .body1 tr',function () {
+   
+        $('.mask').fadeIn();
+        $('#risk-modal').fadeIn();
+        var code = $(this).data('code');
+        $('#risk-modal .origin-border .title-container .text span').text(industryMap[code]);
+        var configs = {
+            // p2p
+            "01":[
+                {name :"序号", key:"rank",  width : "5%", class:"rank"},
+                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"数据日期", key:"date",  width : "10%", class:"blue"},
+                {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
+                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
+                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
+                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
+                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+            ],
+            // 小贷
+            "02":[
+                {name :"序号", key:"rank",  width : "5%", class:"rank"},
+                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"数据日期", key:"date",  width : "10%", class:"blue"},
+                {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
+                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
+                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
+                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
+                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+            ],
+            // 地方交易场所
+            "03":[
+                {name :"序号", key:"rank",  width : "5%", class:"rank"},
+                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"数据日期", key:"date",  width : "10%", class:"blue"},
+                {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
+                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
+                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
+                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
+                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+            ],
+            // 股权交易场所
+            "04":[
+                {name :"序号", key:"rank",  width : "5%", class:"rank"},
+                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"数据日期", key:"date",  width : "10%", class:"blue"},
+                {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
+                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
+                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
+                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
+                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+            ],
+            
+            
+            
+        }
+    
+        initTable('#risk-modal .table-container', 'data/riskModal.json', {code:code}, configs[code]);
+       
+    
+    })
+}
+
+

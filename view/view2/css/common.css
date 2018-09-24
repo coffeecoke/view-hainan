@@ -5,7 +5,7 @@ html {
 body{
     height: 100%; 
     width: 100%;
-    background-image: url("../img/view3-bg.jpg");
+    background-image: url("../img/view2-new-bg.jpg");
     font-family: '微软雅黑';
     margin: 0px 0px;
     background-repeat: no-repeat;
@@ -31,6 +31,7 @@ body{
     height : 90%;
     overflow: hidden;
     padding-top:14px;
+    position: relative;
 }
 
 .left, .middle , .right{
