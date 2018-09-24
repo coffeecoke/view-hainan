@@ -31,6 +31,7 @@ body{
     height : 90%;
     overflow: hidden;
     padding-top:14px;
+    position: relative;
 }
 
 .left, .middle , .right{

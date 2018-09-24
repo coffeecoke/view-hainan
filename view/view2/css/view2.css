@@ -534,8 +534,28 @@
     
 }
 
-
+.mask {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:rgba(0,0,0,.8);
+    display: none;
+}
 .risk-modal {
-    width:2270px;
+    width:2400px;
     height:768px;
+    position: absolute;
+    z-index:100;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background-color:#000025;
+    display: none;
+}
+
+.risk-modal .origin-border .horn {
+    padding: 55px 35px 35px 35px;
+    height: 100%;
 }

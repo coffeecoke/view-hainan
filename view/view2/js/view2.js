@@ -9,6 +9,7 @@ var industryMap = getNameByCode();
  */
 var renderIndustryIcon = function() {
     renderFrame();
+    renderModal()
     var doms=$('#allIcon .icon-item'),domItems=[];
     $.each(doms,function(i,item){
         domItems.push({
@@ -74,6 +75,7 @@ var renderFrame = function() {
     renderTitle("#indexChange .origin-border", "");
     renderTitle("#operateIndex .origin-border", "");
     renderTitle("#riskMap .origin-border", "");
+    renderTitle("#risk-modal .origin-border", "");
     // 行业指标
     $('#index .origin-border .horn').append('<div class="item-container"></div>');
     // 指标变化
@@ -96,6 +98,9 @@ var renderFrame = function() {
     initProgress();
     initProgress2();
     //var code = industry[0].code;
+
+    // 弹出层table
+    $("#risk-modal .origin-border .horn").append("<div class='table-container'></div>");
     
 };
 
@@ -642,23 +647,73 @@ var renderRiskInformation = function(code) {
 };
 
 // 风险信息弹出层
-$('#riskMap .right-containers .body1 tr').on('click',function () {
-    $('#risk-modal .origin-border .title-container .text span').text(industryMap[code]);
-    renderBlockBorder(".origin-border");
-    renderTitle("#risk-modal .origin-border", ""); 
-    var configs = {
-        // p2p
-        "01":[
-            {name :"排名", key:"rank",  width : "15%", class:"rank"},
-            {name :"风险分类", key:"classification",  width : "25%", class:"white"},
-            {name :"风险信号", key:"signal",  width : "30%", class:"blue"},
-            {name :"风险企业数", key:"num",  width : "30%", class:"blue"}
-        ]
-        // 小贷
-        // 地方交易场所
-        // 股权交易场所
-    }
-   
 
-})
+
+function renderModal () {
+    $('.mask').on('click',function () {
+        $('#risk-modal').fadeOut();
+        $(this).fadeOut();
+    });
+    $('#riskMap').on('click','.right-containers .body1 tr',function () {
+   
+        $('.mask').fadeIn();
+        $('#risk-modal').fadeIn();
+        var code = $(this).data('code');
+        $('#risk-modal .origin-border .title-container .text span').text(industryMap[code]);
+        var configs = {
+            // p2p
+            "01":[
+                {name :"序号", key:"rank",  width : "5%", class:"rank"},
+                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"数据日期", key:"date",  width : "10%", class:"blue"},
+                {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
+                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
+                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
+                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
+                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+            ],
+            // 小贷
+            "02":[
+                {name :"序号", key:"rank",  width : "5%", class:"rank"},
+                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"数据日期", key:"date",  width : "10%", class:"blue"},
+                {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
+                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
+                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
+                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
+                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+            ],
+            // 地方交易场所
+            "03":[
+                {name :"序号", key:"rank",  width : "5%", class:"rank"},
+                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"数据日期", key:"date",  width : "10%", class:"blue"},
+                {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
+                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
+                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
+                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
+                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+            ],
+            // 股权交易场所
+            "04":[
+                {name :"序号", key:"rank",  width : "5%", class:"rank"},
+                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"数据日期", key:"date",  width : "10%", class:"blue"},
+                {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
+                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
+                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
+                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
+                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+            ],
+            
+            
+            
+        }
+    
+        initTable('#risk-modal .table-container', 'data/riskModal.json', {code:code}, configs[code]);
+       
+    
+    })
+}
+
 
