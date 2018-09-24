@@ -298,7 +298,7 @@ var initIndustryChart = function(selecter) {
         },
         grid: {
             left: '3%',
-            right: '20%',
+            right: '30%',
             bottom: '3%',
             top:'10%',
             containLabel: true
@@ -307,16 +307,18 @@ var initIndustryChart = function(selecter) {
         xAxis: {
             show:true,
             type:'category',
-            data:['p2p','小戴','lalal','nihao',"23","34","24","4ff"],
-            axisline:{
+            data:['民间投资','网络借贷','虚拟理财','房地产',"私募基金","地方交易","相互保险"],
+            axisLine:{
+                show:true,
                 lineStyle:{
-                    color:'#fff'
+                   color:'#999'
                 }
             },
-            axisLable:{
+            
+            axisLabel:{
                 show:true,
                 itemStyle:{
-                    color:'#fff'
+                    color:'#999'
                 }
             },
         },
@@ -325,22 +327,32 @@ var initIndustryChart = function(selecter) {
             name: '风险指数',
             min:0,
             max:100,
-            axisline:{
+            axisLine:{
                 lineStyle:{
-                    color:'#fff'
+                    color:'#999'
                 }
             },
             axisTick:{
                 lineStyle:{
-                    color:'#fff'
+                    color:'#999'
                 }
             },
             axislable:{
                 show:true,
                 normal:{
-                    color:'#fff'
+                    color:'#999'
                 }
             },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#999',
+                    width: 1,
+                    type: 'dashed',
+                    opacity: 0.5
+                }
+
+            }
         },
         series: [
             {
@@ -389,7 +401,7 @@ var initIndustryChart = function(selecter) {
             }
         ]
     };
-    option = refreshIndustryChart(option);
+    // option = refreshIndustryChart(option);
     industryChart.setOption(option);
     setInterval(function(){ // 每隔10分钟请求一次
         // option = refreshIndustryChart(option);
