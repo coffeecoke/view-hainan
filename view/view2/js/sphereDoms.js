@@ -509,7 +509,7 @@
                     var me = this;
                     if (_.isArray(domItems)) {
                         var size = domItems.length;
-                        this.target = this.calculateTargetPosition(size, radius, radius * .8);
+                        this.target = this.calculateTargetPosition(size, radius, radius * 0.6);
                         domItems.forEach(function (item, idx) {
                             var wrapDom = item.wrapDom,
                                 bgWidth = item.bgWidth,
@@ -659,7 +659,7 @@
                         this.maxRadius = Math.min(this.width, this.height) / 2 * .8;
                         this.rings.push({
                             color: this.options.color || Def_Color,
-                            width: 14,
+                            width: 30,
                             radius: this.maxRadius * .9,
                             theta: 70,
                             offset: Math.floor(Math.random() * 350) + 10,
@@ -699,10 +699,10 @@
                             ctx.fill();
                         }
 
-                        ctx.lineWidth = 2;
+                        ctx.lineWidth = 8;
                         // out dashed line
-                        ctx.strokeStyle = '#888';
-                        ctx.setLineDash([3, 8]);
+                        ctx.strokeStyle = '#869bd5';
+                        ctx.setLineDash([3, 28]);
                         ctx.beginPath();
                         ctx.arc(centerX, centerY, r, 0, Math.PI * 2);
                         ctx.closePath();

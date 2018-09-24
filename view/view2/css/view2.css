@@ -544,7 +544,7 @@
     display: none;
 }
 .risk-modal {
-    width:2400px;
+    width:1600px;
     height:768px;
     position: absolute;
     z-index:100;
