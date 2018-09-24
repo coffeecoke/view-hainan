@@ -509,7 +509,7 @@
                     var me = this;
                     if (_.isArray(domItems)) {
                         var size = domItems.length;
-                        this.target = this.calculateTargetPosition(size, radius, radius * .8);
+                        this.target = this.calculateTargetPosition(size, radius, radius * 0.6);
                         domItems.forEach(function (item, idx) {
                             var wrapDom = item.wrapDom,
                                 bgWidth = item.bgWidth,

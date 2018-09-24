@@ -52,7 +52,7 @@ THREE.CSS3DRenderer = function () {
 	};
 
 	var domElement = document.createElement( 'div' );
-	domElement.style.overflow = 'hidden';
+	domElement.style.overflow = 'static';
 
 	this.domElement = domElement;
 

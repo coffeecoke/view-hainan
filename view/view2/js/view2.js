@@ -18,10 +18,10 @@ var renderIndustryIcon = function() {
             bgHeight:900,
             bgWrapDom:$(item).find('.cicle')[0],
             bgColors:[
-                {stop:0.47,color:'#011a73'},
-                {stop:.72,color:'#011868'},
-                {stop:.55,color:'#011a73'},
-                {stop:1,color:'#011a73'}
+                {stop:0.47,color:'#011657'},
+                // {stop:.72,color:'#4970b3'},
+                {stop:.55,color:'#293d7d'},
+                {stop:1,color:'transparent'}
             ],
             handler:function(data){
                 // item.trigger('click');
@@ -55,7 +55,7 @@ var renderIndustryIcon = function() {
     });
     iconTrans.addToStage();
 
-    iconTrans.appendDoms(domItems,1500,2000);
+    iconTrans.appendDoms(domItems,2400,2000);
 
     var size=domItems.length;
     iconTrans.autoSwitch(true,50000);
@@ -707,46 +707,38 @@ function renderModal () {
             // p2p
             "01":[
                 {name :"序号", key:"rank",  width : "5%", class:"rank"},
-                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"企业名称", key:"companyName",  width : "30%", class:"white"},
                 {name :"数据日期", key:"date",  width : "10%", class:"blue"},
                 {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
-                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
-                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
-                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
-                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+                {name :"风险指标", key:"index",  width : "30%", class:"blue"}
+               
             ],
             // 小贷
             "02":[
                 {name :"序号", key:"rank",  width : "5%", class:"rank"},
-                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"企业名称", key:"companyName",  width : "30%", class:"white"},
                 {name :"数据日期", key:"date",  width : "10%", class:"blue"},
                 {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
-                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
-                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
-                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
-                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+                {name :"风险指标", key:"index",  width : "30%", class:"blue"}
+             
             ],
             // 地方交易场所
             "03":[
                 {name :"序号", key:"rank",  width : "5%", class:"rank"},
-                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"企业名称", key:"companyName",  width : "30%", class:"white"},
                 {name :"数据日期", key:"date",  width : "10%", class:"blue"},
                 {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
-                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
-                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
-                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
-                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+                {name :"风险指标", key:"index",  width : "30%", class:"blue"}
+              
             ],
             // 股权交易场所
             "04":[
                 {name :"序号", key:"rank",  width : "5%", class:"rank"},
-                {name :"企业名称", key:"companyName",  width : "15%", class:"white"},
+                {name :"企业名称", key:"companyName",  width : "30%", class:"white"},
                 {name :"数据日期", key:"date",  width : "10%", class:"blue"},
                 {name :"风险指标分类", key:"classification",  width : "15%", class:"blue"},
-                {name :"风险指标", key:"index",  width : "15%", class:"blue"},
-                {name :"指标数据", key:"data",  width : "15%", class:"blue"},
-                {name :"风险分散", key:"dispersion",  width : "10%", class:"blue"},
-                {name :"触发规则", key:"rule",  width : "15%", class:"blue"}
+                {name :"风险指标", key:"index",  width : "30%", class:"blue"}
+              
             ],
             
             
