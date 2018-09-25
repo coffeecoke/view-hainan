@@ -10,47 +10,6 @@
 			"lrisk": "20",
 			"mrisk":"15",
 			"brisk":"20"
-		},
-		{
-			"rank": "2",
-			"companyName": "海南股权交易中心有限责任公司",
-			"region": "海口市",
-			"index": "85",
-			"cRisk":"30",
-			"lrisk": "20",
-			"mrisk":"15",
-			"brisk":"20"
-		},
-		{
-			"rank": "3",
-			"companyName": "海南股权交易中心有限责任公司",
-			"region": "海口市",
-			"index": "85",
-			"cRisk":"30",
-			"lrisk": "20",
-			"mrisk":"15",
-			"brisk":"20"
-		},
-		{
-			"rank": "4",
-			"companyName": "海南股权交易中心有限责任公司",
-			"region": "海口市",
-			"index": "85",
-			"cRisk":"30",
-			"lrisk": "20",
-			"mrisk":"15",
-			"brisk":"20"
-		},
-		{
-			"rank": "5",
-			"companyName": "海南股权交易中心有限责任公司",
-			"region": "海口市",
-			"index": "85",
-			"cRisk":"30",
-			"lrisk": "20",
-			"mrisk":"15",
-			"brisk":"20"
 		}
-
 	]
 }

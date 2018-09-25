@@ -391,7 +391,7 @@ var renderIndexChange = function(code) {
 var renderCompanyData = function(code) {
     var configs ={
         "01":[
-            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"序号", key:"rank",  width : "5%", class:"rank"},
             {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
             {name :"所属区域", key:"region",  width : "10%", class:"blue"},
             {name :"指数", key:"index",  width : "10%", class:"blue"},
@@ -401,7 +401,7 @@ var renderCompanyData = function(code) {
             {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
         ],
         "02":[
-            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"序号", key:"rank",  width : "5%", class:"rank"},
             {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
             {name :"所属区域", key:"region",  width : "10%", class:"blue"},
             {name :"指数", key:"index",  width : "10%", class:"blue"},
@@ -412,7 +412,7 @@ var renderCompanyData = function(code) {
             {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
         ],
         "03":[
-            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"序号", key:"rank",  width : "5%", class:"rank"},
             {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
             {name :"所属区域", key:"region",  width : "10%", class:"blue"},
             {name :"指数", key:"index",  width : "10%", class:"blue"},
@@ -422,7 +422,7 @@ var renderCompanyData = function(code) {
             {name :"经营风险", key:"brisk",  width : "10%", class:"blue", class:"level"},
         ],
         "04":[
-            {name :"排名", key:"rank",  width : "5%", class:"rank"},
+            {name :"序号", key:"rank",  width : "5%", class:"rank"},
             {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
             {name :"所属区域", key:"region",  width : "10%", class:"blue"},
             {name :"指数", key:"index",  width : "10%", class:"blue"},
@@ -433,7 +433,7 @@ var renderCompanyData = function(code) {
         ]
     }
     var config = [
-        {name :"排名", key:"rank",  width : "5%", class:"rank"},
+        {name :"序号", key:"rank",  width : "5%", class:"rank"},
         {name :"企业名称", key:"companyName",  width : "25%", class:"white"},
         {name :"所属区域", key:"region",  width : "10%", class:"blue"},
         {name :"指数", key:"index",  width : "10%", class:"blue"},
