@@ -559,3 +559,10 @@
     padding: 55px 35px 35px 35px;
     height: 100%;
 }
+.middle-time{
+    position: absolute;
+    right:60px;
+    top:30px;
+    color:#fff;
+    font-size:24px;
+}

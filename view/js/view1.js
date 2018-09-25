@@ -41,7 +41,7 @@ var initRaderMap = function(selecter) {
     var chartRaderMap = echarts.init($(selecter + " .radar-map")[0]);
     option = {
         title: {
-            text: '监测企业:21326',
+            text: '监测企业:36058',
             //            x: 'center',
             //            y: 'center',
             x: '10%',

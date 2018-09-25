@@ -131,6 +131,10 @@ body {
     line-height: 30px;
     font-size:22px;
     color:#fff;
+    width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #top10 .roll__list dl dd {
     width:150px;

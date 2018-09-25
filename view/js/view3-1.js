@@ -182,7 +182,7 @@ $(function () {
     // 当期行业运行指数
     $("#circleChart1").circleChart({
         size: 80,
-        value: 40,
+        value: 69,
         color: "#03e5d2",
         backgroundColor: "#fff",
         text: 0,
@@ -192,7 +192,7 @@ $(function () {
     });
     $("#circleChart2").circleChart({
         size: 80,
-        value: 40,
+        value: 86,
         color: "#03e5d2",
         backgroundColor: "#fff",
         text: 0,
@@ -202,7 +202,7 @@ $(function () {
     });
     $("#circleChart3").circleChart({
         size: 80,
-        value: 40,
+        value: 100,
         color: "#03e5d2",
         backgroundColor: "#fff",
         text: 0,
@@ -212,7 +212,7 @@ $(function () {
     });
     $("#circleChart4").circleChart({
         size: 80,
-        value: 40,
+        value: 98,
         color: "#03e5d2",
         backgroundColor: "#fff",
         text: 20,
