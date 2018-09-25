@@ -7,7 +7,7 @@
 			"region": "澄迈县",
 			"index": "85",
 			"cRisk":"30",
-			"lrisk": "20",
+			"orisk": "20",
 			"mrisk":"15",
 			"brisk":"20"
 		},
@@ -17,7 +17,7 @@
 			"region": "三亚市",
 			"index": "80",
 			"cRisk":"30",
-			"lrisk": "20",
+			"orisk": "20",
 			"mrisk":"15",
 			"brisk":"15"
 		},
@@ -27,7 +27,7 @@
 			"region": "洋浦经济开发区",
 			"index": "89",
 			"cRisk":"35",
-			"lrisk": "20",
+			"orisk": "20",
 			"mrisk":"15",
 			"brisk":"24"
 		},
@@ -37,7 +37,7 @@
 			"region": "海口市",
 			"index": "83",
 			"cRisk":"30",
-			"lrisk": "20",
+			"orisk": "20",
 			"mrisk":"15",
 			"brisk":"13"
 		},
@@ -47,7 +47,7 @@
 			"region": "海口市",
 			"index": "91",
 			"cRisk":"37",
-			"lrisk": "20",
+			"orisk": "20",
 			"mrisk":"15",
 			"brisk":"24"
 		}
