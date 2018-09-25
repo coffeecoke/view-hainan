@@ -79,7 +79,7 @@ var renderFrame = function() {
     // 行业指标
     $('#index .origin-border .horn').append('<div class="item-container"></div>');
     // 指标变化
-    $('#indexChange .origin-border .horn').append('<ul class="echarts-list"><li class="active" data-code="BRIR">融资金额</li><li data-code="TVGR">交易金额</li><li data-code="TGR">投资人数</li></ul>');
+    $('#indexChange .origin-border .horn').append('<ul class="echarts-list"></ul>');
     $('#indexChange .origin-border .horn').append('<div class="item-container"></div>');
     indexChangeChart = echarts.init($('#indexChange .origin-border .horn .item-container')[0]);
     indexChangeChart2 = echarts.init($('#indexChange .origin-border .horn .item-container')[1]);
@@ -363,14 +363,21 @@ var initIndexChangeChart = function(data,dataName) {
  */
 
 var renderIndexChange = function(code) {
+    var indexChangeLengends = {
+        '01':["投资人数","借款人数","投资金额"],
+        '02':["贷款余额","当期发放金额","当期回收金额"],
+        '03':["成交金额","投资者开户数","成交笔数"],
+        '04':["融资总额","交易金额","投资者数量"]
+    }
     
+    $('#indexChange .origin-border .horn .echarts-list').html('<li class="active" data-code="BRIR">'+indexChangeLengends[code][0]+'</li><li data-code="TVGR">'+indexChangeLengends[code][1]+'</li><li data-code="TGR">'+indexChangeLengends[code][2]+'</li></ul>');
+   
+    $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
     $.ajax({
-        url: 'data/indexChangeData.json',
+        url: 'data/indexChangeData'+code+'.json',
         data:{code:code},
         dataType: 'json',
-        success: function(data){
-           
-            $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
+        success: function(data){   
             initIndexChangeChart(data,'BRIR'); // 渲染数据
             $('#indexChange').toggleClass('card-flipped')
             $("#indexChange .origin-border .horn").on("click",".echarts-list li",function(){
@@ -678,8 +685,8 @@ var renderRiskInformation = function(code) {
         {name :"风险企业数", key:"num",  width : "40%", class:"blue"}
     ];
     
-    initTable('.front .right-containers', 'data/riskInformation.json', {code:code}, config);
-    initTable('.back .right-containers', 'data/riskInformation.json', {code:code}, config);
+    initTable('.front .right-containers', 'data/riskInformation'+code+'.json', {code:code}, config);
+    initTable('.back .right-containers', 'data/riskInformation'+code+'.json', {code:code}, config);
 };
 
 // 风险信息弹出层
@@ -738,7 +745,7 @@ function renderModal () {
             
         }
     
-        initTable('#risk-modal .table-container', 'data/riskModal.json', {code:code}, configs[code]);
+        initTable('#risk-modal .table-container', 'data/riskModal'+code+'.json', {code:code}, configs[code]);
        
     
     })

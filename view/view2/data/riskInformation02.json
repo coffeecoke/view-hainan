@@ -1,0 +1,63 @@
+{
+	"dataCount":10000,
+	"pageData":[
+		{
+			"rank": "1",
+			"classification": "管理风险 ",
+			"signal": "不良率过高",
+			"num": "18"
+			
+		},
+		{
+			"rank": "2",
+			"classification": "管理风险 ",
+			"signal": "不良率过高",
+			"num": "12"
+			
+		},
+		{
+			"rank": "3",
+			"classification": "管理风险 ",
+			"signal": "不良率过高",
+			"num": "14"
+			
+		},
+		{
+			"rank": "4",
+			"classification": "管理风险 ",
+			"signal": "不良率过高",
+			"num": "24"
+			
+		},
+		{
+			"rank": "5",
+			"classification": "管理风险 ",
+			"signal": "不良率过高",
+			"num": "18"
+			
+		},
+		{
+			"rank": "6",
+			"classification": "管理风险 ",
+			"signal": "不良率过高",
+			"num": "13"
+			
+		},
+		{
+			"rank": "7",
+			"classification": "管理风险 ",
+			"signal": "不良率过高",
+			"num": "81"
+			
+			
+		},
+		{
+			"rank": "8",
+			"classification": "管理风险 ",
+			"signal": "不良率过高",
+			"num": "36"
+		}
+		
+
+	]
+}
