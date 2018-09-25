@@ -167,7 +167,7 @@
     vertical-align: top;
     border-bottom: 2px solid #0b41a5;
     font-size: 22px;
-    color: #7498CE;
+    color: #fff;
     text-align: left;
     height: 60px;
     line-height: 60px;
@@ -178,11 +178,11 @@
     padding: 8px;
     vertical-align: top;
     border-bottom: 2px solid #0b41a5;
-    font-size: 20px;
+    font-size: 22px;
     color: #7498CE;
     text-align: left;
     border-bottom: 2px solid #6D7890;
-    color: #FFF;
+    color: #8cf8ff;
     
 }
 .table-container .tbl-header table>tbody>tr>td {
