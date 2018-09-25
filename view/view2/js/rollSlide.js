@@ -223,22 +223,25 @@
 
                 $sliceItem = $($item[0]);
                 range = $sliceItem.outerHeight(true);
-                clearInterval(timer)
-                timer = setInterval(function(){
-                    offset = $ul.css('top');
-                    offset = parseInt(offset);
-                    if(offset > -range){
-                        i = offset - 1;
-                        $ul.css('top', i + 'px');
+                clearInterval(timer);
+                if($item.length>4) {
+                    timer = setInterval(function(){
                         offset = $ul.css('top');
-                    } else{
-                        $sliceItem.detach();
-                        $ul.css('top', 0);
-                        $body.append($sliceItem);
-                        $sliceItem = $($ul.find('.li')[0]);
-                        range = $sliceItem.outerHeight(true);
-                    }
-                }, 50);
+                        offset = parseInt(offset);
+                        if(offset > -range){
+                            i = offset - 1;
+                            $ul.css('top', i + 'px');
+                            offset = $ul.css('top');
+                        } else{
+                            $sliceItem.detach();
+                            $ul.css('top', 0);
+                            $body.append($sliceItem);
+                            $sliceItem = $($ul.find('.li')[0]);
+                            range = $sliceItem.outerHeight(true);
+                        }
+                    }, 50);
+                }
+               
             },
             bottom = function(){
                 var offset, i,
