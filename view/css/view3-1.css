@@ -1,6 +1,6 @@
 /* 整体框架 */
 body {
-    background:url(../img/view3-bg.jpg)
+    background: #021653 url(../img/view3-bg.jpg) no-repeat;
 }
 .main-body {
     padding:14px 20px 0px 20px;

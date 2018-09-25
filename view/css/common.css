@@ -5,11 +5,12 @@ html {
 body{
     height: 100%; 
     width: 100%;
-    background-image: url("../img/bg.jpg");
+    background:#021653 url("../img/bg.jpg") no-repeat;
     font-family: '微软雅黑';
     margin: 0px 0px;
-    background-repeat: no-repeat;
+   
     background-size: 100% 100%;
+
     
 }
 * {

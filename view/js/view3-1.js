@@ -517,7 +517,7 @@ var renderRiskCompanyData = function (data) {
  * 设置滚动效果
  */
 var setScroll = function () {
-    var speed = 50;
+    var speed = 50; 
     var body = $('#companyList .origin-border .item-container')[0];
     var body1 = $('#companyList .origin-border .item-container .body1')[0];
     var body2 = $('#companyList .origin-border .item-container .body2')[0];

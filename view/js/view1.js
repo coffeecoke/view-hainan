@@ -69,7 +69,7 @@ var initRaderMap = function(selecter) {
             right: '10%',
             top: '10%',
             //            data数据中若存在''，则表示换行，用''切割。
-            data: ['民间投资中介机构', '网络借贷机构', '虚拟理财', '房地产行业',  '私募基金', '地方交易场', '相互保险', '养老机构','“消费返利”网站','农民合作社']
+            data: ['网络借贷平台', '小额贷款', '交易场所', '私募基金',  '房地产中介', '私募股权投资', '养老机构', '非融资性担保','农民专业合作社','其他行业']
         },
         //        calculable:true,
         series: [
@@ -146,70 +146,70 @@ var initRaderMap = function(selecter) {
                 },
                 data: [{
                         value: 21,
-                        name: '民间投资中介机构',
+                        name: '网络借贷平台',
                         itemStyle: {
                             color: '#0073ff'
                         }
                     },
                     {
                         value: 2,
-                        name: '网络借贷机构',
+                        name: '小额贷款',
                         itemStyle: {
                             color: '#05b5ff'
                         }
                     },
                     {
                         value: 16,
-                        name: '虚拟理财',
+                        name: '交易场所',
                         itemStyle: {
                             color: '#00f9ff'
                         }
                     },
                     {
                         value: 4,
-                        name: '房地产行业',
+                        name: '私募基金',
                         itemStyle: {
                             color: '#00ffc0'
                         }
                     },
                     {
                         value: 4,
-                        name: '私募基金',
+                        name: '房地产中介',
                         itemStyle: {
                             color: '#01ff7f'
                         }
                     },
                     {
                         value: 10,
-                        name: '地方交易场',
+                        name: '私募股权投资',
                         itemStyle: {
                             color: '#00b265'
                         }
                     },
                     {
                         value: 3,
-                        name: '相互保险',
+                        name: '养老机构',
                         itemStyle: {
                             color: '#ffd645'
                         }
                     },
                     {
                         value: 13,
-                        name: '养老机构',
+                        name: '非融资性担保',
                         itemStyle: {
                             color: '#ff3567'
                         }
                     },
                     {
                         value: 12,
-                        name: '“消费返利”网站',
+                        name: '农民专业合作社',
                         itemStyle: {
                             color: '#b95af2'
                         }
                     },
                     {
                         value: 15,
-                        name: '农民合作社',
+                        name: '其他行业',
                         itemStyle: {
                             color: '#6f5af2'
                         }
@@ -295,7 +295,7 @@ var initIndustryChart = function(selecter) {
             right: '2%',
             top: '5%',
             //            data数据中若存在''，则表示换行，用''切割。
-            data: ['民间投资中介机构', '网络借贷机构', '虚拟理财', '房地产行业',  '私募基金', '地方交易场', '相互保险', '养老机构','“消费返利”网站','农民合作社']
+            data: ['网络借贷平台', '小额贷款', '交易场所', '私募基金',  '房地产中介', '私募股权投资', '养老机构', '非融资性担保','农民专业合作社','其他行业']
         },
         grid: {
             left: '3%',
@@ -308,7 +308,7 @@ var initIndustryChart = function(selecter) {
         xAxis: {
             show:true,
             type:'category',
-            data:['民间投资','网络借贷','虚拟理财','房地产',"私募基金","地方交易","相互保险",'养老机构'],
+            data:['低风险','高收益','负面消息','被投诉',"浮夸宣传","特定产品投向"],
             axisLine:{
                 show:true,
                 lineStyle:{
@@ -325,7 +325,7 @@ var initIndustryChart = function(selecter) {
         },
         yAxis: {
             type: 'value',
-            name: '风险指数',
+            name: '命中次数',
             min:0,
             max:500,
             axisLine:{
@@ -493,54 +493,50 @@ var initIndustryChart = function(selecter) {
 };
 
 var tableConfig =   [
-    {name :"机构名称", key:"org",  width : "10%"},
-    {name :"营业收入", key:"date",  width : "10%"},
-    {name :"营业利润", key:"orgName",  width : "10%"},
-    {name :"净利润", key:"contractAmount",  width : "10%"},
-    {name :"投资者开户数", key:"projectDuration",  width : "10%"},
-    {name :"成交笔数", key:"lendingRate",  width : "10%"},
-    {name :"成交金额", key:"valueDateate",  width : "10%"},
-    {name :"手续费收入", key:"paymentType",  width : "10%"},
-    {name :"出金总金额", key:"guaranteeType",  width : "10%"},
-    {name :"入金总金额", key:"borrowerName",  width : "10%"},
-    // {name :"披露财务信息<br>的企业数", key:"borrows",  width : "10%"}
+    {name :"机构名称", key:"key1",  width : "10%"},
+    {name :"实缴资本", key:"key2",  width : "10%"},
+   // {name :"企业类型", key:"key3",  width : "10%"},
+    {name :"营业收入", key:"key4",  width : "10%"},
+    {name :"营业利润", key:"key5",  width : "10%"},
+    {name :"净利润", key:"key6",  width : "10%"},
+    {name :"投资者开户数", key:"key7",  width : "10%"},
+    {name :"成交笔数", key:"key8",  width : "10%"},
+    {name :"成交金额", key:"key9",  width : "10%"},
+    {name :"手续费收入", key:"key10",  width : "10%"}
 ];
 var tableConfigs =   [
-    {name :"机构名称", key:"org",  width : "10%"},
-    {name :"营业收入", key:"date",  width : "5%"},
-    {name :"净利润", key:"orgName",  width : "10%"},
-    {name :"投资者数量", key:"contractAmount",  width : "10%"},
-    {name :"挂牌公司数量 ", key:"projectDuration",  width : "10%"},
-    {name :"挂牌公司总资产", key:"lendingRate",  width : "10%"},
-    {name :"挂牌公司净利润", key:"valueDateate",  width : "10%"},
-    {name :"挂牌公司摘牌数", key:"paymentType",  width : "10%"},
-    {name :"融资总额", key:"guaranteeType",  width : "10%"},
-    {name :"交易金额", key:"borrowerName",  width : "10%"},
-    // {name :"风险准备金额", key:"borrows",  width : "10%"}
+    {name :"机构名称", key:"key1",  width : "10%"},
+    {name :"营业收入", key:"key2",  width : "10%"},
+    {name :"净利润", key:"key3",  width : "10%"},
+    {name :"投资者开户数", key:"key4",  width : "10%"},
+    {name :"挂牌公司数量 ", key:"key5",  width : "10%"},
+    {name :"挂牌公司总股本", key:"key6",  width : "13%"},
+    {name :"挂牌公司摘牌数", key:"key7",  width : "10%"},
+    {name :"融资总额", key:"key8",  width : "10%"},
+ //   {name :"累计融资总额", key:"key9",  width : "10%"},
+    {name :"交易金额", key:"key10",  width : "10%"}
 ];
 var tableConfigdata =   [
-    {name :"机构名称", key:"org",  width : "10%"},
-    {name :"投资人数", key:"date",  width : "10%"},
-    {name :"借款人数", key:"orgName",  width : "10%"},
-    {name :"成交额", key:"contractAmount",  width : "10%"},
-    {name :"待收本金", key:"projectDuration",  width : "10%"},
-    {name :"逾期金额", key:"lendingRate",  width : "10%"},
-    {name :"逾期率", key:"valueDateate",  width : "10%"},
-    {name :"代偿金额", key:"paymentType",  width : "10%"},
-    {name :"代偿率", key:"guaranteeType",  width : "10%"},
-    {name :"借款利率", key:"borrowerName",  width : "10%"}
+    {name :"机构名称", key:"key1",  width : "10%"},
+    {name :"实缴资本", key:"key2",  width : "10%"},
+    {name :"投资人数", key:"key3",  width : "10%"},
+    {name :"借款人数", key:"key4",  width : "10%"},
+    {name :"投资金额", key:"key5",  width : "10%"},
+    {name :"待收本金", key:"key6",  width : "12%"},
+    {name :"逾期金额", key:"key7",  width : "12%"},
+    {name :"逾期率", key:"key8",  width : "10%"},
+    {name :"借款利率", key:"key9",  width : "10%"}
 ];
 var tableConfigdatas =   [
-    {name :"机构名称", key:"org",  width : "10%"},
-    {name :"笔均贷款", key:"date",  width : "10%"},
-    {name :"贷款余额", key:"orgName",  width : "10%"},
-    {name :"发放金额", key:"contractAmount",  width : "10%"},
-    {name :"回收金额", key:"projectDuration",  width : "10%"},
-    {name :"综合费率", key:"lendingRate",  width : "10%"},
-    {name :"不良率", key:"valueDateate",  width : "10%"},
-    {name :"拨备覆盖率", key:"paymentType",  width : "10%"},
-    {name :"逾期率", key:"guaranteeType",  width : "10%"},
-    {name :"债券类融资总额", key:"borrowerName",  width : "10%"}
+    {name :"机构名称", key:"key1",  width : "10%"},
+    {name :"笔均贷款", key:"key2",  width : "12%"},
+    {name :"贷款余额", key:"key3",  width : "12%"},
+    {name :"发放金额", key:"key4",  width : "10%"},
+    {name :"回收金额", key:"key5",  width : "12%"},
+    {name :"综合费率", key:"key6",  width : "10%"},
+    {name :"不良率", key:"key7",  width : "10%"},
+    {name :"拨备覆盖率", key:"key8",  width : "10%"},
+    {name :"逾期率", key:"key9",  width : "10%"}
 ];
 
 var refeshPage = {};
