@@ -455,10 +455,10 @@ window.BezierCurveUtil={};
                 ctx.font = '300 60px "Microsoft YaHei"';
                 ctx.textAlign = 'center';
                 ctx.fillText(this.curVal, center_x-20, center_y + 45);
-                ctx.font = '300 40px "Microsoft YaHei"';
+                ctx.font = '300 30px "Microsoft YaHei"';
                 ctx.fillStyle = '#fff';
                 ctx.fillText('运行指数', center_x, center_y - 25);
-                ctx.font = '300 30px "Microsoft YaHei"';
+                ctx.font = '300 24px "Microsoft YaHei"';
                 ctx.fillStyle = '#00e5d2';
                 ctx.fillText('分', center_x+40, center_y + 40);
             }

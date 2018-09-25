@@ -115,7 +115,7 @@ var initProgress = function() {
         shadowColor:'#101856',
         type:'shield',
         wrapDom:$('#operateIndex .item-container .data-container .canvas-container')[0],
-        lineWidth:10,
+        lineWidth:8,
         lineColors:'#122147', //  array or string
         shadowBlur:5
     };
@@ -133,7 +133,7 @@ var initProgress2 = function() {
         shadowColor:'#101856',
         type:'shield',
         wrapDom:$('#operateIndex .item-container .data-container .canvas-container')[1],
-        lineWidth:10,
+        lineWidth:8,
         lineColors:'#122147', //  array or string
         shadowBlur:5
     };
