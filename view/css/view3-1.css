@@ -263,6 +263,35 @@ body {
     font-size:20px;
 }
 
+.mask {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:rgba(0,0,0,.8);
+    display: none;
+    z-index:1000000000;
+}
+.risk-modal {
+    width:2400px;
+    height:768px;
+    position: absolute;
+    z-index:100;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background-color:#000025;
+    display: none;
+    z-index:1000000001;
+}
+
+.risk-modal .origin-border .horn {
+    padding: 55px 35px 35px 35px;
+    height: 100%;
+}
+
+
 
 
 
@@ -527,8 +556,11 @@ body {
 #companyList .item .company-name{
     display: inline-block;
     float: left;
-    width: 95%;
+    width: 65%;
     font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #companyList .item .index-container{
     position: absolute;
@@ -540,28 +572,28 @@ body {
 }
 
 #companyList .item[riskLevel="1"] .index-container {
-    background: -webkit-linear-gradient(left,rgba(95, 0, 0,0),rgba(95, 0, 0,1));
-    background: -moz-linear-gradient(left,rgba(95, 0, 0,0) 0%,rgba(95, 0, 0,1) 100%);; /*FireFox*/
-    background: -o-linear-gradient(left,rgba(95, 0, 0,0) 0%,rgba(95, 0, 0,1) 100%);  /* Opear */
-    background: -ms-linear-gradient(left,rgba(95, 0, 0,0),rgba(95, 0, 0,1)); /*IE10及IE10+*/
+    background: -webkit-linear-gradient(left,rgba(240, 107, 0,0),rgba(95, 0, 0,1));
+    background: -moz-linear-gradient(left,rgba(240, 107, 0,0) 0%,rgba(95, 0, 0,1) 100%);; /*FireFox*/
+    background: -o-linear-gradient(left,rgba(240, 107, 0,0) 0%,rgba(95, 0, 0,1) 100%);  /* Opear */
+    background: -ms-linear-gradient(left,rgba(240, 107, 0,0),rgba(95, 0, 0,1)); /*IE10及IE10+*/
 }
 #companyList .item[riskLevel="2"] .index-container {
-    background: -webkit-linear-gradient(left,rgba(172, 45, 45,0),rgba(172, 45, 45,1));
-    background: -moz-linear-gradient(left,rgba(172, 45, 45,0) 0%,rgba(172, 45, 45,1) 100%);; /*FireFox*/
-    background: -o-linear-gradient(left,rgba(172, 45, 45,0) 0%,rgba(172, 45, 45,1) 100%);  /* Opear */
-    background: -ms-linear-gradient(left,rgba(172, 45, 45,0),rgba(172, 45, 45,1)); /*IE10及IE10+*/
+    background: -webkit-linear-gradient(left,rgba(234, 184, 0,0),rgba(234, 184, 0,1));
+    background: -moz-linear-gradient(left,rgba(234, 184, 0,0) 0%,rgba(234, 184, 0,1) 100%);; /*FireFox*/
+    background: -o-linear-gradient(left,rgba(234, 184, 0,0) 0%,rgba(234, 184, 0,1) 100%);  /* Opear */
+    background: -ms-linear-gradient(left,rgba(234, 184, 0,0),rgba(234, 184, 0,1)); /*IE10及IE10+*/
 }
 #companyList .item[riskLevel="3"] .index-container {
-    background: -webkit-linear-gradient(left,rgba(224, 174, 65,0),rgba(224, 174, 65,1));
-    background: -moz-linear-gradient(left,rgba(224, 174, 65,0) 0%,rgba(224, 174, 65,1) 100%);; /*FireFox*/
-    background: -o-linear-gradient(left,rgba(224, 174, 65,0) 0%,rgba(224, 174, 65,1) 100%);  /* Opear */
-    background: -ms-linear-gradient(left,rgba(224, 174, 65,0),rgba(224, 174, 65,1)); /*IE10及IE10+*/
+    background: -webkit-linear-gradient(left,rgba(0, 207, 229,0),rgba(224, 174, 65,1));
+    background: -moz-linear-gradient(left,rgba(0, 207, 229,0) 0%,rgba(224, 174, 65,1) 100%);; /*FireFox*/
+    background: -o-linear-gradient(left,rgba(0, 207, 229,0) 0%,rgba(224, 174, 65,1) 100%);  /* Opear */
+    background: -ms-linear-gradient(left,rgba(0, 207, 229,0),rgba(224, 174, 65,1)); /*IE10及IE10+*/
 }
 #companyList .item[riskLevel="4"] .index-container {
-    background: -webkit-linear-gradient(left,rgba(58,115,201,0),rgba(58,115,201,1));
-    background: -moz-linear-gradient(left,rgba(58,115,201,0) 0%,rgba(58,115,201,1) 100%);; /*FireFox*/
-    background: -o-linear-gradient(left,rgba(58,115,201,0) 0%,rgba(58,115,201,1) 100%);  /* Opear */
-    background: -ms-linear-gradient(left,rgba(58,115,201,0),rgba(58,115,201,1)); /*IE10及IE10+*/
+    background: -webkit-linear-gradient(left,rgba(0, 207, 229,0),rgba(0, 207, 229,1));
+    background: -moz-linear-gradient(left,rgba(0, 207, 229,0) 0%,rgba(0, 207, 229,1) 100%);; /*FireFox*/
+    background: -o-linear-gradient(left,rgba(0, 207, 229,0) 0%,rgba(0, 207, 229,1) 100%);  /* Opear */
+    background: -ms-linear-gradient(left,rgba(0, 207, 229,0),rgba(0, 207, 229,1)); /*IE10及IE10+*/
 }
 #companyList .item .index-container span{
     text-align: right;

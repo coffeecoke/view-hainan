@@ -246,4 +246,125 @@
             bottom: bottom
         }
     }
+
+    $.fn.rollNoInterval1 = function(){
+        var $self = this,
+            $ul = $self.find('.roll__list'),
+            $body = $ul.find('tbody'),
+            $item = $ul.find('.li'),
+           
+            len = $item.length,
+            timer,
+            left = function(){
+                var offset, i,
+                    range,
+                    $sliceItem;
+
+                $sliceItem = $($item[0]);
+                range = $sliceItem.outerWidth(true);
+                timer = setInterval(function(){
+                    offset = $ul.css('left');
+                    offset = parseInt(offset);
+                    if(offset > -range){
+                        i = offset - 1;
+                        $ul.css('left', i + 'px');
+                        offset = $ul.css('left');
+                    } else{
+                        $sliceItem.detach();
+                        $ul.css('left', 0);
+                        $ul.append($sliceItem);
+                        $sliceItem = $($ul.find('.li')[0]);
+                        range = $sliceItem.outerWidth(true);
+                    }
+                }, 50);
+            },
+            right = function(){
+                var offset, i,
+                    range,
+                    $sliceItem;
+
+                $sliceItem = $($item[len - 1]);
+                range = $sliceItem.outerWidth(true);
+                timer = setInterval(function(){
+                    offset = $ul.css('right');
+                    offset = parseInt(offset);
+                    if(offset > -range){
+                        i = offset - 1;
+                        $ul.css('right', i + 'px');
+                        offset = $ul.css('right');
+                    } else{
+                        $sliceItem.detach();
+                        $ul.css('right', 0);
+                        $ul.prepend($sliceItem);
+                        $sliceItem = $($ul.children('li')[len - 1]);
+                        range = $sliceItem.outerWidth(true);
+                    }
+                }, 50);
+            },
+            top = function(){
+                var offset, i,
+                    range,
+                    $sliceItem;
+
+                $sliceItem = $($item[0]);
+                range = $sliceItem.outerHeight(true);
+                clearInterval(timer);
+                if($item.length>4) {
+                    timer = setInterval(function(){
+                        offset = $ul.css('top');
+                        offset = parseInt(offset);
+                        if(offset > -range){
+                            i = offset - 1;
+                            $ul.css('top', i + 'px');
+                            offset = $ul.css('top');
+                        } else{
+                            $sliceItem.detach();
+                            $ul.css('top', 0);
+                            $body.append($sliceItem);
+                            $sliceItem = $($ul.find('.li')[0]);
+                            range = $sliceItem.outerHeight(true);
+                        }
+                    }, 50);
+                }
+               
+            },
+            bottom = function(){
+                var offset, i,
+                    range,
+                    $sliceItem;
+
+                $sliceItem = $($item[len - 1]);
+                range = $sliceItem.outerHeight(true);
+                timer = setInterval(function(){
+                    offset = $ul.css('bottom');
+                    offset = parseInt(offset);
+                    if(offset > -range){
+                        i = offset - 1;
+                        $ul.css('bottom', i + 'px');
+                        offset = $ul.css('bottom');
+                    } else{
+                        $sliceItem.detach();
+                        $ul.css('bottom', 0);
+                        $ul.prepend($sliceItem);
+                        $sliceItem = $($ul.children('li')[len - 1]);
+                        range = $sliceItem.outerHeight(true);
+                    }
+                }, 50);
+            },
+            init = function(){
+                $self.hover(function(){
+                    clearInterval(timer);
+                }, function(){
+                    top()
+                });
+            };
+
+        init();
+        return {
+            left: left,
+            right: right,
+            top: top,
+            bottom: bottom
+        }
+    }
 })(jQuery);

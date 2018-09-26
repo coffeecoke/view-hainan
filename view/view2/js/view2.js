@@ -9,7 +9,7 @@ var industryMap = getNameByCode();
  */
 var renderIndustryIcon = function() {
     renderFrame();
-    renderModal()
+    // renderModal()
     var doms=$('#allIcon .icon-item'),domItems=[];
     $.each(doms,function(i,item){
         domItems.push({
@@ -556,9 +556,9 @@ var renderOperateIndex = function(code) {
                 "04":98
             }
             $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '运行指数');
-            initOperateIndex(data);
-            shieldProgress.update(score[code]);
-            shieldProgress2.update(score[code]);
+            initOperateIndex(data.riskData);
+            shieldProgress.update(data.score);
+            shieldProgress2.update(data.score);
             $('#operateIndex').toggleClass('card-flipped')
         }
     });
