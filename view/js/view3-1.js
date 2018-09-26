@@ -447,7 +447,7 @@ $(function () {
                 axisLabel: {
                     interval: 0,
                     show: true,
-                    color: "#284fe6",
+                    color: "#00e5d2",
                     margin: 8,
                     fontSize: 16
                 },
@@ -468,7 +468,7 @@ $(function () {
                     formatter: '{value} %',
                     show: true,
                     padding: [0, 0, 20, 0],
-                    color: "#284fe6",
+                    color: "#00e5d2",
                     fontSize: 14
                 },
                 splitLine: {
@@ -480,6 +480,7 @@ $(function () {
                 }
             },
             polar: {},
+           
             series: [{
                 type: 'bar',
                 data: [{
@@ -868,7 +869,7 @@ $(function () {
             tooltip: {
                 backgroundColor: 'transparent',
                 formatter: function (params) {
-                    console.log(params)
+                   
                     return '<div style="width:360px;height:440px;background:url(img/tooltip-bg.png) center no-repeat;padding:30px 20px;position:relative;z-index:100">' +
                         '<h3 style="color:#fff;font-size:28px;padding:20px 0px 30px 30px;text-align:left;font-weight:normal;">' + params.name + '</h3>' +
                         '<div style="padding:20px 40px 25px 40px;overflow:hidden">' +
