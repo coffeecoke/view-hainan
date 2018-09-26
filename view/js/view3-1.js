@@ -722,6 +722,8 @@ var setScroll = function () {
 $(function () {
     // 地图echart
     var map = echarts.init($('#map .map')[0])
+    var t =new TimelineMax();
+   
     var renderMap = function () {
 
         var mapJson;
@@ -832,7 +834,7 @@ $(function () {
                 realtime: false,
                 calculable: true,
                 inRange: {
-                    color: ['#5389ff', '#1c6dfe', '#0c3fe1']
+                    color: ['#1c6dfe', '#003ef8', '#1226ad']
                 },
                 textGap: 10,
                 itemHeight: 300,

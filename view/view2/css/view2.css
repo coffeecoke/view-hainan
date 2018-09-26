@@ -18,9 +18,15 @@
 .left-column {
     padding: 25px 20px 30px 40px;
 }
+.left-column >div {
+    transform: translate(-105%, 0);
+}
 .right-column {
     padding: 25px 40px 30px 20px;
     height: 50%;
+}
+.right-column >div {
+    transform: translate(105%, 0);
 }
 .left-column:nth-child(1) {
     height: 50%;
