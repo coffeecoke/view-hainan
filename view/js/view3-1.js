@@ -1180,3 +1180,95 @@ $(function () {
 
     renderMap();
 })
+
+//柱状图
+$(function(){
+    var barCharts = echarts.init(document.getElementById('barCharts'));
+    var option = {
+        legend:{
+            show:true,
+            icon: 'rect',
+            itemWidth: 15,
+            itemHeight: 15,
+            textStyle:{
+                color:'#fff',
+                fontSize:'14'
+            },
+            right:'10%'
+        },
+        xAxis: {
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            axisLine: {
+                lineStyle: {
+                    color: '#0177d4'
+                }
+            },
+            axisLabel: {
+                color: '#284fe6',
+                fontSize: 14
+            }
+        },
+        yAxis: {
+            nameTextStyle: {
+                color: '#fff',
+                fontSize: 16
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#284fe6',
+                }
+            },
+            axisLabel: {
+                color: '#284fe6',
+                fontSize: 16
+            },
+            splitLine: {
+                show:true,
+                lineStyle: {
+                    type:'dashed',
+                    color: '#284fe6'
+                }
+            },
+            interval:100,
+            max:500
+    
+        },
+        series: [{
+            type: 'bar',
+            name:'资金流入',
+            barWidth: 18,
+            itemStyle:{
+                normal:{
+                    barBorderRadius: [30,30,0,0],
+                    color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#08ccd9'
+                    }, {
+                        offset: 0.8,
+                        color: '#2675f1'
+                    }], false)
+                }
+            },
+            data: [254, 325, 165, 245, 475, 200, 120]
+        },
+        {
+            type: 'bar',
+            name:'资金流出',
+            barWidth: 18,
+            itemStyle:{
+                normal:{
+                    barBorderRadius: [30,30,0,0],
+                    color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#e6ad1e'
+                    }, {
+                        offset: 0.8,
+                        color: '#e5891d'
+                    }], false)
+                }
+            },
+            data: [200, 225, 265, 145, 275, 200, 220]
+        }]
+    };
+    barCharts.setOption(option);
+})
