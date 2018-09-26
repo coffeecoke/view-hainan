@@ -1188,6 +1188,12 @@ $(function () {
 $(function(){
     var barCharts = echarts.init(document.getElementById('barCharts'));
     var option = {
+        grid:{
+            top:'14%',
+            left:'8%',
+            right:'6%',
+            bottom:'10%'
+        },
         legend:{
             show:true,
             icon: 'rect',
@@ -1274,4 +1280,621 @@ $(function(){
         }]
     };
     barCharts.setOption(option);
+})
+$(function(){
+
+    var circleChart1 = echarts.init(document.getElementById('circleChart1'));
+    // var bigfonts = 24;
+var nsum = 800;
+var fontS = 12;
+var dataAxis = [];
+var radius = 40;
+data = [{
+        "color": "#fff",
+        "text": "xx",
+        "num": "134",
+        "percent": 10
+    },
+    {
+        "color": "#2ced99",
+        "text": "xx",
+        "num": "230",
+        "percent": 30
+    },
+    {
+        "color": "#fedb00",
+        "text": "xx",
+        "num": "136",
+        "percent": 12
+    },
+    {
+        "color": "#ff7200",
+        "text": "xx",
+        "num": "49",
+        "percent": 20
+    },
+    {
+        "color": "#00e4fe",
+        "text": "xx",
+        "num": "360",
+        "percent": 30
+    }
+]
+
+
+var option = {
+    radar: [{
+            indicator: data,
+            radius: radius,
+            startAngle: 126,
+            splitNumber: 6,
+            shape: 'circle',
+            name: {
+                formatter: function(value, indicator) {
+                    var npercent = indicator.num;
+                    var percent = npercent / nsum * 100;
+                    return '{a|' + value + '}{b|}'
+
+                },
+                rich: {
+                    a: {
+                        color: '#138dff',
+                        fontSize: 12,
+                    },
+                    b: {
+                        // fontSize: bigfonts,
+                        // fontFamily: 'AGENCYB',
+                        // fontWidth: 'bold',
+                        color: '#09e5dc'
+                    },
+                    c: {
+                        fontSize: fontS,
+                        color: '#000'
+                    }
+                },
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            splitArea: {
+                areaStyle: {
+                    color: '	rgba(6,222,249,0.06)',
+                    shadowBlur: 10
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#0431d3'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#0431d3'
+                }
+            }
+        },
+
+    ],
+    series: [{
+        name: '雷达图',
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                color: '#29a0c2',
+            },
+
+            emphasis: {
+                color: '#29a0c2',
+            }
+        },
+        lineStyle: {
+            normal: {
+                color: '#0cc2c9',
+                type: 'solid',
+                width: 2
+            },
+            emphasis: {}
+        },
+        data: [{
+            value: [34, 10, 36, 49, 60],
+            label: {
+                show: 'true'
+            }
+        }]
+    }, {
+        name: '雷达图',
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                color: '#29a0c2',
+            },
+
+            emphasis: {
+                color: '#29a0c2',
+            }
+        },
+        lineStyle: {
+            normal: {
+                color: '#0cc2c9',
+                type: 'solid',
+                width: 2
+            },
+            emphasis: {}
+        },
+        data: [{
+            value: [20, 5, 12, 49, 60],
+            label: {
+                show: 'true'
+            }
+        }]
+    }]
+}
+
+circleChart1.setOption(option);
+})
+
+$(function(){
+
+    var circleChart2 = echarts.init(document.getElementById('circleChart2'));
+    // var bigfonts = 24;
+var nsum = 800;
+var fontS = 12;
+var dataAxis = [];
+var radius = 40;
+data = [{
+        "color": "#fff",
+        "text": "xx",
+        "num": "134",
+        "percent": 10
+    },
+    {
+        "color": "#2ced99",
+        "text": "xx",
+        "num": "230",
+        "percent": 30
+    },
+    {
+        "color": "#fedb00",
+        "text": "xx",
+        "num": "136",
+        "percent": 12
+    },
+    {
+        "color": "#ff7200",
+        "text": "xx",
+        "num": "49",
+        "percent": 20
+    },
+    {
+        "color": "#00e4fe",
+        "text": "xx",
+        "num": "360",
+        "percent": 30
+    }
+]
+
+
+var option2 = {
+    radar: [{
+            indicator: data,
+            radius: radius,
+            startAngle: 126,
+            splitNumber: 6,
+            shape: 'circle',
+            name: {
+                formatter: function(value, indicator) {
+                    var npercent = indicator.num;
+                    var percent = npercent / nsum * 100;
+                    return '{a|' + value + '}{b|}'
+
+                },
+                rich: {
+                    a: {
+                        color: '#138dff',
+                        fontSize: 12,
+                    },
+                    b: {
+                        // fontSize: bigfonts,
+                        // fontFamily: 'AGENCYB',
+                        // fontWidth: 'bold',
+                        color: '#09e5dc'
+                    },
+                    c: {
+                        fontSize: fontS,
+                        color: '#000'
+                    }
+                },
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            splitArea: {
+                areaStyle: {
+                    color: '	rgba(6,222,249,0.06)',
+                    shadowBlur: 10
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#0431d3'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#0431d3'
+                }
+            }
+        },
+
+    ],
+    series: [{
+        name: '雷达图',
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                color: '#29a0c2',
+            },
+
+            emphasis: {
+                color: '#29a0c2',
+            }
+        },
+        lineStyle: {
+            normal: {
+                color: '#0cc2c9',
+                type: 'solid',
+                width: 2
+            },
+            emphasis: {}
+        },
+        data: [{
+            value: [12, 24, 18, 34, 23],
+            label: {
+                show: 'true'
+            }
+        }]
+    }, {
+        name: '雷达图',
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                color: '#29a0c2',
+            },
+
+            emphasis: {
+                color: '#29a0c2',
+            }
+        },
+        lineStyle: {
+            normal: {
+                color: '#0cc2c9',
+                type: 'solid',
+                width: 2
+            },
+            emphasis: {}
+        },
+        data: [{
+            value: [24, 12, 33, 34, 26],
+            label: {
+                show: 'true'
+            }
+        }]
+    }]
+}
+
+circleChart2.setOption(option2);
+})
+
+//雷达图3
+$(function(){
+
+    var circleChart3 = echarts.init(document.getElementById('circleChart3'));
+    // var bigfonts = 24;
+var nsum = 800;
+var fontS = 12;
+var dataAxis = [];
+var radius = 40;
+data = [{
+        "color": "#fff",
+        "text": "xx",
+        "num": "134",
+        "percent": 10
+    },
+    {
+        "color": "#2ced99",
+        "text": "xx",
+        "num": "230",
+        "percent": 30
+    },
+    {
+        "color": "#fedb00",
+        "text": "xx",
+        "num": "136",
+        "percent": 12
+    },
+    {
+        "color": "#ff7200",
+        "text": "xx",
+        "num": "49",
+        "percent": 20
+    },
+    {
+        "color": "#00e4fe",
+        "text": "xx",
+        "num": "360",
+        "percent": 30
+    }
+]
+
+
+var option3 = {
+    radar: [{
+            indicator: data,
+            radius: radius,
+            startAngle: 126,
+            splitNumber: 6,
+            shape: 'circle',
+            name: {
+                formatter: function(value, indicator) {
+                    var npercent = indicator.num;
+                    var percent = npercent / nsum * 100;
+                    return '{a|' + value + '}{b|}'
+
+                },
+                rich: {
+                    a: {
+                        color: '#138dff',
+                        fontSize: 12,
+                    },
+                    b: {
+                        // fontSize: bigfonts,
+                        // fontFamily: 'AGENCYB',
+                        // fontWidth: 'bold',
+                        color: '#09e5dc'
+                    },
+                    c: {
+                        fontSize: fontS,
+                        color: '#000'
+                    }
+                },
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            splitArea: {
+                areaStyle: {
+                    color: '	rgba(6,222,249,0.06)',
+                    shadowBlur: 10
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#0431d3'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#0431d3'
+                }
+            }
+        },
+
+    ],
+    series: [{
+        name: '雷达图',
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                color: '#29a0c2',
+            },
+
+            emphasis: {
+                color: '#29a0c2',
+            }
+        },
+        lineStyle: {
+            normal: {
+                color: '#0cc2c9',
+                type: 'solid',
+                width: 2
+            },
+            emphasis: {}
+        },
+        data: [{
+            value: [23, 18, 30, 20, 16],
+            label: {
+                show: 'true'
+            }
+        }]
+    }, {
+        name: '雷达图',
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                color: '#29a0c2',
+            },
+
+            emphasis: {
+                color: '#29a0c2',
+            }
+        },
+        lineStyle: {
+            normal: {
+                color: '#0cc2c9',
+                type: 'solid',
+                width: 2
+            },
+            emphasis: {}
+        },
+        data: [{
+            value: [12, 50, 24, 40, 26],
+            label: {
+                show: 'true'
+            }
+        }]
+    }]
+}
+
+circleChart3.setOption(option3);
+})
+
+//雷达图4
+$(function(){
+
+    var circleChart4 = echarts.init(document.getElementById('circleChart4'));
+    // var bigfonts = 24;
+var nsum = 800;
+var fontS = 12;
+var dataAxis = [];
+var radius = 40;
+data = [{
+        "color": "#fff",
+        "text": "xx",
+        "num": "134",
+        "percent": 10
+    },
+    {
+        "color": "#2ced99",
+        "text": "xx",
+        "num": "230",
+        "percent": 30
+    },
+    {
+        "color": "#fedb00",
+        "text": "xx",
+        "num": "136",
+        "percent": 12
+    },
+    {
+        "color": "#ff7200",
+        "text": "xx",
+        "num": "49",
+        "percent": 20
+    },
+    {
+        "color": "#00e4fe",
+        "text": "xx",
+        "num": "360",
+        "percent": 30
+    }
+]
+
+
+var option4 = {
+    radar: [{
+            indicator: data,
+            radius: radius,
+            startAngle: 126,
+            splitNumber: 6,
+            shape: 'circle',
+            name: {
+                formatter: function(value, indicator) {
+                    var npercent = indicator.num;
+                    var percent = npercent / nsum * 100;
+                    return '{a|' + value + '}{b|}'
+
+                },
+                rich: {
+                    a: {
+                        color: '#138dff',
+                        fontSize: 12,
+                    },
+                    b: {
+                        // fontSize: bigfonts,
+                        // fontFamily: 'AGENCYB',
+                        // fontWidth: 'bold',
+                        color: '#09e5dc'
+                    },
+                    c: {
+                        fontSize: fontS,
+                        color: '#000'
+                    }
+                },
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            splitArea: {
+                areaStyle: {
+                    color: '	rgba(6,222,249,0.06)',
+                    shadowBlur: 10
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#0431d3'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#0431d3'
+                }
+            }
+        },
+
+    ],
+    series: [{
+        name: '雷达图',
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                color: '#29a0c2',
+            },
+
+            emphasis: {
+                color: '#29a0c2',
+            }
+        },
+        lineStyle: {
+            normal: {
+                color: '#0cc2c9',
+                type: 'solid',
+                width: 2
+            },
+            emphasis: {}
+        },
+        data: [{
+            value: [12, 24, 16, 12, 24],
+            label: {
+                show: 'true'
+            }
+        }]
+    }, {
+        name: '雷达图',
+        type: 'radar',
+        symbolSize: 0,
+        areaStyle: {
+            normal: {
+                color: '#29a0c2',
+            },
+
+            emphasis: {
+                color: '#29a0c2',
+            }
+        },
+        lineStyle: {
+            normal: {
+                color: '#0cc2c9',
+                type: 'solid',
+                width: 2
+            },
+            emphasis: {}
+        },
+        data: [{
+            value: [40, 25, 32, 24, 35],
+            label: {
+                show: 'true'
+            }
+        }]
+    }]
+}
+
+circleChart4.setOption(option4);
 })
