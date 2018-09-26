@@ -423,64 +423,132 @@ $(function () {
             });
         });
         var option = {
-            series: [{
-                type: 'pie',
-                radius: ['50%', '70%'],
-                center: ['50%', '50%'],
-                color: ['#e10e0e', '#e27204', '#e4b807', '#35cce2'],
-                data: riskData,
-                label: {
-                    // textStyle: {
-                    //     fontSize: 24
-                    // },
-                    verticalAlign: 'top',
-                    formatter: function (a) {
-                        var content = '';
-                        content += ' {rate|' + a.data.value + '%}   ';
-                        content += '{name|' + a.data.name + '}\n';
-                        content += '{value|企业个数：' + a.data.quantity + '}';
-                        return content;
-
+            angleAxis: {
+                interval: 1,
+                type: 'category',
+                data: ['舆情',
+                    '资金流向',
+                    '金融产品',
+                    '财务报表',
+                    '机构与高管',
+                    '投资者调查',
+                    '借调人调查',
+                    '收益承诺'
+                ],
+                z: 10,
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: "#284fe6",
+                        width: 1,
+                        type: "solid"
                     },
-                    rich: {
-                        rate: {
-                            color: '#FFF',
-                            fontSize: 28,
-
-                        },
-                        name: {
-                            fontSize: 18
-                        },
-                        value: {
-                            color: '#d4d4d4',
-                            fontSize: 18
+                },
+                axisLabel: {
+                    interval: 0,
+                    show: true,
+                    color: "#284fe6",
+                    margin: 8,
+                    fontSize: 16
+                },
+            },
+            radiusAxis: {
+                min: 0,
+                max: 100,
+                interval: 20,
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: "#284fe6",
+                        width: 1,
+                        type: "solid"
+                    },
+                },
+                axisLabel: {
+                    formatter: '{value} %',
+                    show: true,
+                    padding: [0, 0, 20, 0],
+                    color: "#284fe6",
+                    fontSize: 14
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: "#284fe6",
+                        width: 1,
+                        type: "solid"
+                    }
+                }
+            },
+            polar: {},
+            series: [{
+                type: 'bar',
+                data: [{
+                        value:80,
+                        itemStyle: {
+                            normal: {
+                                color: "#f54d4d"
+                            }
+                        }
+                    },
+                    {
+                        value: 70,
+                        itemStyle: {
+                            normal: {
+                                color: "#f87544"
+                            }
+                        }
+                    },
+                    {
+                        value: 60,
+                        itemStyle: {
+                            normal: {
+                                color: "#ffae00"
+                            }
+                        }
+                    },
+                    {
+                        value: 50,
+                        itemStyle: {
+                            normal: {
+                                color: "#dcff00"
+                            }
+                        }
+                    },
+                    {
+                        value: 50,
+                        itemStyle: {
+                            normal: {
+                                color: "#25d053"
+                            }
+                        }
+                    },
+                    {
+                        value:53,
+                        itemStyle: {
+                            normal: {
+                                color: "#01fff5"
+                            }
+                        }
+                    },
+                    {
+                        value: 48,
+                        itemStyle: {
+                            normal: {
+                                color: "#007cff"
+                            }
+                        }
+                    },
+                    {
+                        value: 45,
+                        itemStyle: {
+                            normal: {
+                                color: "#4245ff"
+                            }
                         }
                     }
-                },
-                labelLine: {
-                    normal: {
-                        lineStyle: {
-
-                        },
-                        //smooth: 0.2,
-                        length: 30,
-                        length2: 30
-                    }
-                },
-                itemStyle: {
-                    normal: {
-
-                    }
-                },
-                textStyle: {
-                    fontSize: 24
-                },
-                animationType: 'scale',
-                animationEasing: 'elasticOut',
-                animationDelay: function (idx) {
-                    return Math.random() * 200;
-                }
-            }]
+                ],
+                coordinateSystem: 'polar',
+            }],
         };
 
         comonyChart.setOption(option);
