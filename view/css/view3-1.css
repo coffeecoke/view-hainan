@@ -107,7 +107,7 @@ body {
     background: url(../img/box-header-bg.png) left no-repeat;
 }
 .box .box-body {
-    padding:30px;
+    padding:20px;
 }
 
 .roll-wrap.roll_col {
@@ -224,14 +224,14 @@ body {
 .circleChart-wrap dl{
     width:50%;
     float:left;
-    margin-bottom:20px;
+    margin-bottom:10px;
 }
 .circleChart-wrap dl dt {
     display: inline-block;
     vertical-align: middle;
-    font-size: 22px;
+    font-size: 18px;
     color:#fff;
-    width:140px;
+    width:120px;
 }
 .circleChart-wrap dl dd {
     display: inline-block;
