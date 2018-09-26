@@ -71,12 +71,7 @@ $(function () {
                             width: "30%",
                             class: "white"
                         },
-                        {
-                            name: "数据日期",
-                            key: "date",
-                            width: "10%",
-                            class: "blue"
-                        },
+                        
                         {
                             name: "风险指标分类",
                             key: "classification",
@@ -104,12 +99,7 @@ $(function () {
                             width: "30%",
                             class: "white"
                         },
-                        {
-                            name: "数据日期",
-                            key: "date",
-                            width: "10%",
-                            class: "blue"
-                        },
+                       
                         {
                             name: "风险指标分类",
                             key: "classification",
@@ -137,12 +127,7 @@ $(function () {
                             width: "30%",
                             class: "white"
                         },
-                        {
-                            name: "数据日期",
-                            key: "date",
-                            width: "10%",
-                            class: "blue"
-                        },
+                        
                         {
                             name: "风险指标分类",
                             key: "classification",
@@ -170,12 +155,7 @@ $(function () {
                             width: "30%",
                             class: "white"
                         },
-                        {
-                            name: "数据日期",
-                            key: "date",
-                            width: "10%",
-                            class: "blue"
-                        },
+                        
                         {
                             name: "风险指标分类",
                             key: "classification",
@@ -216,12 +196,7 @@ $(function () {
                         width: "25%",
                         class: "white"
                     },
-                    {
-                        name: "数据日期",
-                        key: "date",
-                        width: "5%",
-                        class: "blue"
-                    },
+                    
                     {
                         name: "风险指标分类",
                         key: "classification",

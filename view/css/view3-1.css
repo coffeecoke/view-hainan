@@ -556,8 +556,11 @@ body {
 #companyList .item .company-name{
     display: inline-block;
     float: left;
-    width: 95%;
+    width: 65%;
     font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #companyList .item .index-container{
     position: absolute;
