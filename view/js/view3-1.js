@@ -860,9 +860,9 @@ $(function () {
                         areaColor: '#006fff',
                         borderWidth: 1,
                         shadowColor: 'rgba(29,92,171, 1)',
-                        shadowBlur: 50,
-                        shadowOffsetX: 20,
-                        shadowOffsetY: 20
+                        shadowBlur: 0,
+                        shadowOffsetX: 10,
+                        shadowOffsetY: 10
                     }
                 }
             },
