@@ -207,31 +207,31 @@ $(function () {
                 var config = [{
                         name: "序号",
                         key: "rank",
-                        width: "5%",
+                        width: "4%",
                         class: "rank"
                     },
                     {
                         name: "企业名称",
                         key: "companyName",
-                        width: "30%",
+                        width: "25%",
                         class: "white"
                     },
                     {
                         name: "数据日期",
                         key: "date",
-                        width: "10%",
+                        width: "5%",
                         class: "blue"
                     },
                     {
                         name: "风险指标分类",
                         key: "classification",
-                        width: "15%",
+                        width: "25%",
                         class: "blue"
                     },
                     {
                         name: "风险指标",
                         key: "index",
-                        width: "30%",
+                        width: "35%",
                         class: "blue"
                     }
 

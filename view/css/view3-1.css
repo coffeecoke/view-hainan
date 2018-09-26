@@ -274,7 +274,7 @@ body {
     z-index:1000000000;
 }
 .risk-modal {
-    width:1600px;
+    width:2400px;
     height:768px;
     position: absolute;
     z-index:100;
