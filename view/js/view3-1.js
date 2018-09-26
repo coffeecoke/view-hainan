@@ -357,46 +357,46 @@ $(function () {
     }
 
     // 当期行业运行指数
-    $("#circleChart1").circleChart({
-        size: 80,
-        value: 69,
-        color: "#03e5d2",
-        backgroundColor: "#fff",
-        text: 0,
-        onDraw: function (el, circle) {
-            circle.text(Math.round(circle.value));
-        }
-    });
-    $("#circleChart2").circleChart({
-        size: 80,
-        value: 86,
-        color: "#03e5d2",
-        backgroundColor: "#fff",
-        text: 0,
-        onDraw: function (el, circle) {
-            circle.text(Math.round(circle.value));
-        }
-    });
-    $("#circleChart3").circleChart({
-        size: 80,
-        value: 100,
-        color: "#03e5d2",
-        backgroundColor: "#fff",
-        text: 0,
-        onDraw: function (el, circle) {
-            circle.text(Math.round(circle.value));
-        }
-    });
-    $("#circleChart4").circleChart({
-        size: 80,
-        value: 98,
-        color: "#03e5d2",
-        backgroundColor: "#fff",
-        text: 20,
-        onDraw: function (el, circle) {
-            circle.text(Math.round(circle.value));
-        }
-    });
+    // $("#circleChart1").circleChart({
+    //     size: 80,
+    //     value: 69,
+    //     color: "#03e5d2",
+    //     backgroundColor: "#fff",
+    //     text: 0,
+    //     onDraw: function (el, circle) {
+    //         circle.text(Math.round(circle.value));
+    //     }
+    // });
+    // $("#circleChart2").circleChart({
+    //     size: 80,
+    //     value: 86,
+    //     color: "#03e5d2",
+    //     backgroundColor: "#fff",
+    //     text: 0,
+    //     onDraw: function (el, circle) {
+    //         circle.text(Math.round(circle.value));
+    //     }
+    // });
+    // $("#circleChart3").circleChart({
+    //     size: 80,
+    //     value: 100,
+    //     color: "#03e5d2",
+    //     backgroundColor: "#fff",
+    //     text: 0,
+    //     onDraw: function (el, circle) {
+    //         circle.text(Math.round(circle.value));
+    //     }
+    // });
+    // $("#circleChart4").circleChart({
+    //     size: 80,
+    //     value: 98,
+    //     color: "#03e5d2",
+    //     backgroundColor: "#fff",
+    //     text: 20,
+    //     onDraw: function (el, circle) {
+    //         circle.text(Math.round(circle.value));
+    //     }
+    // });
     $.ajax({
         url: 'data/compony.json',
         dataType: 'json',
@@ -1280,6 +1280,7 @@ $(function(){
     };
     barCharts.setOption(option);
 })
+//雷达图3
 $(function(){
 
     var circleChart1 = echarts.init(document.getElementById('circleChart1'));
@@ -1433,7 +1434,7 @@ var option = {
 
 circleChart1.setOption(option);
 })
-
+//雷达图3
 $(function(){
 
     var circleChart2 = echarts.init(document.getElementById('circleChart2'));
