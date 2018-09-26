@@ -238,7 +238,7 @@ $(function () {
                 ]
                 $('.mask').fadeIn();
                 $('#risk-modal').fadeIn();
-                $('#risk-modal .origin-border .title-container .text span').text('');
+                $('#risk-modal .origin-border .title-container .text span').text('非法集资风险指标触发情况');
                 initTable('#risk-modal .table-container', 'data/riskCompanyModal' + code + '.json', {
                     code: code
                 }, config, true);
