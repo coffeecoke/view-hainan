@@ -831,7 +831,7 @@ $(function () {
 
                     riskData.push(item);
                 });
-                renderTooltip(data)
+                // renderTooltip(data)
 
             }
         });
@@ -1221,7 +1221,7 @@ $(function(){
                 }
             },
             axisLabel: {
-                color: '#284fe6',
+                color: '#01f3e1',
                 fontSize: 14
             }
         },
@@ -1236,7 +1236,7 @@ $(function(){
                 }
             },
             axisLabel: {
-                color: '#284fe6',
+                color: '#01f3e1',
                 fontSize: 16
             },
             splitLine: {
@@ -1292,38 +1292,38 @@ $(function(){
 //雷达图3
 $(function(){
 
-    var circleChart1 = echarts.init(document.getElementById('circleChart1'));
+    var circleChart1 = echarts.init($('.circleChart1')[0]);
     // var bigfonts = 24;
 var nsum = 800;
 var fontS = 12;
 var dataAxis = [];
-var radius = 40;
+var radius = 80;
 data = [{
-        "color": "#fff",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "134",
         "percent": 10
     },
     {
-        "color": "#2ced99",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "230",
         "percent": 30
     },
     {
-        "color": "#fedb00",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "136",
         "percent": 12
     },
     {
-        "color": "#ff7200",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "49",
         "percent": 20
     },
     {
-        "color": "#00e4fe",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "360",
         "percent": 30
@@ -1338,33 +1338,7 @@ var option = {
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-            name: {
-                formatter: function(value, indicator) {
-                    var npercent = indicator.num;
-                    var percent = npercent / nsum * 100;
-                    return '{a|' + value + '}{b|}'
-
-                },
-                rich: {
-                    a: {
-                        color: '#138dff',
-                        fontSize: 12,
-                    },
-                    b: {
-                        // fontSize: bigfonts,
-                        // fontFamily: 'AGENCYB',
-                        // fontWidth: 'bold',
-                        color: '#09e5dc'
-                    },
-                    c: {
-                        fontSize: fontS,
-                        color: '#000'
-                    }
-                },
-                textStyle: {
-                    color: '#fff'
-                }
-            },
+            
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',
@@ -1446,38 +1420,38 @@ circleChart1.setOption(option);
 //雷达图3
 $(function(){
 
-    var circleChart2 = echarts.init(document.getElementById('circleChart2'));
+var circleChart2 = echarts.init($('.circleChart2')[0]);
     // var bigfonts = 24;
 var nsum = 800;
 var fontS = 12;
 var dataAxis = [];
-var radius = 40;
+var radius = 80;
 data = [{
-        "color": "#138dff",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "134",
         "percent": 10
     },
     {
-        "color": "#138dff",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "230",
         "percent": 30
     },
     {
-        "color": "#138dff",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "136",
         "percent": 12
     },
     {
-        "color": "#138dff",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "49",
         "percent": 20
     },
     {
-        "color": "#138dff",
+        "color": "#01f3e1",
         "text": "xx2",
         "num": "360",
         "percent": 30
@@ -1600,38 +1574,38 @@ circleChart2.setOption(option2);
 //雷达图3
 $(function(){
 
-    var circleChart3 = echarts.init(document.getElementById('circleChart3'));
+    var circleChart3 = echarts.init($('.circleChart3')[0]);
     // var bigfonts = 24;
 var nsum = 800;
 var fontS = 12;
 var dataAxis = [];
-var radius = 40;
+var radius = 80;
 data = [{
-        "color": "#fff",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "134",
         "percent": 100
     },
     {
-        "color": "#2ced99",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "230",
         "percent": 30
     },
     {
-        "color": "#fedb00",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "136",
         "percent": 12
     },
     {
-        "color": "#ff7200",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "49",
         "percent": 20
     },
     {
-        "color": "#00e4fe",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "360",
         "percent": 30
@@ -1646,33 +1620,7 @@ var option3 = {
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-            name: {
-                formatter: function(value, indicator) {
-                    var npercent = indicator.num;
-                    var percent = npercent / nsum * 100;
-                    return '{a|' + value + '}{b|}'
-
-                },
-                rich: {
-                    a: {
-                        color: '#138dff',
-                        fontSize: 12,
-                    },
-                    b: {
-                        // fontSize: bigfonts,
-                        // fontFamily: 'AGENCYB',
-                        // fontWidth: 'bold',
-                        color: '#09e5dc'
-                    },
-                    c: {
-                        fontSize: fontS,
-                        color: '#000'
-                    }
-                },
-                textStyle: {
-                    color: '#fff'
-                }
-            },
+            
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',
@@ -1755,38 +1703,38 @@ circleChart3.setOption(option3);
 //雷达图4
 $(function(){
 
-    var circleChart4 = echarts.init(document.getElementById('circleChart4'));
+    var circleChart4 = echarts.init($('.circleChart4')[0]);
     // var bigfonts = 24;
 var nsum = 800;
 var fontS = 12;
 var dataAxis = [];
-var radius = 40;
+var radius = 80;
 data = [{
-        "color": "#fff",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "134",
         "percent": 10
     },
     {
-        "color": "#2ced99",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "230",
         "percent": 30
     },
     {
-        "color": "#fedb00",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "136",
         "percent": 12
     },
     {
-        "color": "#ff7200",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "49",
         "percent": 20
     },
     {
-        "color": "#00e4fe",
+        "color": "#01f3e1",
         "text": "xx",
         "num": "360",
         "percent": 30
@@ -1801,33 +1749,7 @@ var option4 = {
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-            name: {
-                formatter: function(value, indicator) {
-                    var npercent = indicator.num;
-                    var percent = npercent / nsum * 100;
-                    return '{a|' + value + '}{b|}'
-
-                },
-                rich: {
-                    a: {
-                        color: '#138dff',
-                        fontSize: 12,
-                    },
-                    b: {
-                        // fontSize: bigfonts,
-                        // fontFamily: 'AGENCYB',
-                        // fontWidth: 'bold',
-                        color: '#09e5dc'
-                    },
-                    c: {
-                        fontSize: fontS,
-                        color: '#000'
-                    }
-                },
-                textStyle: {
-                    color: '#fff'
-                }
-            },
+            
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',
@@ -1905,4 +1827,25 @@ var option4 = {
 }
 
 circleChart4.setOption(option4);
+})
+$(function () {
+    var pagesLen = $('.circleChart-wrap li').length;
+    var pageItemWidth = $('.circleChart-wrap li').width();
+    var i = 0;
+    var outerTimer;
+    function moveLeft () {
+        outerTimer = setInterval(function () {
+            var sldieNum =  ++i&&(i==pagesLen)?i=0:i;
+            $('.circleChart-wrap').animate({
+                     left:-pageItemWidth*sldieNum
+             },1000)
+           
+        },10000);
+    }
+    moveLeft();
+    $('.circleChart-wrap').hover(function () {
+        clearInterval(outerTimer)
+    },function () {
+        moveLeft()
+    })
 })

@@ -300,22 +300,32 @@ body {
 .submit-data dl dd .desc {
     font-size:20px;
 }
+.circleChart-wrap__container {
+    overflow: hidden;
+    position: relative;
+    height:290px;
+}
+.circleChart-wrap {
+    width:1200px;
+    overflow:hidden;
+}
+.circleChart-wrap li {
+    width:568px;
+    float:left;
+    overflow: hidden;
+}
 .circleChart-wrap dl{
     width:50%;
     float:left;
     margin-bottom:10px;
 }
 .circleChart-wrap dl dt {
-    display: inline-block;
-    vertical-align: middle;
+   text-align: center;
     font-size: 18px;
     color:#fff;
-    width:120px;
+   
 }
-.circleChart-wrap dl dd {
-    display: inline-block;
-    vertical-align: middle;
-}
+
 .docking-data {
     display: flex;
     justify-content: space-between;

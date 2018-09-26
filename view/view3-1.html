@@ -127,32 +127,45 @@
                                 <div class="box">
                                     <div class="box-header">资金流风险指数</div>
                                     <div class="box-body">
-                                        <div class="circleChart-wrap">
-                                            <dl>
-                                                <dt>小额贷款公司</dt>
-                                                <dd class="circleChart" id="circleChart1" style="width:45%;height:130px;">
+                                        <div class="circleChart-wrap__container" id="circleChart-wrap__container">
+                                            <ul class="circleChart-wrap roll__list" style="position: absolute; left: 0; top: 0;">
+                                                <li>
+                                                    <dl>
 
-                                                </dd>
-                                            </dl>
-                                            <dl>
-                                                <dt>地方交易场所</dt>
-                                                <dd class="circleChart" id="circleChart2" style="width:45%;height:130px;">
+                                                        <dd class="circleChart1" id="circleChart1" style="width:100%;height:260px;">
 
-                                                </dd>
-                                            </dl>
-                                            <dl>
-                                                <dt>P2P公司</dt>
-                                                <dd class="circleChart" id="circleChart3" style="width:45%;height:130px;">
+                                                        </dd>
+                                                        <dt>P2P公司</dt>
+                                                    </dl>
+                                                    <dl>
 
-                                                </dd>
-                                            </dl>
-                                            <dl>
-                                                <dt>股权交易场所</dt>
-                                                <dd class="circleChart" id="circleChart4" style="width:45%;height:130px;">
+                                                        <dd class="circleChart2" id="circleChart2" style="width:100%;height:260px">
 
-                                                </dd>
-                                            </dl>
+                                                        </dd>
+                                                        <dt>小额贷款公司</dt>
+                                                    </dl>
+                                                </li>
+                                                <li>
+                                                    <dl>
+                                                       
+                                                        <dd class="circleChart3" id="circleChart3" style="width:100%;height:260px;">
+
+                                                        </dd>
+                                                        <dt>地方交易场所</dt>
+                                                    </dl>
+
+                                                    <dl>
+                                                       
+                                                        <dd class="circleChart4" id="circleChart4" style="width:100%;height:260px;">
+
+                                                        </dd>
+                                                        <dt>股权交易场所</dt>
+                                                    </dl>
+                                                </li>
+
+                                            </ul>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +182,7 @@
             <div class="region"><img src="./img/sansha.png" alt=""></div>
             <div class="middle-column" id="map">
                 <div class="map"></div>
-                
+
             </div>
             <!--中1 地图-->
         </div>
@@ -280,7 +293,7 @@
                             <div class="horn-icon horn-lb"></div>
                             <div class="horn-icon horn-rb"></div>
                             <div class="item-container">
-                                <div id="lineCharts" style="width:100%;height:370px;"></div> 
+                                <div id="lineCharts" style="width:100%;height:370px;"></div>
                             </div>
                         </div>
 
@@ -303,7 +316,7 @@
                             <div class="horn-icon horn-lb"></div>
                             <div class="horn-icon horn-rb"></div>
                             <div class="item-container" style="padding-top:0">
-                                
+
                             </div>
                         </div>
 
@@ -316,28 +329,28 @@
 
         <!-- 弹出层 -->
         <div class="mask">
-                
+
         </div>
         <div id="risk-modal" class="risk-modal">
-                <div class="origin-border">
-                    <div class="title-container">
-                        <div class="title-container-horn title-container-lt"></div>
-                        <div class="title-container-horn title-container-rt"></div>
-                        <div class="title-container-horn title-container-rb"></div>
-                        <div class="title-container-horn title-container-lb"></div>
-                        <div class="background"></div>
-                        <div class="text"><span></span></div>
-                    </div>
-                    <div class="horn">
-                        <div class="horn-icon horn-lt"></div>
-                        <div class="horn-icon horn-rt"></div>
-                        <div class="horn-icon horn-lb"></div>
-                        <div class="horn-icon horn-rb"></div>
-                        <div class="table-container">
-                            
-                        </div>
+            <div class="origin-border">
+                <div class="title-container">
+                    <div class="title-container-horn title-container-lt"></div>
+                    <div class="title-container-horn title-container-rt"></div>
+                    <div class="title-container-horn title-container-rb"></div>
+                    <div class="title-container-horn title-container-lb"></div>
+                    <div class="background"></div>
+                    <div class="text"><span></span></div>
+                </div>
+                <div class="horn">
+                    <div class="horn-icon horn-lt"></div>
+                    <div class="horn-icon horn-rt"></div>
+                    <div class="horn-icon horn-lb"></div>
+                    <div class="horn-icon horn-rb"></div>
+                    <div class="table-container">
+
                     </div>
                 </div>
+            </div>
         </div>
         <!-- /.弹出层 -->
     </section>
