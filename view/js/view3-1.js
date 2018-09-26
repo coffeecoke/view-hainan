@@ -1452,32 +1452,32 @@ var fontS = 12;
 var dataAxis = [];
 var radius = 40;
 data = [{
-        "color": "#fff",
+        "color": "#138dff",
         "text": "xx",
         "num": "134",
         "percent": 10
     },
     {
-        "color": "#2ced99",
+        "color": "#138dff",
         "text": "xx",
         "num": "230",
         "percent": 30
     },
     {
-        "color": "#fedb00",
+        "color": "#138dff",
         "text": "xx",
         "num": "136",
         "percent": 12
     },
     {
-        "color": "#ff7200",
+        "color": "#138dff",
         "text": "xx",
         "num": "49",
         "percent": 20
     },
     {
-        "color": "#00e4fe",
-        "text": "xx",
+        "color": "#138dff",
+        "text": "xx2",
         "num": "360",
         "percent": 30
     }
@@ -1485,39 +1485,38 @@ data = [{
 
 
 var option2 = {
+    tooltip:{},
     radar: [{
             indicator: data,
             radius: radius,
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-            name: {
-                formatter: function(value, indicator) {
-                    var npercent = indicator.num;
-                    var percent = npercent / nsum * 100;
-                    return '{a|' + value + '}{b|}'
+            // name: {
+            //     formatter: function(value, indicator) {
+            //         var npercent = indicator.num;
+            //         var percent = npercent / nsum * 100;
+            //         return value
 
-                },
-                rich: {
-                    a: {
-                        color: '#138dff',
-                        fontSize: 12,
-                    },
-                    b: {
-                        // fontSize: bigfonts,
-                        // fontFamily: 'AGENCYB',
-                        // fontWidth: 'bold',
-                        color: '#09e5dc'
-                    },
-                    c: {
-                        fontSize: fontS,
-                        color: '#000'
-                    }
-                },
-                textStyle: {
-                    color: '#fff'
-                }
-            },
+            //     },
+            //     rich: {
+            //         a: {
+            //             color: '#138dff',
+            //             fontSize: 12,
+            //         },
+            //         b: {
+                      
+            //             color: 'red'
+            //         },
+            //         c: {
+            //             fontSize: fontS,
+            //             color: 'red'
+            //         }
+            //     },
+            //     textStyle: {
+            //         color: '#fff'
+            //     }
+            // },
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',
