@@ -872,19 +872,27 @@ $(function () {
                    
                     return '<div style="width:360px;height:440px;background:url(img/tooltip-bg.png) center no-repeat;padding:30px 20px;position:relative;z-index:100">' +
                         '<h3 style="color:#fff;font-size:28px;padding:20px 0px 30px 30px;text-align:left;font-weight:normal;">' + params.name + '</h3>' +
-                        '<div style="padding:20px 40px 25px 40px;overflow:hidden">' +
+                        '<div style="padding:20px 40px 5px 40px;overflow:hidden">' +
+                        '    <span style="color:#fff;font-size:24px;float:left;">流入资金<small>(亿)</small>:</span>' +
+                        '    <span style="font-size:28px;color:#fff;float:right;">' + params.data.inflow + '</span>' +
+                        '</div>' +
+                        '<div style="padding:20px 40px 5px 40px;overflow:hidden">' +
+                        '    <span style="color:#fff;font-size:24px;float:left;">流出资金<small>(亿)</small>:</span>' +
+                        '    <span style="font-size:28px;color:#fff;float:right;">' + params.data.outflow + '</span>' +
+                        '</div>' +
+                        '<div style="padding:20px 40px 5px 40px;overflow:hidden">' +
                         '    <span style="color:#fff;font-size:24px;float:left;">监管企业<small>(家)</small>:</span>' +
                         '    <span style="font-size:28px;color:#fff;float:right;">' + params.data.total + '</span>' +
                         '</div>' +
-                        '<div style="padding:20px 40px 25px 40px;overflow:hidden">' +
+                        '<div style="padding:20px 40px 5px 40px;overflow:hidden">' +
                         '    <span style="color:#fff;font-size:24px;float:left;">监测企业<small>(家)</small>:</span>' +
                         '    <span style="font-size:28px;color:#fff;float:right;">' + params.data.Detection + '</span>' +
                         '</div>' +
-                        '<div style="padding:20px 40px 25px 40px;overflow:hidden">' +
+                        '<div style="padding:20px 40px 5px 40px;overflow:hidden">' +
                         '    <span style="color:#fff;font-size:24px;float:left;">风险企业<small>(家)</small>:</span>' +
                         '    <span style="font-size:28px;color:#fff;float:right;">' + params.data.risk + '</span>' +
                         '</div>' +
-                        '<div style="padding:20px 40px 25px 40px;overflow:hidden">' +
+                        '<div style="padding:20px 40px 5px 40px;overflow:hidden">' +
                         '    <span style="color:#fff;font-size:24px;float:left;">高风险企业<small>(家)</small>:</span>' +
                         '    <span style="font-size:28px;color:#fff;float:right;">' + params.data.highRisk + '</span>' +
                         '</div>' +
@@ -1602,7 +1610,7 @@ data = [{
         "color": "#fff",
         "text": "xx",
         "num": "134",
-        "percent": 10
+        "percent": 100
     },
     {
         "color": "#2ced99",
