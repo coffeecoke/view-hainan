@@ -491,7 +491,7 @@ $(function () {
 // 预警企业及处置企业情况
 $(function () {
     var lineCharts = echarts.init(document.getElementById('lineCharts'));
-    var xData = ['201609', '201610', '201611', '201612', '201701', '201702']
+    var xData = ['2015', '2016', '2017', '2018']
 
     var option1 = {
         legend: {
@@ -573,7 +573,7 @@ $(function () {
         },
         series: [{
                 name: '预警企业',
-                data: [50, 70, 90, 100, 110, 120],
+                data: [0, 0, 0, 0],
                 type: 'line',
                 smooth: true,
                 symbolSize: 0,
@@ -590,7 +590,7 @@ $(function () {
             },
             {
                 name: '处置企业',
-                data: [100, 200, 140, 300, 140, 200],
+                data: [10, 14, 12, 9],
                 type: 'line',
                 width: 3,
                 symbolSize: 0,
@@ -608,7 +608,7 @@ $(function () {
             },
             {
                 name: '案件移交',
-                data: [200, 300, 340, 220, 240, 100],
+                data: [0, 0, 0, 0],
                 type: 'line',
                 width: 3,
                 symbolSize: 0,
@@ -760,7 +760,6 @@ $(function () {
 
                     riskData.push(item);
                 });
-                console.log(riskData)
                 renderTooltip(data)
 
             }
@@ -799,7 +798,7 @@ $(function () {
             tooltip: {
                 backgroundColor: 'transparent',
                 formatter: function (params) {
-
+                    console.log(params)
                     return '<div style="width:360px;height:440px;background:url(img/tooltip-bg.png) center no-repeat;padding:30px 20px;position:relative;z-index:100">' +
                         '<h3 style="color:#fff;font-size:28px;padding:20px 0px 30px 30px;text-align:left;font-weight:normal;">' + params.name + '</h3>' +
                         '<div style="padding:20px 40px 25px 40px;overflow:hidden">' +
@@ -864,12 +863,12 @@ $(function () {
                             if (params.data.highRisk > 1) {
                                 var icon = 'high';
                                 return params.name + '{' + icon + '|}';
-                            } else if (params.data.risk > 1 && params.data.highRisk <= 0) {
-                                var icon = 'middle';
+                            } else if (params.data.risk >= 1 && params.data.highRisk <= 0) {
+                                var icon = 'low';
                                 return params.name + '{' + icon + '|}';
-                            } else if (params.data.risk = 0) {
-                                var icon = '';
-                                return params.name + '{' + icon + '|}';
+                            } else if (params.data.risk == 0) {
+                                // var icon = '';
+                                // return params.name + '{' + icon + '|}';
                             }
 
                         },
