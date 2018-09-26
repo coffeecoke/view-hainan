@@ -101,6 +101,14 @@ var renderFrame = function() {
 
     // 弹出层table
     $("#risk-modal .origin-border .horn").append("<div class='table-container'></div>");
+
+    var t =new TimelineMax();
+   
+    t.to('.column >div', 1, {
+        x:0,
+        y:0
+    });
+   
     
 };
 
@@ -193,9 +201,21 @@ var renderIndex = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
-            renderIndexData('#index .origin-border .horn .item-container', data, 12);
-            $('#index').toggleClass('card-flipped')
+            var t =new TimelineMax();
+            if($('#index .origin-border .title-container .text span').html() === ''){
+                $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
+                renderIndexData('#index .origin-border .horn .item-container', data, 12);
+            }else {
+                t.to('#index', 1, {opacity:0,onComplete:function(){
+                    $('#index .origin-border .title-container .text span').text(industryMap[code] + '行业指标');
+                    renderIndexData('#index .origin-border .horn .item-container', data, 12);
+                    t.to('#index', 1, {opacity:1});
+                }});
+            }
+           
+
+           
+            // $('#index').toggleClass('card-flipped')
           
             
         }
@@ -372,14 +392,25 @@ var renderIndexChange = function(code) {
     
     $('#indexChange .origin-border .horn .echarts-list').html('<li class="active" data-code="BRIR">'+indexChangeLengends[code][0]+'</li><li data-code="TVGR">'+indexChangeLengends[code][1]+'</li><li data-code="TGR">'+indexChangeLengends[code][2]+'</li></ul>');
    
-    $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
+   
     $.ajax({
         url: 'data/indexChangeData'+code+'.json',
         data:{code:code},
         dataType: 'json',
         success: function(data){   
-            initIndexChangeChart(data,'BRIR'); // 渲染数据
-            $('#indexChange').toggleClass('card-flipped')
+            var t =new TimelineMax();
+            if( $('#indexChange .origin-border .title-container .text span').html()==''){
+                initIndexChangeChart(data,'BRIR'); // 渲染数据
+                $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
+            }else {
+                t.to('#indexChange', 1, {opacity:0,onComplete:function(){
+                    initIndexChangeChart(data,'BRIR'); // 渲染数据
+                    $('#indexChange .origin-border .title-container .text span').text(industryMap[code] + '行业指标变化');
+                    t.to('#indexChange', 1, {opacity:1});
+                }});
+            }
+            
+            
             $("#indexChange .origin-border .horn").on("click",".echarts-list li",function(){
                 $(this).addClass("active").siblings().removeClass("active");
                 var dataName = $(this).data('code')
@@ -555,11 +586,22 @@ var renderOperateIndex = function(code) {
                 "03":100,
                 "04":98
             }
-            $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '运行指数');
-            initOperateIndex(data.riskData);
-            shieldProgress.update(data.score);
-            shieldProgress2.update(data.score);
-            $('#operateIndex').toggleClass('card-flipped')
+            var t =new TimelineMax();
+            if($('#operateIndex .origin-border .title-container .text span').html()==''){
+                $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '运行指数');
+                initOperateIndex(data.riskData);
+                shieldProgress.update(data.score);
+                shieldProgress2.update(data.score);
+            }else {
+                t.to('#operateIndex', 1, {opacity:0,onComplete:function(){
+                    $('#operateIndex .origin-border .title-container .text span').text(industryMap[code] + '运行指数');
+                    initOperateIndex(data.riskData);
+                    shieldProgress.update(data.score);
+                    shieldProgress2.update(data.score);
+                    t.to('#operateIndex', 1, {opacity:1});
+                }});  
+            }
+           
         }
     });
 };
@@ -669,9 +711,19 @@ var renderRiskMap = function(code) {
         data:{code:code},
         dataType: 'json',
         success: function(data){
-            $('#riskMap .origin-border .title-container .text span').text(industryMap[code] + '风险分布图');
-            initRiskMap(data);
-            $('#riskMap').toggleClass('card-flipped')
+            var t =new TimelineMax();
+            if( $('#riskMap .origin-border .title-container .text span').html()==''){
+                $('#riskMap .origin-border .title-container .text span').text(industryMap[code] + '风险分布图');
+                initRiskMap(data);
+            }else {
+                t.to('#riskMap', 1, {opacity:0,onComplete:function(){
+                    $('#riskMap .origin-border .title-container .text span').text(industryMap[code] + '风险分布图');
+                    initRiskMap(data);
+                    t.to('#riskMap', 1, {opacity:1});
+                }});  
+            }
+            
+           
            
         }
     });
