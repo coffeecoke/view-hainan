@@ -9,7 +9,7 @@ var industryMap = getNameByCode();
  */
 var renderIndustryIcon = function() {
     renderFrame();
-    renderModal()
+    // renderModal()
     var doms=$('#allIcon .icon-item'),domItems=[];
     $.each(doms,function(i,item){
         domItems.push({

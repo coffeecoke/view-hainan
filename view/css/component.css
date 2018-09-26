@@ -149,6 +149,12 @@
     display: block;
     position: relative;
 }
+.roll__list {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+}
 
 .table-container table {
     border: 0;
@@ -168,7 +174,7 @@
     border-bottom: 2px solid #0b41a5;
     font-size: 22px;
     color: #fff;
-    text-align: left;
+    text-align: center;
     height: 60px;
     line-height: 60px;
 }
@@ -180,7 +186,7 @@
     border-bottom: 2px solid #0b41a5;
     font-size: 22px;
     color: #7498CE;
-    text-align: left;
+    text-align: center;
     border-bottom: 2px solid #6D7890;
     color: #8cf8ff;
     

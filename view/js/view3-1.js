@@ -1,4 +1,5 @@
 $(function () {
+    var industryMap = getNameByCode();
     var indexChangeChart = echarts.init(document.getElementById('indexChangeChart'));
 
     // tab切换
@@ -11,14 +12,15 @@ $(function () {
     // });
     $('#item-toggle .roll__list li').on('click', function () {
         var code = $(this).data('code');
+        $('#top10').data('code', code);
         initTop10('data/top10-' + code + '.json')
         initTop10Chart('data/indexRiskScopeChangeData' + code + '.json')
         $(this).addClass('active').siblings().removeClass('active')
     })
 
     // top10
-
-    initTop10('data/top10-01.json')
+    $('#item-toggle .roll__list li:first-child').click()
+    //initTop10('data/top10-01.json')
     initTop10Chart('data/indexRiskScopeChangeData01.json')
 
     function initTop10(url) {
@@ -43,6 +45,206 @@ $(function () {
 
             }
         })
+        renderModal();
+
+        function renderModal() {
+            $('.mask').on('click', function () {
+                $('#risk-modal').fadeOut();
+                $(this).fadeOut();
+            });
+            $('#top10').on('click', function () {
+                $('.mask').fadeIn();
+                $('#risk-modal').fadeIn();
+                var code = $(this).data('code');
+                $('#risk-modal .origin-border .title-container .text span').text(industryMap[code]);
+                var configs = {
+                    // p2p
+                    "01": [{
+                            name: "序号",
+                            key: "rank",
+                            width: "5%",
+                            class: "rank"
+                        },
+                        {
+                            name: "企业名称",
+                            key: "companyName",
+                            width: "30%",
+                            class: "white"
+                        },
+                        {
+                            name: "数据日期",
+                            key: "date",
+                            width: "10%",
+                            class: "blue"
+                        },
+                        {
+                            name: "风险指标分类",
+                            key: "classification",
+                            width: "15%",
+                            class: "blue"
+                        },
+                        {
+                            name: "风险指标",
+                            key: "index",
+                            width: "30%",
+                            class: "blue"
+                        }
+
+                    ],
+                    // 小贷
+                    "02": [{
+                            name: "序号",
+                            key: "rank",
+                            width: "5%",
+                            class: "rank"
+                        },
+                        {
+                            name: "企业名称",
+                            key: "companyName",
+                            width: "30%",
+                            class: "white"
+                        },
+                        {
+                            name: "数据日期",
+                            key: "date",
+                            width: "10%",
+                            class: "blue"
+                        },
+                        {
+                            name: "风险指标分类",
+                            key: "classification",
+                            width: "15%",
+                            class: "blue"
+                        },
+                        {
+                            name: "风险指标",
+                            key: "index",
+                            width: "30%",
+                            class: "blue"
+                        }
+
+                    ],
+                    // 地方交易场所
+                    "03": [{
+                            name: "序号",
+                            key: "rank",
+                            width: "5%",
+                            class: "rank"
+                        },
+                        {
+                            name: "企业名称",
+                            key: "companyName",
+                            width: "30%",
+                            class: "white"
+                        },
+                        {
+                            name: "数据日期",
+                            key: "date",
+                            width: "10%",
+                            class: "blue"
+                        },
+                        {
+                            name: "风险指标分类",
+                            key: "classification",
+                            width: "15%",
+                            class: "blue"
+                        },
+                        {
+                            name: "风险指标",
+                            key: "index",
+                            width: "30%",
+                            class: "blue"
+                        }
+
+                    ],
+                    // 股权交易场所
+                    "04": [{
+                            name: "序号",
+                            key: "rank",
+                            width: "5%",
+                            class: "rank"
+                        },
+                        {
+                            name: "企业名称",
+                            key: "companyName",
+                            width: "30%",
+                            class: "white"
+                        },
+                        {
+                            name: "数据日期",
+                            key: "date",
+                            width: "10%",
+                            class: "blue"
+                        },
+                        {
+                            name: "风险指标分类",
+                            key: "classification",
+                            width: "15%",
+                            class: "blue"
+                        },
+                        {
+                            name: "风险指标",
+                            key: "index",
+                            width: "30%",
+                            class: "blue"
+                        }
+
+                    ],
+
+
+
+                }
+
+                initTable('#risk-modal .table-container', 'data/riskModal' + code + '.json', {
+                    code: code
+                }, configs[code], true);
+
+            })
+
+            // 非法集资企业弹出框
+            $('#companyList').on('click', function () {
+                var code = ''
+                var config = [{
+                        name: "序号",
+                        key: "rank",
+                        width: "5%",
+                        class: "rank"
+                    },
+                    {
+                        name: "企业名称",
+                        key: "companyName",
+                        width: "30%",
+                        class: "white"
+                    },
+                    {
+                        name: "数据日期",
+                        key: "date",
+                        width: "10%",
+                        class: "blue"
+                    },
+                    {
+                        name: "风险指标分类",
+                        key: "classification",
+                        width: "15%",
+                        class: "blue"
+                    },
+                    {
+                        name: "风险指标",
+                        key: "index",
+                        width: "30%",
+                        class: "blue"
+                    }
+
+                ]
+                $('.mask').fadeIn();
+                $('#risk-modal').fadeIn();
+                $('#risk-modal .origin-border .title-container .text span').text('');
+                initTable('#risk-modal .table-container', 'data/riskCompanyModal' + code + '.json', {
+                    code: code
+                }, config, true);
+            })
+        }
+
 
     }
 
@@ -468,28 +670,29 @@ var renderRiskCompanyData = function (data) {
         var riskLevel;
         var iconId;
         var riskIndex = parseInt(item.riskIndex)
-        // if(riskIndex > 400) {
-        //     riskLevelName = "高";
-        //     riskLevel = 1;
-        //     iconId = 'level1';
-        // } else if(riskIndex >200 && riskIndex <= 400) {
-        //     riskLevelName = "中";
-        //     riskLevel = 2;
-        //     iconId = 'level2';
-        // } else if(riskIndex >100 && riskIndex <= 200) {
-        //     riskLevelName = "低";
-        //     riskLevel = 3;
-        //     iconId = 'level3';
-        // } else if(riskIndex <= 100){
-        //     riskLevelName = '普'; 
-        //     riskLevel = 4;
-        //     iconId = 'level4';
-        // }
-        if (riskIndex > 0) {
+        if (riskIndex >= 78) {
             riskLevelName = "高";
+            riskLevel = 1;
+            iconId = 'level1';
+        } else if (riskIndex > 52 && riskIndex <= 77) {
+            riskLevelName = "中";
             riskLevel = 2;
             iconId = 'level2';
+        } else if (riskIndex > 0 && riskIndex <= 51) {
+            riskLevelName = "低";
+            riskLevel = 4;
+            iconId = 'level4';
+        } else if (riskIndex <= 100) {
+            riskLevelName = '普';
+            riskLevel = 3;
+            iconId = 'level4';
         }
+
+        // if (riskIndex > 0) {
+        //     riskLevelName = "高";
+        //     riskLevel = 2;
+        //     iconId = 'level2';
+        // }
 
         html += '<div class="item" riskLevel="' + riskLevel + '">';
         html += '<div class="icon-container" style="display:none">';
@@ -509,15 +712,15 @@ var renderRiskCompanyData = function (data) {
         html += '</div>';
     });
 
-    $('#companyList .origin-border .item-container').html('<div class="body1 roll__list">' + html + '</div><div class="body2">' + html + '</div>');
-    setScroll();
+    $('#companyList .origin-border .item-container').html('<div class="body1">' + html + '</div>');
+    // setScroll();
 };
 
 /**
  * 设置滚动效果
  */
 var setScroll = function () {
-    var speed = 50; 
+    var speed = 50;
     var body = $('#companyList .origin-border .item-container')[0];
     var body1 = $('#companyList .origin-border .item-container .body1')[0];
     var body2 = $('#companyList .origin-border .item-container .body2')[0];
@@ -579,7 +782,7 @@ $(function () {
             success: function (data) {
                 $.each(data, function (index, item) {
                     item.value = Math.round((item.Detection) / 36058 * 1000);
-                    
+
                     riskData.push(item);
                 });
                 console.log(riskData)
@@ -635,7 +838,7 @@ $(function () {
                         '<div style="padding:20px 40px 25px 40px;overflow:hidden">' +
                         '    <span style="color:#fff;font-size:24px;float:left;">风险企业<small>(家)</small>:</span>' +
                         '    <span style="font-size:28px;color:#fff;float:right;">' + params.data.risk + '</span>' +
-                        '</div>' +  
+                        '</div>' +
                         '<div style="padding:20px 40px 25px 40px;overflow:hidden">' +
                         '    <span style="color:#fff;font-size:24px;float:left;">高风险企业<small>(家)</small>:</span>' +
                         '    <span style="font-size:28px;color:#fff;float:right;">' + params.data.highRisk + '</span>' +
@@ -689,7 +892,7 @@ $(function () {
                             } else if (params.data.risk > 1 && params.data.highRisk <= 0) {
                                 var icon = 'middle';
                                 return params.name + '{' + icon + '|}';
-                            } else if(params.data.risk=0) {
+                            } else if (params.data.risk = 0) {
                                 var icon = '';
                                 return params.name + '{' + icon + '|}';
                             }
@@ -760,7 +963,7 @@ $(function () {
 
             function autoShowTip() {
 
-           
+
                 myTime = setInterval(function () {
 
                     for (var i = 0; i < data.length; i++) {
