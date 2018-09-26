@@ -161,19 +161,98 @@ body {
 .supervision-num dl dt {
     float:left;
     color:#fff;
+    width:55%;
+    text-align: right;
     font-size:38px;
-    height:120px;
-    line-height: 120px;
+    /* height:120px;
+    line-height: 120px; */
 
 }
 .supervision-num dl dd {
     float:right;
     color:#fff;
-    font-size:60px;
-    height:120px;
-    line-height: 120px;
+    font-size:38px;
+    /* height:120px;
+    line-height: 120px; */
    
 }
+.supervision-num .dl-list dt {
+    font-size:24px;
+    text-align: right;
+}
+.supervision-num .dl-list dd{
+    text-align: left;
+    width:25%;
+    font-size:24px;
+}
+.supervision-num  .num-text-p{
+    position: absolute;
+    top:120px;
+    left:50%;
+    font-size:24px;
+    transform:translateX(-50%)
+}
+.supervision-num  .num-text-p span{
+    padding-left:20px;
+}
+
+/* left */
+.supervision-number dl dt {
+    float:left;
+    color:#fff;
+    width:40%;
+    font-size:38px;
+    height:60px;
+    line-height: 60px;
+    text-align: center;
+
+}
+.supervision-number dl:last-child dt {
+    font-size:24px;
+    color:#fff;
+     float:left;
+     width:40%;
+    height:60px;
+    line-height: 60px;
+    text-align: center;
+}
+.supervision-number dl dd {
+    float:right;
+    color:#fff;
+    width:60%;
+    text-align: right;
+    font-size:24px;
+    height:60px;
+    line-height: 60px;
+   
+}
+.supervision-number dl dd span{
+    padding-left:30px;
+    color:#01f3e1;
+}
+
+.supervision-number .dl-list dt {
+    font-size:24px;
+    text-align: right;
+}
+.supervision-number .dl-list dd{
+    text-align: left;
+    width:25%;
+    font-size:24px;
+}
+.supervision-number  .num-text-p{
+    position: absolute;
+    top:120px;
+    left:50%;
+    font-size:24px;
+    transform:translateX(-50%)
+}
+.supervision-number  .num-text-p span{
+    padding-left:20px;
+}
+
+
+
 .submit-data li {
     width:50%;
     height:140px;
