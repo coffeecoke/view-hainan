@@ -182,47 +182,25 @@ $(function () {
 
             })
 
-            // 非法集资企业弹出框
-            $('#companyList').on('click', function () {
-                var code = ''
-                var config = [{
-                        name: "序号",
-                        key: "rank",
-                        width: "4%",
-                        class: "rank"
-                    },
-                    {
-                        name: "企业名称",
-                        key: "companyName",
-                        width: "25%",
-                        class: "white"
-                    },
-                    
-                    {
-                        name: "风险指标分类",
-                        key: "classification",
-                        width: "25%",
-                        class: "blue"
-                    },
-                    {
-                        name: "风险指标",
-                        key: "index",
-                        width: "35%",
-                        class: "blue"
-                    }
-
-                ]
-                $('.mask').fadeIn();
-                $('#risk-modal').fadeIn();
-                $('#risk-modal .origin-border .title-container .text span').text('非法集资风险指标触发情况');
-                initTable('#risk-modal .table-container', 'data/riskCompanyModal' + code + '.json', {
-                    code: code
-                }, config, true);
-            })
+            
         }
 
 
     }
+
+    $(function () {
+        // 非法集资企业弹出框
+        $('#companyList').on('click', function () {
+            $('.mask').fadeIn();
+            $('#holographic-modal').fadeIn();
+            $('#holographic-modal .origin-border .title-container .text span').text('海南守财奴金融信息服务有限公司--全息画像');
+            $('#holographic-toggle .roll__list li').on('click',function () {
+                var $index =$(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.holographic-wrap .panel-items .panel-item').eq($index).show().siblings().hide()
+            })
+        })
+    })
 
 
     function initTop10Chart(url) {

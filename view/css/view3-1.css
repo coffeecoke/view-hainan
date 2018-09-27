@@ -390,6 +390,31 @@ body {
     display: none;
     z-index:1000000001;
 }
+.holographic-modal {
+    width:2400px;
+    height:768px;
+    position: absolute;
+    z-index:100;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background-color:#000025;
+    display: none;
+    z-index:1000000001;
+}
+.holographic-modal .panel-item.active {
+    display: block;
+}
+.holographic-modal .panel-item {
+    width:100%;
+    height:600px;
+    display: none;
+    text-align: center;
+}
+.holographic-modal .panel-item img {
+    height:100%;
+
+}
 
 
 .risk-modal .origin-border .horn {
@@ -398,6 +423,10 @@ body {
 }
 .cashflow-modal .origin-border .horn {
     padding: 0px 35px 35px 35px;
+    height: 100%;
+}
+.holographic-modal .origin-border .horn {
+    padding: 50px 35px 35px 35px;
     height: 100%;
 }
 
