@@ -860,9 +860,9 @@ $(function () {
                         areaColor: '#006fff',
                         borderWidth: 1,
                         shadowColor: 'rgba(29,92,171, 1)',
-                        shadowBlur: 50,
-                        shadowOffsetX: 20,
-                        shadowOffsetY: 20
+                        shadowBlur: 0,
+                        shadowOffsetX: 10,
+                        shadowOffsetY: 10
                     }
                 }
             },
@@ -1214,7 +1214,7 @@ $(function(){
             right:'10%'
         },
         xAxis: {
-            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            data: ['2018-4', '2018-5', '2018-6', '2018-7', '2018-8'],
             axisLine: {
                 lineStyle: {
                     color: '#0177d4'
@@ -1266,7 +1266,7 @@ $(function(){
                     }], false)
                 }
             },
-            data: [254, 325, 165, 245, 475, 200, 120]
+            data: [254, 325, 165, 245, 475]
         },
         {
             type: 'bar',
