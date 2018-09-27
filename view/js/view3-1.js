@@ -1,6 +1,14 @@
 var industryMap = getNameByCode();
 $(function () {
-    
+    // 模块载入动画
+    var t =new TimelineMax();
+   
+    t.to('.column > div', 1, {
+        x:0,
+        y:0
+    });
+   
+
     var indexChangeChart = echarts.init(document.getElementById('indexChangeChart'));
 
     // tab切换
