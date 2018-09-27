@@ -1288,6 +1288,133 @@ $(function(){
         }]
     };
     barCharts.setOption(option);
+    barCharts.on('click', function(param) {
+        $('.mask').fadeIn();
+        $('#risk-modal').fadeIn();
+        console.log(param);//重要的参数都在这里！
+        var code = $(this).data('code');
+        var configs = {
+            // p2p
+            "01": [{
+                    name: "序号",
+                    key: "rank",
+                    width: "5%",
+                    class: "rank"
+                },
+                {
+                    name: "企业名称",
+                    key: "companyName",
+                    width: "30%",
+                    class: "white"
+                },
+                
+                {
+                    name: "风险指标分类",
+                    key: "classification",
+                    width: "15%",
+                    class: "blue"
+                },
+                {
+                    name: "风险指标",
+                    key: "index",
+                    width: "30%",
+                    class: "blue"
+                }
+
+            ],
+            // 小贷
+            "02": [{
+                    name: "序号",
+                    key: "rank",
+                    width: "5%",
+                    class: "rank"
+                },
+                {
+                    name: "企业名称",
+                    key: "companyName",
+                    width: "30%",
+                    class: "white"
+                },
+               
+                {
+                    name: "风险指标分类",
+                    key: "classification",
+                    width: "15%",
+                    class: "blue"
+                },
+                {
+                    name: "风险指标",
+                    key: "index",
+                    width: "30%",
+                    class: "blue"
+                }
+
+            ],
+            // 地方交易场所
+            "03": [{
+                    name: "序号",
+                    key: "rank",
+                    width: "5%",
+                    class: "rank"
+                },
+                {
+                    name: "企业名称",
+                    key: "companyName",
+                    width: "30%",
+                    class: "white"
+                },
+                
+                {
+                    name: "风险指标分类",
+                    key: "classification",
+                    width: "15%",
+                    class: "blue"
+                },
+                {
+                    name: "风险指标",
+                    key: "index",
+                    width: "30%",
+                    class: "blue"
+                }
+
+            ],
+            // 股权交易场所
+            "04": [{
+                    name: "序号",
+                    key: "rank",
+                    width: "5%",
+                    class: "rank"
+                },
+                {
+                    name: "企业名称",
+                    key: "companyName",
+                    width: "30%",
+                    class: "white"
+                },
+                
+                {
+                    name: "风险指标分类",
+                    key: "classification",
+                    width: "15%",
+                    class: "blue"
+                },
+                {
+                    name: "风险指标",
+                    key: "index",
+                    width: "30%",
+                    class: "blue"
+                }
+
+            ],
+
+
+
+        }
+        $('#risk-modal .origin-border .title-container .text span').text('非法集资风险指标触发情况');
+        initTable('#risk-modal .table-container', 'data/riskModal' + code + '.json', {
+            code: code
+        }, configs[code], true);
+    })
 })
 //雷达图3
 $(function(){
