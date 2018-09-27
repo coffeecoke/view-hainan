@@ -1324,14 +1324,14 @@ $(function(){
     var circleChart1 = echarts.init($('.circleChart1')[0]);
     // var bigfonts = 24;
 var nsum = 800;
-var fontS = 12;
+var fontS = 20;
 var dataAxis = [];
 var radius = 50;
 data = [{
         "color": "#01f3e1",
         "text": "融资变化率",
         "num": "134",
-        "percent": 10
+        "percent": 10,
     },
     {
         "color": "#01f3e1",
@@ -1367,7 +1367,11 @@ var option = {
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-            
+            name: {
+                textStyle: {
+                    fontSize:'16'
+                }
+            },
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',
@@ -1411,7 +1415,7 @@ var option = {
         data: [{
             value: [34, 10, 36, 49, 60],
             label: {
-                show: 'true'
+                show: 'true',
             }
         }]
     }]
@@ -1470,7 +1474,11 @@ var option2 = {
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-           
+            name: {
+                textStyle: {
+                    fontSize:'16'
+                }
+            },
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',
@@ -1573,7 +1581,11 @@ var option3 = {
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-            
+            name: {
+                textStyle: {
+                    fontSize:'16'
+                }
+            },
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',
@@ -1676,7 +1688,11 @@ var option4 = {
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-            
+            name: {
+                textStyle: {
+                    fontSize:'16'
+                }
+            },
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',

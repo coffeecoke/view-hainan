@@ -409,8 +409,8 @@
             if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
         }
 
-        var CameraRadius = 2200,
-            CameraHeight = 750,
+        var CameraRadius = 1500,
+            CameraHeight = 400,
             events = {};
 
         var SphereDoms = function (_BaseThreeModel) {
@@ -453,6 +453,7 @@
                     this.cameraControl = new THREE.OrbitControls(this.camera, this.renderer.domElement);
                     this.cameraControl.target.set(0, 0, 0);
                     this.cameraControl.enablePan = false;
+                    this.cameraControl.enableRotate=false;
                     this.cameraControl.enableDamping = true;
                     this.cameraControl.dampingFactor = .8;
                     this.cameraControl.maxDistance = CameraRadius + 1200;
@@ -480,7 +481,7 @@
                         for (var i = 0; i < domCnt; i++) {
                             var x = a * Math.sin(alpha * Math.PI / 180),
                                 z = b * Math.cos(alpha * Math.PI / 180),
-                                y = -z / 1.5,
+                                y = -z / 0.5,
                                 obj = new THREE.Object3D();
                             obj.position.set(x, y, z);
                             // obj.lookAt(new THREE.Vector3(x,y,9000));
@@ -504,12 +505,14 @@
                 value: function appendDoms(domItems) {
                     var _this2 = this;
 
-                    var radius = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 900;
-                
+                    // var radius = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 900;
+                    var a = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 900;
+                    var b = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 400;
+
                     var me = this;
                     if (_.isArray(domItems)) {
                         var size = domItems.length;
-                        this.target = this.calculateTargetPosition(size, radius, radius * 0.6);
+                        this.target = this.calculateTargetPosition(size, a, b);
                         domItems.forEach(function (item, idx) {
                             var wrapDom = item.wrapDom,
                                 bgWidth = item.bgWidth,
