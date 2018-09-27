@@ -1185,8 +1185,8 @@ $(function(){
                     color: '#284fe6'
                 }
             },
-            interval:100,
-            max:500
+            interval:5,
+            max:30
     
         },
         series: [{
@@ -1205,7 +1205,7 @@ $(function(){
                     }], false)
                 }
             },
-            data: [254, 325, 165, 245, 475]
+            data: [14, 15, 18, 16, 17]
         },
         {
             type: 'bar',
@@ -1223,7 +1223,7 @@ $(function(){
                     }], false)
                 }
             },
-            data: [200, 225, 265, 145, 275, 200, 220]
+            data: [5, 7, 8, 6, 7, 8, 6]
         }]
     };
     barCharts.setOption(option);
