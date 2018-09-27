@@ -328,7 +328,7 @@
                 var offset, i,
                     range,
                     $sliceItem;
-
+             
                 $sliceItem = $($item[0]);
                 range = $sliceItem.outerHeight(true);
                 clearInterval(timer);

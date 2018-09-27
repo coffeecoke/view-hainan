@@ -191,6 +191,53 @@ $(function () {
     $(function () {
         // 非法集资企业弹出框
         $('#companyList').on('click', function () {
+            var code = ''
+            var config = [{
+                    name: "序号",
+                    key: "key1",
+                    width: "4%",
+                    class: "rank"
+                },
+                {
+                    name: "企业名称",
+                    key: "key2",
+                    width: "10%",
+                    class: "white"
+                },
+                
+                {
+                    name: "数据日期",
+                    key: "key3",
+                    width: "15%",
+                    class: "blue"
+                },
+                {
+                    name: "风险指标分类",
+                    key: "key4",
+                    width: "15%",
+                    class: "blue"
+                },
+                {
+                    name: "风险指标",
+                    key: "key4",
+                    width: "15%",
+                    class: "blue"
+                },
+                {
+                    name: "风险依据信息",
+                    key: "key4",
+                    width: "35%",
+                    class: "blue"
+                },
+                {
+                    name: "置信度",
+                    key: "key4",
+                    width: "10%",
+                    class: "blue"
+                }
+
+            ]
+
             $('.mask').fadeIn();
             $('#holographic-modal').fadeIn();
             $('#holographic-modal .origin-border .title-container .text span').text('海南守财奴金融信息服务有限公司--全息画像');
@@ -198,7 +245,17 @@ $(function () {
                 var $index =$(this).index();
                 $(this).addClass('active').siblings().removeClass('active');
                 $('.holographic-wrap .panel-items .panel-item').eq($index).show().siblings().hide()
+                if($index==4) {
+                    initTable('.holographic-wrap .panel-items .panel-item5 .table-container', 'data/riskCompanyModal' + code + '.json', {
+                        code: code
+                    }, config, true);
+                }
+               
             })
+
+           
+           
+            
         })
     })
 

@@ -411,6 +411,9 @@ body {
     display: none;
     text-align: center;
 }
+.panel-item .panel-item5 {
+    position: relative;
+}
 .holographic-modal .panel-item img {
     height:100%;
 
