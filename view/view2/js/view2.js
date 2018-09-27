@@ -55,7 +55,7 @@ var renderIndustryIcon = function() {
     });
     iconTrans.addToStage();
 
-    iconTrans.appendDoms(domItems,2400,2000);
+    iconTrans.appendDoms(domItems,1200,300);
 
     var size=domItems.length;
     iconTrans.autoSwitch(true,50000);
