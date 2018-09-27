@@ -882,7 +882,7 @@ $(function () {
                                 var icon = 'high';
                                 return params.name + '{' + icon + '|}';
                             } else if (params.data.risk >= 1 && params.data.highRisk <= 0) {
-                                var icon = 'low';
+                                var icon = 'middle';
                                 return params.name + '{' + icon + '|}';
                             } else if (params.data.risk == 0) {
                                 // var icon = '';
