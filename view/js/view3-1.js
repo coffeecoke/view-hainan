@@ -190,6 +190,10 @@ $(function () {
 
     $(function () {
         // 非法集资企业弹出框
+        $('.mask').on('click',function () {
+            $('.mask').fadeOut();
+            $('#holographic-modal').fadeOut();
+        })
         $('#companyList').on('click', function () {
             var code = ''
             var config = [{
