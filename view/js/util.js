@@ -70,6 +70,45 @@ var renderTable = function(selecter, data, config) {
 
 };
 
+var renderTable1 = function(selecter, data, config) {
+    
+    var tHeader = "";
+    var tBody = "";
+    tHeader += "<thead>";
+    tHeader += "<tr>";
+    tHeader += '<td rowspan="2" width="5%">序号</td>';
+    tHeader += '<td rowspan="2" width="20%">企业</td>';
+    tHeader += '<td colspan="2" width="35%">流入资金</td>';      
+    tHeader += '<td width="20%">流出资金</td>';
+    tHeader += "</tr>";
+    tHeader += "<tr>";
+    tHeader += "<td>当期回收金额</td>";
+    tHeader += "<td>融资金额</td>";
+    tHeader += "<td>当期发放金额</td>";
+    tHeader += "</tr>";
+    tHeader += "</thead>";
+    tBody += "<tbody>";
+    $.each(data, function(i, item){
+        tBody += "<tr class='li'>";
+        $.each(config, function(j, c) {
+            var key = c.key;
+            tBody += "<td width='" + c.width + "' class='" + (c.class || "") + "'>";
+            tBody += item[key];
+            tBody += "</td>";
+        });
+        
+        tBody += "</tr>";
+    });
+    tBody += "</tbody>";
+    
+    var html = "";
+    html += "<div class='tbl-header'><table>" + tHeader + "</table></div>";
+    html += "<div class='tbl-body'><div class='body1 roll__list'><table>" + tBody + "<table></div></div>";
+    $(selecter).html(html);
+    $(selecter + ' .tbl-body').css('height', $(selecter + ' .tbl-body').parent().height()-300 + 'px');
+
+};
+
 /**
  * 刷新数据
  * @param {*} url 
@@ -140,7 +179,29 @@ var initTable = function(selecter, url, param, config,iscroll) {
     //     setTableScroll(selecter);
     // },10000);
 };
+var initTable1 = function(selecter, url, param, config,iscroll) {
+    var data= refreshTableData(url,param);
+    renderTable1(selecter, data.pageData, config);
+    if(iscroll) {
+        setTableScroll(selecter);
+    }
 
+    // return setInterval(function(){ // 每隔10分钟请求一次
+    //     var pageCount = Math.ceil(dataCount/param.pageNum);
+    //     param.curPage = (param.curPage < pageCount) ? param.curPage + 1 : 1;
+    //     data= refreshTableData(url,param);
+    //     renderTable(selecter, data.pageData, config);
+    //     setTableScroll(selecter);
+    // },10000);
+};
+
+
+var initComplexTable = function(selecter, url, param, config,iscroll) {
+    renderTable1(selecter, data.pageData, config);
+    if(iscroll) {
+        setTableScroll(selecter);
+    }
+};
 var indexIconMap = {
     '01-01':'indexIcon01',
     '01-02':'indexIcon02',

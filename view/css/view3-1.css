@@ -374,9 +374,30 @@ body {
     display: none;
     z-index:1000000001;
 }
+.cashflow-wrap {
+    padding:50px;
+    padding-bottom:0;
+}
+.cashflow-modal {
+    width:2400px;
+    height:768px;
+    position: absolute;
+    z-index:100;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background-color:#000025;
+    display: none;
+    z-index:1000000001;
+}
+
 
 .risk-modal .origin-border .horn {
     padding: 55px 35px 35px 35px;
+    height: 100%;
+}
+.cashflow-modal .origin-border .horn {
+    padding: 0px 35px 35px 35px;
     height: 100%;
 }
 

@@ -1,5 +1,6 @@
+var industryMap = getNameByCode();
 $(function () {
-    var industryMap = getNameByCode();
+    
     var indexChangeChart = echarts.init(document.getElementById('indexChangeChart'));
 
     // tab切换
@@ -356,47 +357,7 @@ $(function () {
 
     }
 
-    // 当期行业运行指数
-    // $("#circleChart1").circleChart({
-    //     size: 80,
-    //     value: 69,
-    //     color: "#03e5d2",
-    //     backgroundColor: "#fff",
-    //     text: 0,
-    //     onDraw: function (el, circle) {
-    //         circle.text(Math.round(circle.value));
-    //     }
-    // });
-    // $("#circleChart2").circleChart({
-    //     size: 80,
-    //     value: 86,
-    //     color: "#03e5d2",
-    //     backgroundColor: "#fff",
-    //     text: 0,
-    //     onDraw: function (el, circle) {
-    //         circle.text(Math.round(circle.value));
-    //     }
-    // });
-    // $("#circleChart3").circleChart({
-    //     size: 80,
-    //     value: 100,
-    //     color: "#03e5d2",
-    //     backgroundColor: "#fff",
-    //     text: 0,
-    //     onDraw: function (el, circle) {
-    //         circle.text(Math.round(circle.value));
-    //     }
-    // });
-    // $("#circleChart4").circleChart({
-    //     size: 80,
-    //     value: 98,
-    //     color: "#03e5d2",
-    //     backgroundColor: "#fff",
-    //     text: 20,
-    //     onDraw: function (el, circle) {
-    //         circle.text(Math.round(circle.value));
-    //     }
-    // });
+    
     $.ajax({
         url: 'data/compony.json',
         dataType: 'json',
@@ -1192,7 +1153,7 @@ $(function () {
     renderMap();
 })
 
-//柱状图
+//资金流变化趋势
 $(function(){
     var barCharts = echarts.init(document.getElementById('barCharts'));
     var option = {
@@ -1288,6 +1249,74 @@ $(function(){
         }]
     };
     barCharts.setOption(option);
+
+    
+
+    // top10
+    // $('#cashflow-toggle .roll__list li:first-child').click()
+    $('.mask').on('click', function () {
+        $('#cashflow-modal').fadeOut();
+        $(this).fadeOut();
+    });
+    barCharts.on('click',function () {
+        renderCashflowModal();
+
+    })
+    $('.supervision-number').on('click',function () {
+        renderCashflowModal();
+
+    })
+
+    function renderCashflowModal() {
+        $('.mask').fadeIn();
+        $('#cashflow-modal').fadeIn();
+
+        $('#cashflow-modal .origin-border .title-container .text span').text('资金流向');
+        var config = [
+            {
+                name: "序号",
+                key: "key1",
+                width: "5%",
+                class: "rank"
+            },
+            {
+                name: "企业",
+                key: "key2",
+                width: "20%",
+                class: "white"
+            },
+        
+            {
+                name: "当期回收金额",
+                key: "key3",
+                width: "15%",
+                class: "blue"
+            },
+            {
+                name: "融资金额",
+                key: "key4",
+                width: "20%",
+                class: "blue"
+            },
+            {
+                name: "当期发放金额",
+                key: "key5",
+                width: "20%",
+                class: "blue"
+            }
+
+        ];
+        $('#cashflow-toggle .roll__list li').on('click', function () {
+            var code = $(this).data('code');
+            $(this).addClass('active').siblings().removeClass('active')
+
+            initTable1('#cashflow-modal .table-container', 'data/cashflowModal'+code+'.json', {
+                code: ''
+            }, config, true);
+        })
+        $('#cashflow-toggle .roll__list li:first-child').click()
+       
+    }
 })
 //p2p雷达图
 $(function(){
