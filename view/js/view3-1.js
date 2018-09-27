@@ -1416,7 +1416,7 @@ $(function(){
         }, configs[code], true);
     })
 })
-//雷达图3
+//p2p雷达图
 $(function(){
 
     var circleChart1 = echarts.init($('.circleChart1')[0]);
@@ -1424,34 +1424,34 @@ $(function(){
 var nsum = 800;
 var fontS = 12;
 var dataAxis = [];
-var radius = 80;
+var radius = 50;
 data = [{
         "color": "#01f3e1",
-        "text": "xx",
+        "text": "融资变化率",
         "num": "134",
         "percent": 10
     },
     {
         "color": "#01f3e1",
-        "text": "xx",
+        "text": "现金流变化率",
         "num": "230",
         "percent": 30
     },
     {
         "color": "#01f3e1",
-        "text": "xx",
+        "text": "利润变化率",
         "num": "136",
         "percent": 12
     },
     {
         "color": "#01f3e1",
-        "text": "xx",
+        "text": "利率水平",
         "num": "49",
         "percent": 20
     },
     {
         "color": "#01f3e1",
-        "text": "xx",
+        "text": "笔均金额",
         "num": "360",
         "percent": 30
     }
@@ -1512,39 +1512,12 @@ var option = {
                 show: 'true'
             }
         }]
-    }, {
-        name: '雷达图',
-        type: 'radar',
-        symbolSize: 0,
-        areaStyle: {
-            normal: {
-                color: '#29a0c2',
-            },
-
-            emphasis: {
-                color: '#29a0c2',
-            }
-        },
-        lineStyle: {
-            normal: {
-                color: '#0cc2c9',
-                type: 'solid',
-                width: 2
-            },
-            emphasis: {}
-        },
-        data: [{
-            value: [20, 5, 12, 49, 60],
-            label: {
-                show: 'true'
-            }
-        }]
     }]
 }
 
 circleChart1.setOption(option);
 })
-//雷达图3
+//小贷雷达图
 $(function(){
 
 var circleChart2 = echarts.init($('.circleChart2')[0]);
@@ -1552,38 +1525,39 @@ var circleChart2 = echarts.init($('.circleChart2')[0]);
 var nsum = 800;
 var fontS = 12;
 var dataAxis = [];
-var radius = 80;
+var radius = 50;
 data = [{
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "134",
-        "percent": 10
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "230",
-        "percent": 30
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "136",
-        "percent": 12
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "49",
-        "percent": 20
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx2",
-        "num": "360",
-        "percent": 30
-    }
+    "color": "#01f3e1",
+    "text": "融资变化率",
+    "num": "134",
+    "percent": 10
+},
+{
+    "color": "#01f3e1",
+    "text": "现金流变化率",
+    "num": "230",
+    "percent": 30
+},
+{
+    "color": "#01f3e1",
+    "text": "利润变化率",
+    "num": "136",
+    "percent": 12
+},
+{
+    "color": "#01f3e1",
+    "text": "利率水平",
+    "num": "49",
+    "percent": 20
+},
+{
+    "color": "#01f3e1",
+    "text": "笔均金额",
+    "num": "360",
+    "percent": 30
+}
 ]
+
 
 
 var option2 = {
@@ -1594,31 +1568,7 @@ var option2 = {
             startAngle: 126,
             splitNumber: 6,
             shape: 'circle',
-            // name: {
-            //     formatter: function(value, indicator) {
-            //         var npercent = indicator.num;
-            //         var percent = npercent / nsum * 100;
-            //         return value
-
-            //     },
-            //     rich: {
-            //         a: {
-            //             color: '#138dff',
-            //             fontSize: 12,
-            //         },
-            //         b: {
-                      
-            //             color: 'red'
-            //         },
-            //         c: {
-            //             fontSize: fontS,
-            //             color: 'red'
-            //         }
-            //     },
-            //     textStyle: {
-            //         color: '#fff'
-            //     }
-            // },
+           
             splitArea: {
                 areaStyle: {
                     color: '	rgba(6,222,249,0.06)',
@@ -1665,40 +1615,13 @@ var option2 = {
                 show: 'true'
             }
         }]
-    }, {
-        name: '雷达图',
-        type: 'radar',
-        symbolSize: 0,
-        areaStyle: {
-            normal: {
-                color: '#29a0c2',
-            },
-
-            emphasis: {
-                color: '#29a0c2',
-            }
-        },
-        lineStyle: {
-            normal: {
-                color: '#0cc2c9',
-                type: 'solid',
-                width: 2
-            },
-            emphasis: {}
-        },
-        data: [{
-            value: [24, 12, 33, 34, 26],
-            label: {
-                show: 'true'
-            }
-        }]
     }]
 }
 
 circleChart2.setOption(option2);
 })
 
-//雷达图3
+//地方交易雷达图
 $(function(){
 
     var circleChart3 = echarts.init($('.circleChart3')[0]);
@@ -1706,38 +1629,39 @@ $(function(){
 var nsum = 800;
 var fontS = 12;
 var dataAxis = [];
-var radius = 80;
+var radius = 50;
 data = [{
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "134",
-        "percent": 100
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "230",
-        "percent": 30
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "136",
-        "percent": 12
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "49",
-        "percent": 20
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "360",
-        "percent": 30
-    }
+    "color": "#01f3e1",
+    "text": "融资变化率",
+    "num": "134",
+    "percent": 10
+},
+{
+    "color": "#01f3e1",
+    "text": "现金流变化率",
+    "num": "230",
+    "percent": 30
+},
+{
+    "color": "#01f3e1",
+    "text": "利润变化率",
+    "num": "136",
+    "percent": 12
+},
+{
+    "color": "#01f3e1",
+    "text": "利率水平",
+    "num": "49",
+    "percent": 20
+},
+{
+    "color": "#01f3e1",
+    "text": "笔均金额",
+    "num": "360",
+    "percent": 30
+}
 ]
+
 
 
 var option3 = {
@@ -1794,33 +1718,6 @@ var option3 = {
                 show: 'true'
             }
         }]
-    }, {
-        name: '雷达图',
-        type: 'radar',
-        symbolSize: 0,
-        areaStyle: {
-            normal: {
-                color: '#29a0c2',
-            },
-
-            emphasis: {
-                color: '#29a0c2',
-            }
-        },
-        lineStyle: {
-            normal: {
-                color: '#0cc2c9',
-                type: 'solid',
-                width: 2
-            },
-            emphasis: {}
-        },
-        data: [{
-            value: [12, 50, 24, 40, 26],
-            label: {
-                show: 'true'
-            }
-        }]
     }]
 }
 
@@ -1835,38 +1732,39 @@ $(function(){
 var nsum = 800;
 var fontS = 12;
 var dataAxis = [];
-var radius = 80;
+var radius = 50;
 data = [{
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "134",
-        "percent": 10
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "230",
-        "percent": 30
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "136",
-        "percent": 12
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "49",
-        "percent": 20
-    },
-    {
-        "color": "#01f3e1",
-        "text": "xx",
-        "num": "360",
-        "percent": 30
-    }
+    "color": "#01f3e1",
+    "text": "融资变化率",
+    "num": "134",
+    "percent": 10
+},
+{
+    "color": "#01f3e1",
+    "text": "现金流变化率",
+    "num": "230",
+    "percent": 30
+},
+{
+    "color": "#01f3e1",
+    "text": "利润变化率",
+    "num": "136",
+    "percent": 12
+},
+{
+    "color": "#01f3e1",
+    "text": "利率水平",
+    "num": "49",
+    "percent": 20
+},
+{
+    "color": "#01f3e1",
+    "text": "笔均金额",
+    "num": "360",
+    "percent": 30
+}
 ]
+
 
 
 var option4 = {
@@ -1919,33 +1817,6 @@ var option4 = {
         },
         data: [{
             value: [12, 24, 16, 12, 24],
-            label: {
-                show: 'true'
-            }
-        }]
-    }, {
-        name: '雷达图',
-        type: 'radar',
-        symbolSize: 0,
-        areaStyle: {
-            normal: {
-                color: '#29a0c2',
-            },
-
-            emphasis: {
-                color: '#29a0c2',
-            }
-        },
-        lineStyle: {
-            normal: {
-                color: '#0cc2c9',
-                type: 'solid',
-                width: 2
-            },
-            emphasis: {}
-        },
-        data: [{
-            value: [40, 25, 32, 24, 35],
             label: {
                 show: 'true'
             }
