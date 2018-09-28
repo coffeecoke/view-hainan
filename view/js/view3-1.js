@@ -231,19 +231,19 @@ $(function () {
                 },
                 {
                     name: "风险指标",
-                    key: "key4",
+                    key: "key5",
                     width: "15%",
                     class: "blue"
                 },
                 {
                     name: "风险依据信息",
-                    key: "key4",
+                    key: "key6",
                     width: "35%",
                     class: "blue"
                 },
                 {
                     name: "置信度",
-                    key: "key4",
+                    key: "key7",
                     width: "10%",
                     class: "blue"
                 }
@@ -947,7 +947,7 @@ $(function () {
                             // }
                             // return params.name + '{' + icon + '|}';
 
-                            if (params.data.highRisk > 1) {
+                            if (params.data.highRisk >= 1) {
                                 var icon = 'high';
                                 return params.name + '{' + icon + '|}';
                             } else if (params.data.risk >= 1 && params.data.highRisk <= 0) {

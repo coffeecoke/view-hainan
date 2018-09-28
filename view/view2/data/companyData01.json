@@ -1,97 +1,85 @@
 {
-	"dataCount":10000,
-	"pageData":[
-		{
-			"rank": "1",
-			"companyName": "海南海纳金服互联网信息服务有限公司",
-			"region": "三亚市",
-			"index": "67.5",
-			"cRisk":"35",
-			"orisk": "3",
-			"mrisk":"11",
-			"brisk":"18.5"
-		},
-		
-		{
-			"rank": "2",
-			"companyName": "海南众融金融信息服务有限公司",
-			"region": "海口市",
-			"index": "75.5",
-			"cRisk":"35",
-			"orisk": "10",
-			"mrisk":"11",
-			"brisk":"19.5"
-		},
-		{
-			"rank": "3",
-			"companyName": "海南农信金融资产管理股份有限公司",
-			"region": "海口市",
-			"index": "67.5",
-			"cRisk":"35",
-			"orisk": "3",
-			"mrisk":"14",
-			"brisk":"10"
-		},
-		{
-			"rank": "4",
-			"companyName": "海南四国资产管理有限公司",
-			"region": "海口市",
-			"index": "67.5",
-			"cRisk":"35",
-			"orisk": "3",
-			"mrisk":"14",
-			"brisk":"10"
-		},
-		{
-			"rank": "5",
-			"companyName": "海南守财奴金融信息服务有限公司",
-			"region": "海口市",
-			"index": "73",
-			"cRisk":"35",
-			"orisk": "3",
-			"mrisk":"15",
-			"brisk":"20"
-		},
-		{
-			"rank": "5",
-			"companyName": "海南守财奴金融信息服务有限公司",
-			"region": "海口市",
-			"index": "73",
-			"cRisk":"35",
-			"orisk": "3",
-			"mrisk":"15",
-			"brisk":"20"
-		},
-		{
-			"rank": "6",
-			"companyName": "海南供销大集金服信息科技有限公司",
-			"region": "海口市",
-			"index": "78",
-			"cRisk":"40",
-			"orisk": "3",
-			"mrisk":"15",
-			"brisk":"20"
-		},
-		{
-			"rank": "7",
-			"companyName": "万宁聚信投资管理有限公司",
-			"region": "万宁市",
-			"index": "80",
-			"cRisk":"40",
-			"orisk": "6",
-			"mrisk":"17",
-			"brisk":"18"
-		},
-		{
-			"rank": "8",
-			"companyName": "海南惠丰钱生钱互联网金融信息技术服务有限公司",
-			"region": "万宁市",
-			"index": "81",
-			"cRisk":"40",
-			"orisk": "6",
-			"mrisk":"12",
-			"brisk":"19"
-		}
-
+	"dataCount": 10,
+	"pageData": [
+	  {
+		"companyName": "海南海纳金服互联网信息服务有限公司",
+		"index": "43",
+		"mrisk": "0",
+		"rank": "1",
+		"brisk": "76",
+		"cRisk": "64",
+		"region": "三亚市",
+		"orisk": "30"
+	  },
+	  {
+		"companyName": "海南守财奴金融信息服务有限公司",
+		"index": "61",
+		"mrisk": "75",
+		"rank": "2",
+		"brisk": "68",
+		"cRisk": "58",
+		"region": "海口市",
+		"orisk": "30"
+	  },
+	  {
+		"companyName": "海南惠丰钱生钱互联网金融信息技术服务有限公司",
+		"index": "65",
+		"mrisk": "55",
+		"rank": "3",
+		"brisk": "56",
+		"cRisk": "67",
+		"region": "海口市",
+		"orisk": "100"
+	  },
+	  {
+		"companyName": "海南众融金融信息服务有限公司",
+		"index": "69",
+		"mrisk": "75",
+		"rank": "4",
+		"brisk": "80",
+		"cRisk": "53",
+		"region": "海口市",
+		"orisk": "100"
+	  },
+	  {
+		"companyName": "海南四国资产管理有限公司",
+		"index": "70",
+		"mrisk": "55",
+		"rank": "5",
+		"brisk": "76",
+		"cRisk": "69",
+		"region": "海口市",
+		"orisk": "100"
+	  },
+	  {
+		"companyName": "万宁聚信投资管理有限公司",
+		"index": "72",
+		"mrisk": "80",
+		"rank": "6",
+		"brisk": "76",
+		"cRisk": "69",
+		"region": "万宁市",
+		"orisk": "60"
+	  },
+	  {
+		"companyName": "海南供销大集金服信息科技有限公司",
+		"index": "72",
+		"mrisk": "75",
+		"rank": "7",
+		"brisk": "64",
+		"cRisk": "69",
+		"region": "海口市",
+		"orisk": "100"
+	  },
+	  {
+		"companyName": "海南农信金融资产管理股份有限公司",
+		"index": "76",
+		"mrisk": "75",
+		"rank": "8",
+		"brisk": "76",
+		"cRisk": "72",
+		"region": "海口市",
+		"orisk": "100"
+	  }
 	]
-}
+  }
