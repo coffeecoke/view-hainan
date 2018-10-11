@@ -1208,35 +1208,17 @@ $(function () {
     // 列表乱序后添加到父盒子
 
     var timerSort = setInterval(function() {
-        i =i++
-        if(i==2) {
+        i++
+        if(i==3) {
             i=0
         }
-        $game_boxs_wrap.fadeOut('slow',function () {
-           
-            $game_boxs_wrap.eq(i).fadeIn('slow',function(){
-                $(this).find('.docking-data').html(arrayRandomSort($game_boxs_wrap.eq(i).find('dl')));
+        (function (n) {
+            $game_boxs_wrap.hide()
+             $game_boxs_wrap.eq(n).fadeIn('slow',function(){
+                // $.find('.docking-data').html(arrayRandomSort($game_boxs_wrap.eq(i).find('dl')));
             } )
-            
-        })
-        
-       
+        })(i)
 
-        // 数据乱序方法
-        function arrayRandomSort(array) {
-        
-            var index = array.length;
-            //开始遍历
-            for (var i = array.length; i > 0; i--) {
-                var random = parseInt(Math.random() * index);
-                index--;
-                //交换位置
-                var last = array[index];
-                array[index] = array[random];
-                array[random] = last;
-            }
-            return array;
-        }
     },10000)
 
     //点击弹出框

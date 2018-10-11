@@ -222,6 +222,14 @@
                                 <!-- <p class="num-text-p">可疑资金规模<span>123亿</span></p> -->
                             </div>
                             <div class="box">
+                                    <div class="box-header">
+                                        八纬度预警
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="comonyChart" style="width:100%;height:250px"></div>
+                                    </div>
+                                </div>
+                            <div class="box">
                                 <div class="box-header">
                                     风险纬度分析
                                 </div>
@@ -275,7 +283,7 @@
                                                 <dd>无风险</dd>
                                             </dl>
                                             <dl>
-                                                <dt>12家</dt>
+                                                <dt>24家</dt>
                                                 <dd>百分百担保</dd>
                                             </dl>
                                             <dl>
@@ -283,11 +291,11 @@
                                                 <dd>擅自发行股票罪</dd>
                                             </dl>
                                             <dl>
-                                                <dt>43家</dt>
+                                                <dt>15家</dt>
                                                 <dd>虚构项目</dd>
                                             </dl>
                                             <dl>
-                                                <dt>5家</dt>
+                                                <dt>8家</dt>
                                                 <dd>没有许可</dd>
                                             </dl>
                                             <dl>
@@ -295,15 +303,15 @@
                                                 <dd>资金逾期兑付</dd>
                                             </dl>
                                             <dl>
-                                                <dt>7家</dt>
+                                                <dt>4家</dt>
                                                 <dd>高回报</dd>
                                             </dl>
                                             <dl>
-                                                <dt>12家</dt>
+                                                <dt>3家</dt>
                                                 <dd>非法吸收公共存款罪 </dd>
                                             </dl>
                                             <dl>
-                                                <dt>3家</dt>
+                                                <dt>2家</dt>
                                                 <dd>高返利</dd>
                                             </dl>
                                         </ul>
@@ -312,39 +320,39 @@
                                     <div class="docking-data-wrap">
                                         <ul class="docking-data">
                                             <dl>
-                                                <dt>43家</dt>
+                                                <dt>56家</dt>
                                                 <dd>保本</dd>
                                             </dl>
                                             <dl>
-                                                <dt>23家</dt>
+                                                <dt>33家</dt>
                                                 <dd>非法集资</dd>
                                             </dl>
                                             <dl>
-                                                <dt>20家</dt>
+                                                <dt>28家</dt>
                                                 <dd>扰乱金融秩序</dd>
                                             </dl>
                                             <dl>
-                                                <dt>10家</dt>
+                                                <dt>13家</dt>
                                                 <dd>跑路现象</dd>
                                             </dl>
                                             <dl>
-                                                <dt>3家</dt>
+                                                <dt>10家</dt>
                                                 <dd>没有牌照</dd>
                                             </dl>
                                             <dl>
-                                                <dt>4家</dt>
+                                                <dt>7家</dt>
                                                 <dd>兑付困难</dd>
                                             </dl>
                                             <dl>
-                                                <dt>1家</dt>
+                                                <dt>4家</dt>
                                                 <dd>高返利</dd>
                                             </dl>
                                             <dl>
-                                                <dt>4家</dt>
+                                                <dt>2家</dt>
                                                 <dd>集资诈骗罪 </dd>
                                             </dl>
                                             <dl>
-                                                <dt>6家</dt>
+                                                <dt>1家</dt>
                                                 <dd>庞氏骗局</dd>
                                             </dl>
                                         </ul>
@@ -352,14 +360,7 @@
 
                                 </div>
                             </div>
-                            <div class="box">
-                                <div class="box-header">
-                                    八纬度预警
-                                </div>
-                                <div class="box-body">
-                                    <div id="comonyChart" style="width:100%;height:250px"></div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -367,8 +368,31 @@
             </div>
 
             <div class="right-column">
+                <!-- 非法集资高风险企业 -->
+                <div class="right-column__top" id="companyList">
+                        <div class="origin-border">
+                            <div class="title-container">
+                                <div class="title-container-horn title-container-lt"></div>
+                                <div class="title-container-horn title-container-rt"></div>
+                                <div class="title-container-horn title-container-rb"></div>
+                                <div class="title-container-horn title-container-lb"></div>
+                                <div class="background"></div>
+                                <div class="text"><span>非法集资风险企业</span></div>
+                            </div>
+                            <div class="horn">
+                                <div class="horn-icon horn-lt"></div>
+                                <div class="horn-icon horn-rt"></div>
+                                <div class="horn-icon horn-lb"></div>
+                                <div class="horn-icon horn-rb"></div>
+                                <div class="item-container" style="padding-top:0">
+    
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
                 <!-- 预警企业及处置企业情况 -->
-                <div class="right-column__top">
+                <div class="right-column__bottom">
                     <div class="origin-border">
                         <div class="title-container">
                             <div class="title-container-horn title-container-lt"></div>
@@ -390,29 +414,7 @@
 
                     </div>
                 </div>
-                <!-- 非法集资高风险企业 -->
-                <div class="right-column__bottom" id="companyList">
-                    <div class="origin-border">
-                        <div class="title-container">
-                            <div class="title-container-horn title-container-lt"></div>
-                            <div class="title-container-horn title-container-rt"></div>
-                            <div class="title-container-horn title-container-rb"></div>
-                            <div class="title-container-horn title-container-lb"></div>
-                            <div class="background"></div>
-                            <div class="text"><span>非法集资风险企业</span></div>
-                        </div>
-                        <div class="horn">
-                            <div class="horn-icon horn-lt"></div>
-                            <div class="horn-icon horn-rt"></div>
-                            <div class="horn-icon horn-lb"></div>
-                            <div class="horn-icon horn-rb"></div>
-                            <div class="item-container" style="padding-top:0">
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                
             </div>
             <!--右1 今日数据-->
 
