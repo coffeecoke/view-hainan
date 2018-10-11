@@ -340,11 +340,14 @@ body {
     color:#fff;
    
 }
-
+.docking-data-wrap {
+    display:none;
+}
 .docking-data {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    
 }
 .docking-data dl {
     width:32%;

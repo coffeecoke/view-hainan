@@ -1200,6 +1200,53 @@ $(function () {
     renderMap();
 })
 
+// 风险维度分析
+$(function () {
+    var $game_boxs_wrap = $('.docking-data-wrap');
+
+    var i = 0
+    // 列表乱序后添加到父盒子
+
+    var timerSort = setInterval(function() {
+        i =i++
+        if(i==2) {
+            i=0
+        }
+        $game_boxs_wrap.fadeOut('slow',function () {
+           
+            $game_boxs_wrap.eq(i).fadeIn('slow',function(){
+                $(this).find('.docking-data').html(arrayRandomSort($game_boxs_wrap.eq(i).find('dl')));
+            } )
+            
+        })
+        
+       
+
+        // 数据乱序方法
+        function arrayRandomSort(array) {
+        
+            var index = array.length;
+            //开始遍历
+            for (var i = array.length; i > 0; i--) {
+                var random = parseInt(Math.random() * index);
+                index--;
+                //交换位置
+                var last = array[index];
+                array[index] = array[random];
+                array[random] = last;
+            }
+            return array;
+        }
+    },10000)
+
+    //点击弹出框
+
+})
+
+//
+
+
+
 //资金流变化趋势
 $(function(){
     var barCharts = echarts.init(document.getElementById('barCharts'));
